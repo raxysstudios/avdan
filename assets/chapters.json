@@ -2,5 +2,9 @@
   {
     "name": "Kitchen",
     "items": [{ "name": "Knife" }, { "name": "Fork" }, { "name": "Spoon" }]
+  },
+  {
+    "name": "Living room",
+    "items": [{ "name": "Sofa" }, { "name": "TV" }, { "name": "Table" }]
   }
 ]

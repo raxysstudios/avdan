@@ -3,6 +3,7 @@ import 'routes.dart';
 import 'data/store.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await loadChapters();
   runApp(MyApp());
 }

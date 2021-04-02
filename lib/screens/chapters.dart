@@ -33,19 +33,46 @@ class ChaptersScreen extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(8),
               height: 96,
-              child: ListView(scrollDirection: Axis.horizontal, children: [
-                ElevatedButton(
-                  onPressed: () => Navigator.pop(context),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(Icons.home),
-                      Text("Home"),
-                    ],
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  ElevatedButton(
+                    onPressed: () => Navigator.pop(context),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.home),
+                        Text("Home"),
+                      ],
+                    ),
                   ),
-                ),
-              ]),
-            )
+                  for (var chapter in chapters)
+                    TextButton(
+                      onPressed: () => Navigator.pop(context),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.home),
+                          Text(chapter.name),
+                        ],
+                      ),
+                    ),
+                ],
+              ),
+              // child: ListView.builder(
+              //   itemCount: chapters.length,
+              //   itemBuilder: (context, index) => ElevatedButton(
+              //     onPressed: () => Navigator.pop(context),
+              //     child: Column(
+              //       mainAxisAlignment: MainAxisAlignment.center,
+              //       children: [
+              //         Icon(Icons.home),
+              //         Text(chapters[index].name),
+              //       ],
+              //     ),
+              //   ),
+              // ),
+            ),
           ],
         ),
       ),
