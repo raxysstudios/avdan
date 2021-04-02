@@ -7,6 +7,14 @@ class ChaptersScreen extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
+            Padding(
+              padding: const EdgeInsets.all(8),
+              child: Text(
+                (ModalRoute.of(context)?.settings?.arguments ?? "Null language")
+                    as String,
+                style: TextStyle(fontSize: 24),
+              ),
+            ),
             Expanded(
               child: GridView.count(
                 crossAxisCount: 4,
@@ -26,13 +34,15 @@ class ChaptersScreen extends StatelessWidget {
               height: 96,
               child: ListView(scrollDirection: Axis.horizontal, children: [
                 ElevatedButton(
-                    onPressed: () => Navigator.pop(context),
-                    child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.home),
-                          Text("Home"),
-                        ])),
+                  onPressed: () => Navigator.pop(context),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.home),
+                      Text("Home"),
+                    ],
+                  ),
+                ),
               ]),
             )
           ],

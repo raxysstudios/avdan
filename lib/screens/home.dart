@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
-  void toChapters(BuildContext context) =>
-      Navigator.pushNamed(context, "chapters");
+  void toChapters(BuildContext context, String language) =>
+      Navigator.pushNamed(context, "/chapters", arguments: language);
 
   @override
   Widget build(BuildContext context) {
@@ -15,12 +15,12 @@ class HomeScreen extends StatelessWidget {
             SizedBox(height: 15),
             TextButton(
               child: Text("Digoron", style: TextStyle(fontSize: 24)),
-              onPressed: () => toChapters(context),
+              onPressed: () => toChapters(context, "Digoron"),
             ),
             SizedBox(height: 15),
             TextButton(
               child: Text("Iron", style: TextStyle(fontSize: 24)),
-              onPressed: () => toChapters(context),
+              onPressed: () => toChapters(context, "Iron"),
             )
           ],
         ),
