@@ -33,31 +33,36 @@ class ChaptersScreen extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(8),
               height: 96,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: [
-                  ElevatedButton(
-                    onPressed: () => Navigator.pop(context),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(Icons.home),
-                        Text("Home"),
-                      ],
-                    ),
-                  ),
-                  for (var chapter in chapters)
-                    TextButton(
+              child: ListView.separated(
+                itemCount: chapters.length + 1,
+                itemBuilder: (context, index) {
+                  if (index == 0)
+                    return ElevatedButton(
                       onPressed: () => Navigator.pop(context),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Icon(Icons.home),
-                          Text(chapter.name),
+                          Text("Home"),
+                        ],
+                      ),
+                    );
+                  return TextButton(
+                    onPressed: () {},
+                    child: Padding(
+                      padding: const EdgeInsets.all(8),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.home),
+                          Text(chapters[index - 1].name),
                         ],
                       ),
                     ),
-                ],
+                  );
+                },
+                separatorBuilder: (context, index) => SizedBox(width: 8),
+                scrollDirection: Axis.horizontal,
               ),
               // child: ListView.builder(
               //   itemCount: chapters.length,
