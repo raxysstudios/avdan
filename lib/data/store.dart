@@ -9,4 +9,4 @@ Future<void> loadChapters() async {
   chapters = List<Chapter>.from(array.map((x) => Chapter.fromJson(x)));
 }
 
-List<Chapter> chapters = [];
+late List<Chapter> chapters = [];

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../data/store.dart';
 
 class ChaptersScreen extends StatelessWidget {
   @override
@@ -10,7 +11,7 @@ class ChaptersScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8),
               child: Text(
-                (ModalRoute.of(context)?.settings?.arguments ?? "Null language")
+                (ModalRoute.of(context)?.settings.arguments ?? "Null")
                     as String,
                 style: TextStyle(fontSize: 24),
               ),

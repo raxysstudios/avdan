@@ -1,10 +1,9 @@
-import 'package:meta/meta.dart';
 import 'dart:convert';
 
 class Chapter {
   Chapter({
-    @required this.name,
-    @required this.items,
+    required this.name,
+    required this.items,
   });
 
   final String name;
@@ -27,7 +26,7 @@ class Chapter {
 
 class Item {
   Item({
-    @required this.name,
+    required this.name,
   });
 
   final String name;
