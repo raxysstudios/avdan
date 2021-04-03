@@ -7,22 +7,28 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          children: [
-            SizedBox(height: 15),
-            Text("Avdan", style: TextStyle(fontSize: 36)),
-            SizedBox(height: 15),
-            TextButton(
-              child: Text("Digoron", style: TextStyle(fontSize: 24)),
-              onPressed: () => toChapters(context, "Digoron"),
-            ),
-            SizedBox(height: 15),
-            TextButton(
-              child: Text("Iron", style: TextStyle(fontSize: 24)),
-              onPressed: () => toChapters(context, "Iron"),
-            )
-          ],
+      body: Padding(
+        padding: const EdgeInsets.all(8),
+        child: Center(
+          child: Column(
+            children: [
+              Text("Avdan", style: TextStyle(fontSize: 36)),
+              TextButton(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text("Digoron", style: TextStyle(fontSize: 24)),
+                ),
+                onPressed: () => toChapters(context, "Digoron"),
+              ),
+              TextButton(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text("Iron", style: TextStyle(fontSize: 24)),
+                ),
+                onPressed: () => toChapters(context, "Iron"),
+              )
+            ],
+          ),
         ),
       ),
     );
