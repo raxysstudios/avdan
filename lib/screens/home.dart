@@ -12,6 +12,7 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             children: [
               Text("Avdan", style: TextStyle(fontSize: 36)),
+              Text("by Xoxag"),
               for (var language in ["digor", 'iron'])
                 TextButton(
                   child: Padding(

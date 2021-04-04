@@ -1,5 +1,5 @@
 import 'package:avdan/audio-player.dart';
-import 'package:avdan/data/store.dart';
+import 'package:avdan/widgets/label.dart';
 import 'package:flutter/material.dart';
 
 class ChapterItem extends StatelessWidget {
@@ -7,8 +7,6 @@ class ChapterItem extends StatelessWidget {
   final Map<String, String> translations;
 
   String get name => translations['english'] ?? '';
-  String get target => capitalize(translations[targetLanguage] ?? '');
-  String get interface => capitalize(translations[interfaceLanguage] ?? '');
   String get image => 'assets/images/$name.png';
   String get audio => 'audio/$name.mp3';
 
@@ -21,21 +19,8 @@ class ChapterItem extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Expanded(
-              child: Image.asset(image),
-            ),
-            Text(
-              target,
-              style: TextStyle(
-                fontSize: 18,
-              ),
-            ),
-            Text(
-              capitalize(interface),
-              style: TextStyle(
-                color: Colors.grey,
-              ),
-            ),
+            Expanded(child: Image.asset(image)),
+            Label(translations: translations),
           ],
         ),
       ),
