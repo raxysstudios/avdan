@@ -7,7 +7,7 @@ class LanguageCard extends StatelessWidget {
   final Map<String, String> translations;
 
   String get name => translations['english'] ?? '';
-  String get image => 'assets/images/$name.png';
+  String get image => 'assets/flags/$name.png';
 
   @override
   Widget build(BuildContext context) {

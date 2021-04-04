@@ -14,20 +14,28 @@ class HomeScreen extends StatelessWidget {
             children: [
               Text("Avdan", style: TextStyle(fontSize: 36)),
               Text("by Xoxag"),
-              ListView.separated(
-                itemCount: languages.length,
-                itemBuilder: (context, index) => TextButton(
-                  onPressed: () {
-                    targetLanguage = languages[index]['english'] ?? '';
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => ChaptersScreen()),
-                    );
-                  },
-                  child: LanguageCard(translations: languages[index]),
+              SizedBox(height: 8),
+              Expanded(
+                child: GridView.builder(
+                  gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                      maxCrossAxisExtent: 500,
+                      childAspectRatio: 2,
+                      crossAxisSpacing: 8,
+                      mainAxisSpacing: 8),
+                  itemCount: languages.length,
+                  itemBuilder: (context, index) => TextButton(
+                    onPressed: () {
+                      targetLanguage = languages[index]['english'] ?? '';
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ChaptersScreen()),
+                      );
+                    },
+                    child: LanguageCard(translations: languages[index]),
+                  ),
                 ),
-                separatorBuilder: (context, index) => Divider(),
-              )
+              ),
             ],
           ),
         ),
