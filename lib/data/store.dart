@@ -25,7 +25,7 @@ Future<void> initialize() async {
 
   text = await rootBundle.loadString('assets/languages.json');
   array = json.decode(text);
-  languages = List.from(array.map((j) => toMap(j)));
+  languages = List.from(array.map((j) => toMap(j as Map<String, dynamic>)));
 }
 
 late List<Chapter> chapters = [];
