@@ -11,42 +11,34 @@ class LanguageCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Container(
-          alignment: Alignment.centerRight,
-          child: Image.asset(
-            image,
-            fit: BoxFit.contain,
-          ),
-        ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(8),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    capitalize(native),
-                    style: TextStyle(
-                      fontSize: 28,
-                    ),
+    return Container(
+      alignment: Alignment.topLeft,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  capitalize(native),
+                  style: TextStyle(
+                    fontSize: 28,
                   ),
-                  Text(
-                    capitalize(name),
-                    style: TextStyle(
-                      fontSize: 28,
-                      color: Colors.grey,
-                    ),
+                ),
+                Text(
+                  capitalize(name),
+                  style: TextStyle(
+                    fontSize: 28,
+                    color: Colors.grey,
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
-        ),
-      ],
+          ),
+        ],
+      ),
     );
   }
 }

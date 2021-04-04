@@ -21,7 +21,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  " by Xoxag",
+                  " • Xoxag",
                   style: TextStyle(
                     fontSize: 36,
                     color: Colors.grey,
