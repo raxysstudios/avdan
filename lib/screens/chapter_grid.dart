@@ -1,4 +1,4 @@
-import 'package:avdan/screens/chapter_item.dart';
+import 'package:avdan/widgets/chapter_item.dart';
 import 'package:flutter/material.dart';
 import 'package:avdan/data/chapter.dart';
 

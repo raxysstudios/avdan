@@ -3,7 +3,18 @@ import 'dart:convert';
 import 'package:avdan/data/chapter.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
-Future<void> loadChapters() async {
+capitalize(String value) => value
+    .split(' ')
+    .where((w) => w.length > 0)
+    .map((w) => w[0].toUpperCase() + w.substring(1))
+    .join(' ');
+
+Map<String, String> toMap(dynamic map) =>
+    Map.castFrom<String, dynamic, String, String>(
+      map as Map<String, dynamic>,
+    );
+
+Future<void> initialize() async {
   var text = await rootBundle.loadString('assets/chapters.json');
   List<dynamic> array = json.decode(text);
   chapters = List.from(
@@ -11,15 +22,14 @@ Future<void> loadChapters() async {
       (j) => Chapter.fromJson(j as Map<String, dynamic>),
     ),
   );
+
+  text = await rootBundle.loadString('assets/languages.json');
+  array = json.decode(text);
+  languages = List.from(array.map((j) => toMap(j)));
 }
 
 late List<Chapter> chapters = [];
+late List<Map<String, String>> languages = [];
 
 String targetLanguage = "iron";
 String interfaceLanguage = "english";
-
-capitalize(String value) => value
-    .split(' ')
-    .where((w) => w.length > 0)
-    .map((w) => w[0].toUpperCase() + w.substring(1))
-    .join(' ');

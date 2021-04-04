@@ -4,7 +4,7 @@
     "items": [
       { "english": "knife", "russian": "нож", "iron": "кард" },
       { "english": "fork", "russian": "вилка" },
-      { "english": "spoon" },
+      { "english": "spoon", "iron": "уидыг" },
       { "english": "cup" }
     ]
   },

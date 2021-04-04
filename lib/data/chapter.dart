@@ -1,9 +1,5 @@
 import 'dart:convert';
-
-Map<String, String> toMap(dynamic map) =>
-    Map.castFrom<String, dynamic, String, String>(
-      map as Map<String, dynamic>,
-    );
+import 'store.dart';
 
 class Chapter {
   Chapter({

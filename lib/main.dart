@@ -4,7 +4,7 @@ import 'data/store.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await loadChapters();
+  await initialize();
   runApp(MyApp());
 }
 
