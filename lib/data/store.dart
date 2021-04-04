@@ -31,5 +31,5 @@ Future<void> initialize() async {
 late List<Chapter> chapters = [];
 late List<Map<String, String>> languages = [];
 
-String targetLanguage = "iron";
+String learningLanguage = "iron";
 String interfaceLanguage = "english";

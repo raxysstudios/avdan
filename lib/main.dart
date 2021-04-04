@@ -1,4 +1,4 @@
-import 'package:avdan/screens/home.dart';
+import 'package:avdan/screens/settings.dart';
 import 'package:flutter/material.dart';
 import 'data/store.dart';
 
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Avdan',
-      home: HomeScreen(),
+      home: SettingsScreen(),
     );
   }
 }

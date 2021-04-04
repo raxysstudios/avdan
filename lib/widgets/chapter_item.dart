@@ -9,7 +9,7 @@ class ChapterItem extends StatelessWidget {
 
   String get name => translations['english'] ?? '';
   String get image => 'assets/images/$name.png';
-  String get audio => 'audio/$targetLanguage/$name.mp3';
+  String get audio => 'audio/$learningLanguage/$name.mp3';
 
   @override
   Widget build(BuildContext context) {

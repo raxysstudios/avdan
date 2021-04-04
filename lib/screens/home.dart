@@ -1,55 +1,32 @@
 import 'package:avdan/data/store.dart';
-import 'package:avdan/widgets/language_card.dart';
 import 'package:flutter/material.dart';
-import 'chapters.dart';
+import 'package:avdan/widgets/chapter_grid.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(8),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+    return DefaultTabController(
+      length: chapters.length,
+      child: Scaffold(
+        appBar: AppBar(
+          bottom: TabBar(
+            tabs: [
+              for (var chapter in chapters)
+                Tab(
+                  text: capitalize(chapter.translations['english'] ?? ''),
+                ),
+            ],
+          ),
+          title: Text(
+            capitalize(learningLanguage),
+          ),
+        ),
+        body: TabBarView(
           children: [
-            Row(
-              children: [
-                Text(
-                  "Avdan",
-                  style: TextStyle(
-                    fontSize: 36,
-                  ),
-                ),
-                Text(
-                  " • Xoxag",
-                  style: TextStyle(
-                    fontSize: 36,
-                    color: Colors.grey,
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(height: 8),
-            Expanded(
-              child: GridView.builder(
-                gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                    maxCrossAxisExtent: 400,
-                    childAspectRatio: 3,
-                    crossAxisSpacing: 8,
-                    mainAxisSpacing: 8),
-                itemCount: languages.length,
-                itemBuilder: (context, index) => TextButton(
-                  onPressed: () {
-                    targetLanguage = languages[index]['english'] ?? '';
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => ChaptersScreen()),
-                    );
-                  },
-                  child: LanguageCard(translations: languages[index]),
-                ),
+            for (var chapter in chapters)
+              ChapterGrid(
+                chapter: chapter,
               ),
-            ),
           ],
         ),
       ),
