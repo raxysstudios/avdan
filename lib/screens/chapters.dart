@@ -1,6 +1,6 @@
 import 'package:avdan/data/store.dart';
 import 'package:flutter/material.dart';
-import 'chapter_items.dart';
+import 'chapter_grid.dart';
 
 class ChaptersScreen extends StatelessWidget {
   ChaptersScreen();
@@ -26,7 +26,7 @@ class ChaptersScreen extends StatelessWidget {
         body: TabBarView(
           children: [
             for (var chapter in chapters)
-              ChapterItems(
+              ChapterGrid(
                 chapter: chapter,
               ),
           ],
