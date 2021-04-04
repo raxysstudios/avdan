@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
+import 'chapters.dart';
 
 class HomeScreen extends StatelessWidget {
-  void toChapters(BuildContext context, String language) =>
-      Navigator.pushNamed(context, "/chapters", arguments: language);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,14 +16,28 @@ class HomeScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: Text("Digoron", style: TextStyle(fontSize: 24)),
                 ),
-                onPressed: () => toChapters(context, "Digoron"),
+                onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ChaptersScreen(
+                      language: 'Digoron',
+                    ),
+                  ),
+                ),
               ),
               TextButton(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text("Iron", style: TextStyle(fontSize: 24)),
                 ),
-                onPressed: () => toChapters(context, "Iron"),
+                onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ChaptersScreen(
+                      language: 'Iron',
+                    ),
+                  ),
+                ),
               )
             ],
           ),
