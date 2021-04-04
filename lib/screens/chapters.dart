@@ -24,7 +24,10 @@ class ChaptersScreen extends StatelessWidget {
         ),
         body: TabBarView(
           children: [
-            for (var chapter in chapters) ChapterItems(chapter: chapter),
+            for (var chapter in chapters)
+              ChapterItems(
+                chapter: chapter,
+              ),
           ],
         ),
       ),

@@ -22,6 +22,7 @@ class HomeScreen extends StatelessWidget {
                     builder: (context) => ChaptersScreen(
                       language: 'Digoron',
                     ),
+                    maintainState: false,
                   ),
                 ),
               ),

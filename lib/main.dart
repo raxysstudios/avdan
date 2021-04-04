@@ -1,3 +1,4 @@
+import 'package:avdan/screens/home.dart';
 import 'package:flutter/material.dart';
 import 'data/store.dart';
 
@@ -11,9 +12,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Avdan',
-        theme: ThemeData(
-          primaryColor: Colors.white,
-        ));
+      title: 'Avdan',
+      home: HomeScreen(),
+    );
   }
 }
