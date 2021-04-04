@@ -1,3 +1,4 @@
+import 'package:avdan/data/store.dart';
 import 'package:flutter/material.dart';
 import 'chapters.dart';
 
@@ -11,35 +12,25 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             children: [
               Text("Avdan", style: TextStyle(fontSize: 36)),
-              TextButton(
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text("Digoron", style: TextStyle(fontSize: 24)),
-                ),
-                onPressed: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ChaptersScreen(
-                      language: 'Digoron',
-                    ),
-                    maintainState: false,
-                  ),
-                ),
-              ),
-              TextButton(
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text("Iron", style: TextStyle(fontSize: 24)),
-                ),
-                onPressed: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ChaptersScreen(
-                      language: 'Iron',
+              for (var language in ["digor", 'iron'])
+                TextButton(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      capitalize(language),
+                      style: TextStyle(fontSize: 24),
                     ),
                   ),
-                ),
-              )
+                  onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        targetLanguage = language;
+                        return ChaptersScreen();
+                      },
+                    ),
+                  ),
+                )
             ],
           ),
         ),

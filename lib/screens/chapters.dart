@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'chapter_items.dart';
 
 class ChaptersScreen extends StatelessWidget {
-  ChaptersScreen({required this.language});
-  final String language;
+  ChaptersScreen();
 
   @override
   Widget build(BuildContext context) {
@@ -16,11 +15,13 @@ class ChaptersScreen extends StatelessWidget {
             tabs: [
               for (var chapter in chapters)
                 Tab(
-                  text: chapter.name,
+                  text: capitalize(chapter.translations['english'] ?? ''),
                 ),
             ],
           ),
-          title: Text(language),
+          title: Text(
+            capitalize(targetLanguage),
+          ),
         ),
         body: TabBarView(
           children: [

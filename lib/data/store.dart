@@ -11,3 +11,9 @@ Future<void> loadChapters() async {
 }
 
 late List<Chapter> chapters = [];
+
+String targetLanguage = "iron";
+String interfaceLanguage = "english";
+
+String capitalize(String value) =>
+    value.split(' ').map((w) => w[0].toUpperCase() + w.substring(1)).join(' ');

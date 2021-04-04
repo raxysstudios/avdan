@@ -1,3 +1,4 @@
+import 'package:avdan/data/store.dart';
 import 'package:flutter/material.dart';
 import 'package:avdan/data/chapter.dart';
 import 'package:avdan/audio-player.dart';
@@ -16,7 +17,7 @@ class ChapterItems extends StatelessWidget {
           mainAxisSpacing: 8),
       itemCount: chapter.items.length,
       itemBuilder: (context, index) {
-        var name = chapter.items[index].name;
+        var name = chapter.items[index]['english'] ?? '';
         return TextButton(
           onPressed: () async {
             if (audioPlayer.playing) audioPlayer.stop();
@@ -31,7 +32,13 @@ class ChapterItems extends StatelessWidget {
                 Expanded(
                   child: Image.asset('assets/images/$name.png'),
                 ),
-                Text(chapter.items[index].name),
+                Text(capitalize(chapter.items[index][targetLanguage] ?? '')),
+                Text(
+                  capitalize(chapter.items[index][interfaceLanguage] ?? ''),
+                  style: TextStyle(
+                    color: Colors.grey,
+                  ),
+                ),
               ],
             ),
           ),

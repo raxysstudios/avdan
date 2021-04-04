@@ -1,24 +1,28 @@
 [
   {
-    "name": "Kitchen",
+    "translations": { "english": "kitchen", "russian": "кухня" },
     "items": [
-      { "name": "Knife" },
-      { "name": "Fork" },
-      { "name": "Spoon" },
-      { "name": "Cup" }
+      { "english": "knife", "russian": "нож", "iron": "кард" },
+      { "english": "fork", "russian": "вилка" },
+      { "english": "spoon" },
+      { "english": "cup" }
     ]
   },
   {
-    "name": "Living room",
-    "items": [{ "name": "Sofa" }, { "name": "TV" }, { "name": "Table" }]
+    "translations": { "english": "living room" },
+    "items": [
+      { "english": "sofa" },
+      { "english": "TV" },
+      { "english": "table" }
+    ]
   },
   {
-    "name": "Foods",
+    "translations": { "english": "foods" },
     "items": [
-      { "name": "Water" },
-      { "name": "Bread" },
-      { "name": "Cheese" },
-      { "name": "Tea" }
+      { "english": "water" },
+      { "english": "bread" },
+      { "english": "cheese" },
+      { "english": "tea" }
     ]
   }
 ]
