@@ -22,15 +22,13 @@ class HomeScreen extends StatelessWidget {
                       style: TextStyle(fontSize: 24),
                     ),
                   ),
-                  onPressed: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        targetLanguage = language;
-                        return ChaptersScreen();
-                      },
-                    ),
-                  ),
+                  onPressed: () {
+                    targetLanguage = language;
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ChaptersScreen()),
+                    );
+                  },
                 )
             ],
           ),
