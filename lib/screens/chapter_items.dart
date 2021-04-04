@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:avdan/data/chapter.dart';
+import 'package:avdan/audio-player.dart';
 
 class ChapterItems extends StatelessWidget {
   ChapterItems({required this.chapter});
@@ -15,16 +16,20 @@ class ChapterItems extends StatelessWidget {
           mainAxisSpacing: 8),
       itemCount: chapter.items.length,
       itemBuilder: (context, index) {
-        var filename = 'assets/images/${chapter.items[index].name}.png';
+        var name = chapter.items[index].name;
         return TextButton(
-          onPressed: () {},
+          onPressed: () async {
+            if (audioPlayer.playing) audioPlayer.stop();
+            await audioPlayer.setAsset('audio/$name.mp3');
+            audioPlayer.play();
+          },
           child: Padding(
             padding: const EdgeInsets.all(8),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Expanded(
-                  child: Image.asset(filename),
+                  child: Image.asset('assets/images/$name.png'),
                 ),
                 Text(chapter.items[index].name),
               ],

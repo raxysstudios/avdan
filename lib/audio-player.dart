@@ -1,3 +1,3 @@
-import 'package:audioplayers/audio_cache.dart';
+import 'package:just_audio/just_audio.dart';
 
-final player = AudioCache();
+final audioPlayer = AudioPlayer();
