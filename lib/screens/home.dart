@@ -17,68 +17,75 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(8),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                Expanded(
-                  child: Text(
-                    capitalize(learningLanguage),
-                    style: TextStyle(
-                      fontSize: 36,
-                      fontWeight: FontWeight.bold,
+      body: Center(
+        child: Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        capitalize(learningLanguage),
+                        style: TextStyle(
+                          fontSize: 36,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    IconButton(
+                      icon: Icon(Icons.settings),
+                      onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => SettingsScreen()),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Expanded(
+                child: FractionallySizedBox(
+                  widthFactor: 1,
+                  child: ItemView(translations: item),
+                ),
+              ),
+              Container(
+                height: 128,
+                child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) => TextButton(
+                    onPressed: () =>
+                        setState(() => item = chapter.items[index]),
+                    child: ChapterItem(
+                      translations: chapter.items[index],
                     ),
                   ),
+                  separatorBuilder: (context, index) => SizedBox(width: 8),
+                  itemCount: chapter.items.length,
                 ),
-                IconButton(
-                  icon: Icon(Icons.settings),
-                  onPressed: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => SettingsScreen()),
-                  ),
-                ),
-              ],
-            ),
-            Container(
-              height: 256,
-              child: ItemView(translations: item),
-            ),
-            Container(
-              height: 128,
-              child: ListView.separated(
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) => TextButton(
-                  onPressed: () => setState(() => item = chapter.items[index]),
-                  child: ChapterItem(
-                    translations: chapter.items[index],
-                  ),
-                ),
-                separatorBuilder: (context, index) => SizedBox(width: 8),
-                itemCount: chapter.items.length,
               ),
-            ),
-            SizedBox(height: 8),
-            Container(
-              height: 96,
-              child: ListView.separated(
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) => TextButton(
-                  onPressed: () => setState(() {
-                    chapter = chapters[index];
-                    item = chapter.items[0];
-                  }),
-                  child: ChapterItem(
-                    translations: chapters[index].translations,
+              Container(
+                height: 96,
+                child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) => TextButton(
+                    onPressed: () => setState(() {
+                      chapter = chapters[index];
+                      item = chapter.items[0];
+                    }),
+                    child: ChapterItem(
+                      translations: chapters[index].translations,
+                    ),
                   ),
+                  separatorBuilder: (context, index) => SizedBox(width: 8),
+                  itemCount: chapters.length,
                 ),
-                separatorBuilder: (context, index) => SizedBox(width: 8),
-                itemCount: chapters.length,
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );
