@@ -16,9 +16,23 @@ class ChipsSelector extends StatelessWidget {
     return ListView.separated(
       scrollDirection: Axis.horizontal,
       itemBuilder: (context, index) => ChoiceChip(
-        label: Text(
-          capitalize(options[index]),
-          style: TextStyle(fontSize: 18),
+        label: Row(
+          children: [
+            if (selected == options[index])
+              Row(
+                children: [
+                  Icon(
+                    Icons.check,
+                    color: Theme.of(context).accentColor,
+                  ),
+                  SizedBox(width: 4)
+                ],
+              ),
+            Text(
+              capitalize(options[index]),
+              style: TextStyle(fontSize: 18),
+            ),
+          ],
         ),
         visualDensity: VisualDensity(vertical: 1),
         selected: selected == options[index],
