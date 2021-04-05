@@ -26,38 +26,33 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setBool('firstLaunch', false);
 
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => HomeScreen()),
-    );
+    Navigator.pop(context);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: Text(
+          capitalize("Avdan"),
+          style: TextStyle(
+            fontSize: 36,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.home),
+            onPressed: () => exit(context),
+          ),
+        ],
+      ),
       body: Padding(
         padding: const EdgeInsets.all(8),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              children: [
-                Expanded(
-                  child: Text(
-                    "Avdan",
-                    style: TextStyle(
-                      fontSize: 36,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                IconButton(
-                  icon: Icon(Icons.home),
-                  onPressed: () => exit(context),
-                ),
-              ],
-            ),
-            SizedBox(height: 16),
             Text(
               "Interface language",
               style: TextStyle(
@@ -65,15 +60,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
             ),
             SizedBox(height: 8),
-            //   return ChoiceChip(
-            //   label: Text('Item $index'),
-            //   selected: _value == index,
-            //   onSelected: (bool selected) {
-            //     setState(() {
-            //       _value = selected ? index : null;
-            //     });
-            //   },
-            // );
             Container(
               height: 42,
               child: ChipsSelector(
