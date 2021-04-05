@@ -17,13 +17,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
       Duration(),
       () async {
         final prefs = await SharedPreferences.getInstance();
-        setState(
-          () {
-            interfaceLanguage =
-                prefs.getString('interfaceLanguage') ?? interfaceLanguages[0];
-            learningLanguage =
-                prefs.getString('learningLanguage') ?? learningLanguages[0];
-          },
+        await selectInterface(
+          prefs.getString('interfaceLanguage') ?? interfaceLanguages[0],
+          prefs: prefs,
+        );
+        await selectLearning(
+          prefs.getString('learningLanguage') ?? learningLanguages[0],
+          prefs: prefs,
         );
       },
     );
@@ -32,21 +32,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
   final List<String> interfaceLanguages = ["english", "turkish", "russian"];
   final List<String> learningLanguages = ["iron", "digor"];
 
-  selectInterface(String l) async {
+  selectInterface(String l, {SharedPreferences? prefs}) async {
     setState(() {
       interfaceLanguage = l;
     });
-
-    final prefs = await SharedPreferences.getInstance();
+    if (prefs == null) prefs = await SharedPreferences.getInstance();
     await prefs.setString('interfaceLanguage', l);
   }
 
-  selectLearning(String l) async {
+  selectLearning(String l, {SharedPreferences? prefs}) async {
     setState(() {
       learningLanguage = l;
     });
-
-    final prefs = await SharedPreferences.getInstance();
+    if (prefs == null) prefs = await SharedPreferences.getInstance();
     await prefs.setString('learningLanguage', l);
   }
 

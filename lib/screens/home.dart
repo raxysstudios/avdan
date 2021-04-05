@@ -19,8 +19,13 @@ class _HomeScreenState extends State<HomeScreen> {
       Duration(),
       () async {
         final prefs = await SharedPreferences.getInstance();
-        final language = prefs.getString('learningLanguage');
-        if (language == null) openSettings();
+        if (prefs.getString('learningLanguage') == null)
+          openSettings();
+        else
+          setState(() {
+            learningLanguage = prefs.getString('learningLanguage') ?? 'null';
+            interfaceLanguage = prefs.getString('interfaceLanguage') ?? 'null';
+          });
       },
     );
   }
