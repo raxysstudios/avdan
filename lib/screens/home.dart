@@ -61,7 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) => AspectRatio(
-                    aspectRatio: 0.8,
+                    aspectRatio: 1.2,
                     child: TextButton(
                       onPressed: () =>
                           setState(() => item = chapter.items[index]),
@@ -81,7 +81,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) => AspectRatio(
-                    aspectRatio: 0.8,
+                    aspectRatio: 1.2,
                     child: TextButton(
                       onPressed: () => setState(() {
                         chapter = chapters[index];

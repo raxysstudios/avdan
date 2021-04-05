@@ -17,7 +17,7 @@ class Label extends StatelessWidget {
           capitalize(target),
           style: TextStyle(
             color: Colors.grey[900],
-            fontSize: 18,
+            fontSize: 16,
           ),
         ),
         Text(
