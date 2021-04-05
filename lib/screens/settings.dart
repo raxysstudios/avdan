@@ -3,7 +3,6 @@ import 'package:avdan/widgets/chips_selector.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'home.dart';
 
 class SettingsScreen extends StatefulWidget {
   @override
