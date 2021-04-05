@@ -57,6 +57,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
               "Interface language",
               style: TextStyle(
                 fontSize: 18,
+                color: Colors.black54,
+                fontWeight: FontWeight.bold,
               ),
             ),
             SizedBox(height: 8),
@@ -73,6 +75,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
               "Learning language",
               style: TextStyle(
                 fontSize: 18,
+                color: Colors.black54,
+                fontWeight: FontWeight.bold,
               ),
             ),
             SizedBox(height: 8),
