@@ -3,9 +3,9 @@
     "translations": { "english": "kitchen", "russian": "кухня" },
     "items": [
       { "english": "knife", "russian": "нож", "iron": "кард" },
-      { "english": "fork", "russian": "вилка" },
+      { "english": "fork", "russian": "вилка", "iron": "саджилæг" },
       { "english": "spoon", "iron": "уидыг" },
-      { "english": "cup" },
+      { "english": "cup", "iron": "къопп" },
       { "english": "plate" },
       { "english": "kettle" },
       { "english": "pot" }
