@@ -1,9 +1,20 @@
+import 'package:avdan/data/chapter.dart';
 import 'package:avdan/data/store.dart';
 import 'package:avdan/screens/settings.dart';
+import 'package:avdan/widgets/chapter_item.dart';
+import 'package:avdan/widgets/label.dart';
 import 'package:flutter/material.dart';
 import 'package:avdan/widgets/chapter_grid.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  Chapter chapter = chapters[0];
+  Map<String, String> item = chapters[0].items[0];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,6 +42,41 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
               ],
+            ),
+            Text(chapter.translations['english'] ?? 'null'),
+            Text(item['english'] ?? 'null'),
+            Container(
+              height: 128,
+              child: ListView.separated(
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) => TextButton(
+                  onPressed: () => setState(() => item = chapter.items[index]),
+                  child: ChapterItem(
+                    translations: chapter.items[index],
+                  ),
+                ),
+                separatorBuilder: (context, index) => SizedBox(width: 8),
+                itemCount: chapter.items.length,
+              ),
+            ),
+            SizedBox(height: 8),
+            Container(
+              height: 96,
+              child: ListView.separated(
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) => TextButton(
+                  onPressed: () => setState(() {
+                    chapter = chapters[index];
+                    print(chapters[index].translations['english']);
+                    // item = chapter.items[0];
+                  }),
+                  child: Label(
+                    translations: chapters[index].translations,
+                  ),
+                ),
+                separatorBuilder: (context, index) => SizedBox(width: 8),
+                itemCount: chapters.length,
+              ),
             )
           ],
         ),
