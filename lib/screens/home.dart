@@ -1,9 +1,12 @@
+import 'dart:async';
+
 import 'package:avdan/data/chapter.dart';
 import 'package:avdan/data/store.dart';
 import 'package:avdan/screens/settings.dart';
 import 'package:avdan/widgets/chapter_item.dart';
 import 'package:avdan/widgets/item_view.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -11,12 +14,30 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  _HomeScreenState() {
+    Timer(
+      Duration(milliseconds: 100),
+      () async {
+        final prefs = await SharedPreferences.getInstance();
+        final firstLaunch = prefs.getBool('firstLaunch') ?? true;
+        if (firstLaunch) openSettings();
+      },
+    );
+  }
+
   Chapter chapter = chapters[0];
   Map<String, String> item = chapters[0].items[0];
 
   var styleSelected = TextButton.styleFrom(
     backgroundColor: Colors.blue[50],
   );
+
+  openSettings() => Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => SettingsScreen(),
+        ),
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -33,12 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: [
           IconButton(
             icon: Icon(Icons.settings),
-            onPressed: () => Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => SettingsScreen(),
-              ),
-            ),
+            onPressed: openSettings,
           ),
         ],
       ),
