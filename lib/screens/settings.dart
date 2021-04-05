@@ -87,34 +87,42 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 setter: selectLearning,
               ),
             ),
-            SizedBox(height: 16),
+            Expanded(
+              child: Container(),
+            ),
             Container(
               height: 128,
+              alignment: Alignment.center,
               child: Image.network(
                 "https://sun9-65.userapi.com/impf/c622326/v622326572/49601/s7HngXH2MuY.jpg?size=755x1080&quality=96&sign=587244131770e7b03bd33f5330308110&type=album",
                 fit: BoxFit.fitHeight,
               ),
             ),
-            SizedBox(height: 8),
             Container(
               height: 64,
               child: Row(
                 children: [
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: Text(
-                      "Contact",
-                      style: TextStyle(fontSize: 24),
+                  Expanded(
+                    child: ElevatedButton.icon(
+                      onPressed: () {},
+                      icon: Icon(Icons.free_breakfast),
+                      label: Text(
+                        "Donate",
+                        style: TextStyle(fontSize: 18),
+                      ),
                     ),
                   ),
                   SizedBox(width: 8),
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: Text(
-                      "Donate",
-                      style: TextStyle(fontSize: 24),
+                  Expanded(
+                    child: ElevatedButton.icon(
+                      onPressed: () {},
+                      icon: Icon(Icons.mail),
+                      label: Text(
+                        "Contact",
+                        style: TextStyle(fontSize: 18),
+                      ),
                     ),
-                  )
+                  ),
                 ],
               ),
             )
