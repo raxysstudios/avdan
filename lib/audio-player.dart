@@ -1,12 +1,10 @@
-import 'package:just_audio/just_audio.dart';
+import 'package:audioplayers/audio_cache.dart';
 
-final audioPlayer = AudioPlayer();
+final audioPlayer = AudioCache();
 
 playAsset(String path) async {
   try {
-    if (audioPlayer.playing) await audioPlayer.stop();
-    await audioPlayer.setAsset(path);
-    audioPlayer.play();
+    audioPlayer.play(path);
   } catch (e) {
     print(e);
   }
