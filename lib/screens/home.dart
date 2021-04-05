@@ -60,34 +60,40 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 128,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) => TextButton(
-                    onPressed: () =>
-                        setState(() => item = chapter.items[index]),
-                    child: ChapterItem(
-                      translations: chapter.items[index],
+                  itemBuilder: (context, index) => AspectRatio(
+                    aspectRatio: 0.8,
+                    child: TextButton(
+                      onPressed: () =>
+                          setState(() => item = chapter.items[index]),
+                      child: ChapterItem(
+                        translations: chapter.items[index],
+                      ),
+                      style: item == chapter.items[index]
+                          ? styleSelected
+                          : TextButton.styleFrom(),
                     ),
-                    style: item == chapter.items[index]
-                        ? styleSelected
-                        : TextButton.styleFrom(),
                   ),
                   itemCount: chapter.items.length,
                 ),
               ),
               Container(
-                height: 96,
+                height: 128,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) => TextButton(
-                    onPressed: () => setState(() {
-                      chapter = chapters[index];
-                      item = chapter.items[0];
-                    }),
-                    child: ChapterItem(
-                      translations: chapters[index].translations,
+                  itemBuilder: (context, index) => AspectRatio(
+                    aspectRatio: 0.8,
+                    child: TextButton(
+                      onPressed: () => setState(() {
+                        chapter = chapters[index];
+                        item = chapter.items[0];
+                      }),
+                      child: ChapterItem(
+                        translations: chapters[index].translations,
+                      ),
+                      style: chapter == chapters[index]
+                          ? styleSelected
+                          : TextButton.styleFrom(),
                     ),
-                    style: chapter == chapters[index]
-                        ? styleSelected
-                        : TextButton.styleFrom(),
                   ),
                   itemCount: chapters.length,
                 ),
