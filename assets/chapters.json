@@ -5,7 +5,10 @@
       { "english": "knife", "russian": "нож", "iron": "кард" },
       { "english": "fork", "russian": "вилка" },
       { "english": "spoon", "iron": "уидыг" },
-      { "english": "cup" }
+      { "english": "cup" },
+      { "english": "plate" },
+      { "english": "kettle" },
+      { "english": "pot" }
     ]
   },
   {
@@ -23,6 +26,26 @@
       { "english": "bread" },
       { "english": "cheese" },
       { "english": "tea" }
+    ]
+  },
+  {
+    "translations": { "english": "clothes" },
+    "items": [
+      { "english": "shirt" },
+      { "english": "pants" },
+      { "english": "hat" },
+      { "english": "shoes" }
+    ]
+  },
+  {
+    "translations": { "english": "relatives" },
+    "items": [
+      { "english": "mother" },
+      { "english": "father" },
+      { "english": "daugther" },
+      { "english": "son" },
+      { "english": "sister" },
+      { "english": "brother" }
     ]
   }
 ]
