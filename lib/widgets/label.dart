@@ -16,6 +16,7 @@ class Label extends StatelessWidget {
         Text(
           capitalize(target),
           style: TextStyle(
+            color: Colors.grey[900],
             fontSize: 18,
           ),
         ),
@@ -23,6 +24,7 @@ class Label extends StatelessWidget {
           capitalize(interface),
           style: TextStyle(
             color: Colors.grey,
+            fontStyle: FontStyle.italic,
           ),
         ),
       ],

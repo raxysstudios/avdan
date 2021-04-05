@@ -45,7 +45,6 @@ flutter:
     - assets/languages.json
     - assets/chapters.json
     - assets/images/
-    - assets/flags/
     - assets/audio/iron/
 
   # An image asset can refer to one or more resolution-specific "variants", see
