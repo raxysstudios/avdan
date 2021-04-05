@@ -11,11 +11,11 @@ void main() async {
   final prefs = await SharedPreferences.getInstance();
   final firstLaunch = prefs.getBool('firstLaunch') ?? true;
 
-  runApp(MyApp(firstLaunch: firstLaunch));
+  runApp(Avdan(firstLaunch: firstLaunch));
 }
 
-class MyApp extends StatelessWidget {
-  MyApp({this.firstLaunch = false});
+class Avdan extends StatelessWidget {
+  Avdan({this.firstLaunch = false});
   final bool firstLaunch;
 
   @override
