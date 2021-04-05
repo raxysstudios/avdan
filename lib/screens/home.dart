@@ -68,11 +68,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 itemBuilder: (context, index) => TextButton(
                   onPressed: () => setState(() {
                     chapter = chapters[index];
-                    print(chapters[index].translations['english']);
-                    // item = chapter.items[0];
+                    item = chapter.items[0];
                   }),
                   child: ChapterItem(
-                    translations: chapter.items[index],
+                    translations: chapters[index].translations,
                   ),
                 ),
                 separatorBuilder: (context, index) => SizedBox(width: 8),
