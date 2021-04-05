@@ -10,14 +10,17 @@ class ChapterItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Expanded(child: Image.asset(image)),
-          Label(translations: translations),
-        ],
+    return Container(
+      width: 96,
+      child: Padding(
+        padding: const EdgeInsets.all(8),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Expanded(child: Image.asset(image)),
+            Label(translations: translations),
+          ],
+        ),
       ),
     );
   }

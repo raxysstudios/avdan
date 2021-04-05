@@ -58,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               Container(
                 height: 128,
-                child: ListView.separated(
+                child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) => TextButton(
                     onPressed: () =>
@@ -70,13 +70,12 @@ class _HomeScreenState extends State<HomeScreen> {
                         ? styleSelected
                         : TextButton.styleFrom(),
                   ),
-                  separatorBuilder: (context, index) => SizedBox(width: 8),
                   itemCount: chapter.items.length,
                 ),
               ),
               Container(
                 height: 96,
-                child: ListView.separated(
+                child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) => TextButton(
                     onPressed: () => setState(() {
@@ -90,7 +89,6 @@ class _HomeScreenState extends State<HomeScreen> {
                         ? styleSelected
                         : TextButton.styleFrom(),
                   ),
-                  separatorBuilder: (context, index) => SizedBox(width: 8),
                   itemCount: chapters.length,
                 ),
               ),
