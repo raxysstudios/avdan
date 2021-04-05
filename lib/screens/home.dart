@@ -2,9 +2,8 @@ import 'package:avdan/data/chapter.dart';
 import 'package:avdan/data/store.dart';
 import 'package:avdan/screens/settings.dart';
 import 'package:avdan/widgets/chapter_item.dart';
-import 'package:avdan/widgets/label.dart';
+import 'package:avdan/widgets/item_view.dart';
 import 'package:flutter/material.dart';
-import 'package:avdan/widgets/chapter_grid.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -43,8 +42,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ],
             ),
-            Text(chapter.translations['english'] ?? 'null'),
-            Text(item['english'] ?? 'null'),
+            Container(
+              height: 256,
+              child: ItemView(translations: item),
+            ),
             Container(
               height: 128,
               child: ListView.separated(
@@ -70,8 +71,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     print(chapters[index].translations['english']);
                     // item = chapter.items[0];
                   }),
-                  child: Label(
-                    translations: chapters[index].translations,
+                  child: ChapterItem(
+                    translations: chapter.items[index],
                   ),
                 ),
                 separatorBuilder: (context, index) => SizedBox(width: 8),
