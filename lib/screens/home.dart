@@ -14,6 +14,10 @@ class _HomeScreenState extends State<HomeScreen> {
   Chapter chapter = chapters[0];
   Map<String, String> item = chapters[0].items[0];
 
+  var styleSelected = TextButton.styleFrom(
+    backgroundColor: Colors.blue[50],
+  );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,6 +66,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: ChapterItem(
                       translations: chapter.items[index],
                     ),
+                    style: item == chapter.items[index]
+                        ? styleSelected
+                        : TextButton.styleFrom(),
                   ),
                   separatorBuilder: (context, index) => SizedBox(width: 8),
                   itemCount: chapter.items.length,
@@ -79,11 +86,14 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: ChapterItem(
                       translations: chapters[index].translations,
                     ),
+                    style: chapter == chapters[index]
+                        ? styleSelected
+                        : TextButton.styleFrom(),
                   ),
                   separatorBuilder: (context, index) => SizedBox(width: 8),
                   itemCount: chapters.length,
                 ),
-              )
+              ),
             ],
           ),
         ),
