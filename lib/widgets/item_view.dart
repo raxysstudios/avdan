@@ -22,7 +22,17 @@ class ItemView extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Expanded(child: Image.asset(image)),
+            Expanded(
+              child: Image.asset(
+                image,
+                errorBuilder: (
+                  BuildContext context,
+                  Object exception,
+                  StackTrace? stackTrace,
+                ) =>
+                    Container(),
+              ),
+            ),
             Label(translations: translations),
           ],
         ),
