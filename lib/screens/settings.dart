@@ -27,14 +27,12 @@ class SettingsScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                TextButton(
+                IconButton(
+                  icon: Icon(Icons.home),
                   onPressed: () => Navigator.push(
                     context,
-                    MaterialPageRoute(
-                      builder: (context) => HomeScreen(),
-                    ),
+                    MaterialPageRoute(builder: (context) => HomeScreen()),
                   ),
-                  child: Icon(Icons.home),
                 ),
               ],
             ),
