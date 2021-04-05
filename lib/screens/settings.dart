@@ -1,12 +1,22 @@
 import 'package:avdan/data/store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-
+import 'package:shared_preferences/shared_preferences.dart';
 import 'home.dart';
 
 class SettingsScreen extends StatelessWidget {
   final List<String> interfaceLanguages = ["english", "turkish", "russian"];
   final List<String> learningLanguages = ["iron", "digor"];
+
+  exit(BuildContext context) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('firstLaunch', false);
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => HomeScreen()),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,10 +39,7 @@ class SettingsScreen extends StatelessWidget {
                 ),
                 IconButton(
                   icon: Icon(Icons.home),
-                  onPressed: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => HomeScreen()),
-                  ),
+                  onPressed: () => exit(context),
                 ),
               ],
             ),
