@@ -1,12 +1,26 @@
 import 'package:avdan/data/store.dart';
+import 'package:avdan/widgets/chips_selector.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'home.dart';
 
-class SettingsScreen extends StatelessWidget {
+class SettingsScreen extends StatefulWidget {
+  @override
+  _SettingsScreenState createState() => _SettingsScreenState();
+}
+
+class _SettingsScreenState extends State<SettingsScreen> {
   final List<String> interfaceLanguages = ["english", "turkish", "russian"];
   final List<String> learningLanguages = ["iron", "digor"];
+
+  selectInterface(String l) => setState(() {
+        interfaceLanguage = l;
+      });
+
+  selectLearning(String l) => setState(() {
+        learningLanguage = l;
+      });
 
   exit(BuildContext context) async {
     final prefs = await SharedPreferences.getInstance();
@@ -51,23 +65,21 @@ class SettingsScreen extends StatelessWidget {
               ),
             ),
             SizedBox(height: 8),
+            //   return ChoiceChip(
+            //   label: Text('Item $index'),
+            //   selected: _value == index,
+            //   onSelected: (bool selected) {
+            //     setState(() {
+            //       _value = selected ? index : null;
+            //     });
+            //   },
+            // );
             Container(
               height: 42,
-              child: ListView.separated(
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) => TextButton(
-                  onPressed: () =>
-                      interfaceLanguage = interfaceLanguages[index],
-                  child: Padding(
-                    padding: const EdgeInsets.all(8),
-                    child: Text(
-                      capitalize(interfaceLanguages[index]),
-                      style: TextStyle(fontSize: 18),
-                    ),
-                  ),
-                ),
-                separatorBuilder: (context, index) => SizedBox(width: 8),
-                itemCount: interfaceLanguages.length,
+              child: ChipsSelector(
+                options: interfaceLanguages,
+                selected: interfaceLanguage,
+                setter: selectInterface,
               ),
             ),
             SizedBox(height: 16),
@@ -80,20 +92,10 @@ class SettingsScreen extends StatelessWidget {
             SizedBox(height: 8),
             Container(
               height: 42,
-              child: ListView.separated(
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) => TextButton(
-                  onPressed: () => learningLanguage = learningLanguages[index],
-                  child: Padding(
-                    padding: const EdgeInsets.all(8),
-                    child: Text(
-                      capitalize(learningLanguages[index]),
-                      style: TextStyle(fontSize: 18),
-                    ),
-                  ),
-                ),
-                separatorBuilder: (context, index) => SizedBox(width: 8),
-                itemCount: learningLanguages.length,
+              child: ChipsSelector(
+                options: learningLanguages,
+                selected: learningLanguage,
+                setter: selectLearning,
               ),
             ),
             SizedBox(height: 16),
