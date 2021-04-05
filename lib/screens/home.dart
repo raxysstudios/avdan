@@ -58,62 +58,57 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-      body: Center(
-        child: Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(
-                child: FractionallySizedBox(
-                  widthFactor: 1,
-                  child: ItemView(translations: item),
-                ),
-              ),
-              Container(
-                height: 128,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) => AspectRatio(
-                    aspectRatio: 1.2,
-                    child: TextButton(
-                      onPressed: () =>
-                          setState(() => item = chapter.items[index]),
-                      child: ChapterItem(
-                        translations: chapter.items[index],
-                      ),
-                      style: item == chapter.items[index]
-                          ? styleSelected
-                          : TextButton.styleFrom(),
-                    ),
-                  ),
-                  itemCount: chapter.items.length,
-                ),
-              ),
-              Container(
-                height: 128,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) => AspectRatio(
-                    aspectRatio: 1.2,
-                    child: TextButton(
-                      onPressed: () => setState(() {
-                        chapter = chapters[index];
-                        item = chapter.items[0];
-                      }),
-                      child: ChapterItem(
-                        translations: chapters[index].translations,
-                      ),
-                      style: chapter == chapters[index]
-                          ? styleSelected
-                          : TextButton.styleFrom(),
-                    ),
-                  ),
-                  itemCount: chapters.length,
-                ),
-              ),
-            ],
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Expanded(
+            child: FractionallySizedBox(
+              widthFactor: 1,
+              child: ItemView(translations: item),
+            ),
           ),
-        ),
+          Container(
+            height: 128,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) => AspectRatio(
+                aspectRatio: 1.2,
+                child: TextButton(
+                  onPressed: () => setState(() => item = chapter.items[index]),
+                  child: ChapterItem(
+                    translations: chapter.items[index],
+                  ),
+                  style: item == chapter.items[index]
+                      ? styleSelected
+                      : TextButton.styleFrom(),
+                ),
+              ),
+              itemCount: chapter.items.length,
+            ),
+          ),
+          Container(
+            height: 128,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) => AspectRatio(
+                aspectRatio: 1.2,
+                child: TextButton(
+                  onPressed: () => setState(() {
+                    chapter = chapters[index];
+                    item = chapter.items[0];
+                  }),
+                  child: ChapterItem(
+                    translations: chapters[index].translations,
+                  ),
+                  style: chapter == chapters[index]
+                      ? styleSelected
+                      : TextButton.styleFrom(),
+                ),
+              ),
+              itemCount: chapters.length,
+            ),
+          ),
+        ],
       ),
     );
     // return  DefaultTabController(
