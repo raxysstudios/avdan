@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:avdan/data/store.dart';
 import 'package:avdan/widgets/chips_selector.dart';
 import 'package:flutter/material.dart';
@@ -10,22 +12,42 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
+  _SettingsScreenState() {
+    Timer(
+      Duration(),
+      () async {
+        final prefs = await SharedPreferences.getInstance();
+        setState(
+          () {
+            interfaceLanguage =
+                prefs.getString('interfaceLanguage') ?? interfaceLanguages[0];
+            learningLanguage =
+                prefs.getString('learningLanguage') ?? learningLanguages[0];
+          },
+        );
+      },
+    );
+  }
+
   final List<String> interfaceLanguages = ["english", "turkish", "russian"];
   final List<String> learningLanguages = ["iron", "digor"];
 
-  selectInterface(String l) => setState(() {
-        interfaceLanguage = l;
-      });
+  selectInterface(String l) async {
+    setState(() {
+      interfaceLanguage = l;
+    });
 
-  selectLearning(String l) => setState(() {
-        learningLanguage = l;
-      });
-
-  exit(BuildContext context) async {
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setBool('firstLaunch', false);
+    await prefs.setString('interfaceLanguage', l);
+  }
 
-    Navigator.pop(context);
+  selectLearning(String l) async {
+    setState(() {
+      learningLanguage = l;
+    });
+
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('learningLanguage', l);
   }
 
   @override
@@ -43,7 +65,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         actions: [
           IconButton(
             icon: Icon(Icons.home),
-            onPressed: () => exit(context),
+            onPressed: () => Navigator.pop(context),
           ),
         ],
       ),

@@ -16,11 +16,11 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   _HomeScreenState() {
     Timer(
-      Duration(milliseconds: 100),
+      Duration(),
       () async {
         final prefs = await SharedPreferences.getInstance();
-        final firstLaunch = prefs.getBool('firstLaunch') ?? true;
-        if (firstLaunch) openSettings();
+        final language = prefs.getString('learningLanguage');
+        if (language == null) openSettings();
       },
     );
   }
