@@ -129,55 +129,61 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
             ),
             Expanded(
-              child: Container(),
-            ),
-            Container(
-              alignment: Alignment.center,
-              height: 128,
-              child: Row(
-                children: [
-                  Text(
-                    version,
-                  ),
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(512),
-                    child: Image.network(
-                      "assets/hohag.png",
-                      fit: BoxFit.fitHeight,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              height: 64,
-              margin: const EdgeInsets.symmetric(horizontal: 8.0),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: ElevatedButton.icon(
-                      onPressed: () {},
-                      icon: Icon(Icons.free_breakfast),
-                      label: Text(
-                        "Donate",
-                        // style: TextStyle(fontSize: 18),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Hohag",
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black54,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
-                  ),
-                  SizedBox(width: 8),
-                  Expanded(
-                    child: ElevatedButton.icon(
-                      onPressed: () {},
-                      icon: Icon(Icons.mail),
-                      label: Text(
-                        "Contact",
-                        // style: TextStyle(fontSize: 18),
+                    SizedBox(height: 8),
+                    Container(
+                      height: 128,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(512),
+                        child: Image.network(
+                          "assets/hohag.png",
+                          fit: BoxFit.fitHeight,
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                    SizedBox(height: 8),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: ElevatedButton.icon(
+                            onPressed: () {},
+                            icon: Icon(Icons.free_breakfast),
+                            label: Text(
+                              "Donate",
+                              // style: TextStyle(fontSize: 18),
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 8),
+                        Expanded(
+                          child: ElevatedButton.icon(
+                            onPressed: () {},
+                            icon: Icon(Icons.mail),
+                            label: Text(
+                              "Contact",
+                              // style: TextStyle(fontSize: 18),
+                            ),
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
               ),
-            )
+            ),
           ],
         ),
       ),
