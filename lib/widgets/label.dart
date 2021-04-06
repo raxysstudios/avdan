@@ -5,8 +5,8 @@ class Label extends StatelessWidget {
   Label({required this.translations});
   final Map<String, String> translations;
 
-  String get target => translations[learningLanguage] ?? '';
-  String get interface => translations[interfaceLanguage] ?? '';
+  String get target => translations[learningLanguage.name] ?? '';
+  String get interface => translations[interfaceLanguage.name] ?? '';
 
   @override
   Widget build(BuildContext context) {

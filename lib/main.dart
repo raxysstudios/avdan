@@ -13,6 +13,9 @@ class Avdan extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Avdan',
+      theme: ThemeData(
+        primaryColor: Colors.white,
+      ),
       home: HomeScreen(),
     );
   }

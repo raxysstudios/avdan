@@ -13,28 +13,37 @@ class LanguageWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Image.asset(
-          language.flag,
-          width: 64,
-          errorBuilder: (
-            BuildContext context,
-            Object exception,
-            StackTrace? stackTrace,
-          ) =>
-              Container(),
+        Container(
+          transform: Matrix4.identity()
+            ..translate(-80, 64)
+            ..scale(4)
+            ..rotateZ(-0.8),
+          child: Image.asset(
+            language.flag,
+            height: 32,
+            errorBuilder: (
+              BuildContext context,
+              Object exception,
+              StackTrace? stackTrace,
+            ) =>
+                Container(),
+          ),
         ),
+        SizedBox(width: 16),
         Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              language.nativeName,
+              capitalize(language.nativeName),
               style: TextStyle(
                 fontSize: 20,
+                fontWeight: FontWeight.bold,
               ),
             ),
             Text(
-              translatedName,
+              capitalize(translatedName),
               style: TextStyle(
-                fontSize: 20,
+                fontSize: 16,
                 color: Colors.grey,
               ),
             ),

@@ -3,7 +3,7 @@
     "isLearning": true,
     "translations": {
       "english": "iron",
-      "iron": "ирон ӕвзаг",
+      "iron": "ирон",
       "russian": "иронский"
     }
   },
@@ -11,8 +11,8 @@
     "isLearning": true,
     "translations": {
       "english": "digor",
-      "iron": "дигорон ӕвзаг",
-      "digor": "дыгурон ӕвзаг",
+      "iron": "дигорон",
+      "digor": "дыгурон",
       "russian": "дигорский"
     }
   },
@@ -28,13 +28,6 @@
     "translations": {
       "english": "russian",
       "russian": "русский"
-    }
-  },
-  {
-    "isInterface": true,
-    "translations": {
-      "english": "turkish",
-      "russian": "турецкий"
     }
   }
 ]

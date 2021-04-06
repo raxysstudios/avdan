@@ -1,8 +1,7 @@
 import 'dart:async';
-
 import 'package:avdan/data/language.dart';
 import 'package:avdan/data/store.dart';
-import 'package:avdan/widgets/language-widget.dart';
+import 'package:avdan/widgets/language-card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -76,33 +75,29 @@ class _SettingsScreenState extends State<SettingsScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              "Interface language",
-              style: TextStyle(
-                fontSize: 18,
-                color: Colors.black54,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: 8),
-            Container(
-              height: 42,
-              child: ListView.separated(
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) => Card(
-                  child: InkWell(
-                    onTap: () => selectInterface(
-                      interfaceLanguages[index],
-                    ),
-                    child: LanguageWidget(
-                      interfaceLanguages[index],
-                    ),
-                  ),
-                ),
-                separatorBuilder: (context, index) => SizedBox(width: 8),
-                itemCount: interfaceLanguages.length,
-              ),
-            ),
+            // Text(
+            //   "Interface language",
+            //   style: TextStyle(
+            //     fontSize: 18,
+            //     color: Colors.black54,
+            //     fontWeight: FontWeight.bold,
+            //   ),
+            // ),
+            // SizedBox(height: 8),
+            // Container(
+            //   height: 42,
+            //   child: ListView.separated(
+            //     scrollDirection: Axis.horizontal,
+            //     itemBuilder: (context, index) => LanguageCard(
+            //       interfaceLanguages[index],
+            //       onTap: () => selectInterface(
+            //         interfaceLanguages[index],
+            //       ),
+            //     ),
+            //     separatorBuilder: (context, index) => SizedBox(width: 8),
+            //     itemCount: interfaceLanguages.length,
+            //   ),
+            // ),
             SizedBox(height: 16),
             Text(
               "Learning language",
@@ -114,17 +109,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
             SizedBox(height: 8),
             Container(
-              height: 42,
+              height: 64,
               child: ListView.separated(
                 scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) => Card(
-                  child: InkWell(
-                    onTap: () => selectLearning(
-                      learningLanguages[index],
-                    ),
-                    child: LanguageWidget(
-                      learningLanguages[index],
-                    ),
+                itemBuilder: (context, index) => LanguageCard(
+                  learningLanguages[index],
+                  onTap: () => selectLearning(
+                    learningLanguages[index],
                   ),
                 ),
                 separatorBuilder: (context, index) => SizedBox(width: 8),
