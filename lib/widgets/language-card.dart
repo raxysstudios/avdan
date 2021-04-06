@@ -28,20 +28,23 @@ class LanguageCard extends StatelessWidget {
             children: [
               Align(
                 alignment: Alignment.centerRight,
-                child: Transform(
-                  transform: Matrix4.identity()
-                    ..scale(1.25)
-                    ..translate(16, 76)
-                    ..rotateZ(-0.785),
-                  child: Image.asset(
-                    language.flag,
-                    fit: BoxFit.fitHeight,
-                    errorBuilder: (
-                      BuildContext context,
-                      Object exception,
-                      StackTrace? stackTrace,
-                    ) =>
-                        Container(),
+                child: Transform.scale(
+                  scale: 1.25,
+                  child: Transform.translate(
+                    offset: Offset(16, 76),
+                    child: Transform.rotate(
+                      angle: -0.785,
+                      child: Image.asset(
+                        language.flag,
+                        fit: BoxFit.fitHeight,
+                        errorBuilder: (
+                          BuildContext context,
+                          Object exception,
+                          StackTrace? stackTrace,
+                        ) =>
+                            Container(),
+                      ),
+                    ),
                   ),
                 ),
               ),

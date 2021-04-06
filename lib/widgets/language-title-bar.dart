@@ -16,19 +16,24 @@ class LanguageTitleBar extends StatelessWidget {
       children: [
         Container(
           height: 64,
-          transform: Matrix4.identity()
-            ..scale(1.5)
-            ..translate(-48, 48)
-            ..rotateZ(-0.785),
-          child: Image.asset(
-            language.flag,
-            fit: BoxFit.fitHeight,
-            errorBuilder: (
-              BuildContext context,
-              Object exception,
-              StackTrace? stackTrace,
-            ) =>
-                Container(),
+          child: Transform.scale(
+            scale: 1.5,
+            child: Transform.translate(
+              offset: Offset(-48, 48),
+              child: Transform.rotate(
+                angle: -0.785,
+                child: Image.asset(
+                  language.flag,
+                  fit: BoxFit.fitHeight,
+                  errorBuilder: (
+                    BuildContext context,
+                    Object exception,
+                    StackTrace? stackTrace,
+                  ) =>
+                      Container(),
+                ),
+              ),
+            ),
           ),
         ),
         Container(
