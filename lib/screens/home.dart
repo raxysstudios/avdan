@@ -53,7 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
         MaterialPageRoute(
           builder: (context) => SettingsScreen(),
         ),
-      );
+      ).then((v) => setState(() {}));
 
   @override
   Widget build(BuildContext context) {
