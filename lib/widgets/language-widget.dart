@@ -2,12 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:avdan/data/language.dart';
 
 class LanguageWidget extends StatelessWidget {
-  const LanguageWidget({required this.language});
+  const LanguageWidget(this.language);
   final Language language;
-
-  String get name => language.name;
-  String get native => language.translations[name] ?? '';
-  String get image => 'assets/flags/$name.png';
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +11,7 @@ class LanguageWidget extends StatelessWidget {
       children: [
         Expanded(
           child: Image.asset(
-            image,
+            language.flag,
             errorBuilder: (
               BuildContext context,
               Object exception,
@@ -27,13 +23,13 @@ class LanguageWidget extends StatelessWidget {
         Column(
           children: [
             Text(
-              name,
+              language.nativeName,
               style: TextStyle(
                 fontSize: 20,
               ),
             ),
             Text(
-              name,
+              language.name,
               style: TextStyle(
                 fontSize: 16,
                 color: Colors.grey,

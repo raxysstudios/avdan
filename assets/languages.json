@@ -1,19 +1,40 @@
 [
   {
-    "name": "iron",
+    "isLearning": true,
     "translations": {
-      "iron": "ирон ӕвзаг",
       "english": "iron",
+      "iron": "ирон ӕвзаг",
       "russian": "иронский"
     }
   },
   {
-    "name": "digor",
+    "isLearning": true,
     "translations": {
+      "english": "digor",
       "iron": "дигорон ӕвзаг",
       "digor": "дыгурон ӕвзаг",
-      "english": "digor",
       "russian": "дигорский"
+    }
+  },
+  {
+    "isInterface": true,
+    "translations": {
+      "english": "english",
+      "russian": "английский"
+    }
+  },
+  {
+    "isInterface": true,
+    "translations": {
+      "english": "russian",
+      "russian": "русский"
+    }
+  },
+  {
+    "isInterface": true,
+    "translations": {
+      "english": "turkish",
+      "russian": "турецкий"
     }
   }
 ]

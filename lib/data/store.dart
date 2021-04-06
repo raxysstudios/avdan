@@ -31,10 +31,11 @@ Future<void> initialize() async {
       (j) => Language.fromJson(j as Map<String, dynamic>),
     ),
   );
+  print(languages);
 }
 
 late List<Chapter> chapters = [];
-late List<Map<String, String>> languages = [];
+late List<Language> languages = [];
 
 String learningLanguage = "iron";
 String interfaceLanguage = "english";

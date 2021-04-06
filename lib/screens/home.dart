@@ -16,7 +16,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   _HomeScreenState() {
     Timer(
-      Duration(),
+      Duration(milliseconds: 100),
       () async {
         final prefs = await SharedPreferences.getInstance();
         if (prefs.getString('learningLanguage') == null)

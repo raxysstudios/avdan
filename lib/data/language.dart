@@ -3,11 +3,17 @@ import 'store.dart';
 
 class Language {
   Language({
-    required this.name,
+    this.isInterface = false,
+    this.isLearning = false,
     required this.translations,
   });
-  final String name;
+  final bool isInterface;
+  final bool isLearning;
   final Map<String, String> translations;
+
+  String get name => translations['english'] ?? 'null';
+  String get nativeName => translations[name] ?? 'null';
+  String get flag => 'assets/flags/$name.png';
 
   factory Language.fromRawJson(String str) =>
       Language.fromJson(json.decode(str));
@@ -16,13 +22,15 @@ class Language {
 
   factory Language.fromJson(Map<String, dynamic> json) {
     return Language(
-      name: json['name'] as String,
+      isInterface: (json['isInterface'] ?? false) as bool,
+      isLearning: (json['isLearning'] ?? false) as bool,
       translations: toMap(json["translations"]),
     );
   }
 
   Map<String, dynamic> toJson() => {
-        "name": name,
+        "isInterface": isInterface,
+        "isLearning": isLearning,
         "translations": translations,
       };
 }

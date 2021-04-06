@@ -1,7 +1,8 @@
 import 'dart:async';
 
+import 'package:avdan/data/language.dart';
 import 'package:avdan/data/store.dart';
-import 'package:avdan/widgets/chips_selector.dart';
+import 'package:avdan/widgets/language-widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -13,37 +14,35 @@ class SettingsScreen extends StatefulWidget {
 
 class _SettingsScreenState extends State<SettingsScreen> {
   _SettingsScreenState() {
-    Timer(
-      Duration(),
-      () async {
-        final prefs = await SharedPreferences.getInstance();
-        await selectInterface(
-          prefs.getString('interfaceLanguage') ?? interfaceLanguages[0],
-          prefs: prefs,
-        );
-        await selectLearning(
-          prefs.getString('learningLanguage') ?? learningLanguages[0],
-          prefs: prefs,
-        );
-      },
-    );
+    interfaceLanguages = List.from(languages.where((l) => l.isInterface));
+    learningLanguages = List.from(languages.where((l) => l.isLearning));
+    print("### LEARNINGN LANGUAGE ###");
+    print(learningLanguages[0].name);
+
+    Timer(Duration(milliseconds: 100), () async {
+      final prefs = await SharedPreferences.getInstance();
+      await selectInterface(
+        prefs.getString('interfaceLanguage') ?? interfaceLanguages[0].name,
+        prefs: prefs,
+      );
+      await selectLearning(
+        prefs.getString('learningLanguage') ?? learningLanguages[0].name,
+        prefs: prefs,
+      );
+    });
   }
 
-  final List<String> interfaceLanguages = ["english", "turkish", "russian"];
-  final List<String> learningLanguages = ["iron", "digor"];
+  List<Language> interfaceLanguages = [];
+  List<Language> learningLanguages = [];
 
   selectInterface(String l, {SharedPreferences? prefs}) async {
-    setState(() {
-      interfaceLanguage = l;
-    });
+    setState(() => interfaceLanguage = l);
     if (prefs == null) prefs = await SharedPreferences.getInstance();
     await prefs.setString('interfaceLanguage', l);
   }
 
   selectLearning(String l, {SharedPreferences? prefs}) async {
-    setState(() {
-      learningLanguage = l;
-    });
+    setState(() => learningLanguage = l);
     if (prefs == null) prefs = await SharedPreferences.getInstance();
     await prefs.setString('learningLanguage', l);
   }
@@ -83,10 +82,18 @@ class _SettingsScreenState extends State<SettingsScreen> {
             SizedBox(height: 8),
             Container(
               height: 42,
-              child: ChipsSelector(
-                options: interfaceLanguages,
-                selected: interfaceLanguage,
-                setter: selectInterface,
+              child: ListView.separated(
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) => InkWell(
+                  onTap: selectInterface(
+                    interfaceLanguages[index].name,
+                  ),
+                  child: LanguageWidget(
+                    interfaceLanguages[index],
+                  ),
+                ),
+                separatorBuilder: (context, index) => SizedBox(width: 8),
+                itemCount: interfaceLanguages.length,
               ),
             ),
             SizedBox(height: 16),
@@ -101,10 +108,18 @@ class _SettingsScreenState extends State<SettingsScreen> {
             SizedBox(height: 8),
             Container(
               height: 42,
-              child: ChipsSelector(
-                options: learningLanguages,
-                selected: learningLanguage,
-                setter: selectLearning,
+              child: ListView.separated(
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) => InkWell(
+                  onTap: selectLearning(
+                    learningLanguages[index].name,
+                  ),
+                  child: LanguageWidget(
+                    learningLanguages[index],
+                  ),
+                ),
+                separatorBuilder: (context, index) => SizedBox(width: 8),
+                itemCount: learningLanguages.length,
               ),
             ),
             Expanded(
