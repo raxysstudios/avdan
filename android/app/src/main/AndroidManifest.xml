@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.avdan">
    <application
-        android:label="avdan"
+        android:label="Avdan"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
