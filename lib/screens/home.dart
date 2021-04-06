@@ -18,23 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
   _HomeScreenState() {
     Timer(
       Duration(milliseconds: 100),
-      () async {
-        final prefs = await SharedPreferences.getInstance();
-        var il = findLanguage(
-          prefs.getString('interfaceLanguage'),
-        );
-        var ll = findLanguage(
-          prefs.getString('learningLanguage'),
-        );
-
-        if (il == null || ll == null)
-          openSettings();
-        else
-          setState(() {
-            interfaceLanguage = il;
-            learningLanguage = ll;
-          });
-      },
+      loadLanguages,
     );
   }
 
@@ -44,6 +28,24 @@ class _HomeScreenState extends State<HomeScreen> {
   var styleSelected = TextButton.styleFrom(
     backgroundColor: Colors.blue[50],
   );
+
+  loadLanguages() async {
+    final prefs = await SharedPreferences.getInstance();
+    var il = findLanguage(
+      prefs.getString('interfaceLanguage'),
+    );
+    var ll = findLanguage(
+      prefs.getString('learningLanguage'),
+    );
+
+    if (il == null || ll == null)
+      openSettings();
+    else
+      setState(() {
+        interfaceLanguage = il;
+        learningLanguage = ll;
+      });
+  }
 
   openSettings() => Navigator.push(
         context,
