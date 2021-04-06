@@ -50,7 +50,7 @@ class ChapterItem extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: Colors.blue,
                     borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(10),
+                      topRight: Radius.circular(8),
                     ),
                   ),
                   child: Icon(

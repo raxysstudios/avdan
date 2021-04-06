@@ -15,7 +15,7 @@ class LanguageCard extends StatelessWidget {
     return Card(
       elevation: selected ? 4 : 1,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0),
+        borderRadius: BorderRadius.circular(8),
       ),
       clipBehavior: Clip.antiAlias,
       margin: const EdgeInsets.all(8),

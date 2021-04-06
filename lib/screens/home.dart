@@ -91,6 +91,24 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Container(
+            height: 128,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) => AspectRatio(
+                aspectRatio: 1.5,
+                child: ChapterItem(
+                  translations: chapters[index].translations,
+                  selected: chapter == chapters[index],
+                  onTap: () => setState(() {
+                    chapter = chapters[index];
+                    item = chapter.items[0];
+                  }),
+                ),
+              ),
+              itemCount: chapters.length,
+            ),
+          ),
           Expanded(
             child: FractionallySizedBox(
               widthFactor: 1,
@@ -110,24 +128,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               itemCount: chapter.items.length,
-            ),
-          ),
-          Container(
-            height: 128,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) => AspectRatio(
-                aspectRatio: 1.5,
-                child: ChapterItem(
-                  translations: chapters[index].translations,
-                  selected: chapter == chapters[index],
-                  onTap: () => setState(() {
-                    chapter = chapters[index];
-                    item = chapter.items[0];
-                  }),
-                ),
-              ),
-              itemCount: chapters.length,
             ),
           ),
         ],

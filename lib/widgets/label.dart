@@ -9,6 +9,13 @@ class Label extends StatelessWidget {
   String get target => translations[learningLanguage.name] ?? '';
   String get interface => translations[interfaceLanguage.name] ?? '';
 
+  var shadow = <Shadow>[
+    Shadow(
+      blurRadius: 8.0,
+      color: Colors.white,
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -18,9 +25,9 @@ class Label extends StatelessWidget {
           Text(
             capitalize(target),
             style: TextStyle(
-              color: Colors.grey[900],
-              fontSize: large ? 32 : 16,
-            ),
+                color: Colors.grey[900],
+                fontSize: large ? 32 : 16,
+                shadows: shadow),
           ),
         if (interface.length > 0)
           Text(
@@ -29,6 +36,7 @@ class Label extends StatelessWidget {
               color: Colors.grey,
               fontSize: large ? 26 : 14,
               fontStyle: FontStyle.italic,
+              shadows: shadow,
             ),
           ),
       ],
