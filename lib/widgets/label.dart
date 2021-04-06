@@ -18,6 +18,7 @@ class Label extends StatelessWidget {
           capitalize(target),
           style: TextStyle(
             fontSize: 16 * scale,
+            fontWeight: FontWeight.bold,
           ),
         ),
       if (interface.length > 0) ...[
