@@ -59,7 +59,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         title: Text(
           capitalize("Avdan"),
           style: TextStyle(
-            fontSize: 28,
+            fontSize: 24,
             fontWeight: FontWeight.bold,
           ),
         ),
