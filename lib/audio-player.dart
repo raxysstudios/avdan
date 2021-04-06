@@ -1,10 +1,18 @@
 import 'package:audioplayers/audio_cache.dart';
+import 'package:just_audio/just_audio.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 
-final audioPlayer = AudioCache();
+final audioCache = AudioCache();
+final audioPlayer = AudioPlayer();
 
 playAsset(String path) async {
   try {
-    audioPlayer.play(path);
+    if (kIsWeb) {
+      if (audioPlayer.playing) await audioPlayer.stop();
+      await audioPlayer.setAsset(path);
+      audioPlayer.play();
+    } else
+      audioCache.play(path);
   } catch (e) {
     print(e);
   }
