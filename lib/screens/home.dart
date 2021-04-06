@@ -18,7 +18,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   _HomeScreenState() {
     Timer(
-      Duration(milliseconds: 100),
+      Duration(),
       loadLanguages,
     );
   }

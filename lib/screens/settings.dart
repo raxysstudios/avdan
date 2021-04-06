@@ -16,7 +16,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     interfaceLanguages = List.from(languages.where((l) => l.isInterface));
     learningLanguages = List.from(languages.where((l) => l.isLearning));
 
-    Timer(Duration(milliseconds: 100), () async {
+    Timer(Duration(), () async {
       final prefs = await SharedPreferences.getInstance();
       var il = findLanguage(
         prefs.getString('interfaceLanguage'),
