@@ -67,7 +67,6 @@ class _HomeScreenState extends State<HomeScreen> {
               angle: -pi / 4,
               child: Image.asset(
                 learningLanguage.flag,
-                height: 100,
                 errorBuilder: (
                   BuildContext context,
                   Object exception,
