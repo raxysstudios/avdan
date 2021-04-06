@@ -103,14 +103,10 @@ class _HomeScreenState extends State<HomeScreen> {
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) => AspectRatio(
                 aspectRatio: 1.2,
-                child: TextButton(
-                  onPressed: () => setState(() => item = chapter.items[index]),
-                  child: ChapterItem(
-                    translations: chapter.items[index],
-                  ),
-                  style: item == chapter.items[index]
-                      ? styleSelected
-                      : TextButton.styleFrom(),
+                child: ChapterItem(
+                  translations: chapter.items[index],
+                  selected: item == chapter.items[index],
+                  onTap: () => setState(() => item = chapter.items[index]),
                 ),
               ),
               itemCount: chapter.items.length,
@@ -122,17 +118,13 @@ class _HomeScreenState extends State<HomeScreen> {
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) => AspectRatio(
                 aspectRatio: 1.2,
-                child: TextButton(
-                  onPressed: () => setState(() {
+                child: ChapterItem(
+                  translations: chapters[index].translations,
+                  selected: chapter == chapters[index],
+                  onTap: () => setState(() {
                     chapter = chapters[index];
                     item = chapter.items[0];
                   }),
-                  child: ChapterItem(
-                    translations: chapters[index].translations,
-                  ),
-                  style: chapter == chapters[index]
-                      ? styleSelected
-                      : TextButton.styleFrom(),
                 ),
               ),
               itemCount: chapters.length,
