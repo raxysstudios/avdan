@@ -55,7 +55,9 @@ class _HomeScreenState extends State<HomeScreen> {
         MaterialPageRoute(
           builder: (context) => SettingsScreen(),
         ),
-      ).then((v) => setState(() {}));
+      ).then(
+        (v) => setState(() {}),
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -106,6 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   onTap: () => setState(() {
                     chapter = chapters[index];
                     item = chapter.items[0];
+                    isGrid = true;
                   }),
                 ),
               ),
