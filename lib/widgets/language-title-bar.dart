@@ -19,7 +19,7 @@ class LanguageTitleBar extends StatelessWidget {
           transform: Matrix4.identity()
             ..scale(1.25)
             ..translate(-64, 72)
-            ..rotateZ(-0.8),
+            ..rotateZ(-0.785),
           child: Image.asset(
             language.flag,
             fit: BoxFit.fitHeight,

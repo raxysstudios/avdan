@@ -54,8 +54,8 @@ class LanguageCard extends StatelessWidget {
                 child: Transform(
                   transform: Matrix4.identity()
                     ..scale(1.25)
-                    ..translate(8, 72)
-                    ..rotateZ(-0.8),
+                    ..translate(6, 68)
+                    ..rotateZ(-0.785),
                   child: Image.asset(
                     language.flag,
                     fit: BoxFit.fitHeight,
