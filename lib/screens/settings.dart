@@ -85,7 +85,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 style: TextStyle(
                   fontSize: 20,
                   color: Colors.black54,
-                  fontWeight: FontWeight.bold,
+                  // fontWeight: FontWeight.bold,
                 ),
               ),
             ),
@@ -110,7 +110,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 style: TextStyle(
                   fontSize: 20,
                   color: Colors.black54,
-                  fontWeight: FontWeight.bold,
+                  // fontWeight: FontWeight.bold,
                 ),
               ),
             ),
@@ -138,8 +138,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     Text(
                       "Hohag",
                       style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.black54,
+                        fontSize: 24,
                         fontWeight: FontWeight.bold,
                       ),
                     ),

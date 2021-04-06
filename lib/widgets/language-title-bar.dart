@@ -47,7 +47,7 @@ class LanguageTitleBar extends StatelessWidget {
               Text(
                 capitalize(translatedName),
                 style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 16,
                   color: Colors.black54,
                 ),
               ),
