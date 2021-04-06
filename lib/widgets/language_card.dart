@@ -22,27 +22,24 @@ class LanguageCard extends StatelessWidget {
       child: InkWell(
         onTap: onTap,
         child: Container(
-          width: 256,
+          width: 192,
           child: Stack(
             children: [
               Align(
                 alignment: Alignment.centerRight,
-                child: Transform.scale(
-                  scale: 1.25,
-                  child: Transform.translate(
-                    offset: Offset(16, 76),
-                    child: Transform.rotate(
-                      angle: -pi / 4,
-                      child: Image.asset(
-                        language.flag,
-                        fit: BoxFit.fitHeight,
-                        errorBuilder: (
-                          BuildContext context,
-                          Object exception,
-                          StackTrace? stackTrace,
-                        ) =>
-                            Container(),
-                      ),
+                child: Transform.translate(
+                  offset: Offset(48, 32),
+                  child: Transform.rotate(
+                    angle: -pi / 4,
+                    child: Image.asset(
+                      language.flag,
+                      fit: BoxFit.fitHeight,
+                      errorBuilder: (
+                        BuildContext context,
+                        Object exception,
+                        StackTrace? stackTrace,
+                      ) =>
+                          Container(),
                     ),
                   ),
                 ),
