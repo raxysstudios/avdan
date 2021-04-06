@@ -1,6 +1,10 @@
 [
   {
-    "translations": { "english": "kitchen", "russian": "кухня" },
+    "translations": {
+      "english": "kitchen",
+      "russian": "кухня",
+      "iron": "хæринаггæнæн"
+    },
     "items": [
       { "english": "knife", "russian": "нож", "iron": "кард" },
       { "english": "fork", "russian": "вилка", "iron": "саджилæг" },
