@@ -26,35 +26,12 @@ class LanguageCard extends StatelessWidget {
           width: 256,
           child: Stack(
             children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      capitalize(language.nativeName),
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: selected ? Colors.blue : Colors.black,
-                      ),
-                    ),
-                    Text(
-                      capitalize(translatedName),
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.black54,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
               Align(
                 alignment: Alignment.centerRight,
                 child: Transform(
                   transform: Matrix4.identity()
                     ..scale(1.25)
-                    ..translate(6, 68)
+                    ..translate(16, 76)
                     ..rotateZ(-0.785),
                   child: Image.asset(
                     language.flag,
@@ -68,6 +45,46 @@ class LanguageCard extends StatelessWidget {
                   ),
                 ),
               ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      capitalize(language.nativeName),
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      capitalize(translatedName),
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.black54,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              if (selected)
+                Align(
+                  alignment: Alignment.bottomLeft,
+                  child: Container(
+                    width: 32,
+                    height: 32,
+                    decoration: BoxDecoration(
+                      color: Colors.blue,
+                      borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(10),
+                      ),
+                    ),
+                    child: Icon(
+                      Icons.check,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
             ],
           ),
         ),

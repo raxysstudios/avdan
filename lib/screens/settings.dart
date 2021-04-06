@@ -90,7 +90,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
             ),
             Container(
-              height: 96,
+              height: 112,
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
@@ -115,7 +115,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
             ),
             Container(
-              height: 96,
+              height: 112,
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
