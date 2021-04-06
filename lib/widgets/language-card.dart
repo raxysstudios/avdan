@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:avdan/data/language.dart';
 import 'package:avdan/data/store.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +35,7 @@ class LanguageCard extends StatelessWidget {
                   child: Transform.translate(
                     offset: Offset(16, 76),
                     child: Transform.rotate(
-                      angle: -0.785,
+                      angle: -pi / 4,
                       child: Image.asset(
                         language.flag,
                         fit: BoxFit.fitHeight,

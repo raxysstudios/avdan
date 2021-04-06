@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:avdan/data/store.dart';
 import 'package:flutter/material.dart';
 import 'package:avdan/data/language.dart';
@@ -21,7 +23,7 @@ class LanguageTitleBar extends StatelessWidget {
             child: Transform.translate(
               offset: Offset(-48, 48),
               child: Transform.rotate(
-                angle: -0.785,
+                angle: -pi / 4,
                 child: Image.asset(
                   language.flag,
                   fit: BoxFit.fitHeight,
