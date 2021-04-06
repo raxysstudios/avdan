@@ -92,7 +92,7 @@ class _HomeScreenState extends State<HomeScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            height: 128,
+            height: 96,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) => AspectRatio(
@@ -107,6 +107,16 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               itemCount: chapters.length,
+            ),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey,
+                  spreadRadius: 1,
+                  blurRadius: 4,
+                )
+              ],
             ),
           ),
           Expanded(

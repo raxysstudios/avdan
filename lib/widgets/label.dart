@@ -11,7 +11,7 @@ class Label extends StatelessWidget {
 
   var shadow = <Shadow>[
     Shadow(
-      blurRadius: 8.0,
+      blurRadius: 16.0,
       color: Colors.white,
     ),
   ];
@@ -25,15 +25,15 @@ class Label extends StatelessWidget {
           Text(
             capitalize(target),
             style: TextStyle(
-                color: Colors.grey[900],
-                fontSize: large ? 32 : 16,
-                shadows: shadow),
+              fontSize: large ? 32 : 16,
+              shadows: shadow,
+            ),
           ),
         if (interface.length > 0)
           Text(
             capitalize(interface),
             style: TextStyle(
-              color: Colors.grey,
+              color: Colors.black54,
               fontSize: large ? 26 : 14,
               fontStyle: FontStyle.italic,
               shadows: shadow,
