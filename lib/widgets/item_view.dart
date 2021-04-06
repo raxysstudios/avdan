@@ -6,8 +6,9 @@ import 'package:flutter/widgets.dart';
 import 'label.dart';
 
 class ItemView extends StatelessWidget {
-  ItemView({required this.translations});
+  ItemView(this.translations, {this.action});
   final Map<String, String> translations;
+  final Widget? action;
 
   String get name => translations['english'] ?? '';
   String get image => 'assets/images/$name.png';
@@ -19,6 +20,7 @@ class ItemView extends StatelessWidget {
       onTap: () => playAsset(audio),
       child: Stack(
         children: [
+          if (action != null) action as Widget,
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Align(
@@ -39,7 +41,7 @@ class ItemView extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Label(
               translations,
-              scale: 2,
+              scale: 1.5,
             ),
           ),
         ],

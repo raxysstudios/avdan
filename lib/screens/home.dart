@@ -6,6 +6,7 @@ import 'package:avdan/data/store.dart';
 import 'package:avdan/screens/settings.dart';
 import 'package:avdan/widgets/chapter_item.dart';
 import 'package:avdan/widgets/item_view.dart';
+import 'package:avdan/widgets/label.dart';
 import 'package:avdan/widgets/language_title.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -23,6 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  bool isGrid = false;
   Chapter chapter = chapters[0];
   Map<String, String> item = chapters[0].items[0];
 
@@ -96,7 +98,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) => AspectRatio(
-                aspectRatio: 1.5,
+                aspectRatio: 1,
                 child: ChapterItem(
                   translations: chapters[index].translations,
                   selected: chapter == chapters[index],
@@ -120,27 +122,82 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           ),
-          Expanded(
-            child: FractionallySizedBox(
-              widthFactor: 1,
-              child: ItemView(translations: item),
-            ),
-          ),
-          Container(
-            height: 128,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) => AspectRatio(
-                aspectRatio: 1.5,
-                child: ChapterItem(
-                  translations: chapter.items[index],
-                  selected: item == chapter.items[index],
-                  onTap: () => setState(() => item = chapter.items[index]),
-                ),
+          if (isGrid)
+            Expanded(
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8),
+                    child: Label(
+                      chapter.translations,
+                      scale: 1.25,
+                      row: true,
+                    ),
+                  ),
+                  Expanded(
+                    child: GridView.count(
+                      crossAxisCount: 3,
+                      children: [
+                        for (var i in chapter.items)
+                          AspectRatio(
+                            aspectRatio: 1,
+                            child: ChapterItem(
+                              translations: i,
+                              labeled: false,
+                              onTap: () => setState(
+                                () {
+                                  item = i;
+                                  isGrid = false;
+                                },
+                              ),
+                            ),
+                          ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
-              itemCount: chapter.items.length,
             ),
-          ),
+          if (!isGrid)
+            Expanded(
+              child: Column(
+                children: [
+                  Expanded(
+                    child: FractionallySizedBox(
+                      widthFactor: 1,
+                      child: ItemView(
+                        item,
+                        action: Align(
+                          alignment: Alignment.topRight,
+                          child: IconButton(
+                            icon: Icon(Icons.grid_view),
+                            onPressed: () => setState(
+                              () => isGrid = true,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    height: 128,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (context, index) => AspectRatio(
+                        aspectRatio: 1.5,
+                        child: ChapterItem(
+                          translations: chapter.items[index],
+                          selected: item == chapter.items[index],
+                          onTap: () =>
+                              setState(() => item = chapter.items[index]),
+                        ),
+                      ),
+                      itemCount: chapter.items.length,
+                    ),
+                  ),
+                ],
+              ),
+            ),
         ],
       ),
     );
