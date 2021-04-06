@@ -65,19 +65,16 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         leading: Transform.scale(
           scale: 3,
-          child: Transform.translate(
-            offset: Offset(4, 0),
-            child: Transform.rotate(
-              angle: -pi / 4,
-              child: Image.asset(
-                learningLanguage.flag,
-                errorBuilder: (
-                  BuildContext context,
-                  Object exception,
-                  StackTrace? stackTrace,
-                ) =>
-                    Container(),
-              ),
+          child: Transform.rotate(
+            angle: -pi / 4,
+            child: Image.asset(
+              learningLanguage.flag,
+              errorBuilder: (
+                BuildContext context,
+                Object exception,
+                StackTrace? stackTrace,
+              ) =>
+                  Container(),
             ),
           ),
         ),
