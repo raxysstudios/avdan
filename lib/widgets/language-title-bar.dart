@@ -15,10 +15,10 @@ class LanguageTitleBar extends StatelessWidget {
     return Row(
       children: [
         Container(
-          height: 96,
+          height: 64,
           transform: Matrix4.identity()
-            ..scale(1.25)
-            ..translate(-64, 72)
+            ..scale(1.5)
+            ..translate(-48, 48)
             ..rotateZ(-0.785),
           child: Image.asset(
             language.flag,
