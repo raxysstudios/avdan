@@ -15,16 +15,17 @@ class ItemView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: () => playAsset(audio),
-      child: Padding(
-        padding: const EdgeInsets.all(8),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Expanded(
+    return InkWell(
+      onTap: () => playAsset(audio),
+      child: Stack(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Align(
+              alignment: Alignment.bottomCenter,
               child: Image.asset(
                 image,
+                fit: BoxFit.fitHeight,
                 errorBuilder: (
                   BuildContext context,
                   Object exception,
@@ -33,9 +34,15 @@ class ItemView extends StatelessWidget {
                     Container(),
               ),
             ),
-            Label(translations: translations),
-          ],
-        ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Label(
+              translations,
+              large: true,
+            ),
+          ),
+        ],
       ),
     );
   }

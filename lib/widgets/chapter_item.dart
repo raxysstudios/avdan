@@ -39,7 +39,7 @@ class ChapterItem extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Label(translations: translations),
+              child: Label(translations),
             ),
             if (selected)
               Align(

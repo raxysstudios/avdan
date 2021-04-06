@@ -2,8 +2,9 @@ import 'package:avdan/data/store.dart';
 import 'package:flutter/material.dart';
 
 class Label extends StatelessWidget {
-  Label({required this.translations});
+  Label(this.translations, {this.large = false});
   final Map<String, String> translations;
+  final bool large;
 
   String get target => translations[learningLanguage.name] ?? '';
   String get interface => translations[interfaceLanguage.name] ?? '';
@@ -18,7 +19,7 @@ class Label extends StatelessWidget {
             capitalize(target),
             style: TextStyle(
               color: Colors.grey[900],
-              fontSize: 16,
+              fontSize: large ? 32 : 16,
             ),
           ),
         if (interface.length > 0)
@@ -26,6 +27,7 @@ class Label extends StatelessWidget {
             capitalize(interface),
             style: TextStyle(
               color: Colors.grey,
+              fontSize: large ? 26 : 14,
               fontStyle: FontStyle.italic,
             ),
           ),
