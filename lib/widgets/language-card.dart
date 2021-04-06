@@ -14,43 +14,50 @@ class LanguageCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: selected ? 8 : 2,
+      elevation: selected ? 6 : 1,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+      clipBehavior: Clip.antiAlias,
+      margin: const EdgeInsets.all(8),
       child: InkWell(
         onTap: onTap,
         child: Container(
           width: 256,
-          child: ClipRect(
-            child: Stack(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        capitalize(language.nativeName),
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: selected ? Colors.blue : Colors.black,
-                        ),
+          child: Stack(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      capitalize(language.nativeName),
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: selected ? Colors.blue : Colors.black,
                       ),
-                      Text(
-                        capitalize(translatedName),
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.black54,
-                        ),
+                    ),
+                    Text(
+                      capitalize(translatedName),
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black54,
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-                Container(
-                  alignment: Alignment.bottomRight,
-                  // transform: Matrix4.identity()..scale(3),
+              ),
+              Align(
+                alignment: Alignment.centerRight,
+                child: Transform(
+                  transform: Matrix4.identity()
+                    ..scale(1.25)
+                    ..translate(8, 72)
+                    ..rotateZ(-0.8),
                   child: Image.asset(
                     language.flag,
-                    height: 32,
                     errorBuilder: (
                       BuildContext context,
                       Object exception,
@@ -59,8 +66,8 @@ class LanguageCard extends StatelessWidget {
                         Container(),
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

@@ -70,8 +70,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           ),
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8),
+      body: Center(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -99,30 +98,29 @@ class _SettingsScreenState extends State<SettingsScreen> {
             //   ),
             // ),
             SizedBox(height: 16),
-            Text(
-              "Learning language",
-              style: TextStyle(
-                fontSize: 18,
-                color: Colors.black54,
-                fontWeight: FontWeight.bold,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: Text(
+                "Learning language",
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.black54,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
-            SizedBox(height: 8),
             Container(
               height: 96,
-              child: ListView.separated(
+              child: ListView(
                 scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) => LanguageCard(
-                  learningLanguages[index],
-                  selected: learningLanguage == learningLanguages[index],
-                  onTap: () => selectLearning(
-                    learningLanguages[index],
-                  ),
-                ),
-                separatorBuilder: (context, index) => SizedBox(
-                  width: 4,
-                ),
-                itemCount: learningLanguages.length,
+                children: [
+                  for (var l in learningLanguages)
+                    LanguageCard(
+                      l,
+                      selected: learningLanguage == l,
+                      onTap: () => selectLearning(l),
+                    ),
+                ],
               ),
             ),
             Expanded(
@@ -138,6 +136,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
             Container(
               height: 64,
+              margin: const EdgeInsets.symmetric(horizontal: 8.0),
               child: Row(
                 children: [
                   Expanded(
