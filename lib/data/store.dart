@@ -31,11 +31,19 @@ Future<void> initialize() async {
       (j) => Language.fromJson(j as Map<String, dynamic>),
     ),
   );
-  print(languages);
 }
 
 late List<Chapter> chapters = [];
 late List<Language> languages = [];
 
-String learningLanguage = "iron";
-String interfaceLanguage = "english";
+Language _dummy = Language(translations: {'null': 'null'});
+Language learningLanguage = _dummy;
+Language interfaceLanguage = _dummy;
+
+Language? findLanguage(String? name) {
+  var l = languages.firstWhere(
+    (l) => l.name == name,
+    orElse: () => _dummy,
+  );
+  return l == _dummy ? null : l;
+}

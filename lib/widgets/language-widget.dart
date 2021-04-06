@@ -7,7 +7,7 @@ class LanguageWidget extends StatelessWidget {
   final Language language;
 
   String get translatedName =>
-      language.translations[interfaceLanguage] ?? 'null';
+      language.translations[interfaceLanguage.name] ?? 'null';
 
   @override
   Widget build(BuildContext context) {

@@ -5,6 +5,7 @@ import 'package:avdan/data/store.dart';
 import 'package:avdan/screens/settings.dart';
 import 'package:avdan/widgets/chapter_item.dart';
 import 'package:avdan/widgets/item_view.dart';
+import 'package:avdan/widgets/language-widget.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -19,12 +20,19 @@ class _HomeScreenState extends State<HomeScreen> {
       Duration(milliseconds: 100),
       () async {
         final prefs = await SharedPreferences.getInstance();
-        if (prefs.getString('learningLanguage') == null)
+        var il = findLanguage(
+          prefs.getString('interfaceLanguage'),
+        );
+        var ll = findLanguage(
+          prefs.getString('learningLanguage'),
+        );
+
+        if (il == null || ll == null)
           openSettings();
         else
           setState(() {
-            learningLanguage = prefs.getString('learningLanguage') ?? 'null';
-            interfaceLanguage = prefs.getString('interfaceLanguage') ?? 'null';
+            interfaceLanguage = il;
+            learningLanguage = ll;
           });
       },
     );
@@ -49,13 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text(
-          capitalize(learningLanguage),
-          style: TextStyle(
-            fontSize: 36,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
+        title: LanguageWidget(learningLanguage),
         actions: [
           IconButton(
             icon: Icon(Icons.settings),

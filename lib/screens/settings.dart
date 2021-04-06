@@ -16,17 +16,22 @@ class _SettingsScreenState extends State<SettingsScreen> {
   _SettingsScreenState() {
     interfaceLanguages = List.from(languages.where((l) => l.isInterface));
     learningLanguages = List.from(languages.where((l) => l.isLearning));
-    print("### LEARNINGN LANGUAGE ###");
-    print(learningLanguages[0].name);
 
     Timer(Duration(milliseconds: 100), () async {
       final prefs = await SharedPreferences.getInstance();
+      var il = findLanguage(
+        prefs.getString('interfaceLanguage'),
+      );
+      var ll = findLanguage(
+        prefs.getString('learningLanguage'),
+      );
+
       await selectInterface(
-        prefs.getString('interfaceLanguage') ?? interfaceLanguages[0].name,
+        il ?? interfaceLanguages[0],
         prefs: prefs,
       );
       await selectLearning(
-        prefs.getString('learningLanguage') ?? learningLanguages[0].name,
+        ll ?? learningLanguages[0],
         prefs: prefs,
       );
     });
@@ -35,16 +40,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
   List<Language> interfaceLanguages = [];
   List<Language> learningLanguages = [];
 
-  selectInterface(String l, {SharedPreferences? prefs}) async {
+  selectInterface(Language l, {SharedPreferences? prefs}) async {
     setState(() => interfaceLanguage = l);
     if (prefs == null) prefs = await SharedPreferences.getInstance();
-    await prefs.setString('interfaceLanguage', l);
+    await prefs.setString('inte  rfaceLanguage', l.name);
   }
 
-  selectLearning(String l, {SharedPreferences? prefs}) async {
+  selectLearning(Language l, {SharedPreferences? prefs}) async {
     setState(() => learningLanguage = l);
     if (prefs == null) prefs = await SharedPreferences.getInstance();
-    await prefs.setString('learningLanguage', l);
+    await prefs.setString('learningLanguage', l.name);
   }
 
   @override
@@ -87,7 +92,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 itemBuilder: (context, index) => Card(
                   child: InkWell(
                     onTap: () => selectInterface(
-                      interfaceLanguages[index].name,
+                      interfaceLanguages[index],
                     ),
                     child: LanguageWidget(
                       interfaceLanguages[index],
@@ -115,7 +120,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 itemBuilder: (context, index) => Card(
                   child: InkWell(
                     onTap: () => selectLearning(
-                      learningLanguages[index].name,
+                      learningLanguages[index],
                     ),
                     child: LanguageWidget(
                       learningLanguages[index],
