@@ -13,17 +13,21 @@ class ChapterItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: selected ? Colors.blue[50] : Colors.white,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+      clipBehavior: Clip.antiAlias,
       child: InkWell(
         onTap: onTap,
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Expanded(
+        child: Stack(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Align(
+                alignment: Alignment.centerRight,
                 child: Image.asset(
                   image,
+                  fit: BoxFit.fitHeight,
                   errorBuilder: (
                     BuildContext context,
                     Object exception,
@@ -32,9 +36,30 @@ class ChapterItem extends StatelessWidget {
                       Container(),
                 ),
               ),
-              Label(translations: translations),
-            ],
-          ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Label(translations: translations),
+            ),
+            if (selected)
+              Align(
+                alignment: Alignment.bottomLeft,
+                child: Container(
+                  width: 32,
+                  height: 32,
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(10),
+                    ),
+                  ),
+                  child: Icon(
+                    Icons.check,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+          ],
         ),
       ),
     );

@@ -11,22 +11,24 @@ class Label extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          capitalize(target),
-          style: TextStyle(
-            color: Colors.grey[900],
-            fontSize: 16,
+        if (target.length > 0)
+          Text(
+            capitalize(target),
+            style: TextStyle(
+              color: Colors.grey[900],
+              fontSize: 16,
+            ),
           ),
-        ),
-        Text(
-          capitalize(interface),
-          style: TextStyle(
-            color: Colors.grey,
-            fontStyle: FontStyle.italic,
+        if (interface.length > 0)
+          Text(
+            capitalize(interface),
+            style: TextStyle(
+              color: Colors.grey,
+              fontStyle: FontStyle.italic,
+            ),
           ),
-        ),
       ],
     );
   }
