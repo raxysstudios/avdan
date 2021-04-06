@@ -84,12 +84,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
               height: 42,
               child: ListView.separated(
                 scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) => InkWell(
-                  onTap: selectInterface(
-                    interfaceLanguages[index].name,
-                  ),
-                  child: LanguageWidget(
-                    interfaceLanguages[index],
+                itemBuilder: (context, index) => Card(
+                  child: InkWell(
+                    onTap: () => selectInterface(
+                      interfaceLanguages[index].name,
+                    ),
+                    child: LanguageWidget(
+                      interfaceLanguages[index],
+                    ),
                   ),
                 ),
                 separatorBuilder: (context, index) => SizedBox(width: 8),
@@ -110,12 +112,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
               height: 42,
               child: ListView.separated(
                 scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) => InkWell(
-                  onTap: selectLearning(
-                    learningLanguages[index].name,
-                  ),
-                  child: LanguageWidget(
-                    learningLanguages[index],
+                itemBuilder: (context, index) => Card(
+                  child: InkWell(
+                    onTap: () => selectLearning(
+                      learningLanguages[index].name,
+                    ),
+                    child: LanguageWidget(
+                      learningLanguages[index],
+                    ),
                   ),
                 ),
                 separatorBuilder: (context, index) => SizedBox(width: 8),

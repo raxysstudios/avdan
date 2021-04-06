@@ -1,3 +1,4 @@
+import 'package:avdan/data/store.dart';
 import 'package:flutter/material.dart';
 import 'package:avdan/data/language.dart';
 
@@ -5,20 +6,22 @@ class LanguageWidget extends StatelessWidget {
   const LanguageWidget(this.language);
   final Language language;
 
+  String get translatedName =>
+      language.translations[interfaceLanguage] ?? 'null';
+
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Expanded(
-          child: Image.asset(
-            language.flag,
-            errorBuilder: (
-              BuildContext context,
-              Object exception,
-              StackTrace? stackTrace,
-            ) =>
-                Container(),
-          ),
+        Image.asset(
+          language.flag,
+          width: 64,
+          errorBuilder: (
+            BuildContext context,
+            Object exception,
+            StackTrace? stackTrace,
+          ) =>
+              Container(),
         ),
         Column(
           children: [
@@ -29,9 +32,9 @@ class LanguageWidget extends StatelessWidget {
               ),
             ),
             Text(
-              language.name,
+              translatedName,
               style: TextStyle(
-                fontSize: 16,
+                fontSize: 20,
                 color: Colors.grey,
               ),
             ),
