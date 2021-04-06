@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:avdan/data/chapter.dart';
 import 'package:avdan/data/language.dart';
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:package_info/package_info.dart';
 
 capitalize(String value) => value
     .split(' ')
@@ -31,6 +32,9 @@ Future<void> initialize() async {
       (j) => Language.fromJson(j as Map<String, dynamic>),
     ),
   );
+
+  var info = await PackageInfo.fromPlatform();
+  version = "Avdan v" + info.version;
 }
 
 late List<Chapter> chapters = [];
@@ -47,3 +51,5 @@ Language? findLanguage(String? name) {
   );
   return l == _dummy ? null : l;
 }
+
+String version = '';

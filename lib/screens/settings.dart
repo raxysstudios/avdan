@@ -132,13 +132,21 @@ class _SettingsScreenState extends State<SettingsScreen> {
               child: Container(),
             ),
             Container(
+              alignment: Alignment.center,
               height: 128,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(4),
-                child: Image.network(
-                  "assets/hohag.png",
-                  fit: BoxFit.fitHeight,
-                ),
+              child: Row(
+                children: [
+                  Text(
+                    version,
+                  ),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(512),
+                    child: Image.network(
+                      "assets/hohag.png",
+                      fit: BoxFit.fitHeight,
+                    ),
+                  ),
+                ],
               ),
             ),
             Container(
