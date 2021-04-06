@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:avdan/data/language.dart';
-import 'package:avdan/data/store.dart';
+import 'package:avdan/widgets/language_title.dart';
 import 'package:flutter/material.dart';
 
 class LanguageCard extends StatelessWidget {
@@ -9,9 +9,6 @@ class LanguageCard extends StatelessWidget {
   final Language language;
   final bool selected;
   final Function()? onTap;
-
-  String get translatedName =>
-      language.translations[interfaceLanguage.name] ?? 'null';
 
   @override
   Widget build(BuildContext context) {
@@ -52,25 +49,7 @@ class LanguageCard extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      capitalize(language.nativeName),
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Text(
-                      capitalize(translatedName),
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.black54,
-                      ),
-                    ),
-                  ],
-                ),
+                child: LanguageTitle(language),
               ),
               if (selected)
                 Align(

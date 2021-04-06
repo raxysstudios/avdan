@@ -1,11 +1,12 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:avdan/data/chapter.dart';
 import 'package:avdan/data/store.dart';
 import 'package:avdan/screens/settings.dart';
 import 'package:avdan/widgets/chapter_item.dart';
 import 'package:avdan/widgets/item_view.dart';
-import 'package:avdan/widgets/language-title-bar.dart';
+import 'package:avdan/widgets/language_title.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -58,8 +59,29 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: LanguageTitleBar(learningLanguage),
+        leading: Transform.scale(
+          scale: 3,
+          child: Transform.translate(
+            offset: Offset(4, 0),
+            child: Transform.rotate(
+              angle: -pi / 4,
+              child: Image.asset(
+                learningLanguage.flag,
+                height: 100,
+                errorBuilder: (
+                  BuildContext context,
+                  Object exception,
+                  StackTrace? stackTrace,
+                ) =>
+                    Container(),
+              ),
+            ),
+          ),
+        ),
+        title: Padding(
+          padding: const EdgeInsets.only(left: 32),
+          child: LanguageTitle(learningLanguage),
+        ),
         actions: [
           IconButton(
             icon: Icon(Icons.settings),
@@ -120,31 +142,5 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
     );
-    // return  DefaultTabController(
-    //   length: chapters.length,
-    //   child: Scaffold(
-    //     appBar: AppBar(
-    //       bottom: TabBar(
-    //         tabs: [
-    //           for (var chapter in chapters)
-    //             Tab(
-    //               text: capitalize(chapter.translations['english'] ?? ''),
-    //             ),
-    //         ],
-    //       ),
-    //       title: Text(
-    //         capitalize(learningLanguage),
-    //       ),
-    //     ),
-    //     body: TabBarView(
-    //       children: [
-    //         for (var chapter in chapters)
-    //           ChapterGrid(
-    //             chapter: chapter,
-    //           ),
-    //       ],
-    //     ),
-    //   ),
-    // );
   }
 }

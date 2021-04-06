@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:avdan/data/language.dart';
 import 'package:avdan/data/store.dart';
-import 'package:avdan/widgets/language-card.dart';
+import 'package:avdan/widgets/language_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -59,7 +59,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         title: Text(
           capitalize("Avdan"),
           style: TextStyle(
-            fontSize: 36,
+            fontSize: 28,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -147,7 +147,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       height: 128,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(512),
-                        child: Image.network(
+                        child: Image.asset(
                           "assets/hohag.png",
                           fit: BoxFit.fitHeight,
                         ),
