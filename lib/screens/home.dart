@@ -100,6 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: ChapterItem(
                   translations: chapters[index].translations,
                   selected: chapter == chapters[index],
+                  labeled: false,
                   onTap: () => setState(() {
                     chapter = chapters[index];
                     item = chapter.items[0];
@@ -112,7 +113,7 @@ class _HomeScreenState extends State<HomeScreen> {
               color: Colors.white,
               boxShadow: [
                 BoxShadow(
-                  color: Colors.grey,
+                  color: Colors.grey.withOpacity(0.6),
                   spreadRadius: 1,
                   blurRadius: 4,
                 )
