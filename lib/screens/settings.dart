@@ -109,16 +109,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
             SizedBox(height: 8),
             Container(
-              height: 64,
+              height: 96,
               child: ListView.separated(
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) => LanguageCard(
                   learningLanguages[index],
+                  selected: learningLanguage == learningLanguages[index],
                   onTap: () => selectLearning(
                     learningLanguages[index],
                   ),
                 ),
-                separatorBuilder: (context, index) => SizedBox(width: 8),
+                separatorBuilder: (context, index) => SizedBox(
+                  width: 4,
+                ),
                 itemCount: learningLanguages.length,
               ),
             ),

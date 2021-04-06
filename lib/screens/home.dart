@@ -5,7 +5,7 @@ import 'package:avdan/data/store.dart';
 import 'package:avdan/screens/settings.dart';
 import 'package:avdan/widgets/chapter_item.dart';
 import 'package:avdan/widgets/item_view.dart';
-import 'package:avdan/widgets/language-widget.dart';
+import 'package:avdan/widgets/language-title-bar.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -57,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: LanguageWidget(learningLanguage),
+        title: LanguageTitleBar(learningLanguage),
         actions: [
           IconButton(
             icon: Icon(Icons.settings),
