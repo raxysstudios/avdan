@@ -17,6 +17,14 @@
     }
   },
   {
+    "isLearning": true,
+    "translations": {
+      "english": "kabardian",
+      "russian": "кабардинский",
+      "kabardian": "къэбэрдейбзэ"
+    }
+  },
+  {
     "isInterface": true,
     "translations": {
       "english": "english",
@@ -28,6 +36,21 @@
     "translations": {
       "english": "russian",
       "russian": "русский"
+    }
+  },
+  {
+    "isInterface": true,
+    "translations": {
+      "english": "russian",
+      "russian": "русский"
+    }
+  },
+  {
+    "isInterface": true,
+    "translations": {
+      "english": "turkish",
+      "russian": "турецкий",
+      "turkish": "türk"
     }
   }
 ]
