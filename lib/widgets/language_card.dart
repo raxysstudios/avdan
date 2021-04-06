@@ -13,7 +13,7 @@ class LanguageCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: selected ? 6 : 1,
+      elevation: selected ? 4 : 1,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10.0),
       ),
