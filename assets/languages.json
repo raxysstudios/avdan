@@ -41,13 +41,6 @@
   {
     "isInterface": true,
     "translations": {
-      "english": "russian",
-      "russian": "русский"
-    }
-  },
-  {
-    "isInterface": true,
-    "translations": {
       "english": "turkish",
       "russian": "турецкий",
       "turkish": "türk"
