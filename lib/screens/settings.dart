@@ -74,30 +74,35 @@ class _SettingsScreenState extends State<SettingsScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Text(
-            //   "Interface language",
-            //   style: TextStyle(
-            //     fontSize: 18,
-            //     color: Colors.black54,
-            //     fontWeight: FontWeight.bold,
-            //   ),
-            // ),
-            // SizedBox(height: 8),
-            // Container(
-            //   height: 42,
-            //   child: ListView.separated(
-            //     scrollDirection: Axis.horizontal,
-            //     itemBuilder: (context, index) => LanguageCard(
-            //       interfaceLanguages[index],
-            //       onTap: () => selectInterface(
-            //         interfaceLanguages[index],
-            //       ),
-            //     ),
-            //     separatorBuilder: (context, index) => SizedBox(width: 8),
-            //     itemCount: interfaceLanguages.length,
-            //   ),
-            // ),
-            SizedBox(height: 16),
+            Padding(
+              padding: const EdgeInsets.only(
+                top: 8,
+                left: 8,
+                right: 8,
+              ),
+              child: Text(
+                "Interface language",
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.black54,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            Container(
+              height: 96,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  for (var l in interfaceLanguages)
+                    LanguageCard(
+                      l,
+                      selected: interfaceLanguage == l,
+                      onTap: () => selectInterface(l),
+                    ),
+                ],
+              ),
+            ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
               child: Text(
