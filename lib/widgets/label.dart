@@ -27,7 +27,6 @@ class Label extends StatelessWidget {
           style: TextStyle(
             color: Colors.black54,
             fontSize: (row ? 16 : 14) * scale,
-            fontStyle: FontStyle.italic,
           ),
         ),
       ]
