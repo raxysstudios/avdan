@@ -63,26 +63,27 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Transform.scale(
-          scale: 3,
-          child: Transform.rotate(
-            angle: -pi / 4,
-            child: Image.asset(
-              learningLanguage.flag,
-              errorBuilder: (
-                BuildContext context,
-                Object exception,
-                StackTrace? stackTrace,
-              ) =>
-                  Container(),
+        automaticallyImplyLeading: false,
+        title: LanguageTitle(learningLanguage),
+        actions: [
+          Transform.translate(
+            offset: Offset(-16, 0),
+            child: Transform.scale(
+              scale: 1.5,
+              child: Transform.rotate(
+                angle: -pi / 4,
+                child: Image.asset(
+                  learningLanguage.flag,
+                  errorBuilder: (
+                    BuildContext context,
+                    Object exception,
+                    StackTrace? stackTrace,
+                  ) =>
+                      Container(),
+                ),
+              ),
             ),
           ),
-        ),
-        title: Padding(
-          padding: const EdgeInsets.only(left: 32),
-          child: LanguageTitle(learningLanguage),
-        ),
-        actions: [
           IconButton(
             icon: Icon(Icons.settings),
             onPressed: openSettings,
