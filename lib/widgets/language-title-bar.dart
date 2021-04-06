@@ -15,13 +15,14 @@ class LanguageTitleBar extends StatelessWidget {
     return Row(
       children: [
         Container(
+          height: 96,
           transform: Matrix4.identity()
-            ..translate(-64, 48)
-            ..scale(3)
+            ..scale(1.25)
+            ..translate(-64, 72)
             ..rotateZ(-0.8),
           child: Image.asset(
             language.flag,
-            height: 32,
+            fit: BoxFit.fitHeight,
             errorBuilder: (
               BuildContext context,
               Object exception,
@@ -30,26 +31,28 @@ class LanguageTitleBar extends StatelessWidget {
                 Container(),
           ),
         ),
-        SizedBox(width: 32),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              capitalize(language.nativeName),
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                color: selected ? Colors.blue : Colors.black,
+        Container(
+          transform: Matrix4.identity()..translate(-32),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                capitalize(language.nativeName),
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: selected ? Colors.blue : Colors.black,
+                ),
               ),
-            ),
-            Text(
-              capitalize(translatedName),
-              style: TextStyle(
-                fontSize: 20,
-                color: Colors.black54,
+              Text(
+                capitalize(translatedName),
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.black54,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ],
     );

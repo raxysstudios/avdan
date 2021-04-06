@@ -58,6 +58,7 @@ class LanguageCard extends StatelessWidget {
                     ..rotateZ(-0.8),
                   child: Image.asset(
                     language.flag,
+                    fit: BoxFit.fitHeight,
                     errorBuilder: (
                       BuildContext context,
                       Object exception,
