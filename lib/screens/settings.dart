@@ -42,7 +42,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   selectInterface(Language l, {SharedPreferences? prefs}) async {
     setState(() => interfaceLanguage = l);
     if (prefs == null) prefs = await SharedPreferences.getInstance();
-    await prefs.setString('inte  rfaceLanguage', l.name);
+    await prefs.setString('interfaceLanguage', l.name);
   }
 
   selectLearning(Language l, {SharedPreferences? prefs}) async {
