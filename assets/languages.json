@@ -1,4 +1,19 @@
 [
-  { "native": "ирон ӕвзаг", "english": "iron", "russian": "иронский" },
-  { "native": "дыгурон ӕвзаг", "english": "digor", "russian": "дигорский" }
+  {
+    "name": "iron",
+    "translations": {
+      "iron": "ирон ӕвзаг",
+      "english": "iron",
+      "russian": "иронский"
+    }
+  },
+  {
+    "name": "digor",
+    "translations": {
+      "iron": "дигорон ӕвзаг",
+      "digor": "дыгурон ӕвзаг",
+      "english": "digor",
+      "russian": "дигорский"
+    }
+  }
 ]
