@@ -83,7 +83,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               child: Text(
                 "Interface language",
                 style: TextStyle(
-                  fontSize: 18,
+                  fontSize: 20,
                   color: Colors.black54,
                   fontWeight: FontWeight.bold,
                 ),
@@ -108,7 +108,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               child: Text(
                 "Learning language",
                 style: TextStyle(
-                  fontSize: 18,
+                  fontSize: 20,
                   color: Colors.black54,
                   fontWeight: FontWeight.bold,
                 ),
@@ -133,10 +133,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
             Container(
               height: 128,
-              alignment: Alignment.center,
-              child: Image.network(
-                "https://sun9-65.userapi.com/impf/c622326/v622326572/49601/s7HngXH2MuY.jpg?size=755x1080&quality=96&sign=587244131770e7b03bd33f5330308110&type=album",
-                fit: BoxFit.fitHeight,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(4),
+                child: Image.network(
+                  "assets/hohag.png",
+                  fit: BoxFit.fitHeight,
+                ),
               ),
             ),
             Container(
@@ -150,7 +152,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       icon: Icon(Icons.free_breakfast),
                       label: Text(
                         "Donate",
-                        style: TextStyle(fontSize: 18),
+                        // style: TextStyle(fontSize: 18),
                       ),
                     ),
                   ),
@@ -161,7 +163,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       icon: Icon(Icons.mail),
                       label: Text(
                         "Contact",
-                        style: TextStyle(fontSize: 18),
+                        // style: TextStyle(fontSize: 18),
                       ),
                     ),
                   ),
