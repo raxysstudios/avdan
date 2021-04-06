@@ -138,24 +138,24 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   Expanded(
-                    child: GridView.count(
-                      crossAxisCount: 3,
-                      children: [
-                        for (var i in chapter.items)
-                          AspectRatio(
-                            aspectRatio: 1,
-                            child: ChapterItem(
-                              translations: i,
-                              labeled: false,
-                              onTap: () => setState(
-                                () {
-                                  item = i;
-                                  isGrid = false;
-                                },
-                              ),
-                            ),
+                    child: GridView.builder(
+                      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                        maxCrossAxisExtent: 160,
+                      ),
+                      itemCount: chapter.items.length,
+                      itemBuilder: (context, index) => AspectRatio(
+                        aspectRatio: 1,
+                        child: ChapterItem(
+                          translations: chapter.items[index],
+                          labeled: false,
+                          onTap: () => setState(
+                            () {
+                              item = chapter.items[index];
+                              isGrid = false;
+                            },
                           ),
-                      ],
+                        ),
+                      ),
                     ),
                   ),
                 ],
