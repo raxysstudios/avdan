@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:avdan/data/language.dart';
 import 'package:avdan/data/store.dart';
+import 'package:avdan/widgets/about_card.dart';
 import 'package:avdan/widgets/language_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -110,61 +111,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
               selected: learningLanguage,
               onSelect: selectLearning,
             ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Hohag",
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(height: 8),
-                    Container(
-                      height: 128,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(512),
-                        child: Image.asset(
-                          "assets/hohag.png",
-                          fit: BoxFit.fitHeight,
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 8),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: ElevatedButton.icon(
-                            onPressed: () {},
-                            icon: Icon(Icons.free_breakfast),
-                            label: Text(
-                              "Donate",
-                              // style: TextStyle(fontSize: 18),
-                            ),
-                          ),
-                        ),
-                        SizedBox(width: 8),
-                        Expanded(
-                          child: ElevatedButton.icon(
-                            onPressed: () {},
-                            icon: Icon(Icons.mail),
-                            label: Text(
-                              "Contact",
-                              // style: TextStyle(fontSize: 18),
-                            ),
-                          ),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-              ),
-            ),
+            Expanded(child: Container()),
+            AboutCard(),
           ],
         ),
       ),
