@@ -49,7 +49,7 @@ class ChapterItem extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: Label(translations),
               ),
-            if (selected) CheckMark()
+            CheckMark(selected),
           ],
         ),
       ),

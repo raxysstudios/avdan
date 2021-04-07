@@ -56,7 +56,7 @@ class LanguageCard extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: LanguageTitle(language),
               ),
-              if (selected) CheckMark()
+              CheckMark(selected),
             ],
           ),
         ),
