@@ -116,10 +116,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   labeled: false,
                   onTap: () => setState(() {
                     chapter = chapters[index];
-                    item = chapter.items[0];
                     _pageController.animateToPage(
                       0,
-                      duration: Duration(milliseconds: 300),
+                      duration: Duration(milliseconds: 350),
                       curve: standardEasing,
                     );
                   }),
@@ -131,8 +130,7 @@ class _HomeScreenState extends State<HomeScreen> {
               color: Colors.white,
               boxShadow: [
                 BoxShadow(
-                  color: Colors.grey.withOpacity(0.6),
-                  spreadRadius: 1,
+                  color: Colors.grey,
                   blurRadius: 4,
                 )
               ],
@@ -142,21 +140,19 @@ class _HomeScreenState extends State<HomeScreen> {
             child: PageView(
               controller: _pageController,
               children: [
-                Expanded(
-                  child: ChapterGrid(
-                    chapter,
-                    selected: item,
-                    onSelect: (i) => setState(() {
-                      item = i;
-                      _pageController.animateToPage(
-                        1,
-                        duration: Duration(milliseconds: 300),
-                        curve: standardEasing,
-                      );
-                    }),
-                  ),
+                ChapterGrid(
+                  chapter,
+                  selected: item,
+                  onSelect: (i) => setState(() {
+                    item = i;
+                    _pageController.animateToPage(
+                      1,
+                      duration: Duration(milliseconds: 350),
+                      curve: standardEasing,
+                    );
+                  }),
                 ),
-                Expanded(child: ItemView(item)),
+                ItemView(item),
               ],
             ),
           ),
