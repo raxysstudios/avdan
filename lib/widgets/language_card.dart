@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:avdan/data/language.dart';
+import 'package:avdan/widgets/check_mark.dart';
 import 'package:avdan/widgets/language_title.dart';
 import 'package:flutter/material.dart';
 
@@ -55,24 +56,7 @@ class LanguageCard extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: LanguageTitle(language),
               ),
-              if (selected)
-                Align(
-                  alignment: Alignment.bottomLeft,
-                  child: Container(
-                    width: 32,
-                    height: 32,
-                    decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(10),
-                      ),
-                    ),
-                    child: Icon(
-                      Icons.check,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
+              if (selected) CheckMark()
             ],
           ),
         ),

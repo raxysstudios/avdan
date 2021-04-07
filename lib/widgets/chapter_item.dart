@@ -1,3 +1,4 @@
+import 'package:avdan/widgets/check_mark.dart';
 import 'package:avdan/widgets/label.dart';
 import 'package:flutter/material.dart';
 
@@ -48,24 +49,7 @@ class ChapterItem extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: Label(translations),
               ),
-            if (selected)
-              Align(
-                alignment: Alignment.bottomLeft,
-                child: Container(
-                  width: 32,
-                  height: 32,
-                  decoration: BoxDecoration(
-                    color: Colors.blue,
-                    borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(8),
-                    ),
-                  ),
-                  child: Icon(
-                    Icons.check,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
+            if (selected) CheckMark()
           ],
         ),
       ),
