@@ -16,29 +16,30 @@ class _SettingsScreenState extends State<SettingsScreen> {
   _SettingsScreenState() {
     interfaceLanguages = List.from(languages.where((l) => l.isInterface));
     learningLanguages = List.from(languages.where((l) => l.isLearning));
-
-    Timer(Duration(), () async {
-      final prefs = await SharedPreferences.getInstance();
-      var il = findLanguage(
-        prefs.getString('interfaceLanguage'),
-      );
-      var ll = findLanguage(
-        prefs.getString('learningLanguage'),
-      );
-
-      await selectInterface(
-        il ?? interfaceLanguages[0],
-        prefs: prefs,
-      );
-      await selectLearning(
-        ll ?? learningLanguages[0],
-        prefs: prefs,
-      );
-    });
+    Timer(Duration(), loadLanguages);
   }
 
   List<Language> interfaceLanguages = [];
   List<Language> learningLanguages = [];
+
+  loadLanguages() async {
+    final prefs = await SharedPreferences.getInstance();
+    var il = findLanguage(
+      prefs.getString('interfaceLanguage'),
+    );
+    var ll = findLanguage(
+      prefs.getString('learningLanguage'),
+    );
+
+    await selectInterface(
+      il ?? interfaceLanguages[0],
+      prefs: prefs,
+    );
+    await selectLearning(
+      ll ?? learningLanguages[0],
+      prefs: prefs,
+    );
+  }
 
   selectInterface(Language l, {SharedPreferences? prefs}) async {
     setState(() => interfaceLanguage = l);
