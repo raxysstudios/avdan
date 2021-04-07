@@ -4,11 +4,13 @@ import 'dart:math';
 import 'package:avdan/data/chapter.dart';
 import 'package:avdan/data/store.dart';
 import 'package:avdan/screens/settings.dart';
+import 'package:avdan/widgets/chapter_grid.dart';
 import 'package:avdan/widgets/item_card.dart';
 import 'package:avdan/widgets/item_view.dart';
-import 'package:avdan/widgets/label.dart';
 import 'package:avdan/widgets/language_title.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -27,6 +29,8 @@ class _HomeScreenState extends State<HomeScreen> {
   bool isGrid = false;
   Chapter chapter = chapters[0];
   Map<String, String> item = chapters[0].items[0];
+
+  final PageController _pageController = PageController();
 
   loadLanguages() async {
     final prefs = await SharedPreferences.getInstance();
@@ -113,7 +117,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   onTap: () => setState(() {
                     chapter = chapters[index];
                     item = chapter.items[0];
-                    isGrid = true;
+                    _pageController.animateToPage(
+                      0,
+                      duration: Duration(milliseconds: 300),
+                      curve: standardEasing,
+                    );
                   }),
                 ),
               ),
@@ -130,82 +138,28 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           ),
-          if (isGrid)
-            Expanded(
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8),
-                    child: Label(
-                      chapter.translations,
-                      scale: 1.25,
-                      row: true,
-                    ),
+          Expanded(
+            child: PageView(
+              controller: _pageController,
+              children: [
+                Expanded(
+                  child: ChapterGrid(
+                    chapter,
+                    selected: item,
+                    onSelect: (i) => setState(() {
+                      item = i;
+                      _pageController.animateToPage(
+                        1,
+                        duration: Duration(milliseconds: 300),
+                        curve: standardEasing,
+                      );
+                    }),
                   ),
-                  Expanded(
-                    child: GridView.builder(
-                      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                        maxCrossAxisExtent: 160,
-                      ),
-                      itemCount: chapter.items.length,
-                      itemBuilder: (context, index) => AspectRatio(
-                        aspectRatio: 1,
-                        child: ItemCard(
-                          translations: chapter.items[index],
-                          labeled: false,
-                          onTap: () => setState(
-                            () {
-                              item = chapter.items[index];
-                              isGrid = false;
-                            },
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+                ),
+                Expanded(child: ItemView(item)),
+              ],
             ),
-          if (!isGrid)
-            Expanded(
-              child: Column(
-                children: [
-                  Expanded(
-                    child: FractionallySizedBox(
-                      widthFactor: 1,
-                      child: ItemView(
-                        item,
-                        action: Align(
-                          alignment: Alignment.topRight,
-                          child: IconButton(
-                            icon: Icon(Icons.grid_view),
-                            onPressed: () => setState(
-                              () => isGrid = true,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    height: 128,
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemBuilder: (context, index) => AspectRatio(
-                        aspectRatio: 1.5,
-                        child: ItemCard(
-                          translations: chapter.items[index],
-                          selected: item == chapter.items[index],
-                          onTap: () =>
-                              setState(() => item = chapter.items[index]),
-                        ),
-                      ),
-                      itemCount: chapter.items.length,
-                    ),
-                  ),
-                ],
-              ),
-            ),
+          ),
         ],
       ),
     );
