@@ -124,7 +124,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     if (item != i) setState(() => item = i);
                   },
                 ),
-                ItemView(item),
+                ItemView(
+                  item,
+                  actions: IconButton(
+                    icon: Icon(Icons.grid_view),
+                    onPressed: () => openPage(0),
+                  ),
+                ),
               ],
             ),
           ),
