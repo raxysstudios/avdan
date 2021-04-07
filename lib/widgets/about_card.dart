@@ -36,14 +36,14 @@ class AboutCard extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 8),
-                  OutlinedButton.icon(
+                  const SizedBox(height: 8),
+                  ElevatedButton.icon(
                     onPressed: () {},
                     icon: Icon(Icons.mail),
                     label: Text("Contact"),
                   ),
-                  SizedBox(height: 8),
-                  OutlinedButton.icon(
+                  const SizedBox(height: 8),
+                  ElevatedButton.icon(
                     onPressed: () {},
                     icon: Icon(Icons.free_breakfast),
                     label: Text("Donate"),

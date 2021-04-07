@@ -3,9 +3,10 @@ import 'dart:async';
 import 'package:avdan/data/chapter.dart';
 import 'package:avdan/data/store.dart';
 import 'package:avdan/screens/settings.dart';
-import 'package:avdan/widgets/chapter_grid.dart';
+import 'package:avdan/widgets/items_grid.dart';
 import 'package:avdan/widgets/item_card.dart';
 import 'package:avdan/widgets/item_view.dart';
+import 'package:avdan/widgets/label.dart';
 import 'package:avdan/widgets/language_flag.dart';
 import 'package:avdan/widgets/language_title.dart';
 import 'package:flutter/material.dart';
@@ -60,7 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
   openPage(int index) {
     _pageController.animateToPage(
       index,
-      duration: Duration(milliseconds: 400),
+      duration: Duration(milliseconds: 300),
       curve: standardEasing,
     );
   }
@@ -92,26 +93,6 @@ class _HomeScreenState extends State<HomeScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            height: 96,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) {
-                var chap = chapters[index];
-                return AspectRatio(
-                  aspectRatio: 1,
-                  child: ItemCard(
-                    translations: chap.translations,
-                    selected: chapter == chap,
-                    labeled: false,
-                    onTap: () {
-                      openPage(0);
-                      if (chapter != chap) setState(() => chapter = chap);
-                    },
-                  ),
-                );
-              },
-              itemCount: chapters.length,
-            ),
             decoration: BoxDecoration(
               color: Colors.white,
               boxShadow: [
@@ -121,12 +102,46 @@ class _HomeScreenState extends State<HomeScreen> {
                 )
               ],
             ),
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: Label(
+                    chapter.translations,
+                    scale: 1.25,
+                    row: true,
+                  ),
+                ),
+                Container(
+                  height: 96,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      var chap = chapters[index];
+                      return AspectRatio(
+                        aspectRatio: 1,
+                        child: ItemCard(
+                          translations: chap.translations,
+                          selected: chapter == chap,
+                          labeled: false,
+                          onTap: () {
+                            openPage(0);
+                            if (chapter != chap) setState(() => chapter = chap);
+                          },
+                        ),
+                      );
+                    },
+                    itemCount: chapters.length,
+                  ),
+                ),
+              ],
+            ),
           ),
           Expanded(
             child: PageView(
               controller: _pageController,
               children: [
-                ChapterGrid(
+                ItemsGrid(
                   chapter,
                   selected: item,
                   onSelect: (i) {
