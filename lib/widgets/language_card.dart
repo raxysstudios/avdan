@@ -1,7 +1,6 @@
-import 'dart:math';
-
 import 'package:avdan/data/language.dart';
 import 'package:avdan/widgets/check_mark.dart';
+import 'package:avdan/widgets/language_flag.dart';
 import 'package:avdan/widgets/language_title.dart';
 import 'package:flutter/material.dart';
 
@@ -28,28 +27,9 @@ class LanguageCard extends StatelessWidget {
             children: [
               Align(
                 alignment: Alignment.centerRight,
-                child: Transform.translate(
-                  offset: Offset(64, 0),
-                  child: Container(
-                    width: 256,
-                    height: 48,
-                    child: Transform.rotate(
-                      angle: -pi / 4,
-                      child: Transform.scale(
-                        scale: 1.5,
-                        child: Image.asset(
-                          language.flag,
-                          repeat: ImageRepeat.repeatX,
-                          errorBuilder: (
-                            BuildContext context,
-                            Object exception,
-                            StackTrace? stackTrace,
-                          ) =>
-                              Container(),
-                        ),
-                      ),
-                    ),
-                  ),
+                child: LanguageFlag(
+                  language,
+                  offset: Offset(-24, 0),
                 ),
               ),
               Padding(

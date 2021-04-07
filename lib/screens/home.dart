@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:math';
 
 import 'package:avdan/data/chapter.dart';
 import 'package:avdan/data/store.dart';
@@ -7,8 +6,8 @@ import 'package:avdan/screens/settings.dart';
 import 'package:avdan/widgets/chapter_grid.dart';
 import 'package:avdan/widgets/item_card.dart';
 import 'package:avdan/widgets/item_view.dart';
+import 'package:avdan/widgets/language_flag.dart';
 import 'package:avdan/widgets/language_title.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -76,30 +75,11 @@ class _HomeScreenState extends State<HomeScreen> {
           Stack(
             children: [
               Center(
-                child: Container(
-                  width: 32,
-                  height: 12,
-                  child: Transform.translate(
-                    offset: Offset(-52, 0),
-                    child: Transform.scale(
-                      scale: 6,
-                      child: Transform.rotate(
-                        angle: -pi / 4,
-                        child: Image.asset(
-                          learningLanguage.flag,
-                          repeat: ImageRepeat.repeatX,
-                          errorBuilder: (
-                            BuildContext context,
-                            Object exception,
-                            StackTrace? stackTrace,
-                          ) =>
-                              Container(),
-                        ),
-                      ),
-                    ),
-                  ),
+                child: LanguageFlag(
+                  learningLanguage,
+                  offset: Offset(-64, 0),
                 ),
-              ),
+              )
             ],
           ),
           IconButton(
