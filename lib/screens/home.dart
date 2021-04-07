@@ -26,7 +26,6 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  bool isGrid = false;
   Chapter chapter = chapters[0];
   Map<String, String> item = chapters[0].items[0];
 
@@ -58,6 +57,14 @@ class _HomeScreenState extends State<HomeScreen> {
       ).then(
         (v) => setState(() {}),
       );
+
+  openPage(int index) {
+    _pageController.animateToPage(
+      index,
+      duration: Duration(milliseconds: 400),
+      curve: standardEasing,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -108,22 +115,21 @@ class _HomeScreenState extends State<HomeScreen> {
             height: 96,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) => AspectRatio(
-                aspectRatio: 1,
-                child: ItemCard(
-                  translations: chapters[index].translations,
-                  selected: chapter == chapters[index],
-                  labeled: false,
-                  onTap: () => setState(() {
-                    chapter = chapters[index];
-                    _pageController.animateToPage(
-                      0,
-                      duration: Duration(milliseconds: 350),
-                      curve: standardEasing,
-                    );
-                  }),
-                ),
-              ),
+              itemBuilder: (context, index) {
+                var chap = chapters[index];
+                return AspectRatio(
+                  aspectRatio: 1,
+                  child: ItemCard(
+                    translations: chap.translations,
+                    selected: chapter == chap,
+                    labeled: false,
+                    onTap: () {
+                      openPage(0);
+                      if (chapter != chap) setState(() => chapter = chap);
+                    },
+                  ),
+                );
+              },
               itemCount: chapters.length,
             ),
             decoration: BoxDecoration(
@@ -143,14 +149,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 ChapterGrid(
                   chapter,
                   selected: item,
-                  onSelect: (i) => setState(() {
-                    item = i;
-                    _pageController.animateToPage(
-                      1,
-                      duration: Duration(milliseconds: 350),
-                      curve: standardEasing,
-                    );
-                  }),
+                  onSelect: (i) {
+                    openPage(1);
+                    if (item != i) setState(() => item = i);
+                  },
                 ),
                 ItemView(item),
               ],
