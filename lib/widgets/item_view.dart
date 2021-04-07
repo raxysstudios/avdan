@@ -21,14 +21,14 @@ class ItemView extends StatelessWidget {
       child: Stack(
         children: [
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8),
             child: Label(
               translations,
               scale: 2,
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8),
             child: Align(
               alignment: Alignment.bottomCenter,
               child: Image.asset(
