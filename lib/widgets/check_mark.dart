@@ -18,8 +18,8 @@ class _CheckMarkState extends State<CheckMark> {
         duration: Duration(milliseconds: 250),
         curve: standardEasing,
         child: Container(
-          width: 32,
-          height: 32,
+          width: 24,
+          height: 24,
           decoration: BoxDecoration(
             color: Colors.blue,
             borderRadius: BorderRadius.only(
@@ -29,6 +29,7 @@ class _CheckMarkState extends State<CheckMark> {
           child: Icon(
             Icons.check,
             color: Colors.white,
+            size: 18,
           ),
         ),
       ),
