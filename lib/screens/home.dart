@@ -62,28 +62,34 @@ class _HomeScreenState extends State<HomeScreen> {
         automaticallyImplyLeading: false,
         title: LanguageTitle(learningLanguage),
         actions: [
-          Transform.translate(
-            offset: Offset(-16, 0),
-            child: Container(
-              width: 256,
-              height: 48,
-              child: Transform.scale(
-                scale: 1.25,
-                child: Transform.rotate(
-                  angle: -pi / 4,
-                  child: Image.asset(
-                    learningLanguage.flag,
-                    repeat: ImageRepeat.repeatX,
-                    errorBuilder: (
-                      BuildContext context,
-                      Object exception,
-                      StackTrace? stackTrace,
-                    ) =>
-                        Container(),
+          Stack(
+            children: [
+              Center(
+                child: Container(
+                  width: 32,
+                  height: 12,
+                  child: Transform.translate(
+                    offset: Offset(-52, 0),
+                    child: Transform.scale(
+                      scale: 6,
+                      child: Transform.rotate(
+                        angle: -pi / 4,
+                        child: Image.asset(
+                          learningLanguage.flag,
+                          repeat: ImageRepeat.repeatX,
+                          errorBuilder: (
+                            BuildContext context,
+                            Object exception,
+                            StackTrace? stackTrace,
+                          ) =>
+                              Container(),
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ),
-            ),
+            ],
           ),
           IconButton(
             icon: Icon(Icons.settings),
