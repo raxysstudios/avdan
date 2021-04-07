@@ -18,7 +18,6 @@ class LanguageCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
       ),
       clipBehavior: Clip.antiAlias,
-      margin: const EdgeInsets.all(8),
       child: InkWell(
         onTap: onTap,
         child: Container(

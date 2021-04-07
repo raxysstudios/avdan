@@ -77,11 +77,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.only(
-                top: 8,
-                left: 8,
-                right: 8,
-              ),
+              padding: const EdgeInsets.all(8),
               child: Text(
                 "Interface language",
                 style: TextStyle(
@@ -97,7 +93,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               onSelect: selectInterface,
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              padding: const EdgeInsets.all(8),
               child: Text(
                 "Learning language",
                 style: TextStyle(
