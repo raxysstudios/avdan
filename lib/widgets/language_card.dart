@@ -31,8 +31,8 @@ class LanguageCard extends StatelessWidget {
                 child: Transform.translate(
                   offset: Offset(64, 0),
                   child: Container(
-                    height: 48,
                     width: 256,
+                    height: 48,
                     child: Transform.rotate(
                       angle: -pi / 4,
                       child: Transform.scale(

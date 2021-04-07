@@ -28,10 +28,6 @@ class _HomeScreenState extends State<HomeScreen> {
   Chapter chapter = chapters[0];
   Map<String, String> item = chapters[0].items[0];
 
-  var styleSelected = TextButton.styleFrom(
-    backgroundColor: Colors.blue[50],
-  );
-
   loadLanguages() async {
     final prefs = await SharedPreferences.getInstance();
     var il = findLanguage(
@@ -68,18 +64,23 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: [
           Transform.translate(
             offset: Offset(-16, 0),
-            child: Transform.scale(
-              scale: 1.5,
-              child: Transform.rotate(
-                angle: -pi / 4,
-                child: Image.asset(
-                  learningLanguage.flag,
-                  errorBuilder: (
-                    BuildContext context,
-                    Object exception,
-                    StackTrace? stackTrace,
-                  ) =>
-                      Container(),
+            child: Container(
+              width: 256,
+              height: 48,
+              child: Transform.scale(
+                scale: 1.25,
+                child: Transform.rotate(
+                  angle: -pi / 4,
+                  child: Image.asset(
+                    learningLanguage.flag,
+                    repeat: ImageRepeat.repeatX,
+                    errorBuilder: (
+                      BuildContext context,
+                      Object exception,
+                      StackTrace? stackTrace,
+                    ) =>
+                        Container(),
+                  ),
                 ),
               ),
             ),
