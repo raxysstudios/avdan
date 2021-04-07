@@ -2,8 +2,8 @@ import 'package:avdan/widgets/check_mark.dart';
 import 'package:avdan/widgets/label.dart';
 import 'package:flutter/material.dart';
 
-class ChapterItem extends StatelessWidget {
-  ChapterItem(
+class ItemCard extends StatelessWidget {
+  ItemCard(
       {required this.translations,
       this.labeled = true,
       this.selected = false,

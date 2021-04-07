@@ -4,7 +4,7 @@ import 'dart:math';
 import 'package:avdan/data/chapter.dart';
 import 'package:avdan/data/store.dart';
 import 'package:avdan/screens/settings.dart';
-import 'package:avdan/widgets/chapter_item.dart';
+import 'package:avdan/widgets/item_card.dart';
 import 'package:avdan/widgets/item_view.dart';
 import 'package:avdan/widgets/label.dart';
 import 'package:avdan/widgets/language_title.dart';
@@ -106,7 +106,7 @@ class _HomeScreenState extends State<HomeScreen> {
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) => AspectRatio(
                 aspectRatio: 1,
-                child: ChapterItem(
+                child: ItemCard(
                   translations: chapters[index].translations,
                   selected: chapter == chapters[index],
                   labeled: false,
@@ -150,7 +150,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       itemCount: chapter.items.length,
                       itemBuilder: (context, index) => AspectRatio(
                         aspectRatio: 1,
-                        child: ChapterItem(
+                        child: ItemCard(
                           translations: chapter.items[index],
                           labeled: false,
                           onTap: () => setState(
@@ -193,7 +193,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) => AspectRatio(
                         aspectRatio: 1.5,
-                        child: ChapterItem(
+                        child: ItemCard(
                           translations: chapter.items[index],
                           selected: item == chapter.items[index],
                           onTap: () =>
