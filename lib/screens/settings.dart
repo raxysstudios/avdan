@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:avdan/data/language.dart';
 import 'package:avdan/data/store.dart';
-import 'package:avdan/widgets/language_card.dart';
+import 'package:avdan/widgets/language_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -89,19 +89,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ),
               ),
             ),
-            Container(
-              height: 112,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: [
-                  for (var l in interfaceLanguages)
-                    LanguageCard(
-                      l,
-                      selected: interfaceLanguage == l,
-                      onTap: () => selectInterface(l),
-                    ),
-                ],
-              ),
+            LanguageList(
+              interfaceLanguages,
+              selected: interfaceLanguage,
+              onSelect: selectInterface,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
@@ -114,19 +105,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ),
               ),
             ),
-            Container(
-              height: 112,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: [
-                  for (var l in learningLanguages)
-                    LanguageCard(
-                      l,
-                      selected: learningLanguage == l,
-                      onTap: () => selectLearning(l),
-                    ),
-                ],
-              ),
+            LanguageList(
+              learningLanguages,
+              selected: learningLanguage,
+              onSelect: selectLearning,
             ),
             Expanded(
               child: Padding(
