@@ -12,7 +12,7 @@ class ItemsGrid extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView.builder(
       gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-        maxCrossAxisExtent: 256,
+        maxCrossAxisExtent: 192,
         childAspectRatio: 1.5,
       ),
       itemCount: chapter.items.length,
