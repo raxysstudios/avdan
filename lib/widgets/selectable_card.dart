@@ -33,14 +33,14 @@ class SelectableCard extends StatelessWidget {
                 width: 28,
                 height: 28,
                 decoration: BoxDecoration(
-                  color: Colors.blue,
+                  color: Theme.of(context).accentColor,
                   borderRadius: BorderRadius.only(
                     topRight: Radius.circular(8),
                   ),
                 ),
                 child: Icon(
                   Icons.check,
-                  color: Colors.white,
+                  color: Theme.of(context).cardColor,
                 ),
               ),
             ),

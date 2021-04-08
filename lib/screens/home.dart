@@ -5,9 +5,7 @@ import 'package:avdan/data/store.dart';
 import 'package:avdan/screens/settings.dart';
 import 'package:avdan/widgets/chapter_list.dart';
 import 'package:avdan/widgets/item_grid.dart';
-import 'package:avdan/widgets/item_card.dart';
 import 'package:avdan/widgets/item_view.dart';
-import 'package:avdan/widgets/label.dart';
 import 'package:avdan/widgets/language_flag.dart';
 import 'package:avdan/widgets/language_title.dart';
 import 'package:flutter/material.dart';
@@ -95,10 +93,10 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           Container(
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: Theme.of(context).scaffoldBackgroundColor,
               boxShadow: [
                 BoxShadow(
-                  color: Colors.grey,
+                  color: Theme.of(context).shadowColor.withOpacity(0.5),
                   blurRadius: 4,
                 )
               ],
