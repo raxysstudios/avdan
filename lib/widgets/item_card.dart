@@ -1,5 +1,5 @@
-import 'package:avdan/widgets/check_mark.dart';
 import 'package:avdan/widgets/label.dart';
+import 'package:avdan/widgets/selectable_card.dart';
 import 'package:flutter/material.dart';
 
 class ItemCard extends StatelessWidget {
@@ -18,41 +18,32 @@ class ItemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: selected ? 2 : 1,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8),
-      ),
-      clipBehavior: Clip.antiAlias,
-      child: InkWell(
-        onTap: onTap,
-        child: Stack(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Align(
-                alignment: Alignment.centerRight,
-                child: Image.asset(
-                  image,
-                  fit: BoxFit.fitHeight,
-                  errorBuilder: (
-                    BuildContext context,
-                    Object exception,
-                    StackTrace? stackTrace,
-                  ) =>
-                      Container(),
-                ),
-              ),
+    return SelectableCard(
+      onTap: onTap,
+      selected: selected,
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Align(
+            alignment: Alignment.centerRight,
+            child: Image.asset(
+              image,
+              fit: BoxFit.fitHeight,
+              errorBuilder: (
+                BuildContext context,
+                Object exception,
+                StackTrace? stackTrace,
+              ) =>
+                  Container(),
             ),
-            if (labeled)
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Label(translations),
-              ),
-            CheckMark(selected),
-          ],
+          ),
         ),
-      ),
+        if (labeled)
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Label(translations),
+          ),
+      ],
     );
   }
 }
