@@ -14,7 +14,7 @@ class SelectableCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: selected ? 3 : 1,
+      elevation: selected ? 2 : 0,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8),
       ),

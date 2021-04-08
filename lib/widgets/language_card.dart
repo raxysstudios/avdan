@@ -12,22 +12,25 @@ class LanguageCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SelectableCard(
-      onTap: onTap,
-      selected: selected,
-      children: [
-        Align(
-          alignment: Alignment.centerRight,
-          child: LanguageFlag(
-            language,
-            offset: Offset(-24, 0),
+    return AspectRatio(
+      aspectRatio: 2,
+      child: SelectableCard(
+        onTap: onTap,
+        selected: selected,
+        children: [
+          Align(
+            alignment: Alignment.centerRight,
+            child: LanguageFlag(
+              language,
+              offset: Offset(-24, 0),
+            ),
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: LanguageTitle(language),
-        ),
-      ],
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: LanguageTitle(language),
+          ),
+        ],
+      ),
     );
   }
 }
