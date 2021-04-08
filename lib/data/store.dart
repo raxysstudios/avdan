@@ -31,6 +31,7 @@ Future<void> initialize() async {
       (j) => Language.fromJson(j as Map<String, dynamic>),
     ),
   );
+  languages.sort((a, b) => a.name.compareTo(b.name));
 }
 
 late List<Chapter> chapters = [];
