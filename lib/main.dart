@@ -16,7 +16,13 @@ class Avdan extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colors.white,
         cardTheme: CardTheme(
-          shape: BeveledRectangleBorder(),
+          clipBehavior: Clip.antiAlias,
+        ),
+      ),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        cardTheme: CardTheme(
+          clipBehavior: Clip.antiAlias,
         ),
       ),
       home: HomeScreen(),

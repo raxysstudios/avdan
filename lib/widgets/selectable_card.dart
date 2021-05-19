@@ -14,11 +14,6 @@ class SelectableCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: selected ? 2 : 0,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8),
-      ),
-      clipBehavior: Clip.antiAlias,
       child: InkWell(
         onTap: onTap,
         child: Stack(
@@ -27,17 +22,20 @@ class SelectableCard extends StatelessWidget {
             AnimatedPositioned(
               left: selected ? 0 : -28,
               bottom: selected ? 0 : -28,
-              duration: Duration(milliseconds: 200),
+              duration: Duration(milliseconds: 250),
               curve: standardEasing,
               child: Container(
                 width: 28,
                 height: 28,
                 decoration: BoxDecoration(
-                  color: Theme.of(context).accentColor,
+                  color: Theme.of(context).colorScheme.primary,
+                  borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(4),
+                  ),
                 ),
                 child: Icon(
                   Icons.check,
-                  color: Theme.of(context).cardColor,
+                  color: Theme.of(context).colorScheme.onPrimary,
                 ),
               ),
             ),
