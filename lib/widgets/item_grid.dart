@@ -1,3 +1,4 @@
+import 'package:avdan/data/language.dart';
 import 'package:avdan/data/chapter.dart';
 import 'package:avdan/widgets/item_card.dart';
 import 'package:flutter/material.dart';
@@ -5,8 +6,8 @@ import 'package:flutter/material.dart';
 class ItemsGrid extends StatelessWidget {
   ItemsGrid(this.chapter, {this.selected, this.onSelect});
   final Chapter chapter;
-  final Map<String, String>? selected;
-  final ValueSetter<Map<String, String>>? onSelect;
+  final Translations? selected;
+  final ValueSetter<Translations>? onSelect;
 
   @override
   Widget build(BuildContext context) {

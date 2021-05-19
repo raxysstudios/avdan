@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'store.dart';
 
+typedef Translations = Map<String, String>;
+
 class Language {
   Language({
     this.isInterface = false,
@@ -9,7 +11,7 @@ class Language {
   });
   final bool isInterface;
   final bool isLearning;
-  final Map<String, String> translations;
+  final Translations translations;
 
   String get name => translations['english'] ?? 'null';
   String get nativeName => translations[name] ?? 'null';

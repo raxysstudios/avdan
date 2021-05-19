@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:avdan/data/chapter.dart';
+import 'package:avdan/data/language.dart';
 import 'package:avdan/data/store.dart';
 import 'package:avdan/screens/settings.dart';
 import 'package:avdan/widgets/chapter_list.dart';
@@ -26,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Chapter chapter = chapters[0];
-  Map<String, String> item = chapters[0].items[0];
+  Translations item = chapters[0].items[0];
 
   final PageController _pageController = PageController();
 
@@ -60,7 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
   openPage(int index) {
     _pageController.animateToPage(
       index,
-      duration: Duration(milliseconds: 300),
+      duration: Duration(milliseconds: 200),
       curve: standardEasing,
     );
   }

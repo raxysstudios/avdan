@@ -1,9 +1,10 @@
+import 'package:avdan/data/language.dart';
 import 'package:avdan/data/store.dart';
 import 'package:flutter/material.dart';
 
 class Label extends StatelessWidget {
   Label(this.translations, {this.scale = 1.0, this.row = false});
-  final Map<String, String> translations;
+  final Translations translations;
   final double scale;
   final bool row;
 

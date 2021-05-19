@@ -1,3 +1,4 @@
+import 'package:avdan/data/language.dart';
 import 'package:avdan/widgets/label.dart';
 import 'package:avdan/widgets/selectable_card.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +9,7 @@ class ItemCard extends StatelessWidget {
       this.labeled = true,
       this.selected = false,
       this.onTap});
-  final Map<String, String> translations;
+  final Translations translations;
   final bool selected;
   final bool labeled;
   final Function()? onTap;

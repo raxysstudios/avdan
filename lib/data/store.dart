@@ -10,7 +10,7 @@ capitalize(String value) => value
     .map((w) => w[0].toUpperCase() + w.substring(1))
     .join(' ');
 
-Map<String, String> toMap(dynamic map) =>
+Translations toMap(dynamic map) =>
     Map.castFrom<String, dynamic, String, String>(
       map as Map<String, dynamic>,
     );

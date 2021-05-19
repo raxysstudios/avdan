@@ -1,3 +1,4 @@
+import 'package:avdan/data/language.dart';
 import 'package:avdan/audio-player.dart';
 import 'package:avdan/data/store.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +8,7 @@ import 'label.dart';
 
 class ItemView extends StatelessWidget {
   ItemView(this.translations, {this.actions});
-  final Map<String, String> translations;
+  final Translations translations;
   final Widget? actions;
 
   String get name => translations['english'] ?? '';

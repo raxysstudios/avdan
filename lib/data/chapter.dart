@@ -1,13 +1,14 @@
 import 'dart:convert';
 import 'store.dart';
+import 'language.dart';
 
 class Chapter {
   Chapter({
     required this.translations,
     required this.items,
   });
-  final Map<String, String> translations;
-  final List<Map<String, String>> items;
+  final Translations translations;
+  final List<Translations> items;
 
   factory Chapter.fromRawJson(String str) => Chapter.fromJson(json.decode(str));
 
