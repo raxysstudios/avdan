@@ -27,16 +27,13 @@ class SelectableCard extends StatelessWidget {
             AnimatedPositioned(
               left: selected ? 0 : -28,
               bottom: selected ? 0 : -28,
-              duration: Duration(milliseconds: 300),
+              duration: Duration(milliseconds: 200),
               curve: standardEasing,
               child: Container(
                 width: 28,
                 height: 28,
                 decoration: BoxDecoration(
                   color: Theme.of(context).accentColor,
-                  borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(8),
-                  ),
                 ),
                 child: Icon(
                   Icons.check,
