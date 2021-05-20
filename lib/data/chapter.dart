@@ -31,13 +31,9 @@ class Chapter {
 
   factory Chapter.fromJson(Map<String, dynamic> json) {
     var translations = toMap(json["translations"]);
-    var items = List.from(
-      json["items"].map((i) => toMap(i)),
-    ) as List<Translations>;
-    if (translations['english'] == 'alphabet') {
-      items = formAlphabets(items[0]);
-      print(items);
-    }
+    var items =
+        (json["items"] as Iterable<dynamic>).map((i) => toMap(i)).toList();
+    if (translations['english'] == 'alphabet') items = formAlphabets(items[0]);
     return Chapter(
       translations: translations,
       items: items,
