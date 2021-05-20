@@ -18,8 +18,6 @@ class ItemView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var text = this.text ?? '';
-    text = text.toUpperCase() + " " + text;
     return InkWell(
       onTap: () => playAsset(audio),
       child: Stack(
@@ -51,15 +49,26 @@ class ItemView extends StatelessWidget {
                   ),
                 ]
               : [
-                  Center(
-                    child: Text(
-                      text,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 72,
-                        fontWeight: FontWeight.bold,
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        text?.toUpperCase() ?? '',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 72,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
+                      Text(
+                        text ?? '',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 72,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
                   ),
                 ]),
           if (actions != null)
