@@ -27,13 +27,14 @@ class ChapterList extends StatelessWidget {
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
-              var chap = chapters[index];
+              final chap = chapters[index];
               return AspectRatio(
                 aspectRatio: 1,
                 child: ItemCard(
-                  translations: chap.translations,
+                  translations: index == 0 ? chap.items[0] : chap.translations,
                   selected: selected == chap,
                   labeled: false,
+                  alphabet: index == 0,
                   onTap: () => onSelect?.call(chap),
                 ),
               );

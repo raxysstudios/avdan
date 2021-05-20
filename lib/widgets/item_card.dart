@@ -1,17 +1,21 @@
 import 'package:avdan/data/language.dart';
+import 'package:avdan/data/store.dart';
 import 'package:avdan/widgets/label.dart';
 import 'package:avdan/widgets/selectable_card.dart';
 import 'package:flutter/material.dart';
 
 class ItemCard extends StatelessWidget {
-  ItemCard(
-      {required this.translations,
-      this.labeled = true,
-      this.selected = false,
-      this.onTap});
+  ItemCard({
+    required this.translations,
+    this.labeled = true,
+    this.selected = false,
+    this.alphabet = false,
+    this.onTap,
+  });
   final Translations translations;
   final bool selected;
   final bool labeled;
+  final bool alphabet;
   final Function()? onTap;
 
   String get name => translations['english'] ?? '';
@@ -22,29 +26,42 @@ class ItemCard extends StatelessWidget {
     return SelectableCard(
       onTap: onTap,
       selected: selected,
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Align(
-            alignment: Alignment.centerRight,
-            child: Image.asset(
-              image,
-              fit: BoxFit.fitHeight,
-              errorBuilder: (
-                BuildContext context,
-                Object exception,
-                StackTrace? stackTrace,
-              ) =>
-                  Container(),
-            ),
-          ),
-        ),
-        if (labeled)
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Label(translations),
-          ),
-      ],
+      children: alphabet
+          ? [
+              Center(
+                child: Text(
+                  (translations[learningLanguage.name]?.split(" ")[0] ?? "?")
+                      .toUpperCase(),
+                  style: TextStyle(
+                    fontSize: 42,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ]
+          : [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Align(
+                  alignment: Alignment.centerRight,
+                  child: Image.asset(
+                    image,
+                    fit: BoxFit.fitHeight,
+                    errorBuilder: (
+                      BuildContext context,
+                      Object exception,
+                      StackTrace? stackTrace,
+                    ) =>
+                        Container(),
+                  ),
+                ),
+              ),
+              if (labeled)
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Label(translations),
+                ),
+            ],
     );
   }
 }

@@ -1,6 +1,14 @@
 [
   {
     "translations": {
+      "english": "alphabet",
+      "russian": "букварь",
+      "iron": "дамгъуат"
+    },
+    "items": [{ "iron": "a b c d e", "kabardian": "а э гъ лъ" }]
+  },
+  {
+    "translations": {
       "english": "kitchen",
       "russian": "кухня",
       "iron": "хæринаггæнæн"

@@ -68,6 +68,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final alphabet = chapter == chapters[0];
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
