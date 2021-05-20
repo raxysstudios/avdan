@@ -3,6 +3,13 @@ import 'store.dart';
 
 typedef Translations = Map<String, String>;
 
+getTranslationPair(Translations translations) {
+  return [
+    translations[learningLanguage.name] ?? '',
+    translations[interfaceLanguage.name] ?? ''
+  ];
+}
+
 class Language {
   Language({
     this.interface = false,

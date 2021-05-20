@@ -8,37 +8,32 @@ class Label extends StatelessWidget {
   final double scale;
   final bool row;
 
-  String get target => translations[learningLanguage.name] ?? '';
-  String get interface => translations[interfaceLanguage.name] ?? '';
-
   @override
   Widget build(BuildContext context) {
-    var texts = [
-      if (target.length > 0)
-        Text(
-          capitalize(target),
-          style: TextStyle(
-            fontSize: 16 * scale,
-            fontWeight: FontWeight.bold,
-          ),
+    final texts = getTranslationPair(translations);
+    var widgets = [
+      Text(
+        capitalize(texts[0]),
+        style: TextStyle(
+          fontSize: 16 * scale,
+          fontWeight: FontWeight.bold,
         ),
-      if (interface.length > 0) ...[
-        SizedBox(width: 8),
-        Text(
-          capitalize(interface),
-          style: TextStyle(
-            color: Theme.of(context).hintColor,
-            fontSize: (row ? 16 : 14) * scale,
-          ),
+      ),
+      SizedBox(width: 8),
+      Text(
+        capitalize(texts[1]),
+        style: TextStyle(
+          color: Theme.of(context).hintColor,
+          fontSize: (row ? 16 : 14) * scale,
         ),
-      ]
+      ),
     ];
 
     return row
-        ? Row(children: texts)
+        ? Row(children: widgets)
         : Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: texts,
+            children: widgets,
           );
   }
 }
