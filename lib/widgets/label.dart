@@ -1,5 +1,5 @@
-import 'package:avdan/data/language.dart';
 import 'package:avdan/data/store.dart';
+import 'package:avdan/data/translations.dart';
 import 'package:flutter/material.dart';
 
 class Label extends StatelessWidget {
@@ -10,7 +10,7 @@ class Label extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final texts = getTranslationPair(translations);
+    final texts = translationPair(translations);
     var widgets = [
       Text(
         capitalize(texts[0]),

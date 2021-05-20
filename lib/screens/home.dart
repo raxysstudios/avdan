@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:avdan/data/chapter.dart';
-import 'package:avdan/data/language.dart';
+import 'package:avdan/data/translations.dart';
 import 'package:avdan/data/store.dart';
 import 'package:avdan/screens/settings.dart';
 import 'package:avdan/widgets/chapter_list.dart';
@@ -27,6 +27,9 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Chapter chapter = chapters[0];
+  List<Translations> get items => chapter.items
+      .where((i) => i[learningLanguage.name] != null)
+      .toList(growable: false);
   Translations item = chapters[0].items[0];
 
   final PageController _pageController = PageController();
@@ -68,12 +71,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final alphabet = chapter == chapters[0];
-    final letters = chapter.items[0][learningLanguage.name]?.split(' ') ?? [];
-    final items = alphabet
-        ? letters.map((l) => {learningLanguage.name: l}).toList()
-        : chapter.items;
-
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -123,7 +120,7 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 ItemsGrid(
                   items,
-                  alphabet: alphabet,
+                  alphabet: chapter == chapters[0],
                   selected: item,
                   onSelect: (i) {
                     openPage(1);
@@ -132,7 +129,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 ItemView(
                   item,
-                  text: alphabet ? item[learningLanguage.name] : null,
                   actions: IconButton(
                     icon: Icon(Icons.grid_view),
                     onPressed: () => openPage(0),

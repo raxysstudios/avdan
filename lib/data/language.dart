@@ -1,14 +1,6 @@
 import 'dart:convert';
 import 'store.dart';
-
-typedef Translations = Map<String, String>;
-
-getTranslationPair(Translations translations) {
-  return [
-    translations[learningLanguage.name] ?? '',
-    translations[interfaceLanguage.name] ?? ''
-  ];
-}
+import 'translations.dart';
 
 class Language {
   Language({

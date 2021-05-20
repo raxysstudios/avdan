@@ -1,4 +1,4 @@
-import 'package:avdan/data/language.dart';
+import 'package:avdan/data/translations.dart';
 import 'package:avdan/audio-player.dart';
 import 'package:avdan/data/store.dart';
 import 'package:flutter/material.dart';
@@ -7,9 +7,8 @@ import 'package:flutter/widgets.dart';
 import 'label.dart';
 
 class ItemView extends StatelessWidget {
-  ItemView(this.translations, {this.text, this.actions});
+  ItemView(this.translations, {this.actions});
   final Translations translations;
-  final String? text;
   final Widget? actions;
 
   String get name => translations['english'] ?? '';
@@ -18,11 +17,12 @@ class ItemView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final text = translationPair(translations)[0];
     return InkWell(
       onTap: () => playAsset(audio),
       child: Stack(
         children: [
-          ...(text == null
+          ...(textOnly(translations)
               ? [
                   Padding(
                     padding: const EdgeInsets.all(8),
@@ -53,7 +53,7 @@ class ItemView extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        text?.toUpperCase() ?? '',
+                        text.toUpperCase(),
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 72,
@@ -61,7 +61,7 @@ class ItemView extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        text ?? '',
+                        text,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 72,

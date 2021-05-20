@@ -1,5 +1,6 @@
 import 'package:avdan/data/language.dart';
 import 'package:avdan/data/store.dart';
+import 'package:avdan/data/translations.dart';
 import 'package:flutter/material.dart';
 
 class LanguageTitle extends StatelessWidget {

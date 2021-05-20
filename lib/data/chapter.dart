@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:math';
 import 'store.dart';
-import 'language.dart';
+import 'translations.dart';
 
 class Chapter {
   Chapter({

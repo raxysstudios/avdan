@@ -1,19 +1,9 @@
 import 'dart:async' show Future;
 import 'dart:convert';
-import 'package:avdan/data/chapter.dart';
-import 'package:avdan/data/language.dart';
+import 'translations.dart';
+import 'chapter.dart';
+import 'language.dart';
 import 'package:flutter/services.dart' show rootBundle;
-
-capitalize(String value) => value
-    .split(' ')
-    .where((w) => w.length > 0)
-    .map((w) => w[0].toUpperCase() + w.substring(1))
-    .join(' ');
-
-Translations toMap(dynamic map) =>
-    Map.castFrom<String, dynamic, String, String>(
-      map as Map<String, dynamic>,
-    );
 
 Future<void> initialize() async {
   var text = await rootBundle.loadString('assets/chapters.json');

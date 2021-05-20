@@ -1,5 +1,4 @@
-import 'package:avdan/data/language.dart';
-import 'package:avdan/data/store.dart';
+import 'package:avdan/data/translations.dart';
 import 'package:avdan/widgets/label.dart';
 import 'package:avdan/widgets/selectable_card.dart';
 import 'package:flutter/material.dart';
@@ -9,13 +8,11 @@ class ItemCard extends StatelessWidget {
     required this.translations,
     this.labeled = true,
     this.selected = false,
-    this.text,
     this.onTap,
   });
   final Translations translations;
   final bool selected;
   final bool labeled;
-  final String? text;
   final Function()? onTap;
 
   String get name => translations['english'] ?? '';
@@ -26,11 +23,11 @@ class ItemCard extends StatelessWidget {
     return SelectableCard(
       onTap: onTap,
       selected: selected,
-      children: text != null
+      children: textOnly(translations)
           ? [
               Center(
                 child: Text(
-                  (text ?? "?").toUpperCase(),
+                  translationPair(translations)[0].toUpperCase(),
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 42,
