@@ -17,6 +17,7 @@ class LanguageCard extends StatelessWidget {
       child: SelectableCard(
         onTap: onTap,
         selected: selected,
+        elevated: true,
         children: [
           Align(
             alignment: Alignment.centerRight,
