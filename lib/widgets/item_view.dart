@@ -24,6 +24,29 @@ class ItemView extends StatelessWidget {
         children: [
           ...(textOnly(translations)
               ? [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        text.toUpperCase(),
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 72,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        text,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 72,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                ]
+              : [
                   Padding(
                     padding: const EdgeInsets.all(8),
                     child: Label(
@@ -46,29 +69,6 @@ class ItemView extends StatelessWidget {
                             Container(),
                       ),
                     ),
-                  ),
-                ]
-              : [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        text.toUpperCase(),
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 72,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        text,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 72,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
                   ),
                 ]),
           if (actions != null)
