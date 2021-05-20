@@ -17,7 +17,7 @@ interface(Translations translations) {
 }
 
 textOnly(Translations translations) {
-  return translations['english'] == 'null';
+  return translations['english'] == null;
 }
 
 capitalize(String value) => value

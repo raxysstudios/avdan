@@ -31,7 +31,7 @@ class ChapterList extends StatelessWidget {
               return AspectRatio(
                 aspectRatio: 1,
                 child: ItemCard(
-                  translations: chap.translations,
+                  translations: index == 0 ? chap.items[0] : chap.translations,
                   selected: selected == chap,
                   labeled: false,
                   onTap: () => onSelect?.call(chap),
