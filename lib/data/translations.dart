@@ -2,10 +2,11 @@ import 'package:avdan/data/store.dart';
 
 typedef Translations = Map<String, String>;
 
-Translations toMap(dynamic map) =>
-    Map.castFrom<String, dynamic, String, String>(
-      map as Map<String, dynamic>,
-    );
+Translations toMap(dynamic map) {
+  return Map.castFrom<String, dynamic, String, String>(
+    map as Map<String, dynamic>,
+  );
+}
 
 translationPair(Translations translations) {
   return [
