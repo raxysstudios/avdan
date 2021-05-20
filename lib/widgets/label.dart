@@ -27,7 +27,7 @@ class Label extends StatelessWidget {
         Text(
           capitalize(interface),
           style: TextStyle(
-            color: Colors.black54,
+            color: Theme.of(context).hintColor,
             fontSize: (row ? 16 : 14) * scale,
           ),
         ),
@@ -35,9 +35,7 @@ class Label extends StatelessWidget {
     ];
 
     return row
-        ? Row(
-            children: texts,
-          )
+        ? Row(children: texts)
         : Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: texts,

@@ -23,7 +23,7 @@ class AboutCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Text(
-                    "HOHAG",
+                    "Hohag",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 24,
