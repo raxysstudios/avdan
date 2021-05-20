@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'store.dart';
 import 'translations.dart';
 
 class Language {

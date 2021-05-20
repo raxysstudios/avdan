@@ -1,6 +1,5 @@
 import 'dart:async' show Future;
 import 'dart:convert';
-import 'translations.dart';
 import 'chapter.dart';
 import 'language.dart';
 import 'package:flutter/services.dart' show rootBundle;
