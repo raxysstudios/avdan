@@ -7,8 +7,9 @@ import 'package:flutter/widgets.dart';
 import 'label.dart';
 
 class ItemView extends StatelessWidget {
-  ItemView(this.translations, {this.actions});
+  ItemView(this.translations, {this.text, this.actions});
   final Translations translations;
+  final String? text;
   final Widget? actions;
 
   String get name => translations['english'] ?? '';
@@ -17,33 +18,50 @@ class ItemView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var text = this.text ?? '';
+    text = text.toUpperCase() + " " + text;
     return InkWell(
       onTap: () => playAsset(audio),
       child: Stack(
         children: [
-          Padding(
-            padding: const EdgeInsets.all(8),
-            child: Label(
-              translations,
-              scale: 2,
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8),
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: Image.asset(
-                image,
-                fit: BoxFit.fitHeight,
-                errorBuilder: (
-                  BuildContext context,
-                  Object exception,
-                  StackTrace? stackTrace,
-                ) =>
-                    Container(),
-              ),
-            ),
-          ),
+          ...(text == null
+              ? [
+                  Padding(
+                    padding: const EdgeInsets.all(8),
+                    child: Label(
+                      translations,
+                      scale: 2,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8),
+                    child: Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Image.asset(
+                        image,
+                        fit: BoxFit.fitHeight,
+                        errorBuilder: (
+                          BuildContext context,
+                          Object exception,
+                          StackTrace? stackTrace,
+                        ) =>
+                            Container(),
+                      ),
+                    ),
+                  ),
+                ]
+              : [
+                  Center(
+                    child: Text(
+                      text,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 72,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ]),
           if (actions != null)
             Align(
               alignment: Alignment.topRight,

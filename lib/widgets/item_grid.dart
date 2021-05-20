@@ -1,10 +1,12 @@
 import 'package:avdan/data/language.dart';
+import 'package:avdan/data/store.dart';
 import 'package:avdan/widgets/item_card.dart';
 import 'package:flutter/material.dart';
 
 class ItemsGrid extends StatelessWidget {
-  ItemsGrid(this.items, {this.selected, this.onSelect});
+  ItemsGrid(this.items, {this.alphabet = false, this.selected, this.onSelect});
   final List<Translations> items;
+  final bool alphabet;
   final Translations? selected;
   final ValueSetter<Translations>? onSelect;
 
@@ -12,13 +14,14 @@ class ItemsGrid extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView.builder(
       gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-        maxCrossAxisExtent: 192,
-        childAspectRatio: 1.5,
+        maxCrossAxisExtent: alphabet ? 128 : 192,
+        childAspectRatio: alphabet ? 1 : 1.5,
       ),
       itemCount: items.length,
       itemBuilder: (context, index) {
         var item = items[index];
         return ItemCard(
+          text: alphabet ? item[learningLanguage.name] : null,
           selected: item == selected,
           translations: item,
           onTap: () => onSelect?.call(item),

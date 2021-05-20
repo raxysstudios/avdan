@@ -69,6 +69,11 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final alphabet = chapter == chapters[0];
+    final letters = chapter.items[0][learningLanguage.name]?.split(' ') ?? [];
+    final items = alphabet
+        ? letters.map((l) => {learningLanguage.name: l}).toList()
+        : chapter.items;
+
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -117,7 +122,8 @@ class _HomeScreenState extends State<HomeScreen> {
               controller: _pageController,
               children: [
                 ItemsGrid(
-                  chapter.items,
+                  items,
+                  alphabet: alphabet,
                   selected: item,
                   onSelect: (i) {
                     openPage(1);
@@ -126,6 +132,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 ItemView(
                   item,
+                  text: alphabet ? item[learningLanguage.name] : null,
                   actions: IconButton(
                     icon: Icon(Icons.grid_view),
                     onPressed: () => openPage(0),

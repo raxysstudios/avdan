@@ -30,7 +30,8 @@ class ItemCard extends StatelessWidget {
           ? [
               Center(
                 child: Text(
-                  text ?? "?",
+                  (text ?? "?").toUpperCase(),
+                  textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 42,
                     fontWeight: FontWeight.bold,

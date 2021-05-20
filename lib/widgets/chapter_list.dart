@@ -30,9 +30,7 @@ class ChapterList extends StatelessWidget {
             itemBuilder: (context, index) {
               final chap = chapters[index];
               final text = index == 0
-                  ? chap.items[0][learningLanguage.name]
-                      ?.split(" ")[0]
-                      .toUpperCase()
+                  ? chap.items[0][learningLanguage.name]?.split(" ")[0]
                   : null;
               return AspectRatio(
                 aspectRatio: 1,
