@@ -9,13 +9,13 @@ class ItemCard extends StatelessWidget {
     required this.translations,
     this.labeled = true,
     this.selected = false,
-    this.alphabet = false,
+    this.text,
     this.onTap,
   });
   final Translations translations;
   final bool selected;
   final bool labeled;
-  final bool alphabet;
+  final String? text;
   final Function()? onTap;
 
   String get name => translations['english'] ?? '';
@@ -26,12 +26,11 @@ class ItemCard extends StatelessWidget {
     return SelectableCard(
       onTap: onTap,
       selected: selected,
-      children: alphabet
+      children: text != null
           ? [
               Center(
                 child: Text(
-                  (translations[learningLanguage.name]?.split(" ")[0] ?? "?")
-                      .toUpperCase(),
+                  text ?? "?",
                   style: TextStyle(
                     fontSize: 42,
                     fontWeight: FontWeight.bold,
