@@ -9,10 +9,9 @@ class Label extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final texts = translationPair(translations);
     var widgets = [
       Text(
-        capitalize(texts[0]),
+        capitalize(learning(translations)),
         style: TextStyle(
           fontSize: 16 * scale,
           fontWeight: FontWeight.bold,
@@ -20,7 +19,7 @@ class Label extends StatelessWidget {
       ),
       SizedBox(width: 8),
       Text(
-        capitalize(texts[1]),
+        capitalize(interface(translations)),
         style: TextStyle(
           color: Theme.of(context).hintColor,
           fontSize: (row ? 16 : 14) * scale,

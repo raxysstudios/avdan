@@ -8,11 +8,12 @@ Translations toMap(dynamic map) {
   );
 }
 
-translationPair(Translations translations) {
-  return [
-    translations[learningLanguage.name] ?? '',
-    translations[interfaceLanguage.name] ?? ''
-  ];
+learning(Translations translations) {
+  return translations[learningLanguage.name] ?? '';
+}
+
+interface(Translations translations) {
+  return translations[interfaceLanguage.name] ?? '';
 }
 
 textOnly(Translations translations) {

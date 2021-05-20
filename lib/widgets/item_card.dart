@@ -27,7 +27,7 @@ class ItemCard extends StatelessWidget {
           ? [
               Center(
                 child: Text(
-                  translationPair(translations)[0].toUpperCase(),
+                  learning(translations).toUpperCase(),
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 42,

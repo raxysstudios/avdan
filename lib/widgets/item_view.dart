@@ -17,7 +17,7 @@ class ItemView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final text = translationPair(translations)[0];
+    final text = learning(translations);
     return InkWell(
       onTap: () => playAsset(audio),
       child: Stack(
