@@ -1,13 +1,11 @@
 import 'package:avdan/data/language.dart';
-import 'package:avdan/data/store.dart';
 import 'package:avdan/data/translations.dart';
 import 'package:flutter/material.dart';
 
 class LanguageTitle extends StatelessWidget {
   const LanguageTitle(this.language);
   final Language language;
-  String get translatedName =>
-      language.translations[interfaceLanguage.name] ?? 'null';
+  String get translatedName => interface(language.translations);
 
   @override
   Widget build(BuildContext context) {
