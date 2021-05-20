@@ -24,26 +24,28 @@ class ItemView extends StatelessWidget {
         children: [
           ...(textOnly(translations)
               ? [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        text.toUpperCase(),
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 72,
-                          fontWeight: FontWeight.bold,
+                  Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          text.toUpperCase(),
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 96,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                      ),
-                      Text(
-                        text,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 72,
-                          fontWeight: FontWeight.bold,
+                        Text(
+                          text,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 96,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ]
               : [
