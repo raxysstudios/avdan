@@ -5,12 +5,12 @@ typedef Translations = Map<String, String>;
 
 class Language {
   Language({
-    this.isInterface = false,
-    this.isLearning = false,
+    this.interface = false,
+    this.learning = false,
     required this.translations,
   });
-  final bool isInterface;
-  final bool isLearning;
+  final bool interface;
+  final bool learning;
   final Translations translations;
 
   String get name => translations['english'] ?? 'null';
@@ -24,15 +24,15 @@ class Language {
 
   factory Language.fromJson(Map<String, dynamic> json) {
     return Language(
-      isInterface: (json['isInterface'] ?? false) as bool,
-      isLearning: (json['isLearning'] ?? false) as bool,
+      interface: (json['interface'] ?? false) as bool,
+      learning: (json['learning'] ?? false) as bool,
       translations: toMap(json["translations"]),
     );
   }
 
   Map<String, dynamic> toJson() => {
-        "isInterface": isInterface,
-        "isLearning": isLearning,
+        "isInterface": interface,
+        "isLearning": learning,
         "translations": translations,
       };
 }

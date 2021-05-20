@@ -14,8 +14,8 @@ class SettingsScreen extends StatefulWidget {
 
 class _SettingsScreenState extends State<SettingsScreen> {
   _SettingsScreenState() {
-    interfaceLanguages = List.from(languages.where((l) => l.isInterface));
-    learningLanguages = List.from(languages.where((l) => l.isLearning));
+    interfaceLanguages = List.from(languages.where((l) => l.interface));
+    learningLanguages = List.from(languages.where((l) => l.learning));
     Timer(Duration(), loadLanguages);
   }
 
