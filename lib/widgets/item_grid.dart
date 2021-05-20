@@ -1,11 +1,10 @@
 import 'package:avdan/data/language.dart';
-import 'package:avdan/data/chapter.dart';
 import 'package:avdan/widgets/item_card.dart';
 import 'package:flutter/material.dart';
 
 class ItemsGrid extends StatelessWidget {
-  ItemsGrid(this.chapter, {this.selected, this.onSelect});
-  final Chapter chapter;
+  ItemsGrid(this.items, {this.selected, this.onSelect});
+  final List<Translations> items;
   final Translations? selected;
   final ValueSetter<Translations>? onSelect;
 
@@ -16,9 +15,9 @@ class ItemsGrid extends StatelessWidget {
         maxCrossAxisExtent: 192,
         childAspectRatio: 1.5,
       ),
-      itemCount: chapter.items.length,
+      itemCount: items.length,
       itemBuilder: (context, index) {
-        var item = chapter.items[index];
+        var item = items[index];
         return ItemCard(
           selected: item == selected,
           translations: item,

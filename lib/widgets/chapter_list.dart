@@ -1,4 +1,5 @@
 import 'package:avdan/data/chapter.dart';
+import 'package:avdan/data/store.dart';
 import 'package:avdan/widgets/item_card.dart';
 import 'package:avdan/widgets/label.dart';
 import 'package:flutter/material.dart';
@@ -28,13 +29,18 @@ class ChapterList extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
               final chap = chapters[index];
+              final text = index == 0
+                  ? chap.items[0][learningLanguage.name]
+                      ?.split(" ")[0]
+                      .toUpperCase()
+                  : null;
               return AspectRatio(
                 aspectRatio: 1,
                 child: ItemCard(
-                  translations: index == 0 ? chap.items[0] : chap.translations,
+                  text: text,
+                  translations: chap.translations,
                   selected: selected == chap,
                   labeled: false,
-                  alphabet: index == 0,
                   onTap: () => onSelect?.call(chap),
                 ),
               );

@@ -108,7 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
               selected: chapter,
               onSelect: (c) {
                 openPage(0);
-                if (chapter != c) setState(() => chapter = c);
+                setState(() => chapter = c);
               },
             ),
           ),
@@ -117,11 +117,11 @@ class _HomeScreenState extends State<HomeScreen> {
               controller: _pageController,
               children: [
                 ItemsGrid(
-                  chapter,
+                  chapter.items,
                   selected: item,
                   onSelect: (i) {
                     openPage(1);
-                    if (item != i) setState(() => item = i);
+                    setState(() => item = i);
                   },
                 ),
                 ItemView(
