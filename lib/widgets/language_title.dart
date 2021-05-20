@@ -24,6 +24,7 @@ class LanguageTitle extends StatelessWidget {
           capitalize(translatedName),
           style: TextStyle(
             fontSize: 16,
+            fontWeight: FontWeight.bold,
             color: Theme.of(context).hintColor,
           ),
         ),
