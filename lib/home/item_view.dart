@@ -11,7 +11,7 @@ class ItemView extends StatelessWidget {
   final Translations translations;
   final Widget? actions;
 
-  String get name => translations['english'] ?? '';
+  String get name => translations['english'] ?? learning(translations);
   String get image => 'assets/images/$name.png';
   String get audio => 'assets/audio/${learningLanguage.name}/$name.mp3';
 
