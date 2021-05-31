@@ -1,7 +1,7 @@
 import 'dart:async' show Future;
 import 'dart:convert';
-import 'chapter.dart';
-import 'language.dart';
+import 'data/chapter.dart';
+import 'data/language.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
 Future<void> initialize() async {

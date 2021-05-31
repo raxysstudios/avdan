@@ -1,4 +1,4 @@
-import 'package:avdan/data/store.dart';
+import 'package:avdan/store.dart';
 
 typedef Translations = Map<String, String>;
 

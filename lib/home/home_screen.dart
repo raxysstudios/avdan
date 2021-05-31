@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:avdan/data/chapter.dart';
 import 'package:avdan/data/translations.dart';
-import 'package:avdan/data/store.dart';
+import 'package:avdan/store.dart';
 import 'package:avdan/settings/settings_screen.dart';
 import 'chapter_list.dart';
 import 'item_grid.dart';

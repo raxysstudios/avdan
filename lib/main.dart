@@ -1,6 +1,6 @@
 import 'package:avdan/home/home_screen.dart';
 import 'package:flutter/material.dart';
-import 'data/store.dart';
+import 'store.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
