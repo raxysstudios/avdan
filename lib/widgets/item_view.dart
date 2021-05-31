@@ -22,7 +22,7 @@ class ItemView extends StatelessWidget {
       onTap: () => playAsset(audio),
       child: Stack(
         children: [
-          ...(textOnly(translations)
+          ...textOnly(translations)
               ? [
                   Center(
                     child: Column(
@@ -72,11 +72,14 @@ class ItemView extends StatelessWidget {
                       ),
                     ),
                   ),
-                ]),
+                ],
           if (actions != null)
             Align(
               alignment: Alignment.topRight,
-              child: actions,
+              child: Padding(
+                padding: const EdgeInsets.all(4),
+                child: actions,
+              ),
             ),
         ],
       ),

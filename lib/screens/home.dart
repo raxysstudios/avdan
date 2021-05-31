@@ -90,6 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
             icon: Icon(Icons.settings),
             onPressed: openSettings,
           ),
+          SizedBox(width: 4),
         ],
       ),
       body: Column(
