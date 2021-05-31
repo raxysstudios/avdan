@@ -25,26 +25,32 @@ class ItemView extends StatelessWidget {
           ...textOnly(translations)
               ? [
                   Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          text.toUpperCase(),
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 96,
-                            fontWeight: FontWeight.bold,
-                          ),
+                    child: FittedBox(
+                      fit: BoxFit.fitWidth,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              text.toUpperCase(),
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 96,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text(
+                              text,
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 96,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
                         ),
-                        Text(
-                          text,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 96,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
+                      ),
                     ),
                   ),
                 ]
