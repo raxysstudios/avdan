@@ -1,5 +1,5 @@
 import 'package:avdan/data/language.dart';
-import 'package:avdan/widgets/language_card.dart';
+import 'package:avdan/settings/language_card.dart';
 import 'package:flutter/material.dart';
 
 class LanguageList extends StatelessWidget {

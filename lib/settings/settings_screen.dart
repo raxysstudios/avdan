@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'package:avdan/data/language.dart';
 import 'package:avdan/data/store.dart';
-import 'package:avdan/data/translations.dart';
-import 'package:avdan/widgets/about_card.dart';
-import 'package:avdan/widgets/language_list.dart';
+import 'package:avdan/data/utils.dart';
+import 'package:avdan/settings/about_card.dart';
+import 'package:avdan/settings/language_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:shared_preferences/shared_preferences.dart';

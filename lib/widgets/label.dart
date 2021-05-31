@@ -1,4 +1,5 @@
 import 'package:avdan/data/translations.dart';
+import 'package:avdan/data/utils.dart';
 import 'package:flutter/material.dart';
 
 class Label extends StatelessWidget {

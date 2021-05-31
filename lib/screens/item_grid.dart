@@ -1,5 +1,5 @@
 import 'package:avdan/data/translations.dart';
-import 'package:avdan/widgets/item_card.dart';
+import 'package:avdan/screens/item_card.dart';
 import 'package:flutter/material.dart';
 
 class ItemsGrid extends StatelessWidget {

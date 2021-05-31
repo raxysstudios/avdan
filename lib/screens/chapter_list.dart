@@ -1,5 +1,5 @@
 import 'package:avdan/data/chapter.dart';
-import 'package:avdan/widgets/item_card.dart';
+import 'package:avdan/screens/item_card.dart';
 import 'package:avdan/widgets/label.dart';
 import 'package:flutter/material.dart';
 

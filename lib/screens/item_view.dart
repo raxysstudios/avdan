@@ -1,10 +1,10 @@
 import 'package:avdan/data/translations.dart';
-import 'package:avdan/audio-player.dart';
+import 'package:avdan/audio_player.dart';
 import 'package:avdan/data/store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-import 'label.dart';
+import '../widgets/label.dart';
 
 class ItemView extends StatelessWidget {
   ItemView(this.translations, {this.actions});
