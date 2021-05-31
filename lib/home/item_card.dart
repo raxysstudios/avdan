@@ -43,13 +43,13 @@ class ItemCard extends StatelessWidget {
               ),
             ]
           : [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Align(
-                  alignment: Alignment.centerRight,
+              Positioned.fill(
+                child: Padding(
+                  padding: const EdgeInsets.all(8),
                   child: Image.asset(
                     image,
                     fit: BoxFit.fitHeight,
+                    alignment: Alignment.centerRight,
                     errorBuilder: (
                       BuildContext context,
                       Object exception,
@@ -61,7 +61,7 @@ class ItemCard extends StatelessWidget {
               ),
               if (labeled)
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8),
                   child: Label(translations),
                 ),
             ],

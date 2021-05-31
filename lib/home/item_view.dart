@@ -55,20 +55,13 @@ class ItemView extends StatelessWidget {
                   ),
                 ]
               : [
-                  Padding(
-                    padding: const EdgeInsets.all(8),
-                    child: Label(
-                      translations,
-                      scale: 2,
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8),
-                    child: Align(
-                      alignment: Alignment.bottomCenter,
+                  Positioned.fill(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8),
                       child: Image.asset(
                         image,
-                        fit: BoxFit.fitHeight,
+                        fit: BoxFit.fitWidth,
+                        alignment: Alignment.bottomCenter,
                         errorBuilder: (
                           BuildContext context,
                           Object exception,
@@ -76,6 +69,13 @@ class ItemView extends StatelessWidget {
                         ) =>
                             Container(),
                       ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8),
+                    child: Label(
+                      translations,
+                      scale: 2,
                     ),
                   ),
                 ],
