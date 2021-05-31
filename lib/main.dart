@@ -1,4 +1,4 @@
-import 'package:avdan/screens/home_screen.dart';
+import 'package:avdan/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'data/store.dart';
 
