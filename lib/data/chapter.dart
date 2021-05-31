@@ -29,10 +29,6 @@ class Chapter {
   final Translations translations;
   late final List<Translations> items;
 
-  factory Chapter.fromRawJson(String str) => Chapter.fromJson(json.decode(str));
-
-  String toRawJson() => json.encode(toJson());
-
   factory Chapter.fromJson(Map<String, dynamic> json) {
     var translations = toMap(json["translations"]);
     var items = (json["items"] as Iterable<dynamic>).map(toMap).toList();

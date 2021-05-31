@@ -15,11 +15,6 @@ class Language {
   String get nativeName => translations[name] ?? 'null';
   String get flag => 'assets/flags/$name.png';
 
-  factory Language.fromRawJson(String str) =>
-      Language.fromJson(json.decode(str));
-
-  String toRawJson() => json.encode(toJson());
-
   factory Language.fromJson(Map<String, dynamic> json) {
     return Language(
       interface: (json['interface'] ?? false) as bool,
