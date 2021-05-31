@@ -7,37 +7,45 @@ class Chapter {
     required this.translations,
     required this.items,
   });
-  final Translations translations;
-  final List<Translations> items;
 
-  factory Chapter.fromRawJson(String str) => Chapter.fromJson(json.decode(str));
-
-  String toRawJson() => json.encode(toJson());
-
-  static List<Translations> formAlphabets(Translations item) {
-    final languages = item.keys.toList();
-    final alphabets = item.values.map((a) => a.split(' ')).toList();
-    final length = alphabets.map((a) => a.length).reduce(max);
+  Chapter.alphabet({
+    required this.translations,
+    required Translations alphabet,
+  }) {
+    final languages = alphabet.keys.toList();
+    final letters = alphabet.values.map((a) => a.split(' ')).toList();
+    final length = letters.map((a) => a.length).reduce(max);
 
     final List<Translations> items = [];
     for (var i = 0; i < length; i++) {
       final Translations letter = {};
       for (var j = 0; j < languages.length; j++)
-        if (i < alphabets[j].length) letter[languages[j]] = alphabets[j][i];
+        if (i < letters[j].length) letter[languages[j]] = letters[j][i];
       items.add(letter);
     }
-    return items;
+    this.items = items;
   }
+
+  final Translations translations;
+  late final List<Translations> items;
+
+  factory Chapter.fromRawJson(String str) => Chapter.fromJson(json.decode(str));
+
+  String toRawJson() => json.encode(toJson());
 
   factory Chapter.fromJson(Map<String, dynamic> json) {
     var translations = toMap(json["translations"]);
-    var items =
-        (json["items"] as Iterable<dynamic>).map((i) => toMap(i)).toList();
-    if (translations['english'] == 'alphabet') items = formAlphabets(items[0]);
-    return Chapter(
-      translations: translations,
-      items: items,
-    );
+    var items = (json["items"] as Iterable<dynamic>).map(toMap).toList();
+
+    return translations['english'] == 'alphabet'
+        ? Chapter.alphabet(
+            translations: translations,
+            alphabet: items[0],
+          )
+        : Chapter(
+            translations: translations,
+            items: items,
+          );
   }
 
   Map<String, dynamic> toJson() => {
