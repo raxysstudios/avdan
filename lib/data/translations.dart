@@ -8,14 +8,14 @@ Translations toMap(dynamic map) {
   );
 }
 
-learning(Translations translations) {
+String learning(Translations translations) {
   return translations[learningLanguage.name] ?? '';
 }
 
-interface(Translations translations) {
+String interface(Translations translations) {
   return translations[interfaceLanguage.name] ?? '';
 }
 
-textOnly(Translations translations) {
+bool textOnly(Translations translations) {
   return translations['english'] == null;
 }
