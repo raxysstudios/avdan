@@ -60,7 +60,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: Text(
-          capitalize("Avdan"),
+          "Avdæn",
           style: TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.bold,
