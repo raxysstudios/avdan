@@ -5,22 +5,19 @@ import 'data/language.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
 Future<void> initialize() async {
-  var text = await rootBundle.loadString('assets/chapters.json');
-  List<dynamic> array = json.decode(text);
-  chapters = List.from(
-    array.map(
-      (j) => Chapter.fromJson(j as Map<String, dynamic>),
-    ),
-  );
-
-  text = await rootBundle.loadString('assets/languages.json');
-  array = json.decode(text);
-  languages = List.from(
-    array.map(
-      (j) => Language.fromJson(j as Map<String, dynamic>),
-    ),
-  );
-  languages.sort((a, b) => a.name.compareTo(b.name));
+  await rootBundle
+      .loadString('assets/chapters.json')
+      .then((t) => json.decode(t) as List)
+      .then((l) {
+    chapters = l.map((j) => Chapter.fromJson(j)).toList();
+  });
+  await rootBundle
+      .loadString('assets/languages.json')
+      .then((t) => json.decode(t) as List)
+      .then((l) {
+    languages = l.map((j) => Language.fromJson(j)).toList();
+    languages.sort((a, b) => a.name.compareTo(b.name));
+  });
 }
 
 late List<Chapter> chapters = [];
