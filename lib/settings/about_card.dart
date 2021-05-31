@@ -8,11 +8,11 @@ class AboutCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            height: 140,
+            height: 172,
             width: 112,
             child: Image.asset(
               "assets/hohag.png",
-              fit: BoxFit.cover,
+              fit: BoxFit.fitHeight,
             ),
           ),
           Expanded(
@@ -29,6 +29,10 @@ class AboutCard extends StatelessWidget {
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
                     ),
+                  ),
+                  Text(
+                    "Developed in Ossetia & Dagestan, North Caucasus.",
+                    textAlign: TextAlign.center,
                   ),
                   ElevatedButton.icon(
                     onPressed: () {},
