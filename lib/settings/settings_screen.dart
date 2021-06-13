@@ -67,7 +67,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.home),
+            icon: Icon(Icons.home_outlined),
             onPressed: () => Navigator.pop(context),
           ),
           SizedBox(width: 4),

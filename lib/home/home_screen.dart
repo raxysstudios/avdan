@@ -87,7 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
           IconButton(
-            icon: Icon(Icons.settings),
+            icon: Icon(Icons.settings_outlined),
             onPressed: openSettings,
           ),
           SizedBox(width: 4),
@@ -131,7 +131,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ItemView(
                   item,
                   actions: IconButton(
-                    icon: Icon(Icons.grid_view),
+                    icon: Icon(Icons.grid_view_outlined),
                     onPressed: () => openPage(0),
                   ),
                 ),

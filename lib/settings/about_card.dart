@@ -38,12 +38,12 @@ class AboutCard extends StatelessWidget {
                   ),
                   ElevatedButton.icon(
                     onPressed: () => launch('https://t.me/alixandzinadAX'),
-                    icon: Icon(Icons.mail),
+                    icon: Icon(Icons.mail_outlined),
                     label: Text('Contact'),
                   ),
                   // ElevatedButton.icon(
                   //   onPressed: () {},
-                  //   icon: Icon(Icons.free_breakfast),
+                  //   icon: Icon(Icons.free_breakfast_outlined),
                   //   label: Text('Donate'),
                   // ),
                 ],

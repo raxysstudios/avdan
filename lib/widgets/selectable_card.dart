@@ -38,7 +38,7 @@ class SelectableCard extends StatelessWidget {
                   ),
                 ),
                 child: Icon(
-                  Icons.check,
+                  Icons.check_outlined,
                   color: Theme.of(context).colorScheme.onPrimary,
                 ),
               ),
