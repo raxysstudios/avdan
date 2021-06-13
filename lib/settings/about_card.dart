@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AboutCard extends StatelessWidget {
   @override
@@ -8,7 +9,8 @@ class AboutCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            height: 172,
+            // height: 172,
+            height: 124,
             width: 112,
             child: Image.asset(
               "assets/hohag.png",
@@ -31,19 +33,19 @@ class AboutCard extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "Developed in Ossetia & Dagestan, North Caucasus.",
+                    "Made with honor in Ossetia & Dagestan, North Caucasus.",
                     textAlign: TextAlign.center,
                   ),
                   ElevatedButton.icon(
-                    onPressed: () {},
+                    onPressed: () => launch('https://t.me/alixandzinadAX'),
                     icon: Icon(Icons.mail),
                     label: Text("Contact"),
                   ),
-                  ElevatedButton.icon(
-                    onPressed: () {},
-                    icon: Icon(Icons.free_breakfast),
-                    label: Text("Donate"),
-                  ),
+                  // ElevatedButton.icon(
+                  //   onPressed: () {},
+                  //   icon: Icon(Icons.free_breakfast),
+                  //   label: Text("Donate"),
+                  // ),
                 ],
               ),
             ),
