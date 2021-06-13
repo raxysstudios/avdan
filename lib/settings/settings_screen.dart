@@ -59,7 +59,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: Text(
-          "Avdæn",
+          'Avdæn',
           style: TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.bold,
@@ -80,7 +80,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             Padding(
               padding: const EdgeInsets.all(8),
               child: Text(
-                "Interface language",
+                'Interface language',
                 style: TextStyle(
                   fontSize: 20,
                   color: Theme.of(context).hintColor,
@@ -95,7 +95,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             Padding(
               padding: const EdgeInsets.all(8),
               child: Text(
-                "Learning language",
+                'Learning language',
                 style: TextStyle(
                   fontSize: 20,
                   color: Theme.of(context).hintColor,

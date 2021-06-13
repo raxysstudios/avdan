@@ -29,8 +29,8 @@ class Chapter {
   late final List<Translations> items;
 
   factory Chapter.fromJson(Map<String, dynamic> json) {
-    var translations = toMap(json["translations"]);
-    var items = (json["items"] as Iterable<dynamic>).map(toMap).toList();
+    var translations = toMap(json['translations']);
+    var items = (json['items'] as Iterable<dynamic>).map(toMap).toList();
 
     return translations['english'] == 'alphabet'
         ? Chapter.alphabet(
@@ -44,7 +44,7 @@ class Chapter {
   }
 
   Map<String, dynamic> toJson() => {
-        "translations": translations,
-        "items": items,
+        'translations': translations,
+        'items': items,
       };
 }

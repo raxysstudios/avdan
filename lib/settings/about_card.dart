@@ -13,7 +13,7 @@ class AboutCard extends StatelessWidget {
             height: 124,
             width: 112,
             child: Image.asset(
-              "assets/hohag.png",
+              'assets/hohag.png',
               fit: BoxFit.fitHeight,
             ),
           ),
@@ -25,7 +25,7 @@ class AboutCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Text(
-                    "Hohag",
+                    'Hohag',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 24,
@@ -33,18 +33,18 @@ class AboutCard extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "Made with honor in Ossetia & Dagestan, North Caucasus.",
+                    'Made with honor in Ossetia & Dagestan, North Caucasus.',
                     textAlign: TextAlign.center,
                   ),
                   ElevatedButton.icon(
                     onPressed: () => launch('https://t.me/alixandzinadAX'),
                     icon: Icon(Icons.mail),
-                    label: Text("Contact"),
+                    label: Text('Contact'),
                   ),
                   // ElevatedButton.icon(
                   //   onPressed: () {},
                   //   icon: Icon(Icons.free_breakfast),
-                  //   label: Text("Donate"),
+                  //   label: Text('Donate'),
                   // ),
                 ],
               ),

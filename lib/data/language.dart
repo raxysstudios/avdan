@@ -18,13 +18,13 @@ class Language {
     return Language(
       interface: (json['interface'] ?? false) as bool,
       learning: (json['learning'] ?? false) as bool,
-      translations: toMap(json["translations"]),
+      translations: toMap(json['translations']),
     );
   }
 
   Map<String, dynamic> toJson() => {
-        "isInterface": interface,
-        "isLearning": learning,
-        "translations": translations,
+        'isInterface': interface,
+        'isLearning': learning,
+        'translations': translations,
       };
 }
