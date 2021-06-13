@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:avdan/data/language.dart';
 import 'package:avdan/store.dart';
-import 'package:avdan/data/utils.dart';
 import 'package:avdan/settings/about_card.dart';
 import 'package:avdan/settings/language_list.dart';
 import 'package:flutter/material.dart';
