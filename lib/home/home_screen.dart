@@ -115,6 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
               },
             ),
           ),
+          SizedBox(height: 4),
           Expanded(
             child: PageView(
               controller: _pageController,
