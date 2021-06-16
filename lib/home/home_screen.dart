@@ -133,7 +133,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   translations: item,
                   root: chapter.translations['english']!,
                   actions: IconButton(
-                    icon: Icon(Icons.grid_view_outlined),
+                    icon: Icon(Icons.arrow_back_outlined),
                     onPressed: () => openPage(0),
                   ),
                 ),

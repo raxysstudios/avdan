@@ -87,7 +87,7 @@ class ItemView extends StatelessWidget {
                 ],
           if (actions != null)
             Align(
-              alignment: Alignment.topRight,
+              alignment: Alignment.bottomLeft,
               child: Padding(
                 padding: const EdgeInsets.all(4),
                 child: actions,
