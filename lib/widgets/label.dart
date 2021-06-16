@@ -10,12 +10,8 @@ class Label extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final texts = capitalize(learning(translations)).split('\n');
-    final primary = texts.first;
-    final secondary = [
-      ...texts.skip(1),
-      capitalize(interface(translations)),
-    ].map((t) => t = (row ? ' ' : '\n') + t);
+    final lt = capitalize(learning(translations));
+    final it = capitalize(interface(translations));
 
     return RichText(
       text: TextSpan(
@@ -25,14 +21,17 @@ class Label extends StatelessWidget {
         ),
         children: [
           TextSpan(
-            text: primary,
+            text: lt,
             style: TextStyle(
               color: Theme.of(context).textTheme.bodyText2?.color!,
               fontSize: 16 * scale,
               fontWeight: FontWeight.bold,
             ),
           ),
-          for (final t in secondary) TextSpan(text: t),
+          if (lt.isNotEmpty && it.isNotEmpty) TextSpan(text: row ? ' ' : '\n'),
+          TextSpan(
+            text: it,
+          ),
         ],
       ),
     );
