@@ -6,17 +6,22 @@ import 'package:flutter/material.dart';
 class ItemCard extends StatelessWidget {
   ItemCard({
     required this.translations,
+    this.root = '',
     this.labeled = true,
     this.selected = false,
     this.onTap,
   });
   final Translations translations;
+  final String root;
   final bool selected;
   final bool labeled;
   final Function()? onTap;
 
-  String get name => translations['english'] ?? '';
-  String get image => 'assets/images/$name.png';
+  String get image {
+    var name = translations['english'] ?? '';
+    if (root.isNotEmpty) name = root + '/' + name;
+    return 'assets/images/$name.png';
+  }
 
   @override
   Widget build(BuildContext context) {

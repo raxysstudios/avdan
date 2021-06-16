@@ -120,7 +120,7 @@ class _HomeScreenState extends State<HomeScreen> {
               controller: _pageController,
               children: [
                 ItemsGrid(
-                  items,
+                  chapter,
                   alphabet: chapter == chapters[0],
                   selected: item,
                   onSelect: (i) {
@@ -129,8 +129,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   },
                 ),
                 ItemView(
-                  chapter: chapter.translations['english']!,
                   translations: item,
+                  root: chapter.translations['english']!,
                   actions: IconButton(
                     icon: Icon(Icons.grid_view_outlined),
                     onPressed: () => openPage(0),
