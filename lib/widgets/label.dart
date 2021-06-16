@@ -10,29 +10,34 @@ class Label extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var widgets = [
-      Text(
-        capitalize(learning(translations)),
-        style: TextStyle(
-          fontSize: 16 * scale,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-      SizedBox(width: 8),
-      Text(
-        capitalize(interface(translations)),
-        style: TextStyle(
-          color: Theme.of(context).hintColor,
-          fontSize: (row ? 16 : 14) * scale,
-        ),
-      ),
-    ];
+    final texts = capitalize(learning(translations)).split('\n');
+    final primary = texts.first;
+    final secondary = [
+      ...texts.skip(1),
+      capitalize(interface(translations)),
+    ].map((t) => t = (row ? ' ' : '\n') + t);
 
-    return row
-        ? Row(children: widgets)
-        : Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: widgets,
-          );
+    return FittedBox(
+      fit: BoxFit.fitWidth,
+      child: RichText(
+        text: TextSpan(
+          style: TextStyle(
+            color: Theme.of(context).hintColor,
+            fontSize: (row ? 16 : 14) * scale,
+          ),
+          children: [
+            TextSpan(
+              text: primary,
+              style: TextStyle(
+                color: Theme.of(context).textTheme.bodyText2?.color!,
+                fontSize: 16 * scale,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            for (final t in secondary) TextSpan(text: t),
+          ],
+        ),
+      ),
+    );
   }
 }

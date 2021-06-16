@@ -31,10 +31,10 @@ class ItemCard extends StatelessWidget {
       children: textOnly(translations)
           ? [
               Center(
-                child: FittedBox(
-                  fit: BoxFit.fitWidth,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8),
+                child: Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: FittedBox(
+                    fit: BoxFit.fitWidth,
                     child: Text(
                       learning(translations).toUpperCase(),
                       textAlign: TextAlign.center,
