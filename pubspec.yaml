@@ -54,7 +54,9 @@ flutter:
     - assets/flags/
     - assets/chapters.json
     - assets/images/
-    - assets/audio/iron/
+
+    - assets/images/kitchen
+    - assets/audio/iron/kitchen
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
