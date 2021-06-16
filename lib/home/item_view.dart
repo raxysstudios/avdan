@@ -1,34 +1,33 @@
+import 'package:avdan/data/chapter.dart';
 import 'package:avdan/data/translations.dart';
 import 'package:avdan/audio_player.dart';
-import 'package:avdan/store.dart';
+import 'package:avdan/widgets/label.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-import '../widgets/label.dart';
-
 class ItemView extends StatelessWidget {
-  final String root;
-  final Translations translations;
+  final Chapter chapter;
+  final Translations item;
   final Widget? actions;
+
   ItemView({
-    required this.root,
-    required this.translations,
+    required this.chapter,
+    required this.item,
     this.actions,
   });
 
-  String get file =>
-      '$root/${translations['english'] ?? learning(translations)}';
+  String get root => chapter.translations['english']!;
+  String get file => '$root/${item['english'] ?? learning(item)}';
   String get image => 'assets/images/$file.png';
-  String get audio => 'assets/audio/${learningLanguage.name}/$file.mp3';
 
   @override
   Widget build(BuildContext context) {
-    final text = learning(translations);
+    final text = learning(item);
     return InkWell(
-      onTap: () => playAsset(audio),
+      onTap: () => playItem(chapter, item),
       child: Stack(
         children: [
-          ...textOnly(translations)
+          ...textOnly(item)
               ? [
                   Center(
                     child: FittedBox(
@@ -80,7 +79,7 @@ class ItemView extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.all(8),
                     child: Label(
-                      translations,
+                      item,
                       scale: 2,
                     ),
                   ),

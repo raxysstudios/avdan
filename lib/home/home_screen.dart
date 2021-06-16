@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:avdan/audio_player.dart';
 import 'package:avdan/data/chapter.dart';
 import 'package:avdan/data/translations.dart';
 import 'package:avdan/store.dart';
@@ -125,13 +126,16 @@ class _HomeScreenState extends State<HomeScreen> {
                   alphabet: chapter.translations['english'] == 'alphabet',
                   selected: item,
                   onSelect: (i) {
+                    setState(() {
+                      item = i;
+                    });
                     openPage(1);
-                    setState(() => item = i);
+                    playItem(chapter, item);
                   },
                 ),
                 ItemView(
-                  translations: item,
-                  root: chapter.translations['english']!,
+                  chapter: chapter,
+                  item: item,
                   actions: IconButton(
                     icon: Icon(Icons.arrow_back_outlined),
                     onPressed: () => openPage(0),
