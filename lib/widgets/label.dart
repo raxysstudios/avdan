@@ -17,26 +17,23 @@ class Label extends StatelessWidget {
       capitalize(interface(translations)),
     ].map((t) => t = (row ? ' ' : '\n') + t);
 
-    return FittedBox(
-      fit: BoxFit.fitWidth,
-      child: RichText(
-        text: TextSpan(
-          style: TextStyle(
-            color: Theme.of(context).hintColor,
-            fontSize: (row ? 16 : 14) * scale,
-          ),
-          children: [
-            TextSpan(
-              text: primary,
-              style: TextStyle(
-                color: Theme.of(context).textTheme.bodyText2?.color!,
-                fontSize: 16 * scale,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            for (final t in secondary) TextSpan(text: t),
-          ],
+    return RichText(
+      text: TextSpan(
+        style: TextStyle(
+          color: Theme.of(context).hintColor,
+          fontSize: (row ? 16 : 14) * scale,
         ),
+        children: [
+          TextSpan(
+            text: primary,
+            style: TextStyle(
+              color: Theme.of(context).textTheme.bodyText2?.color!,
+              fontSize: 16 * scale,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          for (final t in secondary) TextSpan(text: t),
+        ],
       ),
     );
   }
