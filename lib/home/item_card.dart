@@ -49,12 +49,13 @@ class ItemCard extends StatelessWidget {
             ]
           : [
               Positioned.fill(
+                top: labeled ? 16 : 0,
                 child: Padding(
                   padding: const EdgeInsets.all(8),
                   child: Image.asset(
                     image,
                     fit: BoxFit.fitHeight,
-                    alignment: Alignment.centerRight,
+                    alignment: Alignment.bottomRight,
                     errorBuilder: (
                       BuildContext context,
                       Object exception,

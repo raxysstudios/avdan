@@ -8,7 +8,7 @@ class ItemsGrid extends StatelessWidget {
   final bool alphabet;
   final Translations? selected;
   final ValueSetter<Translations>? onSelect;
-  
+
   ItemsGrid(
     this.chapter, {
     this.alphabet = false,
@@ -20,7 +20,7 @@ class ItemsGrid extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView.builder(
       gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-        maxCrossAxisExtent: alphabet ? 128 : 192,
+        maxCrossAxisExtent: alphabet ? 128 : 256,
         childAspectRatio: alphabet ? 1 : 1.5,
       ),
       itemCount: chapter.items.length,
