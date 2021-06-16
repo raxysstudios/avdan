@@ -5,59 +5,124 @@
       "russian": "букварь",
       "iron": "дамгъуат"
     },
-    "items": [{ "iron": "a b c d e kh", "kabardian": "а э гъ лъ кхъу" }]
+    "items": [
+      {
+        "iron": "а æ б в г гъ д дз дж е ж з и й к къ л м н о п пъ р с т тъ у у ф х хъ ц цъ ч чъ ш ы"
+      }
+    ]
   },
   {
     "translations": {
-      "english": "kitchen",
-      "russian": "кухня",
-      "iron": "хæринаггæнæн"
+      "english": "food",
+      "russian": "еда",
+      "iron": "хæринаг"
     },
     "items": [
-      { "english": "knife", "russian": "нож", "iron": "кард" },
-      { "english": "fork", "russian": "вилка", "iron": "саджилæг" },
-      { "english": "spoon", "iron": "уидыг" },
-      { "english": "cup", "iron": "къопп" },
-      { "english": "plate" },
-      { "english": "kettle" },
-      { "english": "pot" }
-    ]
-  },
-  {
-    "translations": { "english": "living room" },
-    "items": [
-      { "english": "sofa" },
-      { "english": "TV" },
-      { "english": "table" }
-    ]
-  },
-  {
-    "translations": { "english": "foods" },
-    "items": [
-      { "english": "water" },
-      { "english": "bread" },
-      { "english": "cheese" },
-      { "english": "tea" }
-    ]
-  },
-  {
-    "translations": { "english": "clothes" },
-    "items": [
-      { "english": "shirt" },
-      { "english": "pants" },
-      { "english": "hat" },
-      { "english": "shoes" }
-    ]
-  },
-  {
-    "translations": { "english": "relatives" },
-    "items": [
-      { "english": "mother" },
-      { "english": "father" },
-      { "english": "daugther" },
-      { "english": "son" },
-      { "english": "sister" },
-      { "english": "brother" }
+      {
+        "english": "bread",
+        "russian": "хлеб",
+        "iron": "дзул"
+      },
+      {
+        "english": "water",
+        "russian": "вода",
+        "iron": "дон"
+      },
+      {
+        "english": "salt",
+        "russian": "соль",
+        "iron": "цæхт"
+      },
+      {
+        "english": "sugar",
+        "russian": "сахар",
+        "iron": "сæкæр"
+      },
+      {
+        "english": "pepper",
+        "russian": "перец",
+        "iron": "бырц"
+      },
+      {
+        "english": "meat",
+        "russian": "мясо",
+        "iron": "фыд"
+      },
+      {
+        "english": "milk",
+        "russian": "молоко",
+        "iron": "æхсыр"
+      },
+      {
+        "english": "kefir",
+        "russian": "кефир",
+        "iron": "мисын"
+      },
+      {
+        "english": "sour cream",
+        "russian": "сметана",
+        "iron": "хъаймагъ"
+      },
+      {
+        "english": "pies",
+        "russian": "пироги",
+        "iron": "чиритæ"
+      },
+      {
+        "english": "oil",
+        "russian": "растительное масло",
+        "iron": "сой"
+      },
+      {
+        "english": "butter",
+        "russian": "сливочное масло",
+        "iron": "нæлхæ"
+      },
+      {
+        "english": "porridge",
+        "russian": "каша",
+        "iron": "кас"
+      },
+      {
+        "english": "soup",
+        "russian": "суп",
+        "iron": "бас"
+      },
+      {
+        "english": "meat pie",
+        "russian": "пирог с мясом",
+        "iron": "фыдджын"
+      },
+      {
+        "english": "potato pie",
+        "russian": "пирог с картофелем",
+        "iron": "картофджын"
+      },
+      {
+        "english": "pumpkin pie",
+        "russian": "пирог с тыквой",
+        "iron": "насджын"
+      },
+      {
+        "english": "cheese pie",
+        "russian": "пирог с сыром",
+        "iron": "уæлибах"
+      },
+      {
+        "english": "beet leaf pie",
+        "russian": "пирог с листьями свеклы",
+        "iron": "цæхæраджын"
+      },
+      {
+        "english": "sweets",
+        "russian": "сладости",
+        "iron": "адджынагтæ"
+      },
+      {
+        "english": "cheese",
+        "russian": "сыр",
+        "iron": "цыхт"
+      }
     ]
   }
 ]
