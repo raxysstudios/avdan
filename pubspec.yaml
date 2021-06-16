@@ -55,8 +55,10 @@ flutter:
     - assets/chapters.json
     - assets/images/
 
-    - assets/images/food/
+    - assets/audio/iron/
+    - assets/audio/iron/alphabet/
     - assets/audio/iron/food/
+    - assets/images/food/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
