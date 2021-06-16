@@ -10,7 +10,7 @@ class AboutCard extends StatelessWidget {
         children: [
           Container(
             // height: 172,
-            height: 124,
+            height: 140,
             width: 112,
             child: Image.asset(
               'assets/hohag.png',
@@ -32,10 +32,12 @@ class AboutCard extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
+                  SizedBox(height: 8),
                   Text(
                     'Made with honor in Ossetia & Dagestan, North Caucasus.',
                     textAlign: TextAlign.center,
                   ),
+                  SizedBox(height: 8),
                   ElevatedButton.icon(
                     onPressed: () => launch('https://t.me/alixandzinadAX'),
                     icon: Icon(Icons.mail_outlined),
