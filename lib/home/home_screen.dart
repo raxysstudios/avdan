@@ -129,7 +129,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   },
                 ),
                 ItemView(
-                  item,
+                  chapter: chapter.translations['english']!,
+                  translations: item,
                   actions: IconButton(
                     icon: Icon(Icons.grid_view_outlined),
                     onPressed: () => openPage(0),

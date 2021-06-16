@@ -7,13 +7,19 @@ import 'package:flutter/widgets.dart';
 import '../widgets/label.dart';
 
 class ItemView extends StatelessWidget {
-  ItemView(this.translations, {this.actions});
+  final String chapter;
   final Translations translations;
   final Widget? actions;
+  ItemView({
+    required this.chapter,
+    required this.translations,
+    this.actions,
+  });
 
-  String get name => translations['english'] ?? learning(translations);
-  String get image => 'assets/images/$name.png';
-  String get audio => 'assets/audio/${learningLanguage.name}/$name.mp3';
+  String get file =>
+      '$chapter/${translations['english'] ?? learning(translations)}';
+  String get image => 'assets/images/$file.png';
+  String get audio => 'assets/audio/${learningLanguage.name}/$file.mp3';
 
   @override
   Widget build(BuildContext context) {
