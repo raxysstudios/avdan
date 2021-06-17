@@ -1,4 +1,4 @@
-package com.example.avdan
+package com.alkaitagi.avdan
 
 import io.flutter.embedding.android.FlutterActivity
 
