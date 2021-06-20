@@ -77,14 +77,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            AboutCard(),
+            Expanded(child: Container()),
             Padding(
               padding: const EdgeInsets.all(8),
-              child: Text(
-                'Interface language',
-                style: TextStyle(
-                  fontSize: 20,
-                  color: Theme.of(context).hintColor,
-                ),
+              child: Icon(
+                Icons.visibility_outlined,
+                size: 32,
               ),
             ),
             LanguageList(
@@ -94,12 +93,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
             Padding(
               padding: const EdgeInsets.all(8),
-              child: Text(
-                'Learning language',
-                style: TextStyle(
-                  fontSize: 20,
-                  color: Theme.of(context).hintColor,
-                ),
+              child: Icon(
+                Icons.hearing_outlined,
+                size: 32,
               ),
             ),
             LanguageList(
@@ -107,8 +103,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
               selected: learningLanguage,
               onSelect: selectLearning,
             ),
-            Expanded(child: Container()),
-            AboutCard(),
           ],
         ),
       ),
