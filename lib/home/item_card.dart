@@ -50,16 +50,19 @@ class ItemCard extends StatelessWidget {
           : [
               Positioned.fill(
                 top: labeled ? 32 : 0,
-                child: Image.asset(
-                  image,
-                  fit: BoxFit.fitHeight,
-                  alignment: Alignment.bottomRight,
-                  errorBuilder: (
-                    BuildContext context,
-                    Object exception,
-                    StackTrace? stackTrace,
-                  ) =>
-                      Container(),
+                child: Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: Image.asset(
+                    image,
+                    fit: BoxFit.fitHeight,
+                    alignment: Alignment.bottomRight,
+                    errorBuilder: (
+                      BuildContext context,
+                      Object exception,
+                      StackTrace? stackTrace,
+                    ) =>
+                        Container(),
+                  ),
                 ),
               ),
               if (labeled)
