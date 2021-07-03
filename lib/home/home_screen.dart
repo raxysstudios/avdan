@@ -95,28 +95,9 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       body: Column(
+        verticalDirection: VerticalDirection.up,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            decoration: BoxDecoration(
-              color: Theme.of(context).scaffoldBackgroundColor,
-              boxShadow: [
-                BoxShadow(
-                  color: Theme.of(context).shadowColor.withOpacity(0.5),
-                  blurRadius: 4,
-                )
-              ],
-            ),
-            child: ChapterList(
-              chapters,
-              selected: chapter,
-              onSelect: (c) {
-                openPage(0);
-                setState(() => chapter = c);
-              },
-            ),
-          ),
-          SizedBox(height: 4),
           Expanded(
             child: PageView(
               controller: _pageController,
@@ -142,6 +123,25 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ],
+            ),
+          ),
+          Container(
+            decoration: BoxDecoration(
+              color: Theme.of(context).scaffoldBackgroundColor,
+              boxShadow: [
+                BoxShadow(
+                  color: Theme.of(context).shadowColor.withOpacity(0.25),
+                  blurRadius: 2,
+                )
+              ],
+            ),
+            child: ChapterList(
+              chapters,
+              selected: chapter,
+              onSelect: (c) {
+                openPage(0);
+                setState(() => chapter = c);
+              },
             ),
           ),
         ],
