@@ -41,7 +41,7 @@ class AboutCard extends StatelessWidget {
                   SizedBox(height: 8),
                   ElevatedButton.icon(
                     onPressed: () => launch('https://t.me/alixandzinadAX'),
-                    icon: Icon(Icons.mail_outlined),
+                    icon: Icon(Icons.send_outlined),
                     label: Text('Contact'),
                   ),
                   // ElevatedButton.icon(

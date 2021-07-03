@@ -20,14 +20,15 @@ class LanguageTitle extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        Text(
-          capitalize(translatedName),
-          style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-            color: Theme.of(context).hintColor,
+        if (translatedName != language.nativeName)
+          Text(
+            capitalize(translatedName),
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+              color: Theme.of(context).hintColor,
+            ),
           ),
-        ),
       ],
     );
   }
