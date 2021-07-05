@@ -22,9 +22,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  shared_preferences: ^2.0.5
-  url_launcher: ^6.0.6
-  just_audio: ^0.7.5
+  shared_preferences: ^2.0.6
+  url_launcher: ^6.0.9
+  just_audio: ^0.8.0
 
 dev_dependencies:
   flutter_test:
