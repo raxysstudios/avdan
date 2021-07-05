@@ -1,30 +1,30 @@
 import 'translations.dart';
 
 class Language {
-  Language({
+  const Language({
     this.interface = false,
     this.learning = false,
-    required this.translations,
+    this.alt,
+    this.flag,
+    required this.name,
   });
+
   final bool interface;
   final bool learning;
-  final Translations translations;
+  final String? alt;
+  final String? flag;
 
-  String get name => translations['english'] ?? 'null';
-  String get nativeName => translations[name] ?? 'null';
-  String get flag => 'assets/flags/$name.png';
+  final Translations name;
+  String get globalName => name['english']!;
+  String? get nativeName => name[globalName];
 
   factory Language.fromJson(Map<String, dynamic> json) {
     return Language(
       interface: (json['interface'] ?? false) as bool,
       learning: (json['learning'] ?? false) as bool,
-      translations: toMap(json['translations']),
+      alt: json['alt'],
+      flag: json['flag'],
+      name: toMap(json['name']),
     );
   }
-
-  Map<String, dynamic> toJson() => {
-        'isInterface': interface,
-        'isLearning': learning,
-        'translations': translations,
-      };
 }

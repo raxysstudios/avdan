@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 class LanguageTitle extends StatelessWidget {
   const LanguageTitle(this.language);
   final Language language;
-  String get translatedName => interface(language.translations);
+  String get translatedName => interface(language.name);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class LanguageTitle extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          capitalize(language.nativeName),
+          capitalize(language.nativeName ?? ''),
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,

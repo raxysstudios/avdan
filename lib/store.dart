@@ -16,20 +16,20 @@ Future<void> initialize() async {
       .then((t) => json.decode(t) as List)
       .then((l) {
     languages = l.map((j) => Language.fromJson(j)).toList();
-    languages.sort((a, b) => a.name.compareTo(b.name));
+    languages.sort((a, b) => a.globalName.compareTo(b.globalName));
   });
 }
 
 late List<Chapter> chapters = [];
 late List<Language> languages = [];
 
-Language _dummy = Language(translations: {'null': 'null'});
+Language _dummy = Language(name: {'null': 'null'});
 Language learningLanguage = _dummy;
 Language interfaceLanguage = _dummy;
 
 Language? findLanguage(String? name) {
   var l = languages.firstWhere(
-    (l) => l.name == name,
+    (l) => l.globalName == name,
     orElse: () => _dummy,
   );
   return l == _dummy ? null : l;

@@ -1,4 +1,5 @@
 import 'package:avdan/data/chapter.dart';
+import 'package:avdan/store.dart';
 import 'item_card.dart';
 import 'package:avdan/widgets/label.dart';
 import 'package:flutter/material.dart';
@@ -25,21 +26,21 @@ class ChapterList extends StatelessWidget {
           ),
         Container(
           height: 96,
-          child: ListView.builder(
+          child: ListView(
             scrollDirection: Axis.horizontal,
-            itemBuilder: (context, index) {
-              final chap = chapters[index];
-              return AspectRatio(
-                aspectRatio: 1,
-                child: ItemCard(
-                  translations: index == 0 ? chap.items[0] : chap.title,
-                  selected: selected == chap,
-                  labeled: false,
-                  onTap: () => onSelect?.call(chap),
-                ),
-              );
-            },
-            itemCount: chapters.length,
+            children: [
+              for (final c in chapters)
+                AspectRatio(
+                  aspectRatio: 1,
+                  child: ItemCard(
+                    translations: c.alphabet ? c.items.first : c.title,
+                    image: c.getImageURL(c.items.first),
+                    selected: selected == c,
+                    labeled: false,
+                    onTap: () => onSelect?.call(c),
+                  ),
+                )
+            ],
           ),
         ),
       ],

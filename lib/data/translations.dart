@@ -9,11 +9,11 @@ Translations toMap(dynamic map) {
 }
 
 String learning(Translations translations) {
-  return translations[learningLanguage.name] ?? '';
+  return translations[learningLanguage.globalName] ?? 'null';
 }
 
 String interface(Translations translations) {
-  return translations[interfaceLanguage.name] ?? '';
+  return translations[interfaceLanguage.globalName] ?? 'null';
 }
 
 bool textOnly(Translations translations) {

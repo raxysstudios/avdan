@@ -29,7 +29,7 @@ class ItemsGrid extends StatelessWidget {
         return ItemCard(
           selected: item == selected,
           translations: item,
-          root: chapter.title['english']!,
+          image: chapter.getImageURL(item),
           onTap: () => onSelect?.call(item),
         );
       },

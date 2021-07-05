@@ -28,9 +28,8 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Chapter chapter = chapters[0];
-  List<Translations> get items => chapter.items
-      .where((i) => i[learningLanguage.name] != null)
-      .toList(growable: false);
+  List<Translations> get items =>
+      chapter.items.where((i) => i[learningLanguage.name] != null).toList();
   Translations item = chapters[0].items[0];
 
   final PageController _pageController = PageController();
