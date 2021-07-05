@@ -4,10 +4,14 @@ import 'package:avdan/widgets/label.dart';
 import 'package:flutter/material.dart';
 
 class ChapterList extends StatelessWidget {
-  const ChapterList(this.chapters, {this.selected, this.onSelect});
   final List<Chapter> chapters;
   final Chapter? selected;
   final ValueSetter<Chapter>? onSelect;
+  const ChapterList(
+    this.chapters, {
+    this.selected,
+    this.onSelect,
+  });
 
   @override
   Widget build(BuildContext context) {

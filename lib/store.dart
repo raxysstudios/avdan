@@ -24,9 +24,8 @@ Future<void> initialize() async {
 late List<Chapter> chapters = [];
 late List<Language> languages = [];
 
-Language _dummy = Language(Translation({}));
-Language learningLanguage = _dummy;
-Language interfaceLanguage = _dummy;
+Language learningLanguage = Language(Translation({}));
+Language interfaceLanguage = Language(Translation({}));
 
 Language? findLanguage(String? name) {
   try {
