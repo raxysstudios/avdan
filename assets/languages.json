@@ -1,49 +1,40 @@
 [
   {
-    "learning": true,
-    "translations": {
-      "english": "iron",
-      "iron": "ирон",
-      "russian": "иронский"
-    }
-  },
-  {
-    "learning": true,
-    "translations": {
-      "english": "digor",
-      "iron": "дигорон",
-      "digor": "дыгурон",
-      "russian": "дигорский"
-    }
-  },
-  {
-    "learning": true,
-    "translations": {
-      "english": "kabardian",
-      "russian": "кабардинский",
-      "kabardian": "къэбэрдейбзэ"
-    }
-  },
-  {
     "interface": true,
-    "translations": {
+    "flag": "england",
+    "name": {
       "english": "english",
       "russian": "английский"
     }
   },
   {
     "interface": true,
-    "translations": {
+    "flag": "russia",
+    "name": {
       "english": "russian",
       "russian": "русский"
     }
   },
   {
-    "interface": true,
-    "translations": {
-      "english": "turkish",
-      "russian": "турецкий",
-      "turkish": "türk"
+    "learning": true,
+    "flag": "ossetia",
+    "alt": "latinag",
+    "name": {
+      "english": "iron",
+      "russian": "иронский",
+      "iron": "ирон",
+      "iron_alt": "iron"
+    }
+  },
+  {
+    "learning": true,
+    "flag": "ossetia",
+    "alt": "latinag",
+    "name": {
+      "english": "digor",
+      "russian": "дигорский",
+      "digor": "дигорон",
+      "digor_alt": "digoron"
     }
   }
 ]
