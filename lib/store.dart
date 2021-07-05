@@ -9,8 +9,8 @@ class Store {
   static late List<Chapter> chapters = [];
   static late List<Language> languages = [];
 
-  static late Language learning;
   static late Language interface;
+  static late Language learning;
   static bool alt = false;
 
   static Future<void> load() async {
@@ -27,10 +27,7 @@ class Store {
       languages = l.map((j) => Language.fromJson(j)).toList();
       languages.sort((a, b) => a.name.global!.compareTo(b.name.global!));
     });
-    await _loadLanguages();
-  }
 
-  static Future<void> _loadLanguages() async {
     final prefs = await SharedPreferences.getInstance();
     Store.interface = _findLanguage(
       prefs.getString('interface'),

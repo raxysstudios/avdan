@@ -3,6 +3,7 @@ import 'package:avdan/data/chapter.dart';
 import 'package:avdan/data/translation.dart';
 import 'package:avdan/store.dart';
 import 'package:avdan/settings/settings_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'chapter_list.dart';
 import 'item_grid.dart';
 import 'item_view.dart';
@@ -17,13 +18,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  @override
-  initState() {
-    super.initState();
-    if (Store.learning.name.global == null ||
-        Store.interface.name.global == null) openSettings();
-  }
-
   Chapter chapter = Store.chapters[0];
   Translation item = Store.chapters[0].items[0];
 
@@ -46,6 +40,14 @@ class _HomeScreenState extends State<HomeScreen> {
       duration: Duration(milliseconds: 200),
       curve: standardEasing,
     );
+  }
+
+  @override
+  initState() {
+    super.initState();
+    SharedPreferences.getInstance().then((prefs) {
+      if (prefs.getString('interface') == null) openSettings();
+    });
   }
 
   @override

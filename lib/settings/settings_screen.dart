@@ -15,17 +15,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   initState() {
     super.initState();
-    interface = List.from(Store.languages.where((l) => l.interface));
-    learning = List.from(Store.languages.where((l) => l.learning));
+    interface = Store.languages.where((l) => l.interface).toList();
+    learning = Store.languages.where((l) => l.learning).toList();
+    saveChoice('interface', Store.interface);
+    saveChoice('learning', Store.learning);
   }
 
-  List<Language> interface = [];
-  List<Language> learning = [];
-  late final SharedPreferences? prefs;
+  late final List<Language> interface;
+  late final List<Language> learning;
+  SharedPreferences? prefs;
 
-  Future<void> saveChoice(Language language, String index) async {
+  Future<void> saveChoice(String index, Language language) async {
     prefs ??= await SharedPreferences.getInstance();
-    await prefs!.setString('interface', language.name.global!);
+    await prefs!.setString(index, language.name.global!);
   }
 
   @override
@@ -66,7 +68,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               selected: Store.interface,
               onSelect: (l) {
                 setState(() => Store.interface = l);
-                saveChoice(l, 'interface');
+                saveChoice('interface', l);
               },
             ),
             Padding(
@@ -81,7 +83,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               selected: Store.learning,
               onSelect: (l) {
                 setState(() => Store.learning = l);
-                saveChoice(l, 'learning');
+                saveChoice('learning', l);
               },
             ),
           ],
