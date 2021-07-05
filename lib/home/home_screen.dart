@@ -1,8 +1,7 @@
 import 'dart:async';
-
 import 'package:avdan/audio_player.dart';
 import 'package:avdan/data/chapter.dart';
-import 'package:avdan/data/translations.dart';
+import 'package:avdan/data/translation.dart';
 import 'package:avdan/store.dart';
 import 'package:avdan/settings/settings_screen.dart';
 import 'chapter_list.dart';
@@ -28,18 +27,16 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Chapter chapter = chapters[0];
-  List<Translations> get items =>
-      chapter.items.where((i) => i[learningLanguage.name] != null).toList();
-  Translations item = chapters[0].items[0];
+  Translation item = chapters[0].items[0];
 
   final PageController _pageController = PageController();
 
   loadLanguages() async {
     final prefs = await SharedPreferences.getInstance();
-    var il = findLanguage(
+    final il = findLanguage(
       prefs.getString('interfaceLanguage'),
     );
-    var ll = findLanguage(
+    final ll = findLanguage(
       prefs.getString('learningLanguage'),
     );
 
@@ -52,14 +49,16 @@ class _HomeScreenState extends State<HomeScreen> {
       });
   }
 
-  openSettings() => Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => SettingsScreen(),
-        ),
-      ).then(
-        (v) => setState(() {}),
-      );
+  openSettings() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => SettingsScreen(),
+      ),
+    ).then(
+      (_) => setState(() {}),
+    );
+  }
 
   openPage(int index) {
     _pageController.animateToPage(
@@ -103,7 +102,6 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 ItemsGrid(
                   chapter,
-                  alphabet: chapter.title['english'] == 'alphabet',
                   selected: item,
                   onSelect: (i) {
                     setState(() {

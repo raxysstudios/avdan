@@ -1,4 +1,4 @@
-import 'package:avdan/data/translations.dart';
+import 'package:avdan/data/translation.dart';
 import 'package:avdan/store.dart';
 import 'package:just_audio/just_audio.dart';
 import 'data/chapter.dart';
@@ -15,10 +15,9 @@ Future<void> playAsset(String path) async {
   }
 }
 
-playItem(Chapter chapter, Translations? item) {
-  final root = chapter.title['english']!;
-  item ??= chapter.title;
-  final name = learning(item);
+playItem(Chapter chapter, Translation item) {
+  final root = chapter.title.global!;
+  final name = item.learning;
   final path = 'assets/audio/${learningLanguage.name}/$root/$name.mp3';
   playAsset(path);
 }

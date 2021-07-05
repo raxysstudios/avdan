@@ -1,5 +1,4 @@
 import 'package:avdan/data/chapter.dart';
-import 'package:avdan/store.dart';
 import 'item_card.dart';
 import 'package:avdan/widgets/label.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +18,7 @@ class ChapterList extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8),
             child: Label(
-              (selected as Chapter).title,
+              selected!.title,
               scale: 1.25,
               row: true,
             ),
@@ -33,7 +32,7 @@ class ChapterList extends StatelessWidget {
                 AspectRatio(
                   aspectRatio: 1,
                   child: ItemCard(
-                    translations: c.alphabet ? c.items.first : c.title,
+                    item: c.alphabet ? c.items.first : c.title,
                     image: c.getImageURL(c.items.first),
                     selected: selected == c,
                     labeled: false,

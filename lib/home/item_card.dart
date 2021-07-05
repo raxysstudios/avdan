@@ -1,17 +1,17 @@
-import 'package:avdan/data/translations.dart';
+import 'package:avdan/data/translation.dart';
 import 'package:avdan/widgets/label.dart';
 import 'package:avdan/widgets/selectable_card.dart';
 import 'package:flutter/material.dart';
 
 class ItemCard extends StatelessWidget {
   ItemCard({
-    required this.translations,
+    required this.item,
     required this.image,
     this.labeled = true,
     this.selected = false,
     this.onTap,
   });
-  final Translations translations;
+  final Translation item;
   final String image;
   final bool selected;
   final bool labeled;
@@ -22,7 +22,7 @@ class ItemCard extends StatelessWidget {
     return SelectableCard(
       onTap: onTap,
       selected: selected,
-      children: textOnly(translations)
+      children: item.global == null
           ? [
               Center(
                 child: FittedBox(
@@ -30,7 +30,7 @@ class ItemCard extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(8),
                     child: Text(
-                      learning(translations).toUpperCase(),
+                      item.learning!.toUpperCase(),
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 42,
@@ -62,7 +62,7 @@ class ItemCard extends StatelessWidget {
               if (labeled)
                 Padding(
                   padding: const EdgeInsets.all(8),
-                  child: Label(translations),
+                  child: Label(item),
                 ),
             ],
     );

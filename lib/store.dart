@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'data/chapter.dart';
 import 'data/language.dart';
 import 'package:flutter/services.dart' show rootBundle;
+import 'data/translation.dart';
 
 Future<void> initialize() async {
   await rootBundle
@@ -16,21 +17,21 @@ Future<void> initialize() async {
       .then((t) => json.decode(t) as List)
       .then((l) {
     languages = l.map((j) => Language.fromJson(j)).toList();
-    languages.sort((a, b) => a.globalName.compareTo(b.globalName));
+    languages.sort((a, b) => a.name.global!.compareTo(b.name.global!));
   });
 }
 
 late List<Chapter> chapters = [];
 late List<Language> languages = [];
 
-Language _dummy = Language(name: {'null': 'null'});
+Language _dummy = Language(Translation({}));
 Language learningLanguage = _dummy;
 Language interfaceLanguage = _dummy;
 
 Language? findLanguage(String? name) {
-  var l = languages.firstWhere(
-    (l) => l.globalName == name,
-    orElse: () => _dummy,
-  );
-  return l == _dummy ? null : l;
+  try {
+    return languages.firstWhere((l) => l.name.global == name);
+  } catch (_) {
+    return null;
+  }
 }

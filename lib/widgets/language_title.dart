@@ -1,12 +1,10 @@
 import 'package:avdan/data/language.dart';
-import 'package:avdan/data/translations.dart';
 import 'package:avdan/data/utils.dart';
 import 'package:flutter/material.dart';
 
 class LanguageTitle extends StatelessWidget {
   const LanguageTitle(this.language);
   final Language language;
-  String get translatedName => interface(language.name);
 
   @override
   Widget build(BuildContext context) {
@@ -14,15 +12,15 @@ class LanguageTitle extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          capitalize(language.nativeName ?? ''),
+          capitalize(language.name.native),
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
           ),
         ),
-        if (translatedName != language.nativeName)
+        if (language.name.interface != language.name.native)
           Text(
-            capitalize(translatedName),
+            capitalize(language.name.interface),
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,

@@ -1,34 +1,33 @@
 import 'package:avdan/data/chapter.dart';
-import 'package:avdan/data/translations.dart';
+import 'package:avdan/data/translation.dart';
 import 'item_card.dart';
 import 'package:flutter/material.dart';
 
 class ItemsGrid extends StatelessWidget {
   final Chapter chapter;
-  final bool alphabet;
-  final Translations? selected;
-  final ValueSetter<Translations>? onSelect;
+  final Translation? selected;
+  final ValueSetter<Translation>? onSelect;
 
   ItemsGrid(
     this.chapter, {
-    this.alphabet = false,
     this.selected,
     this.onSelect,
   });
 
   @override
   Widget build(BuildContext context) {
+    final items = chapter.items.where((i) => i.learning != null).toList();
     return GridView.builder(
       gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-        maxCrossAxisExtent: alphabet ? 128 : 256,
-        childAspectRatio: alphabet ? 1 : 1.25,
+        maxCrossAxisExtent: chapter.alphabet ? 128 : 256,
+        childAspectRatio: chapter.alphabet ? 1 : 1.25,
       ),
-      itemCount: chapter.items.length,
+      itemCount: items.length,
       itemBuilder: (context, index) {
-        var item = chapter.items[index];
+        final item = items[index];
         return ItemCard(
           selected: item == selected,
-          translations: item,
+          item: item,
           image: chapter.getImageURL(item),
           onTap: () => onSelect?.call(item),
         );
