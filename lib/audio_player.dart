@@ -16,9 +16,9 @@ Future<void> playAsset(String path) async {
 }
 
 playItem(Chapter chapter, Translations? item) {
-  final root = chapter.translations['english']!;
-  if (item == null) item = chapter.translations;
-  final name = item['english'] ?? learning(item);
+  final root = chapter.title['english']!;
+  item ??= chapter.title;
+  final name = learning(item);
   final path = 'assets/audio/${learningLanguage.name}/$root/$name.mp3';
   playAsset(path);
 }
