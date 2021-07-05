@@ -13,12 +13,10 @@ class LanguageFlag extends StatelessWidget {
   final Offset offset;
   final double scale;
 
-  String? get flag =>
-      language.flag == null ? null : 'assets/flags/${language.flag}.png';
+  String get flag => 'assets/flags/${language.flag}.png';
 
   @override
   Widget build(BuildContext context) {
-    if (flag == null) return Offstage();
     return Container(
       width: 16,
       height: 4,
@@ -29,15 +27,14 @@ class LanguageFlag extends StatelessWidget {
           child: Transform.scale(
             scale: scale,
             child: Image.asset(
-              flag!,
+              flag,
               repeat: ImageRepeat.repeatX,
-              // fit: BoxFit.contain,
               errorBuilder: (
                 BuildContext context,
                 Object exception,
                 StackTrace? stackTrace,
               ) =>
-                  Container(),
+                  Offstage(),
             ),
           ),
         ),
