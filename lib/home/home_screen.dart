@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'package:avdan/audio_player.dart';
 import 'package:avdan/data/chapter.dart';
 import 'package:avdan/data/translation.dart';
@@ -11,7 +10,6 @@ import 'package:avdan/widgets/language_flag.dart';
 import 'package:avdan/widgets/language_title.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -19,35 +17,17 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  _HomeScreenState() {
-    Timer(
-      Duration(),
-      loadLanguages,
-    );
+  @override
+  initState() {
+    super.initState();
+    if (Store.learning.name.global == null ||
+        Store.interface.name.global == null) openSettings();
   }
 
   Chapter chapter = Store.chapters[0];
   Translation item = Store.chapters[0].items[0];
 
   final PageController _pageController = PageController();
-
-  loadLanguages() async {
-    final prefs = await SharedPreferences.getInstance();
-    final il = Store.findLanguage(
-      prefs.getString('interfaceLanguage'),
-    );
-    final ll = Store.findLanguage(
-      prefs.getString('Store.learning'),
-    );
-
-    if (il == null || ll == null)
-      openSettings();
-    else
-      setState(() {
-        Store.interface = il;
-        Store.learning = ll;
-      });
-  }
 
   openSettings() {
     Navigator.push(

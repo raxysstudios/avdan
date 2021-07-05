@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'package:avdan/data/language.dart';
 import 'package:avdan/store.dart';
 import 'package:avdan/settings/about_card.dart';
@@ -13,44 +12,20 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-  _SettingsScreenState() {
-    interfaceLanguages = List.from(Store.languages.where((l) => l.interface));
-    learningLanguages = List.from(Store.languages.where((l) => l.learning));
-    Timer(Duration(), loadLanguages);
+  @override
+  initState() {
+    super.initState();
+    interface = List.from(Store.languages.where((l) => l.interface));
+    learning = List.from(Store.languages.where((l) => l.learning));
   }
 
-  List<Language> interfaceLanguages = [];
-  List<Language> learningLanguages = [];
+  List<Language> interface = [];
+  List<Language> learning = [];
+  late final SharedPreferences? prefs;
 
-  loadLanguages() async {
-    final prefs = await SharedPreferences.getInstance();
-    var il = Store.findLanguage(
-      prefs.getString('interfaceLanguage'),
-    );
-    var ll = Store.findLanguage(
-      prefs.getString('learningLanguage'),
-    );
-
-    await selectInterface(
-      il ?? interfaceLanguages[0],
-      prefs: prefs,
-    );
-    await selectLearning(
-      ll ?? learningLanguages[0],
-      prefs: prefs,
-    );
-  }
-
-  selectInterface(Language l, {SharedPreferences? prefs}) async {
-    setState(() => Store.interface = l);
-    if (prefs == null) prefs = await SharedPreferences.getInstance();
-    await prefs.setString('interfaceLanguage', l.name.global!);
-  }
-
-  selectLearning(Language l, {SharedPreferences? prefs}) async {
-    setState(() => Store.learning = l);
-    if (prefs == null) prefs = await SharedPreferences.getInstance();
-    await prefs.setString('learningLanguage', l.name.global!);
+  Future<void> saveChoice(Language language, String index) async {
+    prefs ??= await SharedPreferences.getInstance();
+    await prefs!.setString('interface', language.name.global!);
   }
 
   @override
@@ -87,9 +62,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
             ),
             LanguageList(
-              interfaceLanguages,
+              interface,
               selected: Store.interface,
-              onSelect: selectInterface,
+              onSelect: (l) {
+                setState(() => Store.interface = l);
+                saveChoice(l, 'interface');
+              },
             ),
             Padding(
               padding: const EdgeInsets.all(8),
@@ -99,9 +77,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
             ),
             LanguageList(
-              learningLanguages,
+              learning,
               selected: Store.learning,
-              onSelect: selectLearning,
+              onSelect: (l) {
+                setState(() => Store.learning = l);
+                saveChoice(l, 'learning');
+              },
             ),
           ],
         ),

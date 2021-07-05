@@ -4,7 +4,7 @@ import 'store.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Store.initialize();
+  await Store.load();
   runApp(Avdan());
 }
 

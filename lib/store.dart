@@ -1,12 +1,19 @@
-import 'dart:async' show Future;
+import 'dart:async';
 import 'dart:convert';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'data/chapter.dart';
 import 'data/language.dart';
 import 'package:flutter/services.dart' show rootBundle;
-import 'data/translation.dart';
 
 class Store {
-  static Future<void> initialize() async {
+  static late List<Chapter> chapters = [];
+  static late List<Language> languages = [];
+
+  static late Language learning;
+  static late Language interface;
+  static bool alt = false;
+
+  static Future<void> load() async {
     await rootBundle
         .loadString('assets/chapters.json')
         .then((t) => json.decode(t) as List)
@@ -20,20 +27,25 @@ class Store {
       languages = l.map((j) => Language.fromJson(j)).toList();
       languages.sort((a, b) => a.name.global!.compareTo(b.name.global!));
     });
+    await _loadLanguages();
   }
 
-  static late List<Chapter> chapters = [];
-  static late List<Language> languages = [];
+  static Future<void> _loadLanguages() async {
+    final prefs = await SharedPreferences.getInstance();
+    Store.interface = _findLanguage(
+      prefs.getString('interface'),
+      languages.firstWhere((l) => l.interface),
+    );
+    Store.learning = _findLanguage(
+      prefs.getString('learning'),
+      languages.firstWhere((l) => l.learning),
+    );
+  }
 
-  static Language learning = Language(Translation({}));
-  static Language interface = Language(Translation({}));
-  static bool alt = false;
-
-  static Language? findLanguage(String? name) {
-    try {
-      return languages.firstWhere((l) => l.name.global == name);
-    } catch (_) {
-      return null;
-    }
+  static Language _findLanguage(String? name, Language orElse) {
+    return languages.firstWhere(
+      (l) => l.name.global == name,
+      orElse: () => orElse,
+    );
   }
 }
