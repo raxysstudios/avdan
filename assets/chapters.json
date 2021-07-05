@@ -1,128 +1,124 @@
 [
-  {
-    "translations": {
+  [
+    {
       "english": "alphabet",
       "russian": "букварь",
       "iron": "дамгъуат"
     },
-    "items": [
-      {
-        "iron": "а æ б в г гъ д дз дж е ж з и й к къ л м н о п пъ р с т тъ у у ф х хъ ц цъ ч чъ ш ы"
-      }
-    ]
-  },
-  {
-    "translations": {
+    {
+      "iron": "а æ б в г гъ д дз дж е ж з и й к къ л м н о п пъ р с т тъ у у ф х хъ ц цъ ч чъ ш ы"
+    }
+  ],
+  [
+    {
       "english": "food",
       "russian": "еда",
       "iron": "хæринаг"
     },
-    "items": [
-      {
-        "english": "bread",
-        "russian": "хлеб",
-        "iron": "дзул"
-      },
-      {
-        "english": "water",
-        "russian": "вода",
-        "iron": "дон"
-      },
-      {
-        "english": "salt",
-        "russian": "соль",
-        "iron": "цæхт"
-      },
-      {
-        "english": "sugar",
-        "russian": "сахар",
-        "iron": "сæкæр"
-      },
-      {
-        "english": "pepper",
-        "russian": "перец",
-        "iron": "бырц"
-      },
-      {
-        "english": "meat",
-        "russian": "мясо",
-        "iron": "фыд"
-      },
-      {
-        "english": "milk",
-        "russian": "молоко",
-        "iron": "æхсыр"
-      },
-      {
-        "english": "kefir",
-        "russian": "кефир",
-        "iron": "мисын"
-      },
-      {
-        "english": "sour cream",
-        "russian": "сметана",
-        "iron": "хъаймагъ"
-      },
-      {
-        "english": "pies",
-        "russian": "пироги",
-        "iron": "чиритæ"
-      },
-      {
-        "english": "oil",
-        "russian": "растительное масло",
-        "iron": "сой"
-      },
-      {
-        "english": "butter",
-        "russian": "сливочное масло",
-        "iron": "нæлхæ"
-      },
-      {
-        "english": "porridge",
-        "russian": "каша",
-        "iron": "кас"
-      },
-      {
-        "english": "soup",
-        "russian": "суп",
-        "iron": "бас"
-      },
-      {
-        "english": "meat pie",
-        "russian": "пирог с мясом",
-        "iron": "фыдджын"
-      },
-      {
-        "english": "potato pie",
-        "russian": "пирог с картофелем",
-        "iron": "картофджын"
-      },
-      {
-        "english": "pumpkin pie",
-        "russian": "пирог с тыквой",
-        "iron": "насджын"
-      },
-      {
-        "english": "cheese pie",
-        "russian": "пирог с сыром",
-        "iron": "уæлибах"
-      },
-      {
-        "english": "beet leaf pie",
-        "russian": "пирог с листьями свеклы",
-        "iron": "цæхæраджын"
-      },
-      {
-        "english": "sweets",
-        "russian": "сладости",
-        "iron": "адджынагтæ"
-      },
-      {
-        "english": "cheese",
-        "russian": "сыр",
-        "iron": "цыхт"
-      }
-    ]
-  }
+    {
+      "english": "bread",
+      "russian": "хлеб",
+      "iron": "дзул"
+    },
+    {
+      "english": "water",
+      "russian": "вода",
+      "iron": "дон"
+    },
+    {
+      "english": "salt",
+      "russian": "соль",
+      "iron": "цæхт"
+    },
+    {
+      "english": "sugar",
+      "russian": "сахар",
+      "iron": "сæкæр"
+    },
+    {
+      "english": "pepper",
+      "russian": "перец",
+      "iron": "бырц"
+    },
+    {
+      "english": "meat",
+      "russian": "мясо",
+      "iron": "фыд"
+    },
+    {
+      "english": "milk",
+      "russian": "молоко",
+      "iron": "æхсыр"
+    },
+    {
+      "english": "kefir",
+      "russian": "кефир",
+      "iron": "мисын"
+    },
+    {
+      "english": "sour cream",
+      "russian": "сметана",
+      "iron": "хъаймагъ"
+    },
+    {
+      "english": "pies",
+      "russian": "пироги",
+      "iron": "чиритæ"
+    },
+    {
+      "english": "oil",
+      "russian": "растительное масло",
+      "iron": "сой"
+    },
+    {
+      "english": "butter",
+      "russian": "сливочное масло",
+      "iron": "нæлхæ"
+    },
+    {
+      "english": "porridge",
+      "russian": "каша",
+      "iron": "кас"
+    },
+    {
+      "english": "soup",
+      "russian": "суп",
+      "iron": "бас"
+    },
+    {
+      "english": "meat pie",
+      "russian": "пирог с мясом",
+      "iron": "фыдджын"
+    },
+    {
+      "english": "potato pie",
+      "russian": "пирог с картофелем",
+      "iron": "картофджын"
+    },
+    {
+      "english": "pumpkin pie",
+      "russian": "пирог с тыквой",
+      "iron": "насджын"
+    },
+    {
+      "english": "cheese pie",
+      "russian": "пирог с сыром",
+      "iron": "уæлибах"
+    },
+    {
+      "english": "beet leaf pie",
+      "russian": "пирог с листьями свеклы",
+      "iron": "цæхæраджын"
+    },
+    {
+      "english": "sweets",
+      "russian": "сладости",
+      "iron": "адджынагтæ"
+    },
+    {
+      "english": "cheese",
+      "russian": "сыр",
+      "iron": "цыхт"
+    }
+  ]
 ]

@@ -104,7 +104,7 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 ItemsGrid(
                   chapter,
-                  alphabet: chapter.translations['english'] == 'alphabet',
+                  alphabet: chapter.title['english'] == 'alphabet',
                   selected: item,
                   onSelect: (i) {
                     setState(() {

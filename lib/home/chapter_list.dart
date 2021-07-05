@@ -18,7 +18,7 @@ class ChapterList extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8),
             child: Label(
-              (selected as Chapter).translations,
+              (selected as Chapter).title,
               scale: 1.25,
               row: true,
             ),
@@ -32,7 +32,7 @@ class ChapterList extends StatelessWidget {
               return AspectRatio(
                 aspectRatio: 1,
                 child: ItemCard(
-                  translations: index == 0 ? chap.items[0] : chap.translations,
+                  translations: index == 0 ? chap.items[0] : chap.title,
                   selected: selected == chap,
                   labeled: false,
                   onTap: () => onSelect?.call(chap),

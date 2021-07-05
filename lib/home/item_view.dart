@@ -16,7 +16,7 @@ class ItemView extends StatelessWidget {
     this.actions,
   });
 
-  String get root => chapter.translations['english']!;
+  String get root => chapter.title['english']!;
   String get file => '$root/${item['english'] ?? learning(item)}';
   String get image => 'assets/images/$file.png';
 
