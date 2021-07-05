@@ -15,7 +15,7 @@ class SelectableCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const size = 28.0;
+    const size = 24.0;
     return Card(
       elevation: elevated ? Theme.of(context).cardTheme.elevation : 0,
       child: InkWell(
@@ -39,6 +39,7 @@ class SelectableCard extends StatelessWidget {
                 ),
                 child: Icon(
                   Icons.check_outlined,
+                  size: size - 4,
                   color: Theme.of(context).colorScheme.onPrimary,
                 ),
               ),
