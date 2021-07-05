@@ -14,8 +14,8 @@ class SettingsScreen extends StatefulWidget {
 
 class _SettingsScreenState extends State<SettingsScreen> {
   _SettingsScreenState() {
-    interfaceLanguages = List.from(languages.where((l) => l.interface));
-    learningLanguages = List.from(languages.where((l) => l.learning));
+    interfaceLanguages = List.from(Store.languages.where((l) => l.interface));
+    learningLanguages = List.from(Store.languages.where((l) => l.learning));
     Timer(Duration(), loadLanguages);
   }
 
@@ -24,10 +24,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   loadLanguages() async {
     final prefs = await SharedPreferences.getInstance();
-    var il = findLanguage(
+    var il = Store.findLanguage(
       prefs.getString('interfaceLanguage'),
     );
-    var ll = findLanguage(
+    var ll = Store.findLanguage(
       prefs.getString('learningLanguage'),
     );
 
@@ -42,13 +42,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
   }
 
   selectInterface(Language l, {SharedPreferences? prefs}) async {
-    setState(() => interfaceLanguage = l);
+    setState(() => Store.interface = l);
     if (prefs == null) prefs = await SharedPreferences.getInstance();
     await prefs.setString('interfaceLanguage', l.name.global!);
   }
 
   selectLearning(Language l, {SharedPreferences? prefs}) async {
-    setState(() => learningLanguage = l);
+    setState(() => Store.learning = l);
     if (prefs == null) prefs = await SharedPreferences.getInstance();
     await prefs.setString('learningLanguage', l.name.global!);
   }
@@ -88,7 +88,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
             LanguageList(
               interfaceLanguages,
-              selected: interfaceLanguage,
+              selected: Store.interface,
               onSelect: selectInterface,
             ),
             Padding(
@@ -100,7 +100,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
             LanguageList(
               learningLanguages,
-              selected: learningLanguage,
+              selected: Store.learning,
               onSelect: selectLearning,
             ),
           ],

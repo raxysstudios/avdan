@@ -5,32 +5,35 @@ import 'data/language.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'data/translation.dart';
 
-Future<void> initialize() async {
-  await rootBundle
-      .loadString('assets/chapters.json')
-      .then((t) => json.decode(t) as List)
-      .then((l) {
-    chapters = l.map((j) => Chapter.fromJson(j)).toList();
-  });
-  await rootBundle
-      .loadString('assets/languages.json')
-      .then((t) => json.decode(t) as List)
-      .then((l) {
-    languages = l.map((j) => Language.fromJson(j)).toList();
-    languages.sort((a, b) => a.name.global!.compareTo(b.name.global!));
-  });
-}
+class Store {
+  static Future<void> initialize() async {
+    await rootBundle
+        .loadString('assets/chapters.json')
+        .then((t) => json.decode(t) as List)
+        .then((l) {
+      chapters = l.map((j) => Chapter.fromJson(j)).toList();
+    });
+    await rootBundle
+        .loadString('assets/languages.json')
+        .then((t) => json.decode(t) as List)
+        .then((l) {
+      languages = l.map((j) => Language.fromJson(j)).toList();
+      languages.sort((a, b) => a.name.global!.compareTo(b.name.global!));
+    });
+  }
 
-late List<Chapter> chapters = [];
-late List<Language> languages = [];
+  static late List<Chapter> chapters = [];
+  static late List<Language> languages = [];
 
-Language learningLanguage = Language(Translation({}));
-Language interfaceLanguage = Language(Translation({}));
+  static Language learning = Language(Translation({}));
+  static Language interface = Language(Translation({}));
+  static bool alt = false;
 
-Language? findLanguage(String? name) {
-  try {
-    return languages.firstWhere((l) => l.name.global == name);
-  } catch (_) {
-    return null;
+  static Language? findLanguage(String? name) {
+    try {
+      return languages.firstWhere((l) => l.name.global == name);
+    } catch (_) {
+      return null;
+    }
   }
 }

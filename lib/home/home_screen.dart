@@ -26,26 +26,26 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Chapter chapter = chapters[0];
-  Translation item = chapters[0].items[0];
+  Chapter chapter = Store.chapters[0];
+  Translation item = Store.chapters[0].items[0];
 
   final PageController _pageController = PageController();
 
   loadLanguages() async {
     final prefs = await SharedPreferences.getInstance();
-    final il = findLanguage(
+    final il = Store.findLanguage(
       prefs.getString('interfaceLanguage'),
     );
-    final ll = findLanguage(
-      prefs.getString('learningLanguage'),
+    final ll = Store.findLanguage(
+      prefs.getString('Store.learning'),
     );
 
     if (il == null || ll == null)
       openSettings();
     else
       setState(() {
-        interfaceLanguage = il;
-        learningLanguage = ll;
+        Store.interface = il;
+        Store.learning = ll;
       });
   }
 
@@ -73,13 +73,13 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: LanguageTitle(learningLanguage),
+        title: LanguageTitle(Store.learning),
         actions: [
           Stack(
             children: [
               Center(
                 child: LanguageFlag(
-                  learningLanguage,
+                  Store.learning,
                   offset: Offset(-64, 0),
                 ),
               )
@@ -133,7 +133,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
             child: ChapterList(
-              chapters,
+              Store.chapters,
               selected: chapter,
               onSelect: (c) {
                 openPage(0);

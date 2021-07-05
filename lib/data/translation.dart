@@ -1,3 +1,4 @@
+import 'package:avdan/data/language.dart';
 import 'package:avdan/store.dart';
 
 class Translation {
@@ -6,8 +7,15 @@ class Translation {
 
   String? get global => map['english'];
   String? get native => map[global];
-  String? get learning => map[learningLanguage.name.global];
-  String? get interface => map[interfaceLanguage.name.global];
+  String? get learning => _resolveAlt(Store.learning);
+  String? get interface => _resolveAlt(Store.interface);
+
+  String? _resolveAlt(Language language) {
+    var global = language.name.global;
+    if (global == null) return null;
+    if (Store.alt && language.alt != null) global += '_alt';
+    return map[global];
+  }
 
   factory Translation.fromJson(dynamic json) {
     return Translation(
