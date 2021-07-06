@@ -5,14 +5,9 @@ import 'package:flutter/material.dart';
 
 class ItemsGrid extends StatelessWidget {
   final Chapter chapter;
-  final Translation? selected;
   final ValueSetter<Translation>? onSelect;
 
-  ItemsGrid(
-    this.chapter, {
-    this.selected,
-    this.onSelect,
-  });
+  ItemsGrid(this.chapter, {this.onSelect});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +21,6 @@ class ItemsGrid extends StatelessWidget {
       itemBuilder: (context, index) {
         final item = items[index];
         return ItemCard(
-          selected: item == selected,
           item: item,
           image: chapter.getImageURL(item),
           onTap: () => onSelect?.call(item),

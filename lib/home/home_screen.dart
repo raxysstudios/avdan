@@ -84,7 +84,6 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 ItemsGrid(
                   chapter,
-                  selected: item,
                   onSelect: (i) {
                     setState(() {
                       item = i;
