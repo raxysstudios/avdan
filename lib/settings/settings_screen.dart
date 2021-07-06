@@ -77,7 +77,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     LanguageCard(
                       l,
                       selected: Store.interface == l,
-                      alt: Store.alt,
                       onTap: () {
                         setState(() => Store.interface = l);
                         saveChoice('interface', l);
@@ -102,7 +101,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     LanguageCard(
                       l,
                       selected: Store.learning == l,
-                      alt: Store.alt,
+                      alt: Store.learning == l && l.alt != null
+                          ? Store.alt
+                          : null,
                       onTap: () {
                         setState(() {
                           if (Store.learning != l) {

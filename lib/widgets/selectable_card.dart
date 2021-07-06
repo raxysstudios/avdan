@@ -25,7 +25,7 @@ class SelectableCard extends StatelessWidget {
             ...children,
             AnimatedPositioned(
               left: selected ? 0 : -size,
-              bottom: selected ? 0 : -size,
+              bottom: 0,
               duration: Duration(milliseconds: 250),
               curve: standardEasing,
               child: Container(
