@@ -16,8 +16,12 @@ Future<void> playAsset(String path) async {
 }
 
 playItem(Chapter chapter, Translation item) {
-  playAsset('''assets/audio/
-      ${Store.learning.name}/
-      ${chapter.title.global}/
-      ${item.learning}.mp3''');
+  final path = [
+    'assets',
+    'audio',
+    Store.learning.name.global,
+    chapter.title.global,
+    item.map[Store.learning.name.global]
+  ].join('/');
+  playAsset(path + '.mp3');
 }
