@@ -45,10 +45,10 @@ class LanguageCard extends StatelessWidget {
             duration: Duration(milliseconds: 250),
             curve: standardEasing,
             child: Container(
-              width: size + 6,
+              width: size + offset,
               height: size,
               decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.onSurface,
+                color: Theme.of(context).colorScheme.background,
                 borderRadius: BorderRadius.only(
                   topRight: Radius.circular(4),
                   topLeft: Radius.circular(4),
@@ -59,11 +59,11 @@ class LanguageCard extends StatelessWidget {
                 duration: Duration(milliseconds: 350),
                 curve: standardEasing,
                 transformAlignment: Alignment.center,
-                transform: Matrix4.rotationZ(alt != null && alt! ? pi : 0),
+                transform: Matrix4.rotationZ(alt != null && alt! ? 0 : pi),
                 child: Icon(
                   Icons.swap_horiz_outlined,
-                  size: size - offset,
-                  color: Theme.of(context).colorScheme.onPrimary,
+                  size: size - 2,
+                  color: Theme.of(context).colorScheme.onBackground,
                 ),
               ),
             ),
