@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:avdan/data/language.dart';
 import 'package:avdan/widgets/language_flag.dart';
 import 'package:avdan/widgets/language_title.dart';
@@ -54,10 +55,16 @@ class LanguageCard extends StatelessWidget {
                 ),
               ),
               padding: EdgeInsets.only(left: offset),
-              child: Icon(
-                Icons.swap_horiz_outlined,
-                size: size - offset,
-                color: Theme.of(context).colorScheme.onPrimary,
+              child: AnimatedContainer(
+                duration: Duration(milliseconds: 350),
+                curve: standardEasing,
+                transformAlignment: Alignment.center,
+                transform: Matrix4.rotationZ(alt != null && alt! ? pi : 0),
+                child: Icon(
+                  Icons.swap_horiz_outlined,
+                  size: size - offset,
+                  color: Theme.of(context).colorScheme.onPrimary,
+                ),
               ),
             ),
           ),
