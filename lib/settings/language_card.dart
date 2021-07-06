@@ -5,9 +5,15 @@ import 'package:avdan/widgets/selectable_card.dart';
 import 'package:flutter/material.dart';
 
 class LanguageCard extends StatelessWidget {
-  const LanguageCard(this.language, {this.selected = false, this.onTap});
+  const LanguageCard(
+    this.language, {
+    this.selected = false,
+    this.alt = false,
+    this.onTap,
+  });
   final Language language;
   final bool selected;
+  final bool alt;
   final Function()? onTap;
 
   @override

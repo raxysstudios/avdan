@@ -37,6 +37,7 @@ class Store {
       prefs.getString('learning'),
       languages.firstWhere((l) => l.learning),
     );
+    alt = prefs.getBool('alt') ?? false;
   }
 
   static Language _findLanguage(String? name, Language orElse) {
