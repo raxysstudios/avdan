@@ -23,7 +23,8 @@
     {
       "english": "water",
       "russian": "вода",
-      "iron": "дон"
+      "iron": "дон",
+      "iron_alt": "don"
     },
     {
       "english": "salt",
@@ -38,7 +39,8 @@
     {
       "english": "pepper",
       "russian": "перец",
-      "iron": "бырц"
+      "iron": "бырц",
+      "iron_alt": "byrc"
     },
     {
       "english": "meat",
