@@ -2,125 +2,865 @@
   [
     {
       "english": "alphabet",
-      "russian": "букварь",
-      "iron": "дамгъуат"
+      "russian": "алфавит",
+      "iron": "дамгъуат",
+      "iron_alt": "damghwat"
     },
     {
-      "iron": "а æ б в г гъ д дз дж е ж з и й к къ л м н о п пъ р с т тъ у у ф х хъ ц цъ ч чъ ш ы"
+      "iron": "а æ б в г гъ д дз дж е з и й к къ л м н о п пъ р с т тъ у у ф х хъ ц цъ ч чъ ы",
+      "iron_alt": "a æ b v g gh d dz ĝ e z i j k kh l m n o p ph r s t th w u f x q c ch ĉ ĉh y"
+    }
+  ],
+  [
+    {
+      "english": "people",
+      "russian": "люди",
+      "iron": "адæм",
+      "digor": "адæн"
+    },
+    {
+      "english": "man",
+      "russian": "мужчина",
+      "iron": "лæг",
+      "digor": "лæхъуæн"
+    },
+    {
+      "english": "woman",
+      "russian": "женщина ",
+      "iron": "сылгоймаг",
+      "digor": "уосæ"
+    },
+    {
+      "english": "child",
+      "russian": "ребенок",
+      "iron": "сывæллон",
+      "digor": "сувæллон"
+    },
+    {
+      "english": "children",
+      "russian": "дети",
+      "iron": "сывæллæттæ",
+      "digor": "сувæллæнттæ"
+    },
+    {
+      "english": "youth",
+      "russian": "молодежь",
+      "iron": "фæсивæд",
+      "digor": "фæсевæд"
+    },
+    {
+      "english": "juniors",
+      "russian": "младшие",
+      "iron": "кæстæртæ",
+      "digor": "кæстæртæ"
+    },
+    {
+      "english": "seniors",
+      "russian": "старшие ",
+      "iron": "хистæртæ",
+      "digor": "хестæртæ"
+    },
+    {
+      "english": "friend",
+      "russian": "друг",
+      "iron": "æмбал",
+      "digor": "æнбал"
+    },
+    {
+      "english": "neighbour",
+      "russian": "сосед",
+      "iron": "сыхаг",
+      "digor": "синхон"
+    },
+    {
+      "english": "oldman",
+      "russian": "старик",
+      "iron": "зæронд",
+      "digor": "зæронд"
     }
   ],
   [
     {
       "english": "food",
       "russian": "еда",
-      "iron": "хæринаг"
+      "iron": "хæринаг",
+      "digor": "хоруйнаг"
     },
     {
       "english": "bread",
       "russian": "хлеб",
-      "iron": "дзул"
+      "iron": "дзул",
+      "digor": "дзол"
     },
     {
       "english": "water",
       "russian": "вода",
       "iron": "дон",
-      "iron_alt": "don"
+      "digor": "дон"
     },
     {
       "english": "salt",
       "russian": "соль",
-      "iron": "цæхт"
+      "iron": "цæхт",
+      "digor": "цӕнхӕ"
     },
     {
       "english": "sugar",
       "russian": "сахар",
-      "iron": "сæкæр"
+      "iron": "сæкæр",
+      "digor": "сæкæр"
     },
     {
       "english": "pepper",
       "russian": "перец",
       "iron": "бырц",
-      "iron_alt": "byrc"
+      "digor": "бурцæ"
     },
     {
       "english": "meat",
       "russian": "мясо",
-      "iron": "фыд"
+      "iron": "фыд",
+      "digor": "фид"
     },
     {
       "english": "milk",
       "russian": "молоко",
-      "iron": "æхсыр"
+      "iron": "æхсыр",
+      "digor": "æхсир"
     },
     {
       "english": "kefir",
       "russian": "кефир",
-      "iron": "мисын"
+      "iron": "мисын",
+      "digor": "месин"
     },
     {
       "english": "sour cream",
       "russian": "сметана",
-      "iron": "хъаймагъ"
+      "iron": "хъаймагъ",
+      "digor": "хъаймагъ"
     },
     {
-      "english": "pies",
+      "english": "ossetian pies",
       "russian": "пироги",
-      "iron": "чиритæ"
+      "iron": "чъиритæ",
+      "digor": "къеретæ"
     },
     {
       "english": "oil",
-      "russian": "растительное масло",
-      "iron": "сой"
+      "russian": "масло растительное",
+      "iron": "зети",
+      "digor": "зети"
     },
     {
       "english": "butter",
-      "russian": "сливочное масло",
-      "iron": "нæлхæ"
+      "russian": "масло сливочное",
+      "iron": "нæлхæ",
+      "digor": "нæлхæ"
     },
     {
       "english": "porridge",
       "russian": "каша",
-      "iron": "кас"
+      "iron": "кас",
+      "digor": "касӕ"
     },
     {
       "english": "soup",
       "russian": "суп",
-      "iron": "бас"
+      "iron": "хъæрмхъуыпп",
+      "digor": "цумуйнаг"
     },
     {
       "english": "meat pie",
       "russian": "пирог с мясом",
-      "iron": "фыдджын"
+      "iron": "фыдджын",
+      "digor": "фидгун"
     },
     {
       "english": "potato pie",
       "russian": "пирог с картофелем",
-      "iron": "картофджын"
+      "iron": "картофджын",
+      "digor": "картофгун"
     },
     {
       "english": "pumpkin pie",
       "russian": "пирог с тыквой",
-      "iron": "насджын"
+      "iron": "насджын",
+      "digor": "насгун"
     },
     {
       "english": "cheese pie",
       "russian": "пирог с сыром",
-      "iron": "уæлибах"
+      "iron": "уæлибах",
+      "digor": "ӕхцин"
     },
     {
       "english": "beet leaf pie",
       "russian": "пирог с листьями свеклы",
-      "iron": "цæхæраджын"
+      "iron": "цæхæраджын",
+      "digor": "дзæхæрагун"
     },
     {
       "english": "sweets",
       "russian": "сладости",
-      "iron": "адджынагтæ"
+      "iron": "адджинӕгтæ",
+      "digor": "аткинагтæ"
     },
     {
       "english": "cheese",
       "russian": "сыр",
-      "iron": "цыхт"
+      "iron": "цыхт",
+      "digor": "цихт"
+    }
+  ],
+  [
+    {
+      "english": "home",
+      "russian": "дом",
+      "iron": "хæдзар",
+      "digor": "хӕдзарӕ"
+    },
+    {
+      "english": "kitchen",
+      "russian": "кухня",
+      "iron": "хæрæндон",
+      "digor": "цӕлгӕнӕн"
+    },
+    {
+      "english": "table",
+      "russian": "стол",
+      "iron": "фынг",
+      "digor": "фингӕ"
+    },
+    {
+      "english": "chair",
+      "russian": "стул",
+      "iron": "бандон",
+      "digor": "къела"
+    },
+    {
+      "english": "refreegerator",
+      "russian": "холодильник",
+      "iron": "уазалгæнæг",
+      "digor": "гаргадонӕ"
+    },
+    {
+      "english": "plate",
+      "russian": "тарелка",
+      "iron": "тæбæгъ",
+      "digor": "тефсег"
+    },
+    {
+      "english": "cup",
+      "russian": "чашка",
+      "iron": "къус",
+      "digor": "къос"
+    },
+    {
+      "english": "spoon",
+      "russian": "ложка",
+      "iron": "уидыг",
+      "digor": "едуг"
+    },
+    {
+      "english": "fork",
+      "russian": "вилка",
+      "iron": "саджилаæг",
+      "digor": "сагелӕг"
+    },
+    {
+      "english": "bedroom",
+      "russian": "спальня",
+      "iron": "хуыссæнуат",
+      "digor": "хуссӕндонӕ"
+    },
+    {
+      "english": "bed",
+      "russian": "кровать",
+      "iron": "сынтæг",
+      "digor": "хуссӕн"
+    },
+    {
+      "english": "blanket",
+      "russian": "одеяло",
+      "iron": "хъæццул",
+      "digor": "гъӕццол"
+    },
+    {
+      "english": "pillow",
+      "russian": "подушка",
+      "iron": "баз",
+      "digor": "баз"
+    },
+    {
+      "english": "cradle",
+      "russian": "колыбель",
+      "iron": "авдæн",
+      "digor": "авдӕнӕ"
+    },
+    {
+      "english": "toy",
+      "russian": "игрушка",
+      "iron": "хъазæн",
+      "digor": "гъазӕн"
+    },
+    {
+      "english": "wardrobe",
+      "russian": "шкаф",
+      "iron": "cкъапп",
+      "digor": "скъапп"
+    },
+    {
+      "english": "sofa",
+      "russian": "диван",
+      "iron": "диван",
+      "digor": "сире"
+    },
+    {
+      "english": "bathroom",
+      "russian": "ванная",
+      "iron": "найæнуат",
+      "digor": "ӕртайӕндонӕ"
+    },
+    {
+      "english": "window",
+      "russian": "окно",
+      "iron": "рудзынг",
+      "digor": "къӕразгӕ"
+    },
+    {
+      "english": "wall",
+      "russian": "стена",
+      "iron": "къул",
+      "digor": "фарс"
+    },
+    {
+      "english": "chandelier",
+      "russian": "люстра",
+      "iron": "цырагъ",
+      "digor": "цирагъ"
+    },
+    {
+      "english": "door",
+      "russian": "дверь",
+      "iron": "дуар",
+      "digor": "дуар"
+    }
+  ],
+  [
+    {
+      "english": "fruits",
+      "russian": "фрукты",
+      "iron": "дыргътæ",
+      "digor": "рæзæ"
+    },
+    {
+      "english": "raspberry",
+      "russian": "малина",
+      "iron": "мæнæргъы",
+      "digor": "нинæгъ"
+    },
+    {
+      "english": "grapes",
+      "russian": "виноград",
+      "iron": "сæнæфсир",
+      "digor": "сæнæфсерæ"
+    },
+    {
+      "english": "pear",
+      "russian": "груша",
+      "iron": "кæрдо",
+      "digor": "кæрдту"
+    },
+    {
+      "english": "cherry",
+      "russian": "вишня",
+      "iron": "бал",
+      "digor": "бали"
+    },
+    {
+      "english": "melon",
+      "russian": "дыня",
+      "iron": "неси",
+      "digor": "фиунасæ"
+    },
+    {
+      "english": "quince",
+      "russian": "айва",
+      "iron": "къомси",
+      "digor": "биа"
+    },
+    {
+      "english": "strawberry",
+      "russian": "клубника",
+      "iron": "галарыскъæф",
+      "digor": "галлискъæф"
+    },
+    {
+      "english": "apple",
+      "russian": "яблоко",
+      "iron": "фæткъуы",
+      "digor": "фæткъу"
+    },
+    {
+      "english": "plum",
+      "russian": "слива",
+      "iron": "чылауи",
+      "digor": "æхсинцъæ"
+    },
+    {
+      "english": "peach",
+      "russian": "персик",
+      "iron": "алтъами",
+      "digor": "алтъами"
+    },
+    {
+      "english": "watermelon",
+      "russian": "арбуз",
+      "iron": "харбыз",
+      "digor": "харбуз"
+    },
+    {
+      "english": "apricot",
+      "russian": "абрикос",
+      "iron": "чъерами",
+      "digor": "къерами"
+    }
+  ],
+  [
+    {
+      "english": "vegetables",
+      "russian": "овощи",
+      "iron": "халсартæ",
+      "digor": "халсартæ"
+    },
+    {
+      "english": "potato",
+      "russian": "картошка",
+      "iron": "картоф",
+      "digor": "картоф"
+    },
+    {
+      "english": "carrot",
+      "russian": "морковь",
+      "iron": "уырыдзы",
+      "digor": "æпхæ"
+    },
+    {
+      "english": "beet",
+      "russian": "свекла",
+      "iron": "цæхæра",
+      "digor": "къумбул"
+    },
+    {
+      "english": "pumpkin",
+      "russian": "тыква",
+      "iron": "нас",
+      "digor": "насæ"
+    },
+    {
+      "english": "onion",
+      "russian": "лук",
+      "iron": "хъæдындз",
+      "digor": "гъæдзиндзæ"
+    },
+    {
+      "english": "garlic",
+      "russian": "чеснок",
+      "iron": "нуры",
+      "digor": "бодæн"
+    },
+    {
+      "english": "paprica",
+      "russian": "перец красный",
+      "iron": "цывзы",
+      "digor": "чивзæ"
+    },
+    {
+      "english": "bean",
+      "russian": "фасоль",
+      "iron": "хъæдур",
+      "digor": "хъæдорæ"
+    },
+    {
+      "english": "cucumber",
+      "russian": "огурец",
+      "iron": "джитъри",
+      "digor": "хуæргæнасæ"
+    },
+    {
+      "english": "cabbage",
+      "russian": "капуста",
+      "iron": "къабуска",
+      "digor": "къабуска"
+    },
+    {
+      "english": "tomato",
+      "russian": "помидор",
+      "iron": "пъамидор"
+    }
+  ],
+  [
+    {
+      "english": "city",
+      "russian": "город",
+      "iron": "сахар",
+      "digor": "сахар"
+    },
+    {
+      "english": "village",
+      "russian": "аул",
+      "iron": "хъæу",
+      "digor": "гъæу"
+    },
+    {
+      "english": "road",
+      "russian": "дорога",
+      "iron": "фæндаг",
+      "digor": "над"
+    },
+    {
+      "english": "street",
+      "russian": "улица",
+      "iron": "уынг",
+      "digor": "гъæунгæ"
+    },
+    {
+      "english": "car",
+      "russian": "машина",
+      "iron": "хæдтулгæ"
+    },
+    {
+      "english": "monument",
+      "russian": "памятник",
+      "iron": "цырт",
+      "digor": "циртдзæвæн"
+    },
+    {
+      "english": "bench",
+      "russian": "лавочка",
+      "iron": "даргъ бандон",
+      "digor": "бадæн"
+    },
+    {
+      "english": "mosque",
+      "russian": "мечеть",
+      "iron": "мæзджыт",
+      "digor": "мæзгит"
+    },
+    {
+      "english": "church",
+      "russian": "церковь",
+      "iron": "аргъуан",
+      "digor": "аргъауæн"
+    },
+    {
+      "english": "bridge",
+      "russian": "мост",
+      "iron": "хид",
+      "digor": "хед"
+    },
+    {
+      "english": "school",
+      "russian": "школа",
+      "iron": "скъола",
+      "digor": "скъола"
+    },
+    {
+      "english": "kindergarten",
+      "russian": "детский сад",
+      "iron": "рæвдауæндон",
+      "digor": "рæвдауæндонæ"
+    },
+    {
+      "english": "store",
+      "russian": "магазин",
+      "iron": "дукани",
+      "digor": "тукан"
+    },
+    {
+      "english": "puddle",
+      "russian": "лужа",
+      "iron": "кул",
+      "digor": "колæ"
+    },
+    {
+      "english": "pond",
+      "russian": "пруд",
+      "iron": "ауæзт",
+      "digor": "кулсун"
+    },
+    {
+      "english": "hotel",
+      "russian": "гостиница",
+      "iron": "уазæгдзæрæн",
+      "digor": "фусунуат"
+    }
+  ],
+  [
+    {
+      "english": "nature",
+      "russian": "природа",
+      "iron": "æрдз"
+    },
+    {
+      "english": "tree",
+      "russian": "дерево",
+      "iron": "бæлас"
+    },
+    {
+      "english": "forest",
+      "russian": "лес",
+      "iron": "хъæд"
+    },
+    {
+      "english": "flower",
+      "russian": "цветок",
+      "iron": "дидинæг"
+    },
+    {
+      "english": "river",
+      "russian": "река",
+      "iron": "цæугæдон"
+    },
+    {
+      "english": "sky",
+      "russian": "небо",
+      "iron": "арв"
+    },
+    {
+      "english": "clouds",
+      "russian": "облака",
+      "iron": "ӕврӕгътӕ"
+    },
+    {
+      "english": "rainbow",
+      "russian": "радуга",
+      "iron": "арвæрдын"
+    },
+    {
+      "english": "meadow",
+      "russian": "поляна",
+      "iron": "æрдуз"
+    },
+    {
+      "english": "flatland",
+      "russian": "равнина",
+      "iron": "быдыр"
+    },
+    {
+      "english": "canyon",
+      "russian": "ущелье",
+      "iron": "ком"
+    },
+    {
+      "english": "winter",
+      "russian": "зима",
+      "iron": "зымæг"
+    },
+    {
+      "english": "spring",
+      "russian": "весна",
+      "iron": "уалдзæг"
+    },
+    {
+      "english": "summer",
+      "russian": "лето",
+      "iron": "сæрд"
+    },
+    {
+      "english": "autumn",
+      "russian": "осень",
+      "iron": "фæззæг"
+    },
+    {
+      "english": "snow",
+      "russian": "снег",
+      "iron": "мит"
+    },
+    {
+      "english": "rain",
+      "russian": "дождь",
+      "iron": "къæвда"
+    },
+    {
+      "english": "fog",
+      "russian": "туман",
+      "iron": "мигъ"
+    },
+    {
+      "english": "sun",
+      "russian": "солнце",
+      "iron": "хур"
+    },
+    {
+      "english": "moon",
+      "russian": "луна",
+      "iron": "мæй"
+    },
+    {
+      "english": "wind",
+      "russian": "ветер",
+      "iron": "дымгæ"
+    },
+    {
+      "english": "night",
+      "russian": "ночь",
+      "iron": "æхсæв"
+    },
+    {
+      "english": "day",
+      "russian": "день",
+      "iron": "бон"
+    },
+    {
+      "english": "morning",
+      "russian": "утро",
+      "iron": "сæумæрайсом"
+    },
+    {
+      "english": "evening",
+      "russian": "вечер",
+      "iron": "изæр"
+    }
+  ],
+  [
+    {
+      "english": "pronouns",
+      "russian": "местоимения",
+      "iron": "номивæгджытæ"
+    },
+    {
+      "english": "i",
+      "russian": "я",
+      "iron": "æз"
+    },
+    {
+      "english": "you",
+      "russian": "ты",
+      "iron": "ды"
+    },
+    {
+      "english": "he",
+      "russian": "он",
+      "iron": "уый"
+    },
+    {
+      "english": "she",
+      "russian": "она",
+      "iron": "уый"
+    },
+    {
+      "english": "it",
+      "russian": "оно",
+      "iron": "уый"
+    },
+    {
+      "english": "we",
+      "russian": "мы",
+      "iron": "мах"
+    },
+    {
+      "english": "you (plural)",
+      "russian": "вы",
+      "iron": "сымах"
+    },
+    {
+      "english": "they",
+      "russian": "они",
+      "iron": "уыдон"
+    },
+    {
+      "english": "[to] me",
+      "russian": "мне",
+      "iron": "мæнæн"
+    },
+    {
+      "english": "[to] you",
+      "russian": "тебе",
+      "iron": "дæуæн"
+    },
+    {
+      "english": "[to] you (plural)",
+      "russian": "вам",
+      "iron": "сымахæн"
+    },
+    {
+      "english": "[to] us",
+      "russian": "нам",
+      "iron": "махæн"
+    },
+    {
+      "english": "[to] them",
+      "russian": "им",
+      "iron": "уыдонæн"
+    }
+  ],
+  [
+    {
+      "english": "week",
+      "russian": "неделя",
+      "iron": "къуыри"
+    },
+    {
+      "english": "monday",
+      "russian": "понедельник",
+      "iron": "къуырисæр"
+    },
+    {
+      "english": "tuesday",
+      "russian": "вторник",
+      "iron": "дыццæг"
+    },
+    {
+      "english": "wednesday",
+      "russian": "среда",
+      "iron": "æртыццæг"
+    },
+    {
+      "english": "thursday",
+      "russian": "четверг",
+      "iron": "цыппарæм"
+    },
+    {
+      "english": "friday",
+      "russian": "пятница",
+      "iron": "майрæмбон"
+    },
+    {
+      "english": "saturday",
+      "russian": "суббота",
+      "iron": "сабат"
+    },
+    {
+      "english": "sunday",
+      "russian": "воскресенье",
+      "iron": "хуыцаубон"
+    },
+    {
+      "english": "yesterday",
+      "russian": "вчера",
+      "iron": "знон"
+    },
+    {
+      "english": "today",
+      "russian": "сегодня",
+      "iron": "абон"
+    },
+    {
+      "english": "tomorrow",
+      "russian": "завтра",
+      "iron": "райсом"
+    },
+    {
+      "english": "after tomorrow",
+      "russian": "послезавтра",
+      "iron": "иннæбон"
+    },
+    {
+      "english": "before yesterday",
+      "russian": "позавчера",
+      "iron": "æндæрæбон"
     }
   ]
 ]

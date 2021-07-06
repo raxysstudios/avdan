@@ -53,8 +53,12 @@ flutter:
     - assets/hohag.png
     - assets/icon.png
     - assets/flags/
+
     - assets/images/
     - assets/images/food/
+    - assets/images/fruits/
+    - assets/images/home/
+    - assets/images/vegetables/
 
     - assets/audio/iron/
     - assets/audio/iron/alphabet/
