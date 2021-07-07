@@ -22,7 +22,7 @@ class ItemsGrid extends StatelessWidget {
         final item = items[index];
         return ItemCard(
           item: item,
-          image: chapter.getImageURL(item),
+          image: chapter.alphabet ? null : chapter.getImageURL(item),
           onTap: () => onSelect?.call(item),
         );
       },

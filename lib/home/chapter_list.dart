@@ -36,10 +36,9 @@ class ChapterList extends StatelessWidget {
                 AspectRatio(
                   aspectRatio: 1,
                   child: ItemCard(
-                    item: c.alphabet ? c.items.first : c.title,
-                    image: c.getImageURL(c.items.first),
+                    item: c.alphabet ? c.items.first : null,
+                    image: c.alphabet ? null : c.getImageURL(c.items.first),
                     selected: selected == c,
-                    labeled: false,
                     onTap: () => onSelect?.call(c),
                   ),
                 )
