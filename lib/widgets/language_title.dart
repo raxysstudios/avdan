@@ -9,30 +9,32 @@ class LanguageTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          capitalize(
-            Store.alt && Store.learning == language
-                ? language.name.learning
-                : language.name.map[language.name.global]!,
-          ),
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        if (Store.interface != language)
-          Text(
-            capitalize(language.name.interface),
+    return RichText(
+      text: TextSpan(
+        children: [
+          TextSpan(
+            text: capitalize(
+              Store.alt && Store.learning == language
+                  ? language.name.learning
+                  : language.name.map[language.name.global]!,
+            ),
             style: TextStyle(
-              fontSize: 16,
+              fontSize: 20,
               fontWeight: FontWeight.bold,
-              color: Theme.of(context).hintColor,
+              color: Theme.of(context).textTheme.bodyText2?.color,
             ),
           ),
-      ],
+          if (Store.interface != language)
+            TextSpan(
+              text: '\n' + capitalize(language.name.interface),
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                color: Theme.of(context).hintColor,
+              ),
+            ),
+        ],
+      ),
     );
   }
 }
