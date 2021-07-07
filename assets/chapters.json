@@ -3,6 +3,7 @@
     {
       "english": "alphabet",
       "russian": "алфавит",
+      "turkish": "alfabe",
       "iron": "дамгъуат",
       "iron_alt": "damghwat"
     },
@@ -15,25 +16,33 @@
     {
       "english": "people",
       "russian": "люди",
+      "turkish": "insanlar",
       "iron": "адæм",
+      "iron_alt": "adæm",
       "digor": "адæн"
     },
     {
       "english": "man",
       "russian": "мужчина",
+      "turkish": "erkek",
       "iron": "лæг",
+      "iron_alt": "læg",
       "digor": "лæхъуæн"
     },
     {
       "english": "woman",
       "russian": "женщина ",
+      "turkish": "kadın",
       "iron": "сылгоймаг",
+      "iron_alt": "sylgojmag",
       "digor": "уосæ"
     },
     {
       "english": "child",
       "russian": "ребенок",
+      "turkish": "çocuk",
       "iron": "сывæллон",
+      "iron_alt": "syvællon",
       "digor": "сувæллон"
     },
     {
@@ -83,60 +92,70 @@
     {
       "english": "food",
       "russian": "еда",
+      "turkish": "gıda",
       "iron": "хæринаг",
       "digor": "хоруйнаг"
     },
     {
       "english": "bread",
       "russian": "хлеб",
+      "turkish": "ekmek",
       "iron": "дзул",
       "digor": "дзол"
     },
     {
       "english": "water",
       "russian": "вода",
+      "turkish": "su",
       "iron": "дон",
       "digor": "дон"
     },
     {
       "english": "salt",
       "russian": "соль",
+      "turkish": "tuz",
       "iron": "цæхт",
       "digor": "цӕнхӕ"
     },
     {
       "english": "sugar",
       "russian": "сахар",
+      "turkish": "şeker",
       "iron": "сæкæр",
       "digor": "сæкæр"
     },
     {
       "english": "pepper",
       "russian": "перец",
+      "turkish": "biber",
       "iron": "бырц",
       "digor": "бурцæ"
     },
     {
       "english": "meat",
       "russian": "мясо",
+      "turkish": "et",
       "iron": "фыд",
       "digor": "фид"
     },
     {
       "english": "milk",
       "russian": "молоко",
+      "turkish": "süt",
       "iron": "æхсыр",
       "digor": "æхсир"
     },
     {
       "english": "kefir",
       "russian": "кефир",
+      "turkish": "kefir",
       "iron": "мисын",
       "digor": "месин"
     },
     {
       "english": "sour cream",
       "russian": "сметана",
+      "turkish": "ekşi krema",
       "iron": "хъаймагъ",
       "digor": "хъаймагъ"
     },
@@ -531,12 +550,6 @@
       "iron": "хæдтулгæ"
     },
     {
-      "english": "monument",
-      "russian": "памятник",
-      "iron": "цырт",
-      "digor": "циртдзæвæн"
-    },
-    {
       "english": "bench",
       "russian": "лавочка",
       "iron": "даргъ бандон",
@@ -579,12 +592,6 @@
       "digor": "тукан"
     },
     {
-      "english": "puddle",
-      "russian": "лужа",
-      "iron": "кул",
-      "digor": "колæ"
-    },
-    {
       "english": "pond",
       "russian": "пруд",
       "iron": "ауæзт",
@@ -602,6 +609,14 @@
       "english": "nature",
       "russian": "природа",
       "iron": "æрдз"
+    }
+  ],
+  [
+    {
+      "english": "puddle",
+      "russian": "лужа",
+      "iron": "кул",
+      "digor": "колæ"
     },
     {
       "english": "tree",

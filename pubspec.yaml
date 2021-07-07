@@ -59,6 +59,7 @@ flutter:
     - assets/images/fruits/
     - assets/images/home/
     - assets/images/vegetables/
+    - assets/images/city/
 
     - assets/audio/iron/
     - assets/audio/iron/alphabet/
