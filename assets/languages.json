@@ -4,7 +4,8 @@
     "flag": "england",
     "name": {
       "english": "english",
-      "russian": "английский"
+      "russian": "английский",
+      "turkish": "ingilizce"
     }
   },
   {
@@ -21,7 +22,8 @@
     "flag": "russia",
     "name": {
       "english": "russian",
-      "russian": "русский"
+      "russian": "русский",
+      "turkish": "rusça"
     }
   },
   {
@@ -31,8 +33,9 @@
     "name": {
       "english": "iron",
       "russian": "иронский",
-      "iron": "ирон",
-      "iron_alt": "iron"
+      "turkish": "ironca",
+      "iron": "иронау",
+      "iron_alt": "ironaw"
     }
   },
   {
@@ -42,7 +45,9 @@
     "name": {
       "english": "digor",
       "russian": "дигорский",
-      "digor": "дигорон"
+      "turkish": "digorca",
+      "digor": "дигоронау",
+      "digor_alt": "digoronaw"
     }
   }
 ]
