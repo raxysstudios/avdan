@@ -94,6 +94,7 @@
       "russian": "еда",
       "turkish": "gıda",
       "iron": "хæринаг",
+      "iron_alt": "xærinag",
       "digor": "хоруйнаг"
     },
     {
@@ -101,6 +102,7 @@
       "russian": "хлеб",
       "turkish": "ekmek",
       "iron": "дзул",
+      "iron_alt": "dzul",
       "digor": "дзол"
     },
     {
@@ -108,6 +110,7 @@
       "russian": "вода",
       "turkish": "su",
       "iron": "дон",
+      "iron_alt": "don",
       "digor": "дон"
     },
     {
@@ -115,6 +118,7 @@
       "russian": "соль",
       "turkish": "tuz",
       "iron": "цæхт",
+      "iron_alt": "cæxt",
       "digor": "цӕнхӕ"
     },
     {
@@ -122,6 +126,7 @@
       "russian": "сахар",
       "turkish": "şeker",
       "iron": "сæкæр",
+      "iron_alt": "sækær",
       "digor": "сæкæр"
     },
     {
@@ -129,6 +134,7 @@
       "russian": "перец",
       "turkish": "biber",
       "iron": "бырц",
+      "iron_alt": "byrc",
       "digor": "бурцæ"
     },
     {
@@ -136,6 +142,7 @@
       "russian": "мясо",
       "turkish": "et",
       "iron": "фыд",
+      "iron_alt": "fyd",
       "digor": "фид"
     },
     {
@@ -143,6 +150,7 @@
       "russian": "молоко",
       "turkish": "süt",
       "iron": "æхсыр",
+      "iron_alt": "æxsyr",
       "digor": "æхсир"
     },
     {
@@ -150,6 +158,7 @@
       "russian": "кефир",
       "turkish": "kefir",
       "iron": "мисын",
+      "iron_alt": "misyn",
       "digor": "месин"
     },
     {
@@ -157,6 +166,7 @@
       "russian": "сметана",
       "turkish": "ekşi krema",
       "iron": "хъаймагъ",
+      "iron_alt": "qajmagh",
       "digor": "хъаймагъ"
     },
     {
