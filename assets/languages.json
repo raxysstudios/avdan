@@ -9,6 +9,15 @@
   },
   {
     "interface": true,
+    "flag": "turkey",
+    "name": {
+      "english": "turkish",
+      "russian": "турецкий",
+      "turkish": "türkçe"
+    }
+  },
+  {
+    "interface": true,
     "flag": "russia",
     "name": {
       "english": "russian",
