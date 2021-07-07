@@ -22,7 +22,7 @@ class LanguageCard extends StatelessWidget {
     final size = 24.0;
     final offset = 6.0;
     return AspectRatio(
-      aspectRatio: 2,
+      aspectRatio: 1.6,
       child: SelectableCard(
         onTap: onTap,
         selected: selected,
@@ -32,11 +32,11 @@ class LanguageCard extends StatelessWidget {
             alignment: Alignment.centerRight,
             child: LanguageFlag(
               language,
-              offset: Offset(-24, 0),
+              offset: Offset(-28, 16),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8),
             child: LanguageTitle(language),
           ),
           AnimatedPositioned(
