@@ -225,7 +225,7 @@ packages:
       name: plugin_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.0"
+    version: "2.0.1"
   process:
     dependency: transitive
     description:
@@ -240,6 +240,27 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.27.1"
+  sensors_plus:
+    dependency: "direct main"
+    description:
+      name: sensors_plus
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.2"
+  sensors_plus_platform_interface:
+    dependency: transitive
+    description:
+      name: sensors_plus_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.1"
+  sensors_plus_web:
+    dependency: transitive
+    description:
+      name: sensors_plus_web
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.1"
   shared_preferences:
     dependency: "direct main"
     description:
@@ -398,7 +419,7 @@ packages:
       name: win32
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.2.4"
+    version: "2.2.5"
   xdg_directories:
     dependency: transitive
     description:

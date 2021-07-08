@@ -25,6 +25,7 @@ dependencies:
   shared_preferences: ^2.0.6
   url_launcher: ^6.0.9
   just_audio: ^0.8.0
+  sensors_plus: ^1.0.2
 
 dev_dependencies:
   flutter_test:
