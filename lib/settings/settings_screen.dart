@@ -1,4 +1,5 @@
 import 'package:avdan/data/language.dart';
+import 'package:avdan/parallax.dart';
 import 'package:avdan/store.dart';
 import 'package:avdan/settings/about_card.dart';
 import 'package:flutter/material.dart';
@@ -39,7 +40,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
         title: Text(
           'Avdæn',
           style: TextStyle(
@@ -49,8 +49,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.home_outlined),
-            onPressed: () => Navigator.pop(context),
+            icon: Icon(Icons.layers_outlined),
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => ParallaxPage(),
+              ),
+            ),
           ),
           SizedBox(width: 4),
         ],
