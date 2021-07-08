@@ -23,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final PageController _pageController = PageController();
 
-  openSettings() {
+  void openSettings() {
     Navigator.push(
       context,
       MaterialPageRoute(
@@ -34,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  openPage(int index) {
+  void openPage(int index) {
     _pageController.animateToPage(
       index,
       duration: Duration(milliseconds: 200),
@@ -43,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   @override
-  initState() {
+  void initState() {
     super.initState();
     SharedPreferences.getInstance().then((prefs) {
       if (prefs.getString('interface') == null) openSettings();
