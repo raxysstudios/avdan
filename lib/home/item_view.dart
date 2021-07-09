@@ -76,8 +76,8 @@ class ItemView extends StatelessWidget {
               padding: const EdgeInsets.all(8),
               child: Label(
                 item,
-                titleSize: 32,
-                subtitleSize: 26,
+                titleSize: 26,
+                subtitleSize: 20,
               ),
             ),
           ],
