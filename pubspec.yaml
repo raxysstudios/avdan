@@ -138,6 +138,7 @@ flutter:
     - assets/images/home/
     - assets/images/vegetables/
     - assets/images/city/
+    - assets/images/animals/
 
     - assets/audio/iron/
     - assets/audio/iron/alphabet/
