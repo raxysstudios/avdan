@@ -5,15 +5,32 @@ import 'data/chapter.dart';
 import 'data/language.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
+class Localization {
+  static late final Map<String, Map<String, String>> map;
+  static String get(String key) {
+    return map[key]?[Store.interface.name.global ?? 'english'] ?? '';
+  }
+}
+
 class Store {
-  static late List<Chapter> chapters = [];
-  static late List<Language> languages = [];
+  static late final List<Chapter> chapters;
+  static late final List<Language> languages;
 
   static late Language interface;
   static late Language learning;
   static bool alt = false;
 
   static Future<void> load() async {
+    await rootBundle
+        .loadString('assets/localization.json')
+        .then((t) => json.decode(t) as List)
+        .then((l) {
+      Localization.map =
+          Map.castFrom<String, dynamic, String, Map<String, String>>(
+        l as Map<String, dynamic>,
+      );
+    });
+
     await rootBundle
         .loadString('assets/chapters.json')
         .then((t) => json.decode(t) as List)

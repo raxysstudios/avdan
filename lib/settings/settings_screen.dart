@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:avdan/data/language.dart';
+import 'package:avdan/data/utils.dart';
 import 'package:avdan/settings/donate_button.dart';
 import 'package:avdan/store.dart';
 import 'package:flutter/material.dart';
@@ -41,7 +42,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Avdæn'),
+        automaticallyImplyLeading: false,
+        title: Text(
+          capitalize(Localization.get('settings')),
+        ),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -54,7 +58,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   Icon(Icons.landscape_outlined),
                   SizedBox(height: 8),
                   Text(
-                    'Made with honor in\nOssetia & Dagestan, North Caucasus.',
+                    capitalize(Localization.get('honor')),
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(height: 8),

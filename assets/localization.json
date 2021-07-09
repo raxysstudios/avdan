@@ -1,0 +1,32 @@
+{
+    "settings": {
+        "english": "settings",
+        "russian": "настройки",
+        "turkish": "ayarlar"
+    },
+    "contact": {
+        "english": "contact",
+        "russian": "связаться",
+        "turkish": "iletişim "
+    },
+    "support": {
+        "english": "donate",
+        "russian": "поддержать",
+        "turkish": "vermek"
+    },
+    "interface": {
+        "english": "interface language",
+        "russian": "язык интерфейса",
+        "turkish": "arayüz dili"
+    },
+    "learning": {
+        "english": "learning language",
+        "russian": "язык обучения",
+        "turkish": "öğretim dili"
+    },
+    "honor": {
+        "english": "Made with honor in Ossetia & Dagestan, North Caucasus.",
+        "russian": "Сделано с честью в Осетии и Дагестане, на Северном Кавказе.",
+        "turkish": "Osetya & Dağıstan'da, Kuzey Kafkasya'da onurla yapılmıştır."
+    }
+}
