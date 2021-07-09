@@ -66,7 +66,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       ),
                       SizedBox(width: 8),
                       Expanded(
-                        child: OutlinedButton.icon(
+                        child: ElevatedButton.icon(
                           onPressed: () => launch('https://t.me/alkaitagi'),
                           icon: Icon(Icons.send_outlined),
                           label: Text('Contact'),
