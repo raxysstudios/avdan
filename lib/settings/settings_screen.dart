@@ -40,14 +40,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Avdæn'),
-        actions: [
-          IconButton(
-            onPressed: () => launch('https://t.me/alkaitagi'),
-            icon: Icon(Icons.send_outlined),
-            tooltip: 'Contact',
-            visualDensity: VisualDensity(horizontal: 2),
-          ),
-        ],
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -63,6 +55,25 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     'Made with honor in\nOssetia & Dagestan, North Caucasus.',
                     textAlign: TextAlign.center,
                   ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: OutlinedButton.icon(
+                          onPressed: () {},
+                          icon: Icon(Icons.coffee_outlined),
+                          label: Text('Donate'),
+                        ),
+                      ),
+                      SizedBox(width: 8),
+                      Expanded(
+                        child: OutlinedButton.icon(
+                          onPressed: () => launch('https://t.me/alkaitagi'),
+                          icon: Icon(Icons.send_outlined),
+                          label: Text('Contact'),
+                        ),
+                      ),
+                    ],
+                  )
                 ],
               ),
             ),
