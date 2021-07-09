@@ -39,7 +39,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text('Avdæn'),
+        actions: [
+          IconButton(
+            onPressed: () => Navigator.pop(context),
+            icon: Icon(Icons.done_all_outlined),
+          )
+        ],
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
