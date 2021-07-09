@@ -55,7 +55,10 @@ class ItemView extends StatelessWidget {
           ] else ...[
             Positioned.fill(
               child: Padding(
-                padding: const EdgeInsets.all(8),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 8,
+                  vertical: 32,
+                ),
                 child: Image.asset(
                   chapter.getImageURL(item),
                   fit: BoxFit.fitWidth,

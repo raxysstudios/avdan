@@ -40,13 +40,13 @@ class ItemCard extends StatelessWidget {
           )
         else ...[
           Positioned.fill(
-            top: item == null ? 0 : 24,
+            top: item == null ? 0 : 42,
             child: Padding(
               padding: const EdgeInsets.all(8),
               child: Image.asset(
                 image!,
                 fit: BoxFit.fitHeight,
-                alignment: Alignment.bottomRight,
+                alignment: Alignment.bottomCenter,
                 errorBuilder: (
                   BuildContext context,
                   Object exception,
@@ -57,9 +57,15 @@ class ItemCard extends StatelessWidget {
             ),
           ),
           if (item != null)
-            Padding(
-              padding: const EdgeInsets.all(8),
-              child: Label(item!),
+            Align(
+              alignment: Alignment.topCenter,
+              child: Padding(
+                padding: const EdgeInsets.all(8),
+                child: Label(
+                  item!,
+                  textAlign: TextAlign.center,
+                ),
+              ),
             ),
         ],
       ],
