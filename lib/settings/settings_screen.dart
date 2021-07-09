@@ -1,4 +1,6 @@
+import 'dart:async';
 import 'package:avdan/data/language.dart';
+import 'package:avdan/settings/donate_button.dart';
 import 'package:avdan/store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -12,6 +14,10 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
+  late final List<Language> interface;
+  late final List<Language> learning;
+  SharedPreferences? prefs;
+
   @override
   initState() {
     super.initState();
@@ -20,10 +26,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
     saveChoice('interface', Store.interface);
     saveChoice('learning', Store.learning, alt: Store.alt);
   }
-
-  late final List<Language> interface;
-  late final List<Language> learning;
-  SharedPreferences? prefs;
 
   Future<void> saveChoice(
     String index,
@@ -39,14 +41,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
         title: Text('Avdæn'),
-        actions: [
-          IconButton(
-            onPressed: () => Navigator.pop(context),
-            icon: Icon(Icons.done_all_outlined),
-          )
-        ],
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -66,11 +61,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   Row(
                     children: [
                       Expanded(
-                        child: OutlinedButton.icon(
-                          onPressed: () {},
-                          icon: Icon(Icons.coffee_outlined),
-                          label: Text('Donate'),
-                        ),
+                        child: DonateButton(),
                       ),
                       SizedBox(width: 8),
                       Expanded(
