@@ -2,7 +2,6 @@ import 'package:avdan/audio_player.dart';
 import 'package:avdan/data/chapter.dart';
 import 'package:avdan/data/translation.dart';
 import 'package:avdan/home/item_card.dart';
-import 'package:avdan/home/item_grid.dart';
 import 'package:avdan/home/item_view.dart';
 import 'package:avdan/store.dart';
 import 'package:avdan/settings/settings_screen.dart';
@@ -19,6 +18,8 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   Chapter chapter = Store.chapters[0];
+  List<Translation> get items =>
+      chapter.items.where((i) => i.learning != null).toList();
   Translation item = Store.chapters[0].items[0];
 
   final PageController _pageController = PageController();
@@ -68,7 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Label(
             chapter.title,
             titleSize: 20,
-            subtitleSize: 18,
+            subtitleSize: 16,
             textAlign: TextAlign.center,
           ),
         ),
@@ -87,14 +88,26 @@ class _HomeScreenState extends State<HomeScreen> {
             child: PageView(
               controller: _pageController,
               children: [
-                ItemsGrid(
-                  chapter,
-                  onSelect: (i) {
-                    setState(() {
-                      item = i;
-                    });
-                    openPage(1);
-                    playItem(chapter, item);
+                GridView.builder(
+                  gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                    maxCrossAxisExtent: chapter.alphabet ? 128 : 256,
+                    childAspectRatio: chapter.alphabet ? 1 : 1.25,
+                  ),
+                  itemCount: items.length,
+                  itemBuilder: (context, index) {
+                    final item = items[index];
+                    return ItemCard(
+                      item: item,
+                      image:
+                          chapter.alphabet ? null : chapter.getImageURL(item),
+                      onTap: () {
+                        setState(() {
+                          this.item = item;
+                        });
+                        openPage(1);
+                        playItem(chapter, item);
+                      },
+                    );
                   },
                 ),
                 ItemView(
