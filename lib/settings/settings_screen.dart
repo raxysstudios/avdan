@@ -55,7 +55,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     'Made with honor in\nOssetia & Dagestan, North Caucasus.',
                     textAlign: TextAlign.center,
                   ),
-                  SizedBox(width: 8),
+                  SizedBox(height: 8),
                   Row(
                     children: [
                       Expanded(
