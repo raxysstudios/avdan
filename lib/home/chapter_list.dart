@@ -20,10 +20,14 @@ class ChapterList extends StatelessWidget {
       children: [
         if (selected != null)
           Padding(
-            padding: const EdgeInsets.all(8),
+            padding: const EdgeInsets.symmetric(
+              vertical: 8,
+              horizontal: 12,
+            ),
             child: Label(
               selected!.title,
-              scale: 1.25,
+              titleSize: 18,
+              subtitleSize: 16,
               row: true,
             ),
           ),

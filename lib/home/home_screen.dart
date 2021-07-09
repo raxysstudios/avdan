@@ -54,27 +54,31 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: LanguageTitle(Store.learning),
-        actions: [
-          Stack(
-            children: [
-              Center(
-                child: LanguageFlag(
-                  Store.learning,
-                  offset: Offset(-64, 0),
-                ),
-              )
-            ],
+        leading: Stack(
+          children: [
+            Center(
+              child: LanguageFlag(
+                Store.learning,
+                offset: Offset(16, 0),
+              ),
+            )
+          ],
+        ),
+        title: Center(
+          child: LanguageTitle(
+            Store.learning,
+            textAlign: TextAlign.center,
           ),
+        ),
+        actions: [
           IconButton(
             icon: Icon(Icons.settings_outlined),
             onPressed: openSettings,
+            visualDensity: VisualDensity(horizontal: 2),
           ),
-          SizedBox(width: 4),
         ],
       ),
       body: Column(
-        verticalDirection: VerticalDirection.up,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(

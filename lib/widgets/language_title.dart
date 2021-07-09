@@ -5,11 +5,17 @@ import 'package:flutter/material.dart';
 
 class LanguageTitle extends StatelessWidget {
   final Language language;
-  const LanguageTitle(this.language);
+  final TextAlign textAlign;
+
+  const LanguageTitle(
+    this.language, {
+    this.textAlign = TextAlign.start,
+  });
 
   @override
   Widget build(BuildContext context) {
     return RichText(
+      textAlign: textAlign,
       text: TextSpan(
         children: [
           TextSpan(
@@ -20,7 +26,7 @@ class LanguageTitle extends StatelessWidget {
             ),
             style: TextStyle(
               fontSize: 20,
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.w500,
               color: Theme.of(context).textTheme.bodyText2?.color,
             ),
           ),
@@ -29,7 +35,7 @@ class LanguageTitle extends StatelessWidget {
               text: '\n' + capitalize(language.name.interface),
               style: TextStyle(
                 fontSize: 16,
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.normal,
                 color: Theme.of(context).hintColor,
               ),
             ),

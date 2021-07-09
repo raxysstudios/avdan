@@ -5,11 +5,13 @@ import 'package:flutter/material.dart';
 class Label extends StatelessWidget {
   Label(
     this.item, {
-    this.scale = 1.0,
+    this.titleSize = 16,
+    this.subtitleSize = 14,
     this.row = false,
   });
   final Translation item;
-  final double scale;
+  final double? titleSize;
+  final double? subtitleSize;
   final bool row;
 
   @override
@@ -21,15 +23,15 @@ class Label extends StatelessWidget {
       text: TextSpan(
         style: TextStyle(
           color: Theme.of(context).hintColor,
-          fontSize: (row ? 16 : 14) * scale,
+          fontSize: subtitleSize,
         ),
         children: [
           TextSpan(
             text: lt,
             style: TextStyle(
               color: Theme.of(context).textTheme.bodyText2?.color,
-              fontSize: 16 * scale,
-              fontWeight: FontWeight.bold,
+              fontSize: titleSize,
+              fontWeight: FontWeight.w500,
             ),
           ),
           if (lt.isNotEmpty && it.isNotEmpty) TextSpan(text: row ? ' ' : '\n'),

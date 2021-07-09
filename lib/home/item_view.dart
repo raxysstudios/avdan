@@ -36,7 +36,7 @@ class ItemView extends StatelessWidget {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 96,
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                       Text(
@@ -44,7 +44,7 @@ class ItemView extends StatelessWidget {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 96,
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                     ],
@@ -73,7 +73,8 @@ class ItemView extends StatelessWidget {
               padding: const EdgeInsets.all(8),
               child: Label(
                 item,
-                scale: 2,
+                titleSize: 32,
+                subtitleSize: 26,
               ),
             ),
           ],
