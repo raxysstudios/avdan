@@ -885,5 +885,120 @@
       "russian": "позавчера",
       "iron": "æндæрæбон"
     }
+  ],
+  [
+    {
+      "english": "animals",
+      "russian": "животные",
+      "iron": "сырдтæ",
+      "digor": "сирдтæ"
+    },
+    {
+      "english": "bear",
+      "russian": "медведь",
+      "iron": "арс",
+      "digor": "арс"
+    },
+    {
+      "english": "cat",
+      "russian": "кот",
+      "iron": "гæды",
+      "digor": "тикис"
+    },
+    {
+      "english": "cow",
+      "russian": "корова",
+      "iron": "хъуг",
+      "digor": "гъог"
+    },
+    {
+      "english": "crocodile",
+      "russian": "крокодил",
+      "iron": "кӕфхъуындар"
+    },
+    {
+      "english": "dog",
+      "russian": "собака",
+      "iron": "куыдз",
+      "digor": "куй"
+    },
+    {
+      "english": "dove",
+      "russian": "голубь",
+      "iron": "бæлон",
+      "digor": "бæлæу"
+    },
+    {
+      "english": "eagle",
+      "russian": "орел",
+      "iron": "цæргæс",
+      "digor": "цæргæс"
+    },
+    {
+      "english": "fox",
+      "russian": "лиса",
+      "iron": "рувас",
+      "digor": "робас"
+    },
+    {
+      "english": "frog",
+      "russian": "лягушка",
+      "iron": "хæфс",
+      "digor": "хæпсæ"
+    },
+    {
+      "english": "elefant",
+      "russian": "слон",
+      "iron": "пыл",
+      "digor": "пил"
+    },
+    {
+      "english": "horse",
+      "russian": "лошадь",
+      "iron": "бæх",
+      "digor": "бæх"
+    },
+    {
+      "english": "leopard",
+      "russian": "барс",
+      "iron": "фыранк",
+      "digor": "фæланк"
+    },
+    {
+      "english": "lion",
+      "russian": "лев",
+      "iron": "цомахъ",
+      "digor": "цомахъ"
+    },
+    {
+      "english": "monkey",
+      "russian": "обезьяна",
+      "iron": "маймули",
+      "digor": "маймул"
+    },
+    {
+      "english": "mouse",
+      "russian": "мышь",
+      "iron": "мыст",
+      "digor": "мистæ"
+    },
+    {
+      "english": "owl",
+      "russian": "сова",
+      "iron": "уыг",
+      "digor": "уг"
+    },
+    {
+      "english": "sheep",
+      "russian": "овца",
+      "iron": "фыс",
+      "digor": "фус"
+    },
+    {
+      "english": "wolf",
+      "russian": "волк",
+      "iron": "бирæгъ",
+      "digor": "берæгъ"
+    }
   ]
 ]
