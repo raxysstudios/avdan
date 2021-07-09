@@ -7,12 +7,12 @@ class Label extends StatelessWidget {
     this.item, {
     this.titleSize = 16,
     this.subtitleSize = 14,
-    this.row = false,
+    this.textAlign = TextAlign.start,
   });
   final Translation item;
   final double? titleSize;
   final double? subtitleSize;
-  final bool row;
+  final TextAlign textAlign;
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +20,7 @@ class Label extends StatelessWidget {
     final it = capitalize(item.interface);
 
     return RichText(
+      textAlign: textAlign,
       text: TextSpan(
         style: TextStyle(
           color: Theme.of(context).hintColor,
@@ -34,7 +35,7 @@ class Label extends StatelessWidget {
               fontWeight: FontWeight.w500,
             ),
           ),
-          if (lt.isNotEmpty && it.isNotEmpty) TextSpan(text: row ? ' ' : '\n'),
+          if (lt.isNotEmpty && it.isNotEmpty) TextSpan(text: '\n'),
           TextSpan(
             text: it,
           ),

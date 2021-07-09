@@ -1,14 +1,14 @@
 import 'package:avdan/audio_player.dart';
 import 'package:avdan/data/chapter.dart';
 import 'package:avdan/data/translation.dart';
+import 'package:avdan/home/item_card.dart';
+import 'package:avdan/home/item_grid.dart';
+import 'package:avdan/home/item_view.dart';
 import 'package:avdan/store.dart';
 import 'package:avdan/settings/settings_screen.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'chapter_list.dart';
-import 'item_grid.dart';
-import 'item_view.dart';
+import 'package:avdan/widgets/label.dart';
 import 'package:avdan/widgets/language_flag.dart';
-import 'package:avdan/widgets/language_title.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
@@ -65,8 +65,10 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
         title: Center(
-          child: LanguageTitle(
-            Store.learning,
+          child: Label(
+            chapter.title,
+            titleSize: 20,
+            subtitleSize: 18,
             textAlign: TextAlign.center,
           ),
         ),
@@ -116,13 +118,26 @@ class _HomeScreenState extends State<HomeScreen> {
                 )
               ],
             ),
-            child: ChapterList(
-              Store.chapters,
-              selected: chapter,
-              onSelect: (c) {
-                openPage(0);
-                setState(() => chapter = c);
-              },
+            height: 96,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: [
+                for (final c in Store.chapters)
+                  AspectRatio(
+                    aspectRatio: 1,
+                    child: ItemCard(
+                      item: c.alphabet ? c.items.first : null,
+                      image: c.alphabet ? null : c.getImageURL(c.items.first),
+                      selected: chapter == c,
+                      onTap: () {
+                        setState(() {
+                          chapter = c;
+                        });
+                        openPage(0);
+                      },
+                    ),
+                  )
+              ],
             ),
           ),
         ],

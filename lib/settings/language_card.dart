@@ -1,7 +1,8 @@
 import 'dart:math';
 import 'package:avdan/data/language.dart';
+import 'package:avdan/data/utils.dart';
+import 'package:avdan/store.dart';
 import 'package:avdan/widgets/language_flag.dart';
-import 'package:avdan/widgets/language_title.dart';
 import 'package:avdan/widgets/selectable_card.dart';
 import 'package:flutter/material.dart';
 
@@ -19,8 +20,8 @@ class LanguageCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = 24.0;
-    final offset = 6.0;
+    final iconSize = 24.0;
+    final iconOffset = 6.0;
     return AspectRatio(
       aspectRatio: 1.75,
       child: SelectableCard(
@@ -37,16 +38,42 @@ class LanguageCard extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.all(8),
-            child: LanguageTitle(language),
+            child: RichText(
+              text: TextSpan(
+                children: [
+                  TextSpan(
+                    text: capitalize(
+                      Store.alt && Store.learning == language
+                          ? language.name.learning
+                          : language.name.map[language.name.global]!,
+                    ),
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500,
+                      color: Theme.of(context).textTheme.bodyText2?.color,
+                    ),
+                  ),
+                  if (Store.interface != language)
+                    TextSpan(
+                      text: '\n' + capitalize(language.name.interface),
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.normal,
+                        color: Theme.of(context).hintColor,
+                      ),
+                    ),
+                ],
+              ),
+            ),
           ),
           AnimatedPositioned(
-            left: alt != null ? size - offset : -size - offset,
+            left: alt != null ? iconSize - iconOffset : -iconSize - iconOffset,
             bottom: 0,
             duration: Duration(milliseconds: 250),
             curve: standardEasing,
             child: Container(
-              width: size + offset,
-              height: size,
+              width: iconSize + iconOffset,
+              height: iconSize,
               decoration: BoxDecoration(
                 color: Theme.of(context).colorScheme.background,
                 borderRadius: BorderRadius.only(
@@ -54,7 +81,7 @@ class LanguageCard extends StatelessWidget {
                   topLeft: Radius.circular(4),
                 ),
               ),
-              padding: EdgeInsets.only(left: offset),
+              padding: EdgeInsets.only(left: iconOffset),
               child: AnimatedContainer(
                 duration: Duration(milliseconds: 350),
                 curve: standardEasing,
@@ -62,7 +89,7 @@ class LanguageCard extends StatelessWidget {
                 transform: Matrix4.rotationZ(alt != null && alt! ? 0 : pi),
                 child: Icon(
                   Icons.swap_horiz_outlined,
-                  size: size - 2,
+                  size: iconSize - 2,
                   color: Theme.of(context).colorScheme.onBackground,
                 ),
               ),
