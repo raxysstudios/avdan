@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'package:avdan/data/utils.dart';
+import 'package:avdan/store.dart';
 import 'package:flutter/material.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 
@@ -9,7 +11,7 @@ class DonateButton extends StatefulWidget {
 
 class _DonateButtonState extends State<DonateButton> {
   StreamSubscription<List<PurchaseDetails>>? _subscription;
-  bool? loading;
+  bool loading = false;
 
   @override
   void initState() {
@@ -19,7 +21,7 @@ class _DonateButtonState extends State<DonateButton> {
           if (purchaseDetails.status == PurchaseStatus.pending)
             loading = true;
           else if (purchaseDetails.status == PurchaseStatus.error)
-            showError();
+            showSnack('Thanks!');
           else if (purchaseDetails.pendingCompletePurchase) {
             await InAppPurchase.instance.completePurchase(purchaseDetails);
             loading = false;
@@ -27,7 +29,7 @@ class _DonateButtonState extends State<DonateButton> {
         });
       },
       onDone: _subscription?.cancel,
-      onError: (_) => showError(),
+      onError: (_) => showSnack('Error!'),
     );
     super.initState();
   }
@@ -38,13 +40,13 @@ class _DonateButtonState extends State<DonateButton> {
     super.dispose();
   }
 
-  void showError() {
+  void showSnack(String text) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: const Text('Error.'),
+        content: Text(text),
       ),
     );
-    loading = null;
+    loading = false;
   }
 
   void donate() async {
@@ -61,17 +63,10 @@ class _DonateButtonState extends State<DonateButton> {
 
   @override
   Widget build(BuildContext context) {
-    if (loading == true) return Text('Loading');
-    if (loading == false)
-      return TextButton.icon(
-        onPressed: null,
-        icon: Icon(Icons.check_outlined),
-        label: Text('Thanks!'),
-      );
     return OutlinedButton.icon(
-      onPressed: loading == null ? donate : null,
+      onPressed: loading ? null : donate,
       icon: Icon(Icons.coffee_outlined),
-      label: Text('Donate'),
+      label: Text(capitalize(Localization.get('support'))),
     );
   }
 }

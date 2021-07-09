@@ -90,13 +90,13 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 GridView.builder(
                   gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                    maxCrossAxisExtent: chapter.alphabet ? 128 : 190,
+                    maxCrossAxisExtent: 128,
                   ),
                   itemCount: items.length,
                   itemBuilder: (context, index) {
                     final item = items[index];
                     return ItemCard(
-                      item: item,
+                      item: chapter.alphabet ? item : null,
                       image:
                           chapter.alphabet ? null : chapter.getImageURL(item),
                       onTap: () {

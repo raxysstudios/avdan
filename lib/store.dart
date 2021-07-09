@@ -23,12 +23,15 @@ class Store {
   static Future<void> load() async {
     await rootBundle
         .loadString('assets/localization.json')
-        .then((t) => json.decode(t) as List)
+        .then((t) => json.decode(t) as Map<String, dynamic>)
         .then((l) {
-      Localization.map =
-          Map.castFrom<String, dynamic, String, Map<String, String>>(
-        l as Map<String, dynamic>,
-      );
+      final Map<String, Map<String, String>> map = {};
+      for (final k in l.entries) {
+        map[k.key] = {};
+        for (final t in (k.value as Map<String, dynamic>).entries)
+          map[k.key]![t.key] = t.value;
+      }
+      Localization.map = map;
     });
 
     await rootBundle

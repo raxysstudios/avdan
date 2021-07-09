@@ -42,7 +42,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
         title: Text(
           capitalize(Localization.get('settings')),
         ),
@@ -72,7 +71,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         child: ElevatedButton.icon(
                           onPressed: () => launch('https://t.me/alkaitagi'),
                           icon: Icon(Icons.send_outlined),
-                          label: Text('Contact'),
+                          label: Text(capitalize(Localization.get('contact'))),
                         ),
                       ),
                     ],
