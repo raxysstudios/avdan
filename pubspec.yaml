@@ -26,6 +26,7 @@ dependencies:
   url_launcher: ^6.0.9
   just_audio: ^0.8.0
   sensors_plus: ^1.0.2
+  in_app_purchase: ^1.0.6
 
 dependency_overrides:
   args: "2.0.0"
