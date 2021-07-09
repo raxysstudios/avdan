@@ -52,7 +52,7 @@ class _DonateButtonState extends State<DonateButton> {
   void donate() async {
     print('Looking for product');
     final response =
-        await InAppPurchase.instance.queryProductDetails({'donation'});
+        await InAppPurchase.instance.queryProductDetails({'support'});
     print('Found product');
     await InAppPurchase.instance.buyConsumable(
       purchaseParam: PurchaseParam(

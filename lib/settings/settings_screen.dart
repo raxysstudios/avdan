@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'language_card.dart';
+import 'language_tile.dart';
 
 class SettingsScreen extends StatefulWidget {
   @override
@@ -42,91 +42,91 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          capitalize(Localization.get('settings')),
+        automaticallyImplyLeading: false,
+        title: Center(
+          child: Text(
+            capitalize(Localization.get('settings')),
+          ),
         ),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+      body: ListView(
         children: [
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(8),
-              child: Column(
-                children: [
-                  Icon(Icons.landscape_outlined),
-                  SizedBox(height: 8),
-                  Text(
-                    capitalize(Localization.get('honor')),
-                    textAlign: TextAlign.center,
-                  ),
-                  SizedBox(height: 8),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: DonateButton(),
-                      ),
-                      SizedBox(width: 8),
-                      Expanded(
-                        child: ElevatedButton.icon(
-                          onPressed: () => launch('https://t.me/alkaitagi'),
-                          icon: Icon(Icons.send_outlined),
-                          label: Text(capitalize(Localization.get('contact'))),
-                        ),
-                      ),
-                    ],
-                  )
-                ],
-              ),
-            ),
-          ),
           Padding(
             padding: const EdgeInsets.all(8),
-            child: Icon(Icons.visibility_outlined),
-          ),
-          Container(
-            height: 112,
-            child: ListView(
-              scrollDirection: Axis.horizontal,
+            child: Column(
               children: [
-                for (final l in interface)
-                  LanguageCard(
-                    l,
-                    selected: Store.interface == l,
-                    onTap: () {
-                      setState(() => Store.interface = l);
-                      saveChoice('interface', l);
-                    },
-                  )
+                Icon(Icons.landscape_outlined),
+                SizedBox(height: 8),
+                Text(
+                  Localization.get('honor'),
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(height: 8),
+                Row(
+                  children: [
+                    Expanded(
+                      child: DonateButton(),
+                    ),
+                    SizedBox(width: 8),
+                    Expanded(
+                      child: ElevatedButton.icon(
+                        onPressed: () => launch('https://t.me/alkaitagi'),
+                        icon: Icon(Icons.send_outlined),
+                        label: Text(capitalize(Localization.get('contact'))),
+                      ),
+                    ),
+                  ],
+                )
               ],
             ),
           ),
+          Divider(height: 0),
+          Padding(
+            padding: const EdgeInsets.all(16),
+            child: Text(
+              capitalize(Localization.get('interface')),
+              style: Theme.of(context).textTheme.headline6,
+              textAlign: TextAlign.center,
+            ),
+          ),
+          for (final l in interface)
+            LanguageTile(
+              l,
+              selected: Store.interface == l,
+              onTap: (_) {
+                setState(() => Store.interface = l);
+                saveChoice('interface', l);
+              },
+            ),
+          Divider(height: 0),
+          Padding(
+            padding: const EdgeInsets.all(16),
+            child: Text(
+              capitalize(Localization.get('learning')),
+              style: Theme.of(context).textTheme.headline6,
+              textAlign: TextAlign.center,
+            ),
+          ),
+          for (final l in learning)
+            LanguageTile(
+              l,
+              selected: Store.learning == l,
+              alt: l.alt != null && Store.learning == l && Store.alt,
+              onTap: (alt) {
+                setState(() {
+                  Store.learning = l;
+                  Store.alt = alt ?? false;
+                });
+                saveChoice('learning', l, alt: Store.alt);
+              },
+            ),
+          Divider(height: 0),
           Padding(
             padding: const EdgeInsets.all(8),
-            child: Icon(Icons.hearing_outlined),
-          ),
-          Container(
-            height: 112,
-            child: ListView(
-              scrollDirection: Axis.horizontal,
-              children: [
-                for (final l in learning)
-                  LanguageCard(
-                    l,
-                    selected: Store.learning == l,
-                    alt:
-                        Store.learning == l && l.alt != null ? Store.alt : null,
-                    onTap: () {
-                      setState(() {
-                        if (Store.learning != l) {
-                          Store.learning = l;
-                          Store.alt = false;
-                        } else if (l.alt != null) Store.alt = !Store.alt;
-                      });
-                      saveChoice('learning', l, alt: Store.alt);
-                    },
-                  )
-              ],
+            child: ElevatedButton.icon(
+              onPressed: () => Navigator.pop(context),
+              icon: Icon(Icons.arrow_back_outlined),
+              label: Text('Save & Return Home'),
             ),
           ),
         ],
