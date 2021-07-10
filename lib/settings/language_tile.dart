@@ -20,7 +20,7 @@ class LanguageTile extends StatelessWidget {
     return ListTile(
       leading: CircleAvatar(
         radius: 24,
-        backgroundImage: AssetImage('assets/flags/${language.flag}.png'),
+        backgroundImage: AssetImage(language.flagUrl),
       ),
       title: Text(
         capitalize(

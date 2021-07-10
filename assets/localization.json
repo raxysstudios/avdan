@@ -4,6 +4,11 @@
         "russian": "настройки",
         "turkish": "ayarlar"
     },
+    "home": {
+        "english": "save & return home",
+        "russian": "cохранить и вернуться домой",
+        "turkish": "kaydet ve eve dön"
+    },
     "contact": {
         "english": "contact",
         "russian": "связаться",

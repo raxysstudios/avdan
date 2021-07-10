@@ -6,6 +6,8 @@ class Language {
   final bool interface;
   final bool learning;
 
+  String get flagUrl => 'assets/flags/$flag.png';
+
   String? get alt {
     final alt = name.global! + '_alt';
     return name.map[alt] == null ? null : alt;

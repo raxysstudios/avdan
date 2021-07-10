@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:avdan/data/language.dart';
 import 'package:flutter/material.dart';
 
@@ -13,8 +12,6 @@ class LanguageFlag extends StatelessWidget {
   final Offset offset;
   final double scale;
 
-  String get flag => 'assets/flags/${language.flag}.png';
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -27,7 +24,7 @@ class LanguageFlag extends StatelessWidget {
           child: Transform.scale(
             scale: scale,
             child: Image.asset(
-              flag,
+              language.flagUrl,
               repeat: ImageRepeat.repeatX,
               errorBuilder: (
                 BuildContext context,

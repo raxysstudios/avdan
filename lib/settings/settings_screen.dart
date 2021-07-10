@@ -126,7 +126,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
             child: ElevatedButton.icon(
               onPressed: () => Navigator.pop(context),
               icon: Icon(Icons.arrow_back_outlined),
-              label: Text('Save & Return Home'),
+              label: Text(
+                capitalize(Localization.get('home')),
+              ),
             ),
           ),
         ],
