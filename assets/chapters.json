@@ -9,7 +9,9 @@
     },
     {
       "iron": "а æ б в г гъ д дз дж е з и й к къ л м н о п пъ р с т тъ у у ф х хъ ц цъ ч чъ ы",
-      "iron_alt": "a æ b v g gh d dz ĝ e z i j k kh l m n o p ph r s t th w u f x q c ch ĉ ĉh y"
+      "iron_alt": "a æ b v g gh d dz ĝ e z i j k kh l m n o p ph r s t th w u f x q c ch ĉ ĉh y",
+      "digor": "а æ б в г гъ д дз дж е з и й к къ л м н о п пъ р с т тъ у у ф х хъ ц цъ ч чъ ы",
+      "digor_alt": "a æ b v g gh d dz ĝ e z i j k kh l m n o p ph r s t th w u f x q c ch ĉ ĉh y"
     }
   ],
   [
