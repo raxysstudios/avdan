@@ -19,7 +19,6 @@ class LanguageTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       leading: CircleAvatar(
-        radius: 24,
         backgroundImage: AssetImage(language.flagUrl),
       ),
       title: Text(
@@ -27,6 +26,9 @@ class LanguageTile extends StatelessWidget {
           Store.alt && Store.learning == language
               ? language.name.learning
               : language.name.map[language.name.global]!,
+        ),
+        style: TextStyle(
+          fontWeight: FontWeight.w500,
         ),
       ),
       subtitle: Text(
@@ -38,7 +40,9 @@ class LanguageTile extends StatelessWidget {
               value: alt == true,
               onChanged: (alt) => onTap?.call(alt),
             ),
-      onTap: () => onTap?.call(alt == null || !selected ? null : !alt!),
+      onTap: () => onTap?.call(
+        alt == null || !selected ? null : !alt!,
+      ),
       selected: selected,
     );
   }
