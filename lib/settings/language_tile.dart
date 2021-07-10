@@ -31,9 +31,11 @@ class LanguageTile extends StatelessWidget {
           fontWeight: FontWeight.w500,
         ),
       ),
-      subtitle: Text(
-        capitalize(language.name.interface),
-      ),
+      subtitle: language.interface
+          ? null
+          : Text(
+              capitalize(language.name.interface),
+            ),
       trailing: alt == null
           ? null
           : Switch(

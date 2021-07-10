@@ -3,9 +3,7 @@
     "interface": true,
     "flag": "england",
     "name": {
-      "english": "english",
-      "russian": "английский",
-      "turkish": "ingilizce"
+      "english": "english"
     }
   },
   {
@@ -13,7 +11,6 @@
     "flag": "turkey",
     "name": {
       "english": "turkish",
-      "russian": "турецкий",
       "turkish": "türkçe"
     }
   },
@@ -22,8 +19,7 @@
     "flag": "russia",
     "name": {
       "english": "russian",
-      "russian": "русский",
-      "turkish": "rusça"
+      "russian": "русский"
     }
   },
   {
