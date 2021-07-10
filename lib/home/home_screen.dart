@@ -20,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Chapter chapter = Store.chapters[0];
   List<Translation> get items =>
       chapter.items.where((i) => i.learning != null).toList();
-  Translation item = Store.chapters[0].items[0];
+  late Translation item;
 
   final PageController _pageController = PageController();
 
@@ -31,7 +31,9 @@ class _HomeScreenState extends State<HomeScreen> {
         builder: (_) => SettingsScreen(),
       ),
     ).then(
-      (_) => setState(() {}),
+      (_) => setState(() {
+        item = items.first;
+      }),
     );
   }
 
@@ -46,6 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
+    item = items.first;
     SharedPreferences.getInstance().then((prefs) {
       if (prefs.getString('interface') == null) openSettings();
     });
@@ -144,6 +147,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       onTap: () {
                         setState(() {
                           chapter = c;
+                          item = items.first;
                         });
                         openPage(0);
                       },
