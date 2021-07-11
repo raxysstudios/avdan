@@ -55,7 +55,7 @@ class ItemsViewState extends State<ItemsView> {
             padding: const EdgeInsets.all(8),
             child: Stack(
               children: [
-                if (item.global == null) ...[
+                if (item.global == null)
                   Center(
                     child: FittedBox(
                       fit: BoxFit.fitWidth,
@@ -67,8 +67,8 @@ class ItemsViewState extends State<ItemsView> {
                         ),
                       ),
                     ),
-                  ),
-                ] else ...[
+                  )
+                else ...[
                   Center(
                     child: Positioned.fill(
                       child: Image.asset(
