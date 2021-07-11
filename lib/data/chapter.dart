@@ -6,9 +6,7 @@ class Chapter {
   late final Translation title;
   late final bool alphabet;
   late final List<Translation> items;
-  late final Color? _color;
-  Color get color =>
-      _color == null ? Colors.transparent : _color!.withAlpha(128);
+  late final Color color;
 
   Chapter(
     Iterable<Translation> items, {
@@ -17,9 +15,9 @@ class Chapter {
     title = items.first;
     this.items = (alphabet ? _parseAlphabet(items.elementAt(1)) : items.skip(1))
         .toList();
-    _color = title.map['color'] == null
-        ? null
-        : Color(int.parse('0xff' + title.map['color']!));
+    color = title.map['color'] == null
+        ? Colors.transparent
+        : Color(int.parse('0xff' + title.map['color']!)).withOpacity(0.25);
   }
 
   Iterable<Translation> _parseAlphabet(Translation alphabet) sync* {

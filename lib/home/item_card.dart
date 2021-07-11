@@ -1,77 +1,50 @@
 import 'package:avdan/data/translation.dart';
-import 'package:avdan/widgets/label.dart';
-import 'package:avdan/widgets/selectable_card.dart';
 import 'package:flutter/material.dart';
 
 class ItemCard extends StatelessWidget {
   ItemCard({
     this.item,
     this.image,
-    this.selected = false,
     this.onTap,
     this.color,
   });
   final Translation? item;
   final String? image;
-  final bool selected;
   final Function()? onTap;
   final Color? color;
 
   @override
   Widget build(BuildContext context) {
-    return SelectableCard(
-      color: color,
-      onTap: onTap,
-      selected: selected,
-      children: [
-        if (image == null)
-          Center(
-            child: FittedBox(
-              fit: BoxFit.fitWidth,
-              child: Padding(
-                padding: const EdgeInsets.all(8),
-                child: Text(
-                  item!.learning!.toUpperCase(),
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 42,
-                    fontWeight: FontWeight.w500,
+    return Card(
+      elevation: 0,
+      color: Colors.transparent,
+      child: InkWell(
+        onTap: onTap,
+        highlightColor: color,
+        child: Padding(
+          padding: const EdgeInsets.all(8),
+          child: image == null
+              ? Center(
+                  child: Text(
+                    item!.learning!.toUpperCase(),
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 42,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
+                )
+              : Image.asset(
+                  image!,
+                  errorBuilder: (
+                    BuildContext context,
+                    Object exception,
+                    StackTrace? stackTrace,
+                  ) =>
+                      Offstage(),
                 ),
-              ),
-            ),
-          )
-        else ...[
-          Positioned.fill(
-            top: item == null ? 0 : 42,
-            child: Padding(
-              padding: const EdgeInsets.all(8),
-              child: Image.asset(
-                image!,
-                fit: BoxFit.fitHeight,
-                alignment: Alignment.bottomCenter,
-                errorBuilder: (
-                  BuildContext context,
-                  Object exception,
-                  StackTrace? stackTrace,
-                ) =>
-                    Container(),
-              ),
-            ),
-          ),
-          if (item != null)
-            Align(
-              alignment: Alignment.topCenter,
-              child: Padding(
-                padding: const EdgeInsets.all(8),
-                child: Label(
-                  item!,
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ),
-        ],
-      ],
+        ),
+      ),
     );
   }
 }

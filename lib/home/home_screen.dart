@@ -1,5 +1,6 @@
 import 'package:avdan/data/chapter.dart';
 import 'package:avdan/data/translation.dart';
+import 'package:avdan/home/chapter_tabs.dart';
 import 'package:avdan/home/item_card.dart';
 import 'package:avdan/home/items_view.dart';
 import 'package:avdan/store.dart';
@@ -15,13 +16,47 @@ class HomeScreen extends StatefulWidget {
   _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
-  Chapter chapter = Store.chapters[0];
-  List<Translation> get items => chapter.items
-      .where(
-        (i) => i.learning != null,
-      )
-      .toList();
+class _HomeScreenState extends State<HomeScreen>
+    with SingleTickerProviderStateMixin {
+  late final TabController _tabController;
+  var chapter = Store.chapters.first;
+  var color = Colors.transparent;
+
+  @override
+  void initState() {
+    super.initState();
+    // color = fixTransparent(color);
+    _tabController = TabController(
+      length: Store.chapters.length,
+      vsync: this,
+    );
+    _tabController.animation?.addListener(() {
+      final animation = _tabController.animation?.value ?? 0;
+      final colorA = Store.chapters[animation.floor()].color;
+      final colorB = Store.chapters[animation.ceil()].color;
+      setState(() {
+        color = Color.lerp(
+          colorA,
+          colorB,
+          animation.remainder(1),
+        )!;
+        final chapter = Store.chapters[animation.round()];
+        if (this.chapter != chapter) this.chapter = chapter;
+      });
+    });
+    SharedPreferences.getInstance().then((prefs) {
+      if (prefs.getString('interface') == null) openSettings();
+    });
+  }
+
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+
+  Color fixTransparent(Color color) {
+    return color.opacity == 0 ? Theme.of(context).highlightColor : color;
+  }
 
   void openSettings() {
     Navigator.push(
@@ -43,14 +78,6 @@ class _HomeScreenState extends State<HomeScreen> {
         );
       },
     );
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    SharedPreferences.getInstance().then((prefs) {
-      if (prefs.getString('interface') == null) openSettings();
-    });
   }
 
   @override
@@ -83,62 +110,49 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-      body: AnimatedContainer(
-        duration: Duration(milliseconds: 250),
-        curve: standardEasing,
-        color: chapter.color,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Expanded(
-              child: GridView.builder(
-                gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                  maxCrossAxisExtent: 128,
-                ),
-                itemCount: items.length,
-                itemBuilder: (context, index) {
-                  final item = items[index];
-                  return ItemCard(
-                    color: Colors.transparent,
-                    item: chapter.alphabet ? item : null,
-                    image: chapter.alphabet ? null : chapter.getImageURL(item),
-                    onTap: () => openView(chapter, item),
-                  );
-                },
-              ),
+      backgroundColor: Color.alphaBlend(
+        color,
+        Theme.of(context).colorScheme.surface,
+      ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Expanded(
+            child: TabBarView(
+              controller: _tabController,
+              children: [
+                for (final chapter in Store.chapters)
+                  Builder(
+                    builder: (_) {
+                      final items = chapter.items
+                          .where((i) => i.learning != null)
+                          .toList();
+                      return GridView.builder(
+                        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                          maxCrossAxisExtent: 128,
+                        ),
+                        itemCount: items.length,
+                        itemBuilder: (_, i) {
+                          final item = items[i];
+                          return ItemCard(
+                            item: chapter.alphabet ? item : null,
+                            image: chapter.alphabet
+                                ? null
+                                : chapter.getImageURL(item),
+                            onTap: () => openView(chapter, item),
+                          );
+                        },
+                      );
+                    },
+                  ),
+              ],
             ),
-            Container(
-              decoration: BoxDecoration(
-                color: Theme.of(context).scaffoldBackgroundColor,
-                boxShadow: [
-                  BoxShadow(
-                    color: Theme.of(context).shadowColor.withOpacity(0.25),
-                    blurRadius: 2,
-                  )
-                ],
-              ),
-              height: 96,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: [
-                  for (final c in Store.chapters)
-                    AspectRatio(
-                      aspectRatio: 1,
-                      child: ItemCard(
-                        color: c.color,
-                        item: c.alphabet ? c.items.first : null,
-                        image: c.alphabet ? null : c.getImageURL(c.items.first),
-                        selected: chapter == c,
-                        onTap: () => setState(() {
-                          chapter = c;
-                        }),
-                      ),
-                    )
-                ],
-              ),
-            ),
-          ],
-        ),
+          ),
+          ChapterTabs(
+            controller: _tabController,
+            chapters: Store.chapters,
+          ),
+        ],
       ),
     );
   }
