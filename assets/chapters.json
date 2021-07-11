@@ -9,13 +9,12 @@
     },
     {
       "iron": "а æ б в г гъ д дз дж е з и й к къ л м н о п пъ р с т тъ у у ф х хъ ц цъ ч чъ ы",
-      "iron_alt": "a æ b v g gh d dz ĝ e z i j k kh l m n o p ph r s t th w u f x q c ch ĉ ĉh y",
-      "digor": "а æ б в г гъ д дз дж е з и й к къ л м н о п пъ р с т тъ у у ф х хъ ц цъ ч чъ ы",
-      "digor_alt": "a æ b v g gh d dz ĝ e z i j k kh l m n o p ph r s t th w u f x q c ch ĉ ĉh y"
+      "iron_alt": "a æ b v g gh d dz ĝ e z i j k kh l m n o p ph r s t th w u f x q c ch ĉ ĉh y"
     }
   ],
   [
     {
+      "color": "607D8B",
       "english": "people",
       "russian": "люди",
       "turkish": "insanlar",
@@ -92,13 +91,13 @@
   ],
   [
     {
+      "color": "FFC107",
       "english": "food",
       "russian": "еда",
       "turkish": "gıda",
       "iron": "хæринаг",
       "iron_alt": "xærinag",
-      "digor": "хоруйнаг",
-      "color": "ffe57f"
+      "digor": "хоруйнаг"
     },
     {
       "english": "bread",
@@ -247,6 +246,7 @@
   ],
   [
     {
+      "color": "03A9F4",
       "english": "home",
       "russian": "дом",
       "iron": "хæдзар",
@@ -381,6 +381,7 @@
   ],
   [
     {
+      "color": "CDDC39",
       "english": "fruits",
       "russian": "фрукты",
       "iron": "дыргътæ",
@@ -461,6 +462,7 @@
   ],
   [
     {
+      "color": "4CAF50",
       "english": "vegetables",
       "russian": "овощи",
       "iron": "халсартæ",
@@ -534,6 +536,7 @@
   ],
   [
     {
+      "color": "2196F3",
       "english": "city",
       "russian": "город",
       "iron": "сахар",
@@ -891,6 +894,7 @@
   ],
   [
     {
+      "color": "795548",
       "english": "animals",
       "russian": "животные",
       "iron": "сырдтæ",
