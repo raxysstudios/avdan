@@ -17,7 +17,7 @@ class Chapter {
         .toList();
     color = title.map['color'] == null
         ? Colors.transparent
-        : Color(int.parse('0xff' + title.map['color']!)).withOpacity(0.25);
+        : Color(int.parse('0xff' + title.map['color']!)).withOpacity(0.4);
   }
 
   Iterable<Translation> _parseAlphabet(Translation alphabet) sync* {
