@@ -69,26 +69,31 @@ class ItemsViewState extends State<ItemsView> {
                     ),
                   ),
                 ] else ...[
-                  Positioned.fill(
-                    child: Image.asset(
-                      widget.chapter.getImageURL(item),
-                      fit: BoxFit.fitWidth,
-                      alignment: Alignment.bottomCenter,
-                      errorBuilder: (
-                        BuildContext context,
-                        Object exception,
-                        StackTrace? stackTrace,
-                      ) =>
-                          Container(),
+                  Center(
+                    child: Positioned.fill(
+                      child: Image.asset(
+                        widget.chapter.getImageURL(item),
+                        fit: BoxFit.fitWidth,
+                        alignment: Alignment.bottomCenter,
+                        errorBuilder: (
+                          BuildContext context,
+                          Object exception,
+                          StackTrace? stackTrace,
+                        ) =>
+                            Container(),
+                      ),
                     ),
                   ),
                   Align(
-                    alignment: Alignment.topCenter,
-                    child: Label(
-                      item,
-                      titleSize: 36,
-                      subtitleSize: 30,
-                      textAlign: TextAlign.center,
+                    alignment: Alignment.bottomCenter,
+                    child: Padding(
+                      padding: const EdgeInsets.all(32),
+                      child: Label(
+                        item,
+                        titleSize: 36,
+                        subtitleSize: 30,
+                        textAlign: TextAlign.center,
+                      ),
                     ),
                   ),
                 ],

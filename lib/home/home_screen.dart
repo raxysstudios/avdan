@@ -37,12 +37,9 @@ class _HomeScreenState extends State<HomeScreen> {
       context: context,
       isScrollControlled: true,
       builder: (BuildContext context) {
-        return Padding(
-          padding: const EdgeInsets.only(top: 32),
-          child: ItemsView(
-            chapter: chapter,
-            item: item,
-          ),
+        return ItemsView(
+          chapter: chapter,
+          item: item,
         );
       },
     );
