@@ -41,6 +41,7 @@ class LanguageTile extends StatelessWidget {
           : Switch(
               value: alt == true,
               onChanged: (alt) => onTap?.call(alt),
+              activeColor: Theme.of(context).colorScheme.primary,
             ),
       onTap: () => onTap?.call(
         alt == null || !selected ? null : !alt!,
