@@ -9,15 +9,18 @@ class ItemCard extends StatelessWidget {
     this.image,
     this.selected = false,
     this.onTap,
+    this.color,
   });
   final Translation? item;
   final String? image;
   final bool selected;
   final Function()? onTap;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
     return SelectableCard(
+      color: color,
       onTap: onTap,
       selected: selected,
       children: [

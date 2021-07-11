@@ -6,17 +6,20 @@ class SelectableCard extends StatelessWidget {
     this.selected = false,
     this.elevated = false,
     this.onTap,
+    this.color,
   });
 
   final List<Widget> children;
   final bool selected;
   final bool elevated;
   final Function()? onTap;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
     const size = 24.0;
     return Card(
+      color: color,
       elevation: elevated ? Theme.of(context).cardTheme.elevation : 0,
       child: InkWell(
         onTap: onTap,

@@ -83,55 +83,62 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Expanded(
-            child: GridView.builder(
-              gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                maxCrossAxisExtent: 128,
+      body: AnimatedContainer(
+        duration: Duration(milliseconds: 250),
+        curve: standardEasing,
+        color: chapter.color,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(
+              child: GridView.builder(
+                gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                  maxCrossAxisExtent: 128,
+                ),
+                itemCount: items.length,
+                itemBuilder: (context, index) {
+                  final item = items[index];
+                  return ItemCard(
+                    color: Colors.transparent,
+                    item: chapter.alphabet ? item : null,
+                    image: chapter.alphabet ? null : chapter.getImageURL(item),
+                    onTap: () => openView(chapter, item),
+                  );
+                },
               ),
-              itemCount: items.length,
-              itemBuilder: (context, index) {
-                final item = items[index];
-                return ItemCard(
-                  item: chapter.alphabet ? item : null,
-                  image: chapter.alphabet ? null : chapter.getImageURL(item),
-                  onTap: () => openView(chapter, item),
-                );
-              },
             ),
-          ),
-          Container(
-            decoration: BoxDecoration(
-              color: Theme.of(context).scaffoldBackgroundColor,
-              boxShadow: [
-                BoxShadow(
-                  color: Theme.of(context).shadowColor.withOpacity(0.25),
-                  blurRadius: 2,
-                )
-              ],
-            ),
-            height: 96,
-            child: ListView(
-              scrollDirection: Axis.horizontal,
-              children: [
-                for (final c in Store.chapters)
-                  AspectRatio(
-                    aspectRatio: 1,
-                    child: ItemCard(
-                      item: c.alphabet ? c.items.first : null,
-                      image: c.alphabet ? null : c.getImageURL(c.items.first),
-                      selected: chapter == c,
-                      onTap: () => setState(() {
-                        chapter = c;
-                      }),
-                    ),
+            Container(
+              decoration: BoxDecoration(
+                color: Theme.of(context).scaffoldBackgroundColor,
+                boxShadow: [
+                  BoxShadow(
+                    color: Theme.of(context).shadowColor.withOpacity(0.25),
+                    blurRadius: 2,
                   )
-              ],
+                ],
+              ),
+              height: 96,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  for (final c in Store.chapters)
+                    AspectRatio(
+                      aspectRatio: 1,
+                      child: ItemCard(
+                        color: c.color,
+                        item: c.alphabet ? c.items.first : null,
+                        image: c.alphabet ? null : c.getImageURL(c.items.first),
+                        selected: chapter == c,
+                        onTap: () => setState(() {
+                          chapter = c;
+                        }),
+                      ),
+                    )
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
