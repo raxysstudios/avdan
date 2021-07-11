@@ -1,8 +1,7 @@
-import 'package:avdan/audio_player.dart';
 import 'package:avdan/data/chapter.dart';
 import 'package:avdan/data/translation.dart';
 import 'package:avdan/home/item_card.dart';
-import 'package:avdan/home/item_view.dart';
+import 'package:avdan/home/items_view.dart';
 import 'package:avdan/store.dart';
 import 'package:avdan/settings/settings_screen.dart';
 import 'package:avdan/widgets/label.dart';
@@ -18,11 +17,11 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   Chapter chapter = Store.chapters[0];
-  List<Translation> get items =>
-      chapter.items.where((i) => i.learning != null).toList();
-  late Translation item;
-
-  final PageController _pageController = PageController();
+  List<Translation> get items => chapter.items
+      .where(
+        (i) => i.learning != null,
+      )
+      .toList();
 
   void openSettings() {
     Navigator.push(
@@ -30,25 +29,28 @@ class _HomeScreenState extends State<HomeScreen> {
       MaterialPageRoute(
         builder: (_) => SettingsScreen(),
       ),
-    ).then(
-      (_) => setState(() {
-        item = items.first;
-      }),
     );
   }
 
-  void openPage(int index) {
-    _pageController.animateToPage(
-      index,
-      duration: Duration(milliseconds: 200),
-      curve: standardEasing,
+  void openView(Chapter chapter, Translation item) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      builder: (BuildContext context) {
+        return Padding(
+          padding: const EdgeInsets.only(top: 32),
+          child: ItemsView(
+            chapter: chapter,
+            item: item,
+          ),
+        );
+      },
     );
   }
 
   @override
   void initState() {
     super.initState();
-    item = items.first;
     SharedPreferences.getInstance().then((prefs) {
       if (prefs.getString('interface') == null) openSettings();
     });
@@ -88,39 +90,19 @@ class _HomeScreenState extends State<HomeScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(
-            child: PageView(
-              controller: _pageController,
-              children: [
-                GridView.builder(
-                  gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                    maxCrossAxisExtent: 128,
-                  ),
-                  itemCount: items.length,
-                  itemBuilder: (context, index) {
-                    final item = items[index];
-                    return ItemCard(
-                      item: chapter.alphabet ? item : null,
-                      image:
-                          chapter.alphabet ? null : chapter.getImageURL(item),
-                      onTap: () {
-                        setState(() {
-                          this.item = item;
-                        });
-                        openPage(1);
-                        playItem(chapter, item);
-                      },
-                    );
-                  },
-                ),
-                ItemView(
-                  chapter: chapter,
-                  item: item,
-                  actions: IconButton(
-                    icon: Icon(Icons.arrow_back_outlined),
-                    onPressed: () => openPage(0),
-                  ),
-                ),
-              ],
+            child: GridView.builder(
+              gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                maxCrossAxisExtent: 128,
+              ),
+              itemCount: items.length,
+              itemBuilder: (context, index) {
+                final item = items[index];
+                return ItemCard(
+                  item: chapter.alphabet ? item : null,
+                  image: chapter.alphabet ? null : chapter.getImageURL(item),
+                  onTap: () => openView(chapter, item),
+                );
+              },
             ),
           ),
           Container(
@@ -144,13 +126,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       item: c.alphabet ? c.items.first : null,
                       image: c.alphabet ? null : c.getImageURL(c.items.first),
                       selected: chapter == c,
-                      onTap: () {
-                        setState(() {
-                          chapter = c;
-                          item = items.first;
-                        });
-                        openPage(0);
-                      },
+                      onTap: () => setState(() {
+                        chapter = c;
+                      }),
                     ),
                   )
               ],
