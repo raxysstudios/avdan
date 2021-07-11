@@ -1,4 +1,5 @@
 import 'package:avdan/data/chapter.dart';
+import 'package:avdan/data/utils.dart';
 import 'package:flutter/material.dart';
 import 'item_card.dart';
 
@@ -12,24 +13,20 @@ class ChapterTabs extends AnimatedWidget {
   }) : super(listenable: controller.animation!);
 
   Color getColor(BuildContext context) {
-    final animation = controller.animation?.value ?? 0;
+    final index = controller.animation?.value ?? 0;
     final colorA = fixTransparent(
-      chapters[animation.floor()].color,
+      chapters[index.floor()].color,
       context,
     );
     final colorB = fixTransparent(
-      chapters[animation.ceil()].color,
+      chapters[index.ceil()].color,
       context,
     );
     return Color.lerp(
       colorA,
       colorB,
-      animation.remainder(1),
+      index.remainder(1),
     )!;
-  }
-
-  Color fixTransparent(Color color, BuildContext context) {
-    return color.opacity == 0 ? Theme.of(context).highlightColor : color;
   }
 
   @override
