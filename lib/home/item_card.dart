@@ -27,7 +27,6 @@ class ItemCard extends StatelessWidget {
               ? Center(
                   child: Text(
                     item!.learning!.toUpperCase(),
-                    textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 42,
                       fontWeight: FontWeight.w500,
@@ -36,12 +35,11 @@ class ItemCard extends StatelessWidget {
                 )
               : Image.asset(
                   image!,
-                  errorBuilder: (
-                    BuildContext context,
-                    Object exception,
-                    StackTrace? stackTrace,
-                  ) =>
-                      Offstage(),
+                  errorBuilder: (_, __, ___) {
+                    return Center(
+                      child: Text('?'),
+                    );
+                  },
                 ),
         ),
       ),

@@ -58,7 +58,7 @@ class ItemsViewState extends State<ItemsView> {
                 if (item.global == null)
                   Center(
                     child: FittedBox(
-                      fit: BoxFit.fitWidth,
+                      fit: BoxFit.contain,
                       child: Text(
                         item.learning!.toUpperCase() + '\n' + item.learning!,
                         style: TextStyle(
@@ -69,25 +69,26 @@ class ItemsViewState extends State<ItemsView> {
                     ),
                   )
                 else ...[
-                  Center(
-                    child: Positioned.fill(
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      top: 32,
+                      bottom: 124,
+                    ),
+                    child: Align(
                       child: Image.asset(
                         widget.chapter.getImageURL(item),
-                        fit: BoxFit.fitWidth,
-                        alignment: Alignment.bottomCenter,
-                        errorBuilder: (
-                          BuildContext context,
-                          Object exception,
-                          StackTrace? stackTrace,
-                        ) =>
-                            Container(),
+                        errorBuilder: (_, __, ___) {
+                          return Center(
+                            child: Text('?'),
+                          );
+                        },
                       ),
                     ),
                   ),
-                  Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Padding(
-                      padding: const EdgeInsets.all(32),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 24),
+                    child: Align(
+                      alignment: Alignment.bottomCenter,
                       child: Label(
                         item,
                         titleSize: 36,
