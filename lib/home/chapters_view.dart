@@ -1,6 +1,5 @@
 import 'package:avdan/data/chapter.dart';
 import 'package:avdan/data/translation.dart';
-import 'package:avdan/data/utils.dart';
 import 'package:avdan/home/item_card.dart';
 import 'package:flutter/material.dart';
 
@@ -35,10 +34,7 @@ class ChaptersView extends StatelessWidget {
                   itemBuilder: (_, i) {
                     final item = items[i];
                     return ItemCard(
-                      color: fixTransparent(
-                        chapter.color,
-                        context,
-                      ),
+                      color: chapter.color,
                       item: chapter.alphabet ? item : null,
                       image:
                           chapter.alphabet ? null : chapter.getImageURL(item),
@@ -57,7 +53,7 @@ class ChaptersView extends StatelessWidget {
             chapters[index.floor()].color,
             chapters[index.ceil()].color,
             index.remainder(1),
-          )!,
+          ),
           child: child,
         );
       },

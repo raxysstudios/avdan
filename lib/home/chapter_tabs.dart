@@ -1,5 +1,4 @@
 import 'package:avdan/data/chapter.dart';
-import 'package:avdan/data/utils.dart';
 import 'package:flutter/material.dart';
 import 'item_card.dart';
 
@@ -12,26 +11,11 @@ class ChapterTabs extends AnimatedWidget {
     required this.chapters,
   }) : super(listenable: controller.animation!);
 
-  Color getColor(BuildContext context) {
-    final index = controller.animation?.value ?? 0;
-    final colorA = fixTransparent(
-      chapters[index.floor()].color,
-      context,
-    );
-    final colorB = fixTransparent(
-      chapters[index.ceil()].color,
-      context,
-    );
-    return Color.lerp(
-      colorA,
-      colorB,
-      index.remainder(1),
-    )!;
-  }
-
   @override
   Widget build(BuildContext context) {
-    final color = getColor(context);
+    final index = controller.animation?.value ?? 0;
+    final highlight = Theme.of(context).highlightColor;
+
     return Container(
       decoration: BoxDecoration(
         color: Theme.of(context).scaffoldBackgroundColor,
@@ -55,7 +39,11 @@ class ChapterTabs extends AnimatedWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(4),
           ),
-          color: color,
+          color: Color.lerp(
+            chapters[index.floor()].color ?? highlight,
+            chapters[index.ceil()].color ?? highlight,
+            index.remainder(1),
+          ),
         ),
         tabs: [
           for (var i = 0; i < chapters.length; i++)
@@ -67,10 +55,7 @@ class ChapterTabs extends AnimatedWidget {
                   child: Padding(
                     padding: const EdgeInsets.only(top: 2),
                     child: ItemCard(
-                      color: fixTransparent(
-                        chapter.color,
-                        context,
-                      ),
+                      color: chapter.color,
                       item: chapter.alphabet ? chapter.items.first : null,
                       image: chapter.alphabet
                           ? null
