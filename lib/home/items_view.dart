@@ -46,64 +46,61 @@ class ItemsViewState extends State<ItemsView> {
         widget.chapter,
         widget.chapter.items[_pageController.page?.round() ?? 0],
       ),
-      child: Container(
-        color: widget.chapter.color,
-        child: PageView.builder(
-          controller: _pageController,
-          itemCount: widget.chapter.items.length,
-          itemBuilder: (_, i) {
-            final item = widget.chapter.items[i];
-            return Padding(
-              padding: const EdgeInsets.all(8),
-              child: Stack(
-                children: [
-                  if (item.global == null)
-                    Center(
-                      child: FittedBox(
+      child: PageView.builder(
+        controller: _pageController,
+        itemCount: widget.chapter.items.length,
+        itemBuilder: (_, i) {
+          final item = widget.chapter.items[i];
+          return Padding(
+            padding: const EdgeInsets.all(8),
+            child: Stack(
+              children: [
+                if (item.global == null)
+                  Center(
+                    child: FittedBox(
+                      fit: BoxFit.fitWidth,
+                      child: Text(
+                        item.learning!.toUpperCase() + '\n' + item.learning!,
+                        style: TextStyle(
+                          fontSize: 96,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                  )
+                else ...[
+                  Center(
+                    child: Positioned.fill(
+                      child: Image.asset(
+                        widget.chapter.getImageURL(item),
                         fit: BoxFit.fitWidth,
-                        child: Text(
-                          item.learning!.toUpperCase() + '\n' + item.learning!,
-                          style: TextStyle(
-                            fontSize: 96,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
-                    )
-                  else ...[
-                    Center(
-                      child: Positioned.fill(
-                        child: Image.asset(
-                          widget.chapter.getImageURL(item),
-                          fit: BoxFit.fitWidth,
-                          alignment: Alignment.bottomCenter,
-                          errorBuilder: (
-                            BuildContext context,
-                            Object exception,
-                            StackTrace? stackTrace,
-                          ) =>
-                              Container(),
-                        ),
+                        alignment: Alignment.bottomCenter,
+                        errorBuilder: (
+                          BuildContext context,
+                          Object exception,
+                          StackTrace? stackTrace,
+                        ) =>
+                            Container(),
                       ),
                     ),
-                    Align(
-                      alignment: Alignment.bottomCenter,
-                      child: Padding(
-                        padding: const EdgeInsets.all(32),
-                        child: Label(
-                          item,
-                          titleSize: 36,
-                          subtitleSize: 30,
-                          textAlign: TextAlign.center,
-                        ),
+                  ),
+                  Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Padding(
+                      padding: const EdgeInsets.all(32),
+                      child: Label(
+                        item,
+                        titleSize: 36,
+                        subtitleSize: 30,
+                        textAlign: TextAlign.center,
                       ),
                     ),
-                  ],
+                  ),
                 ],
-              ),
-            );
-          },
-        ),
+              ],
+            ),
+          );
+        },
       ),
     );
   }

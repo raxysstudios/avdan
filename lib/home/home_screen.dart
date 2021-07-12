@@ -59,7 +59,11 @@ class _HomeScreenState extends State<HomeScreen>
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
-      builder: (BuildContext context) {
+      backgroundColor: Color.alphaBlend(
+        chapter.color ?? Colors.transparent,
+        Theme.of(context).colorScheme.surface,
+      ),
+      builder: (_) {
         return ItemsView(
           chapter: chapter,
           item: item,
