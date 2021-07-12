@@ -74,18 +74,19 @@ class ItemsViewState extends State<ItemsView> {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 24),
-                  child: Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Label(
-                      item,
-                      titleSize: 36,
-                      subtitleSize: 30,
-                      textAlign: TextAlign.center,
+                if (!widget.chapter.alphabet)
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 24),
+                    child: Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Label(
+                        item,
+                        titleSize: 36,
+                        subtitleSize: 30,
+                        textAlign: TextAlign.center,
+                      ),
                     ),
                   ),
-                ),
               ],
             ),
           );
