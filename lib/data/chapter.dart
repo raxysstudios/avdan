@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'package:avdan/store.dart';
 import 'package:flutter/material.dart';
 import 'translation.dart';
 
@@ -42,7 +43,10 @@ class Chapter {
   }
 
   String getImageURL(Translation item) {
-    final name = item.global ?? item.learning;
-    return 'assets/images/${title.global}/$name.png';
+    final root = 'assets/images/${title.global}/';
+    final name = alphabet
+        ? Store.learning.name.global! + '/' + item.learning!
+        : item.global;
+    return '$root$name.png';
   }
 }
