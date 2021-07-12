@@ -42,6 +42,7 @@ class Chapter {
   }
 
   String getImageURL(Translation item) {
-    return 'assets/images/${title.global}/${item.global}.png';
+    final name = item.global ?? item.learning;
+    return 'assets/images/${title.global}/$name.png';
   }
 }
