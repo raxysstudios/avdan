@@ -134,7 +134,9 @@ flutter:
     - assets/icon.png
     - assets/flags/
 
-    - assets/images/
+    - assets/images/alphabet/iron/
+    - assets/images/alphabet/digor/
+
     - assets/images/food/
     - assets/images/fruits/
     - assets/images/home/
