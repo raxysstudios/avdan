@@ -59,9 +59,9 @@ class ItemsViewState extends State<ItemsView> {
             child: Stack(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(
+                  padding: EdgeInsets.only(
                     top: 32,
-                    bottom: 124,
+                    bottom: widget.chapter.alphabet ? 0 : 124,
                   ),
                   child: Align(
                     child: Image.asset(
