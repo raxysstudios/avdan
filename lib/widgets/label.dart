@@ -18,7 +18,6 @@ class Label extends StatelessWidget {
   Widget build(BuildContext context) {
     final lt = capitalize(item.learning);
     final it = capitalize(item.interface);
-
     return RichText(
       textAlign: textAlign,
       text: TextSpan(

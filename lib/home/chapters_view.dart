@@ -35,9 +35,7 @@ class ChaptersView extends StatelessWidget {
                     final item = items[i];
                     return ItemCard(
                       color: chapter.color,
-                      item: chapter.alphabet ? item : null,
-                      image:
-                          chapter.alphabet ? null : chapter.getImageURL(item),
+                      image: chapter.getImageURL(item),
                       onTap: () => onTap?.call(chapter, item),
                     );
                   },

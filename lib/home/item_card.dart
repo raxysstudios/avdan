@@ -1,14 +1,11 @@
-import 'package:avdan/data/translation.dart';
 import 'package:flutter/material.dart';
 
 class ItemCard extends StatelessWidget {
   ItemCard({
-    this.item,
     this.image,
     this.onTap,
     this.color,
   });
-  final Translation? item;
   final String? image;
   final Function()? onTap;
   final Color? color;
@@ -23,24 +20,14 @@ class ItemCard extends StatelessWidget {
         highlightColor: color,
         child: Padding(
           padding: const EdgeInsets.all(8),
-          child: image == null
-              ? Center(
-                  child: Text(
-                    item!.learning!.toUpperCase(),
-                    style: TextStyle(
-                      fontSize: 42,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                )
-              : Image.asset(
-                  image!,
-                  errorBuilder: (_, __, ___) {
-                    return Center(
-                      child: Text('?'),
-                    );
-                  },
-                ),
+          child: Image.asset(
+            image!,
+            errorBuilder: (_, __, ___) {
+              return Center(
+                child: Text('?'),
+              );
+            },
+          ),
         ),
       ),
     );
