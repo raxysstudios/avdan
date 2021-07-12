@@ -20,6 +20,7 @@ class ItemsView extends StatefulWidget {
 
 class ItemsViewState extends State<ItemsView> {
   late final PageController _pageController;
+  late Translation item = widget.item;
 
   @override
   void initState() {
@@ -27,10 +28,15 @@ class ItemsViewState extends State<ItemsView> {
     _pageController = PageController(
       initialPage: widget.chapter.items.indexOf(widget.item),
     );
-    playItem(
-      widget.chapter,
-      widget.item,
-    );
+    _pageController.addListener(() {
+      final item = widget.chapter.items[_pageController.page?.round() ?? 0];
+      if (this.item != item)
+        setState(() {
+          this.item = item;
+          playItem(widget.chapter, item);
+        });
+    });
+    playItem(widget.chapter, item);
   }
 
   @override
@@ -42,10 +48,7 @@ class ItemsViewState extends State<ItemsView> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => playItem(
-        widget.chapter,
-        widget.chapter.items[_pageController.page?.round() ?? 0],
-      ),
+      onTap: () => playItem(widget.chapter, item),
       child: PageView.builder(
         controller: _pageController,
         itemCount: widget.chapter.items.length,
