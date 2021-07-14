@@ -10,28 +10,20 @@ class DonateButton extends StatefulWidget {
 }
 
 class _DonateButtonState extends State<DonateButton> {
-  StreamSubscription<List<PurchaseDetails>>? _subscription;
-  bool loading = false;
+  late final StreamSubscription<List<PurchaseDetails>>? _subscription;
 
   @override
   void initState() {
+    super.initState();
     _subscription = InAppPurchase.instance.purchaseStream.listen(
       (purchaseDetailsList) {
-        purchaseDetailsList.forEach((purchaseDetails) async {
-          if (purchaseDetails.status == PurchaseStatus.pending)
-            loading = true;
-          else if (purchaseDetails.status == PurchaseStatus.error)
-            showSnack('Thanks!');
-          else if (purchaseDetails.pendingCompletePurchase) {
-            await InAppPurchase.instance.completePurchase(purchaseDetails);
-            loading = false;
-          }
+        purchaseDetailsList.forEach((purchase) async {
+          if (purchase.pendingCompletePurchase)
+            await InAppPurchase.instance.completePurchase(purchase);
         });
       },
       onDone: _subscription?.cancel,
-      onError: (_) => showSnack('Error!'),
     );
-    super.initState();
   }
 
   @override
@@ -40,20 +32,10 @@ class _DonateButtonState extends State<DonateButton> {
     super.dispose();
   }
 
-  void showSnack(String text) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(text),
-      ),
+  void purchase() async {
+    final response = await InAppPurchase.instance.queryProductDetails(
+      {'support'},
     );
-    loading = false;
-  }
-
-  void donate() async {
-    print('Looking for product');
-    final response =
-        await InAppPurchase.instance.queryProductDetails({'support'});
-    print('Found product');
     await InAppPurchase.instance.buyConsumable(
       purchaseParam: PurchaseParam(
         productDetails: response.productDetails.first,
@@ -64,7 +46,7 @@ class _DonateButtonState extends State<DonateButton> {
   @override
   Widget build(BuildContext context) {
     return OutlinedButton.icon(
-      onPressed: loading ? null : donate,
+      onPressed: purchase,
       icon: Icon(Icons.coffee_outlined),
       label: Text(capitalize(Localization.get('support'))),
     );
