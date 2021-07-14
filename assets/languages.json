@@ -1,54 +1,54 @@
 [
   {
-    "interface": true,
-    "flag": "england",
     "name": {
       "english": "english"
-    }
+    },
+    "flag": "england",
+    "interface": true
   },
   {
-    "interface": true,
-    "flag": "turkey",
-    "name": {
-      "english": "turkish",
-      "turkish": "türkçe"
-    }
-  },
-  {
-    "interface": true,
-    "flag": "russia",
     "name": {
       "english": "russian",
       "russian": "русский"
-    }
+    },
+    "flag": "russia",
+    "interface": true
   },
   {
-    "flag": "ossetia",
     "name": {
-      "english": "iron",
-      "russian": "иронский",
-      "turkish": "ironca",
-      "iron": "иронау",
-      "iron_alt": "ironaw"
-    }
+      "english": "turkish",
+      "turkish": "türkçe"
+    },
+    "flag": "turkey",
+    "interface": true
   },
   {
-    "flag": "ossetia",
     "name": {
       "english": "digor",
       "russian": "дигорский",
       "turkish": "digorca",
-      "digor": "дигоронау",
-      "digor_alt": "digoronaw"
-    }
+      "digor": "дигорон",
+      "digor_alt": "digoron"
+    },
+    "flag": "ossetia"
   },
   {
-    "flag": "circassia",
+    "name": {
+      "english": "iron",
+      "russian": "иронский",
+      "turkish": "ironca",
+      "iron": "ирон",
+      "iron_alt": "iron"
+    },
+    "flag": "ossetia"
+  },
+  {
     "name": {
       "english": "kabardian",
       "russian": "кабардинский",
       "turkish": "kabardeyce",
       "kabardian": "къэбэрдейбзэ"
-    }
+    },
+    "flag": "circassia"
   }
 ]
