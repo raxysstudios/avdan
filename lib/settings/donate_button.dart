@@ -10,25 +10,25 @@ class DonateButton extends StatefulWidget {
 }
 
 class _DonateButtonState extends State<DonateButton> {
-  late final StreamSubscription<List<PurchaseDetails>>? _subscription;
+  late final StreamSubscription<List<PurchaseDetails>> subscription;
 
   @override
   void initState() {
     super.initState();
-    _subscription = InAppPurchase.instance.purchaseStream.listen(
+    subscription = InAppPurchase.instance.purchaseStream.listen(
       (purchaseDetailsList) {
         purchaseDetailsList.forEach((purchase) async {
           if (purchase.pendingCompletePurchase)
             await InAppPurchase.instance.completePurchase(purchase);
         });
       },
-      onDone: _subscription?.cancel,
+      onDone: () => subscription.cancel(),
     );
   }
 
   @override
   void dispose() {
-    _subscription?.cancel();
+    subscription.cancel();
     super.dispose();
   }
 
