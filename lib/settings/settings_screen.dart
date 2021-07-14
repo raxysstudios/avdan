@@ -125,7 +125,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             padding: const EdgeInsets.all(8),
             child: ElevatedButton.icon(
               onPressed: () => Navigator.pop(context),
-              icon: Icon(Icons.arrow_back_outlined),
+              icon: Icon(Icons.home_outlined),
               label: Text(
                 capitalize(Localization.get('home')),
               ),

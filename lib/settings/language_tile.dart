@@ -36,7 +36,7 @@ class LanguageTile extends StatelessWidget {
           : Text(
               capitalize(language.name.interface),
             ),
-      trailing: alt == null
+      trailing: language.alt == null
           ? null
           : Switch(
               value: alt == true,
