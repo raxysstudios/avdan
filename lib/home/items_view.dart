@@ -58,23 +58,36 @@ class ItemsViewState extends State<ItemsView> {
             padding: const EdgeInsets.all(8),
             child: Stack(
               children: [
-                Padding(
-                  padding: EdgeInsets.only(
-                    top: 32,
-                    bottom: widget.chapter.alphabet ? 0 : 124,
-                  ),
-                  child: Align(
-                    child: Image.asset(
-                      widget.chapter.getImageURL(item),
-                      errorBuilder: (_, __, ___) {
-                        return Center(
-                          child: Text('?'),
-                        );
-                      },
+                if (item.global == null)
+                  Center(
+                    child: FittedBox(
+                      fit: BoxFit.contain,
+                      child: Text(
+                        item.learning!.toUpperCase() + '\n' + item.learning!,
+                        style: TextStyle(
+                          fontSize: 96,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                  )
+                else ...[
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      top: 32,
+                      bottom: 124,
+                    ),
+                    child: Align(
+                      child: Image.asset(
+                        widget.chapter.getImageURL(item),
+                        errorBuilder: (_, __, ___) {
+                          return Center(
+                            child: Text('?'),
+                          );
+                        },
+                      ),
                     ),
                   ),
-                ),
-                if (!widget.chapter.alphabet)
                   Padding(
                     padding: const EdgeInsets.only(bottom: 24),
                     child: Align(
@@ -87,6 +100,7 @@ class ItemsViewState extends State<ItemsView> {
                       ),
                     ),
                   ),
+                ],
               ],
             ),
           );

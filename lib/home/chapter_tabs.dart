@@ -56,7 +56,10 @@ class ChapterTabs extends AnimatedWidget {
                     padding: const EdgeInsets.only(top: 2),
                     child: ItemCard(
                       color: chapter.color,
-                      image: chapter.getImageURL(chapter.items.first),
+                      item: chapter.alphabet ? chapter.items.first : null,
+                      image: chapter.alphabet
+                          ? null
+                          : chapter.getImageURL(chapter.items.first),
                       onTap: () => controller.animateTo(i),
                     ),
                   ),
