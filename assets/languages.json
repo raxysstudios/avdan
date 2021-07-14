@@ -23,7 +23,6 @@
     }
   },
   {
-    "learning": true,
     "flag": "ossetia",
     "name": {
       "english": "iron",
@@ -34,7 +33,6 @@
     }
   },
   {
-    "learning": true,
     "flag": "ossetia",
     "name": {
       "english": "digor",
@@ -42,6 +40,15 @@
       "turkish": "digorca",
       "digor": "дигоронау",
       "digor_alt": "digoronaw"
+    }
+  },
+  {
+    "flag": "circassia",
+    "name": {
+      "english": "kabardian",
+      "russian": "кабардинский",
+      "turkish": "kabardeyce",
+      "kabardian": "къэбэрдейбзэ"
     }
   }
 ]

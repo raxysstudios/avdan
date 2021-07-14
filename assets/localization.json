@@ -5,9 +5,9 @@
         "turkish": "ayarlar"
     },
     "home": {
-        "english": "save & return home",
-        "russian": "cохранить & вернуться домой",
-        "turkish": "kaydet & eve dön"
+        "english": "start",
+        "russian": "начать",
+        "turkish": "başlamak"
     },
     "contact": {
         "english": "contact",
