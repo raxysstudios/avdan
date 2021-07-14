@@ -44,9 +44,8 @@ class Chapter {
 
   String getImageURL(Translation item) {
     final root = 'assets/images/${title.id}/';
-    final name = alphabet
-        ? Store.learning.name.id! + '/' + item.learning!
-        : item.id;
+    final name =
+        alphabet ? Store.learning.name.id! + '/' + item.learning! : item.id;
     return '$root$name.png';
   }
 }
