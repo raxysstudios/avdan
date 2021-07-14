@@ -4,10 +4,10 @@ class Translation {
   final Map<String, String> map;
   const Translation(this.map);
 
-  String? get global => map['english'];
-  String? get interface => map[Store.interface.name.global];
+  String? get id => map['english'];
+  String? get interface => map[Store.interface.name.id];
   String? get learning {
-    final learning = map[Store.learning.name.global];
+    final learning = map[Store.learning.name.id];
     if (!Store.alt) return learning;
     return map[Store.learning.alt] ?? learning;
   }

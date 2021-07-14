@@ -8,7 +8,7 @@ import 'package:flutter/services.dart' show rootBundle;
 class Localization {
   static late final Map<String, Map<String, String>> map;
   static String get(String key) {
-    return map[key]?[Store.interface.name.global ?? 'english'] ?? '';
+    return map[key]?[Store.interface.name.id ?? 'english'] ?? '';
   }
 }
 
@@ -45,7 +45,7 @@ class Store {
         .then((t) => json.decode(t) as List)
         .then((l) {
       languages = l.map((j) => Language.fromJson(j)).toList();
-      languages.sort((a, b) => a.name.global!.compareTo(b.name.global!));
+      languages.sort((a, b) => a.name.id!.compareTo(b.name.id!));
     });
 
     final prefs = await SharedPreferences.getInstance();
@@ -55,14 +55,14 @@ class Store {
     );
     Store.learning = _findLanguage(
       prefs.getString('learning'),
-      languages.firstWhere((l) => l.learning),
+      languages.firstWhere((l) => !l.interface),
     );
     alt = prefs.getBool('alt') ?? false;
   }
 
   static Language _findLanguage(String? name, Language orElse) {
     return languages.firstWhere(
-      (l) => l.name.global == name,
+      (l) => l.name.id == name,
       orElse: () => orElse,
     );
   }

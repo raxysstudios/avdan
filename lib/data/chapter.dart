@@ -38,15 +38,15 @@ class Chapter {
     var items = (json as Iterable).map((i) => Translation.fromJson(i));
     return Chapter(
       items,
-      alphabet: items.first.global == 'alphabet',
+      alphabet: items.first.id == 'alphabet',
     );
   }
 
   String getImageURL(Translation item) {
-    final root = 'assets/images/${title.global}/';
+    final root = 'assets/images/${title.id}/';
     final name = alphabet
-        ? Store.learning.name.global! + '/' + item.learning!
-        : item.global;
+        ? Store.learning.name.id! + '/' + item.learning!
+        : item.id;
     return '$root$name.png';
   }
 }

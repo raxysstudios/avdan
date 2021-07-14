@@ -25,7 +25,7 @@ class LanguageTile extends StatelessWidget {
         capitalize(
           Store.alt && Store.learning == language
               ? language.name.learning
-              : language.name.map[language.name.global]!,
+              : language.name.map[language.name.id]!,
         ),
         style: TextStyle(
           fontWeight: FontWeight.w500,

@@ -58,7 +58,7 @@ class ItemsViewState extends State<ItemsView> {
             padding: const EdgeInsets.all(8),
             child: Stack(
               children: [
-                if (item.global == null)
+                if (item.id == null)
                   Center(
                     child: FittedBox(
                       fit: BoxFit.contain,

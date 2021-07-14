@@ -19,9 +19,9 @@ playItem(Chapter chapter, Translation item) {
   final path = [
     'assets',
     'audio',
-    Store.learning.name.global,
-    chapter.title.global,
-    item.map[Store.learning.name.global]
+    Store.learning.name.id,
+    chapter.title.id,
+    item.map[Store.learning.name.id]
   ].join('/');
   playAsset(path + '.mp3');
 }

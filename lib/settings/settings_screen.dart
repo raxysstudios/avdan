@@ -23,7 +23,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   initState() {
     super.initState();
     interface = Store.languages.where((l) => l.interface).toList();
-    learning = Store.languages.where((l) => l.learning).toList();
+    learning = Store.languages.where((l) => !l.interface).toList();
     saveChoice('interface', Store.interface);
     saveChoice('learning', Store.learning, alt: Store.alt);
   }
@@ -34,7 +34,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     bool? alt,
   }) async {
     prefs ??= await SharedPreferences.getInstance();
-    await prefs!.setString(index, language.name.global!);
+    await prefs!.setString(index, language.name.id!);
     if (alt != null) await prefs!.setBool('alt', alt);
   }
 
