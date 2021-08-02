@@ -7,7 +7,7 @@
     "home": {
         "english": "start",
         "russian": "начать",
-        "turkish": "başlamak"
+        "turkish": "başlangıç"
     },
     "contact": {
         "english": "contact",
@@ -17,7 +17,7 @@
     "support": {
         "english": "donate",
         "russian": "поддержать",
-        "turkish": "vermek"
+        "turkish": "bağış yap"
     },
     "interface": {
         "english": "interface language",
@@ -32,6 +32,6 @@
     "honor": {
         "english": "Made with honor in Ossetia & Dagestan, North Caucasus.",
         "russian": "Сделано с честью в Осетии и Дагестане, на Северном Кавказе.",
-        "turkish": "Osetya & Dağıstan'da, Kuzey Kafkasya'da onurla yapılmıştır."
+        "turkish": "Osetya & Dağıstan'da, Kuzey Kafkasya'da onurla hazırlanmıştır."
     }
 }

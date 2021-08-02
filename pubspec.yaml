@@ -133,12 +133,15 @@ flutter:
     - assets/icon.png
     - assets/flags/
 
+    - assets/images/animals/
+    - assets/images/city/
+    - assets/images/clothes/
     - assets/images/food/
     - assets/images/fruits/
     - assets/images/home/
+    - assets/images/nature/
+    - assets/images/people/
     - assets/images/vegetables/
-    - assets/images/city/
-    - assets/images/animals/
 
     - assets/audio/iron/alphabet/
     - assets/audio/iron/food/
