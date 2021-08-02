@@ -45,7 +45,7 @@ class _DonateButtonState extends State<DonateButton> {
 
   @override
   Widget build(BuildContext context) {
-    return OutlinedButton.icon(
+    return TextButton.icon(
       onPressed: purchase,
       icon: Icon(Icons.coffee_outlined),
       label: Text(capitalize(Localization.get('support'))),
