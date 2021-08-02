@@ -16,10 +16,8 @@
       "digor_alt": "a æ b v g gh d dz ĝ e z i j k kh l m n o p ph r s t th w u f x q c ch ĉ ĉh y"
     }
   ],
-  [],
   [
     {
-      "color": "607d8b",
       "english": "people",
       "russian": "люди",
       "turkish": "insanlar",
@@ -128,7 +126,6 @@
   ],
   [
     {
-      "color": "ffc107",
       "english": "food",
       "russian": "еда",
       "turkish": "gıda",
@@ -299,7 +296,6 @@
   ],
   [
     {
-      "color": "03A9F3",
       "english": "home",
       "russian": "дом",
       "iron": "хæдзар",
@@ -455,7 +451,6 @@
   ],
   [
     {
-      "color": "CDDC38",
       "english": "fruits",
       "russian": "фрукты",
       "turkish": "meyveler",
@@ -549,7 +544,6 @@
   ],
   [
     {
-      "color": "4CAF49",
       "english": "vegetables",
       "russian": "овощи",
       "turkish": "sebzeler",
@@ -635,7 +629,6 @@
   ],
   [
     {
-      "color": "2196F2",
       "english": "city",
       "russian": "город",
       "turkish": "şehir",
@@ -953,10 +946,8 @@
       "iron": "уыдон"
     }
   ],
-  [],
   [
     {
-      "color": "795548",
       "english": "animals",
       "russian": "животные",
       "turkish": "hayvanlar",
@@ -1089,7 +1080,6 @@
       "digor": "берæгъ"
     }
   ],
-  [],
   [
     {
       "english": "clothes",
