@@ -91,7 +91,6 @@ class _HomeScreenState extends State<HomeScreen>
             chapter.title,
             titleSize: 20,
             subtitleSize: 16,
-            textAlign: TextAlign.center,
           ),
         ),
         actions: [

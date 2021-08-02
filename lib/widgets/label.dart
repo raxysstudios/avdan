@@ -3,23 +3,22 @@ import 'package:avdan/data/utils.dart';
 import 'package:flutter/material.dart';
 
 class Label extends StatelessWidget {
-  Label(
-    this.item, {
-    this.titleSize = 16,
-    this.subtitleSize = 14,
-    this.textAlign = TextAlign.start,
-  });
   final Translation item;
   final double? titleSize;
   final double? subtitleSize;
-  final TextAlign textAlign;
+
+  const Label(
+    this.item, {
+    this.titleSize = 16,
+    this.subtitleSize = 14,
+  });
 
   @override
   Widget build(BuildContext context) {
     final lt = capitalize(item.learning);
     final it = capitalize(item.interface);
     return RichText(
-      textAlign: textAlign,
+      textAlign: TextAlign.center,
       text: TextSpan(
         style: TextStyle(
           color: Theme.of(context).hintColor,

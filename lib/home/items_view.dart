@@ -64,6 +64,7 @@ class ItemsViewState extends State<ItemsView> {
                       fit: BoxFit.contain,
                       child: Text(
                         item.learning!.toUpperCase() + '\n' + item.learning!,
+                        textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 96,
                           fontWeight: FontWeight.w500,
@@ -95,8 +96,7 @@ class ItemsViewState extends State<ItemsView> {
                       child: Label(
                         item,
                         titleSize: 36,
-                        subtitleSize: 30,
-                        textAlign: TextAlign.center,
+                        subtitleSize: 30
                       ),
                     ),
                   ),
