@@ -18,6 +18,7 @@
   ],
   [
     {
+      "color": "607d8b",
       "english": "people",
       "russian": "люди",
       "turkish": "insanlar",
@@ -126,6 +127,7 @@
   ],
   [
     {
+      "color": "ffc107",
       "english": "food",
       "russian": "еда",
       "turkish": "gıda",
@@ -216,9 +218,6 @@
       "digor_alt": "qajmagh"
     },
     {
-      "english": "circassian pies"
-    },
-    {
       "english": "ossetian pies",
       "russian": "пироги",
       "iron": "чъиритæ",
@@ -296,6 +295,7 @@
   ],
   [
     {
+      "color": "03A9F3",
       "english": "home",
       "russian": "дом",
       "iron": "хæдзар",
@@ -451,6 +451,7 @@
   ],
   [
     {
+      "color": "CDDC38",
       "english": "fruits",
       "russian": "фрукты",
       "turkish": "meyveler",
@@ -544,6 +545,7 @@
   ],
   [
     {
+      "color": "4CAF49",
       "english": "vegetables",
       "russian": "овощи",
       "turkish": "sebzeler",
@@ -629,6 +631,7 @@
   ],
   [
     {
+      "color": "2196F2",
       "english": "city",
       "russian": "город",
       "turkish": "şehir",
@@ -948,6 +951,7 @@
   ],
   [
     {
+      "color": "795548",
       "english": "animals",
       "russian": "животные",
       "turkish": "hayvanlar",
@@ -1089,11 +1093,13 @@
     {
       "english": "hat",
       "russian": "шапка",
-      "turkish": "şapka"
+      "turkish": "şapka",
+      "iron": "худ"
     },
     {
       "english": "karakul hat",
-      "russian": "папаха каракулевая"
+      "russian": "папаха каракулевая",
+      "iron": "бухайраг худ"
     },
     {
       "english": "muton hat",
@@ -1101,16 +1107,19 @@
     },
     {
       "english": "felt hat",
-      "russian": "войлочная шляпа"
+      "russian": "войлочная шляпа",
+      "iron": "нымæт худ"
     },
     {
       "english": "caucasian coat",
-      "russian": "черкесска"
+      "russian": "черкесска",
+      "iron": "цухъхъа"
     },
     {
       "english": "shirt",
       "russian": "рубашка",
-      "turkish": "gömlek"
+      "turkish": "gömlek",
+      "iron": "хадон"
     },
     {
       "english": "kaftan",
@@ -1124,12 +1133,14 @@
     {
       "english": "button",
       "russian": "пуговица",
-      "turkish": "düğme"
+      "turkish": "düğme",
+      "iron": "æгъна"
     },
     {
       "english": "pants",
       "russian": "штаны",
-      "turkish": "pantolon"
+      "turkish": "pantolon",
+      "iron": "хæлаф"
     },
     {
       "english": "high boots",
@@ -1139,26 +1150,34 @@
     {
       "english": "shoes",
       "russian": "обувь",
-      "turkish": "ayakkabı"
+      "turkish": "ayakkabı",
+      "iron": "дзабыртæ"
     },
     {
       "english": "dress",
       "russian": "платье",
-      "turkish": "elbise"
+      "turkish": "elbise",
+      "iron": "къаба"
+    },
+    {
+      "english": "skirt",
+      "russian": "юбка"
     },
     {
       "english": "kerchief",
       "russian": "платок ",
-      "turkish": "başörtüsü"
+      "turkish": "başörtüsü",
+      "iron": "сæрбæттæн"
     },
     {
       "english": "veil",
       "russian": "шаль",
-      "turkish": "şal"
+      "turkish": "şal",
+      "iron": "кæлмæрзæн"
     },
     {
-      "english": "fur coat",
-      "russian": "шуба"
+      "english": "fur/sheepskin coat",
+      "russian": "шуба/дубленка"
     },
     {
       "english": "jacket",
@@ -1168,26 +1187,31 @@
     {
       "english": "belt",
       "russian": "пояс",
-      "turkish": "kemer"
+      "turkish": "kemer",
+      "iron": "рон"
     },
     {
       "english": "bandolier",
-      "russian": "газыри"
+      "russian": "газыри",
+      "iron": "бæрцытæ"
     },
     {
       "english": "dagger",
       "russian": "кинжал",
-      "turkish": "hançer"
+      "turkish": "hançer",
+      "iron": "хъама"
     },
     {
       "english": "sabre",
       "russian": "сабля",
-      "turkish": "kılıç"
+      "turkish": "kılıç",
+      "iron": "æхсæргард"
     },
     {
       "english": "rifle",
       "russian": "ружье",
-      "turkish": "silah"
+      "turkish": "silah",
+      "iron": "топп"
     },
     {
       "english": "gun",
@@ -1204,22 +1228,26 @@
     {
       "english": "head",
       "russian": "голова",
-      "turkish": "kafa"
+      "turkish": "kafa",
+      "iron": "сæр"
     },
     {
       "english": "eye",
       "russian": "глаз",
-      "turkish": "göz"
+      "turkish": "göz",
+      "iron": "цæст"
     },
     {
       "english": "ear",
       "russian": "ухо",
-      "turkish": "kulak"
+      "turkish": "kulak",
+      "iron": "хъус"
     },
     {
       "english": "nose",
       "russian": "нос",
-      "turkish": "burun"
+      "turkish": "burun",
+      "iron": "фындз"
     },
     {
       "english": "forehead",
@@ -1234,27 +1262,32 @@
     {
       "english": "mouth",
       "russian": "рот",
-      "turkish": "ağız"
+      "turkish": "ağız",
+      "iron": "ком"
     },
     {
       "english": "lips",
       "russian": "губы",
-      "turkish": "dudak"
+      "turkish": "dudak",
+      "iron": "былтæ"
     },
     {
       "english": "neck",
       "russian": "шея",
-      "turkish": "boyun"
+      "turkish": "boyun",
+      "iron": "бæрзæй"
     },
     {
       "english": "nand",
       "russian": "рука",
-      "turkish": "el"
+      "turkish": "el",
+      "iron": "къух"
     },
     {
       "english": "leg",
       "russian": "нога",
-      "turkish": "bacak"
+      "turkish": "bacak",
+      "iron": "къах"
     },
     {
       "english": "back",
@@ -1264,11 +1297,13 @@
     {
       "english": "stomach",
       "russian": "живот",
-      "turkish": "karın"
+      "turkish": "karın",
+      "iron": "гуыбын"
     },
     {
       "english": "hair",
-      "russian": "волосы"
+      "russian": "волосы",
+      "iron": "дзыккутæ"
     },
     {
       "english": "throat",
@@ -1282,157 +1317,200 @@
     },
     {
       "english": "to speak",
-      "russian": "говорить"
+      "russian": "говорить",
+      "iron": "дзурын"
     },
     {
       "english": "to know",
-      "russian": "знать"
+      "russian": "знать",
+      "iron": "зонын"
     },
     {
       "english": "to go",
-      "russian": "идти"
+      "russian": "идти",
+      "iron": "цæуын"
     },
     {
       "english": "to see",
-      "russian": "видеть"
+      "russian": "видеть",
+      "iron": "уынын"
     },
     {
       "english": "to do",
-      "russian": "делать"
+      "russian": "делать",
+      "iron": "кæнын"
     },
     {
       "english": "to live",
-      "russian": "жить"
+      "russian": "жить",
+      "iron": "цæрын"
     },
     {
       "english": "to pray",
-      "russian": "молиться"
+      "russian": "молиться",
+      "iron": "кувын"
     },
     {
       "english": "to watch",
-      "russian": "смотреть"
+      "russian": "смотреть",
+      "iron": "кæсын"
     },
     {
       "english": "to work",
-      "russian": "работать"
+      "russian": "работать",
+      "iron": "кусын"
     },
     {
       "english": "to play",
-      "russian": "играть"
+      "russian": "играть",
+      "iron": "хъазын"
     },
     {
       "english": "to understand",
-      "russian": "понимать"
+      "russian": "понимать",
+      "iron": "æмбарын"
     },
     {
       "english": "to ask",
-      "russian": "спрашивать"
+      "russian": "спрашивать",
+      "iron": "фæрсын"
     },
     {
       "english": "to give",
-      "russian": "давать"
+      "russian": "давать",
+      "iron": "дæттын"
     },
     {
       "english": "to love",
-      "russian": "любить"
+      "russian": "любить",
+      "iron": "уарзын"
     },
     {
       "english": "to count",
-      "russian": "считать"
+      "russian": "считать",
+      "iron": "нымайын"
     },
     {
       "english": "to write",
-      "russian": "писать"
+      "russian": "писать",
+      "iron": "фыссын"
     },
     {
       "english": "to read",
-      "russian": "читать"
+      "russian": "читать",
+      "iron": "кæсын"
     },
     {
       "english": "to stand",
-      "russian": "стоять"
+      "russian": "стоять",
+      "iron": "лæууын"
     },
     {
       "english": "to search",
-      "russian": "искать"
+      "russian": "искать",
+      "iron": "агурын"
     },
     {
       "english": "to hear",
-      "russian": "слышать"
+      "russian": "слышать",
+      "iron": "хъусын"
     },
     {
       "english": "to hurry",
-      "russian": "торопиться"
+      "russian": "торопиться",
+      "iron": "тагъд кæнын"
     },
     {
       "english": "to create",
-      "russian": "создавать"
+      "russian": "создавать",
+      "iron": "аразын"
     },
     {
       "english": "to shout",
-      "russian": "кричать"
+      "russian": "кричать",
+      "iron": "хъæр кæнын"
     },
     {
       "english": "to cry",
-      "russian": "плакать"
+      "russian": "плакать",
+      "iron": "кæуын"
+    },
+    {
+      "english": "to laugh",
+      "russian": "смеяться",
+      "iron": "худын"
     }
   ],
   [
     {
       "english": "numbers",
-      "russian": "числа"
+      "russian": "числа",
+      "iron": "нымæдзтæ"
     },
     {
       "english": "one",
-      "russian": "один"
+      "russian": "один",
+      "iron": "иу"
     },
     {
       "english": "two",
-      "russian": "два"
+      "russian": "два",
+      "iron": "дыууæ"
     },
     {
       "english": "three",
-      "russian": "три"
+      "russian": "три",
+      "iron": "æртæ"
     },
     {
       "english": "four",
-      "russian": "четыре"
+      "russian": "четыре",
+      "iron": "цыппар"
     },
     {
       "english": "five",
-      "russian": "пять"
+      "russian": "пять",
+      "iron": "фондз"
     },
     {
       "english": "six",
-      "russian": "шесть"
+      "russian": "шесть",
+      "iron": "æхсæз"
     },
     {
       "english": "seven",
-      "russian": "семь"
+      "russian": "семь",
+      "iron": "авд"
     },
     {
       "english": "eight",
-      "russian": "восемь"
+      "russian": "восемь",
+      "iron": "аст"
     },
     {
       "english": "nine",
-      "russian": "девять"
+      "russian": "девять",
+      "iron": "фараст"
     },
     {
       "english": "ten",
-      "russian": "десять"
+      "russian": "десять",
+      "iron": "дæс"
     },
     {
       "english": "twenty",
-      "russian": "двадцать"
+      "russian": "двадцать",
+      "iron": "дыууын"
     },
     {
       "english": "thirty",
-      "russian": "тридцать"
+      "russian": "тридцать",
+      "iron": "æртын"
     },
     {
       "english": "forty",
-      "russian": "сорок"
+      "russian": "сорок",
+      "iron": "цыппор"
     },
     {
       "english": "fifty",
