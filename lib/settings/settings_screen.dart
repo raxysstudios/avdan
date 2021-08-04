@@ -44,11 +44,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Center(
-          child: Text(
-            capitalize(Localization.get('settings')),
-          ),
+        title: Text(
+          capitalize(Localization.get('settings')),
         ),
+        centerTitle: true,
       ),
       backgroundColor: Colors.blueGrey.shade50,
       floatingActionButton: FloatingActionButton.extended(

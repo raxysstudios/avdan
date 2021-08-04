@@ -86,13 +86,12 @@ class _HomeScreenState extends State<HomeScreen>
             )
           ],
         ),
-        title: Center(
-          child: Label(
-            chapter.title,
-            titleSize: 20,
-            subtitleSize: 16,
-          ),
+        title: Label(
+          chapter.title,
+          titleSize: 20,
+          subtitleSize: 16,
         ),
+        centerTitle: true,
         actions: [
           IconButton(
             icon: Icon(Icons.settings_outlined),
