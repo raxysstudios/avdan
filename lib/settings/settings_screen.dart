@@ -48,6 +48,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         ),
         centerTitle: true,
       ),
+      backgroundColor: Colors.blueGrey.shade50,
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () => Navigator.pop(context),
         icon: Icon(Icons.home_outlined),
@@ -67,13 +68,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
               child: Column(
                 children: [
                   Icon(Icons.landscape_outlined),
-                  Padding(
-                    padding: const EdgeInsets.all(8),
-                    child: Text(
-                      Localization.get('honor'),
-                      textAlign: TextAlign.center,
-                    ),
+                  SizedBox(width: 8),
+                  Text(
+                    Localization.get('honor'),
+                    textAlign: TextAlign.center,
                   ),
+                  SizedBox(width: 8),
                   Row(
                     children: [
                       Expanded(
