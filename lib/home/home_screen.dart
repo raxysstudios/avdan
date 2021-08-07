@@ -1,6 +1,6 @@
 import 'package:avdan/data/chapter.dart';
 import 'package:avdan/data/translation.dart';
-import 'package:avdan/home/chapter_tabs.dart';
+import 'package:avdan/home/chapter_tab_bar.dart';
 import 'package:avdan/home/chapters_view.dart';
 import 'package:avdan/home/items_view.dart';
 import 'package:avdan/store.dart';
@@ -100,20 +100,19 @@ class _HomeScreenState extends State<HomeScreen>
           ),
         ],
       ),
-      body: Column(
-        children: [
-          Expanded(
-            child: ChaptersView(
-              controller: _tabController,
-              chapters: Store.chapters,
-              onTap: openView,
-            ),
-          ),
-          ChapterTabs(
+      body: ChaptersView(
+        controller: _tabController,
+        chapters: Store.chapters,
+        onTap: openView,
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: SizedBox(
+          height: 98,
+          child: ChapterTabBar(
             controller: _tabController,
             chapters: Store.chapters,
           ),
-        ],
+        ),
       ),
     );
   }
