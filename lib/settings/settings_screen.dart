@@ -48,7 +48,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
         ),
         centerTitle: true,
       ),
-      backgroundColor: Colors.blueGrey.shade50,
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () => Navigator.pop(context),
         icon: Icon(Icons.home_outlined),
@@ -60,7 +59,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       body: ListView(
-        padding: const EdgeInsets.only(bottom: 80),
+        padding: const EdgeInsets.only(bottom: 76),
         children: [
           Card(
             child: Padding(
@@ -68,12 +67,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
               child: Column(
                 children: [
                   Icon(Icons.landscape_outlined),
-                  SizedBox(width: 8),
+                  SizedBox(height: 8),
                   Text(
                     Localization.get('honor'),
                     textAlign: TextAlign.center,
                   ),
-                  SizedBox(width: 8),
+                  SizedBox(height: 8),
                   Row(
                     children: [
                       Expanded(
