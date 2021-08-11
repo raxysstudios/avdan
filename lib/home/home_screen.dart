@@ -81,7 +81,7 @@ class _HomeScreenState extends State<HomeScreen>
             Center(
               child: LanguageFlag(
                 Store.learning,
-                offset: Offset(16, 0),
+                offset: Offset(8, 0),
               ),
             )
           ],

@@ -18,7 +18,7 @@
   ],
   [
     {
-      "ФЙЙЦ": "607d8b",
+      "color": "607d8b",
       "english": "people",
       "russian": "люди",
       "turkish": "insanlar",
@@ -173,7 +173,7 @@
   ],
   [
     {
-      "ФЙЙЦ": "ffc107",
+      "color": "ffc107",
       "english": "food",
       "russian": "еда",
       "turkish": "gıda",
@@ -365,7 +365,7 @@
   ],
   [
     {
-      "ФЙЙЦ": "03A9F3",
+      "color": "03A9F3",
       "english": "home",
       "russian": "дом",
       "turkish": "ev",
@@ -564,7 +564,7 @@
   ],
   [
     {
-      "ФЙЙЦ": "CDDC38",
+      "color": "CDDC38",
       "english": "fruits",
       "russian": "фрукты",
       "turkish": "meyveler",
@@ -683,7 +683,7 @@
   ],
   [
     {
-      "ФЙЙЦ": "4CAF49",
+      "color": "4CAF49",
       "english": "vegetables",
       "russian": "овощи",
       "turkish": "sebzeler",
@@ -793,7 +793,7 @@
   ],
   [
     {
-      "ФЙЙЦ": "2196F2",
+      "color": "2196F2",
       "english": "city",
       "russian": "город",
       "turkish": "şehir",
@@ -1248,7 +1248,7 @@
   ],
   [
     {
-      "ФЙЙЦ": "795548",
+      "color": "795548",
       "english": "animals",
       "russian": "животные",
       "turkish": "hayvanlar",
