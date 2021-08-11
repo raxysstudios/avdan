@@ -131,6 +131,7 @@ flutter:
     - assets/flags/
 
     - assets/images/animals/
+    - assets/images/body parts/
     - assets/images/city/
     - assets/images/clothes/
     - assets/images/food/
@@ -138,7 +139,9 @@ flutter:
     - assets/images/home/
     - assets/images/nature/
     - assets/images/people/
+    - assets/images/pronouns/
     - assets/images/vegetables/
+    - assets/images/verbs/
 
     - assets/audio/iron/alphabet/
     - assets/audio/iron/food/
