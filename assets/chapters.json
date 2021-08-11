@@ -18,20 +18,23 @@
   ],
   [
     {
-      "color": "607d8b",
+      "ФЙЙЦ": "607d8b",
       "english": "people",
       "russian": "люди",
       "turkish": "insanlar",
       "iron": "адæм",
       "iron_alt": "adæm",
-      "digor": "адæн"
+      "digor": "адæн",
+      "digor_alt": "adæn"
     },
     {
       "english": "people",
       "russian": "люди",
       "turkish": "insanlar",
       "iron": "адæм",
-      "iron_alt": "adæm"
+      "iron_alt": "adæm",
+      "digor": "адæн",
+      "digor_alt": "adæn"
     },
     {
       "english": "man",
@@ -39,12 +42,12 @@
       "turkish": "erkek",
       "iron": "лæг",
       "iron_alt": "læg",
-      "digor": "лæхъуæн",
-      "digor_alt": "lӕqwӕn"
+      "digor": "лæг",
+      "digor_alt": "lӕg"
     },
     {
       "english": "woman",
-      "russian": "женщина ",
+      "russian": "женщина",
       "turkish": "kadın",
       "iron": "сылгоймаг",
       "iron_alt": "sylgojmag",
@@ -53,43 +56,83 @@
     },
     {
       "english": "mother",
-      "russian": "мама"
+      "russian": "мама",
+      "turkish": "anne",
+      "iron": "мад",
+      "iron_alt": "mad",
+      "digor": "мадæ",
+      "digor_alt": "madæ"
     },
     {
       "english": "father",
-      "russian": "папа"
+      "russian": "папа",
+      "iron": "фыд",
+      "iron_alt": "fyd",
+      "digor": "фидæ",
+      "digor_alt": "fidæ"
     },
     {
       "english": "brother",
-      "russian": "брат"
+      "russian": "брат",
+      "turkish": "erkek kardeş / abi",
+      "iron": "æфсымæр",
+      "iron_alt": "æfsymær",
+      "digor": "æнсувæр",
+      "digor_alt": "ænsuvær"
     },
     {
       "english": "sister",
-      "russian": "сестра"
+      "russian": "сестра",
+      "turkish": "kız kardeş / abla",
+      "iron": "хо",
+      "iron_alt": "xo",
+      "digor": "хуарæ",
+      "digor_alt": "xwaræ"
     },
     {
       "english": "grandmother",
-      "russian": "бабушка"
+      "russian": "бабушка",
+      "turkish": "anneanne / babaanne",
+      "iron": "бабу",
+      "iron_alt": "babu",
+      "digor": "нана",
+      "digor_alt": "nana"
     },
     {
       "english": "grandfather",
-      "russian": "дедушка"
+      "russian": "дедушка",
+      "turkish": "dede",
+      "iron": "дада",
+      "iron_alt": "dada",
+      "digor": "баба",
+      "digor_alt": "baba"
     },
     {
       "english": "family",
-      "russian": "семья"
+      "russian": "семья",
+      "turkish": "aile",
+      "iron": "бинонтæ",
+      "iron_alt": "binontæ",
+      "digor": "бийнонтæ",
+      "digor_alt": "bijnontæ"
     },
     {
       "english": "boy",
       "russian": "мальчик",
+      "turkish": "oğlan",
       "iron": "лæппу",
-      "digor": "биччеу"
+      "iron_alt": "læppu",
+      "digor": "биццеу",
+      "digor_alt": "biccew"
     },
     {
       "english": "girl",
       "russian": "девочка",
+      "turkish": "kız",
       "iron": "чызг",
-      "digor": "кизга"
+      "iron_alt": "ĉyzg",
+      "digor": "кизгæ",
+      "digor_alt": "kizgæ"
     },
     {
       "english": "child",
@@ -103,8 +146,11 @@
     {
       "english": "senior",
       "russian": "старший",
+      "turkish": "ihtiyar",
       "iron": "хистæр",
-      "digor": "хестæр"
+      "iron_alt": "xistær",
+      "digor": "хестæр",
+      "digor_alt": "xestær"
     },
     {
       "english": "friend",
@@ -127,14 +173,14 @@
   ],
   [
     {
-      "color": "ffc107",
+      "ФЙЙЦ": "ffc107",
       "english": "food",
       "russian": "еда",
       "turkish": "gıda",
       "iron": "хæринаг",
       "iron_alt": "xærinag",
-      "digor": "хоруйнаг",
-      "digor_alt": "xorujnag"
+      "digor": "хуæруйнаг",
+      "digor_alt": "xwærujnag"
     },
     {
       "english": "bread",
@@ -158,8 +204,8 @@
       "english": "salt",
       "russian": "соль",
       "turkish": "tuz",
-      "iron": "цæхт",
-      "iron_alt": "cæxt",
+      "iron": "цæхх",
+      "iron_alt": "cæxx",
       "digor": "цӕнхӕ",
       "digor_alt": "cӕnxӕ"
     },
@@ -221,512 +267,656 @@
       "english": "ossetian pies",
       "russian": "пироги",
       "iron": "чъиритæ",
-      "digor": "къеретæ"
+      "iron_alt": "ĉhiritæ",
+      "digor": "къеретæ",
+      "digor_alt": "kheretæ"
     },
     {
       "english": "oil",
       "russian": "масло растительное",
+      "turkish": "bitkisel yağ",
       "iron": "зети",
-      "digor": "зети"
+      "iron_alt": "zeti",
+      "digor": "зети",
+      "digor_alt": "zeti"
     },
     {
       "english": "butter",
       "russian": "масло сливочное",
+      "turkish": "tereyağı",
       "iron": "нæлхæ",
-      "digor": "нæлхæ"
+      "iron_alt": "nælxæ",
+      "digor": "нæлхæ",
+      "digor_alt": "nælxæ"
     },
     {
       "english": "porridge",
       "russian": "каша",
+      "turkish": "lapa",
       "iron": "кас",
-      "digor": "касӕ"
+      "iron_alt": "kas",
+      "digor": "касӕ",
+      "digor_alt": "kasæ"
     },
     {
       "english": "soup",
       "russian": "суп",
       "turkish": "çorba",
-      "iron": "хъæрмхъуыпп",
-      "digor": "цумуйнаг"
+      "iron": "хъæрмхуыпп",
+      "iron_alt": "qærmxwypp",
+      "digor": "цумуйнаг",
+      "digor_alt": "cumujnag"
     },
     {
       "english": "meat pie",
       "russian": "пирог с мясом",
       "iron": "фыдджын",
-      "digor": "фидгун"
+      "digor": "фидгун",
+      "digor_alt": "fidgun"
     },
     {
       "english": "potato pie",
       "russian": "пирог с картофелем",
       "iron": "картофджын",
-      "digor": "картофгун"
+      "iron_alt": "kartofĝyn",
+      "digor": "картофгун",
+      "digor_alt": "kartofgun"
     },
     {
       "english": "pumpkin pie",
       "russian": "пирог с тыквой",
       "iron": "насджын",
-      "digor": "насгун"
+      "iron_alt": "nasĝyn",
+      "digor": "насгун",
+      "digor_alt": "nasgun"
     },
     {
       "english": "cheese pie",
       "russian": "пирог с сыром",
-      "iron": "уæлибах",
-      "digor": "ӕхцин"
+      "iron": "уæлибæх",
+      "iron_alt": "wælibæx",
+      "digor": "ӕхцин",
+      "digor_alt": "æxcin"
     },
     {
       "english": "beet leaf pie",
       "russian": "пирог с листьями свеклы",
       "iron": "цæхæраджын",
-      "digor": "дзæхæрагун"
+      "iron_alt": "cæxæraĝyn",
+      "digor": "дзæхæрагун dzæxæragun"
     },
     {
       "english": "sweets",
       "russian": "сладости",
       "turkish": "tatlı",
       "iron": "адджинӕгтæ",
-      "digor": "аткинагтæ"
+      "iron_alt": "adĝinӕgtӕ",
+      "digor": "адгийнæгтæ ædgijnægtæ"
     },
     {
       "english": "cheese",
       "russian": "сыр",
       "turkish": "peynir",
       "iron": "цыхт",
-      "digor": "цихт"
+      "iron_alt": "cyxt",
+      "digor": "цихт",
+      "digor_alt": "cixt"
     }
   ],
   [
     {
-      "color": "03A9F3",
+      "ФЙЙЦ": "03A9F3",
       "english": "home",
       "russian": "дом",
+      "turkish": "ev",
       "iron": "хæдзар",
-      "digor": "хӕдзарӕ"
+      "iron_alt": "xædzar",
+      "digor": "хӕдзарӕ",
+      "digor_alt": "xædzaræ"
     },
     {
       "english": "kitchen",
       "russian": "кухня",
       "turkish": "mutfak",
       "iron": "хæрæндон",
-      "digor": "цӕлгӕнӕн"
+      "iron_alt": "xærændon",
+      "digor": "цӕлгӕнӕн",
+      "digor_alt": "cælgænæn"
     },
     {
       "english": "table",
       "russian": "стол",
       "turkish": "sofra",
       "iron": "фынг",
-      "digor": "фингӕ"
+      "iron_alt": "fyng",
+      "digor": "фингӕ",
+      "digor_alt": "fingæ"
     },
     {
       "english": "chair",
       "russian": "стул",
       "turkish": "sandalye",
       "iron": "бандон",
-      "digor": "къела"
+      "iron_alt": "bandon",
+      "digor": "къела",
+      "digor_alt": "khela"
     },
     {
       "english": "refreegerator",
       "russian": "холодильник",
       "turkish": "buzdolabı",
       "iron": "уазалгæнæг",
-      "digor": "гаргадонӕ"
+      "iron_alt": "wazalgænæg",
+      "digor": "гаргадонӕ",
+      "digor_alt": "gargadonæ"
     },
     {
       "english": "plate",
       "russian": "тарелка",
       "turkish": "tabak",
       "iron": "тæбæгъ",
-      "digor": "тефсег"
+      "iron_alt": "tæbægh",
+      "digor": "тефсег",
+      "digor_alt": "tefseg"
     },
     {
       "english": "cup",
       "russian": "чашка",
       "turkish": "fincan",
       "iron": "къус",
-      "digor": "къос"
+      "iron_alt": "khus",
+      "digor": "къос",
+      "digor_alt": "khos"
     },
     {
       "english": "spoon",
       "russian": "ложка",
       "turkish": "kaşık",
       "iron": "уидыг",
-      "digor": "едуг"
+      "iron_alt": "widyg",
+      "digor": "едуг",
+      "digor_alt": "edug"
     },
     {
       "english": "fork",
       "russian": "вилка",
       "turkish": "çatal",
-      "iron": "саджилаæг",
-      "digor": "сагелӕг"
+      "iron": "саджилæг",
+      "iron_alt": "saĝilæg",
+      "digor": "сагелӕг",
+      "digor_alt": "sagelæg"
     },
     {
       "english": "bedroom",
       "russian": "спальня",
       "turkish": "yatak odası",
       "iron": "хуыссæнуат",
-      "digor": "хуссӕндонӕ"
+      "iron_alt": "xwyssænwat",
+      "digor": "хуссӕндонӕ xussændonæ"
     },
     {
       "english": "bed",
       "russian": "кровать",
       "turkish": "yatak",
       "iron": "сынтæг",
-      "digor": "хуссӕн"
+      "iron_alt": "syntæg",
+      "digor": "хуссӕн",
+      "digor_alt": "xussæn"
     },
     {
       "english": "blanket",
       "russian": "одеяло",
       "turkish": "yorgan",
       "iron": "хъæццул",
-      "digor": "гъӕццол"
+      "iron_alt": "qæccul",
+      "digor": "гъӕццол",
+      "digor_alt": "ghæccol"
     },
     {
       "english": "pillow",
       "russian": "подушка",
       "turkish": "yastık",
       "iron": "баз",
-      "digor": "баз"
+      "iron_alt": "baz",
+      "digor": "баз",
+      "digor_alt": "baz"
     },
     {
       "english": "cradle",
       "russian": "колыбель",
       "turkish": "beşik",
       "iron": "авдæн",
-      "digor": "авдӕнӕ"
+      "iron_alt": "avdæn",
+      "digor": "авдӕнӕ",
+      "digor_alt": "avdænæ"
     },
     {
       "english": "toy",
       "russian": "игрушка",
       "turkish": "oyuncak",
       "iron": "хъазæн",
-      "digor": "гъазӕн"
+      "iron_alt": "qazæn",
+      "digor": "гъазӕн",
+      "digor_alt": "ghazæn"
     },
     {
       "english": "wardrobe",
       "russian": "шкаф",
       "turkish": "dolap",
       "iron": "cкъапп",
-      "digor": "скъапп"
+      "iron_alt": "skhapp",
+      "digor": "скъапп",
+      "digor_alt": "skhapp"
     },
     {
       "english": "sofa",
       "russian": "диван",
       "turkish": "koltuk",
       "iron": "диван",
-      "digor": "сире"
+      "iron_alt": "divan",
+      "digor": "сире",
+      "digor_alt": "sire"
     },
     {
       "english": "bathroom",
       "russian": "ванная",
       "turkish": "banyo",
       "iron": "найæнуат",
-      "digor": "ӕртайӕндонӕ"
+      "iron_alt": "najænwat",
+      "digor": "ӕртайӕндонӕ ærtajændonæ"
     },
     {
       "english": "window",
       "russian": "окно",
       "turkish": "pencere",
       "iron": "рудзынг",
-      "digor": "къӕразгӕ"
+      "iron_alt": "rudzyng",
+      "digor": "къӕразгӕ",
+      "digor_alt": "khrazgæ"
     },
     {
       "english": "wall",
       "russian": "стена",
       "turkish": "duvar",
       "iron": "къул",
-      "digor": "фарс"
+      "iron_alt": "khul",
+      "digor": "фарс",
+      "digor_alt": "fars"
     },
     {
       "english": "chandelier",
       "russian": "люстра",
       "turkish": "mum",
       "iron": "цырагъ",
-      "digor": "цирагъ"
+      "iron_alt": "cyragh",
+      "digor": "цирагъ",
+      "digor_alt": "ciragh"
     },
     {
       "english": "door",
       "russian": "дверь",
       "turkish": "kapı",
       "iron": "дуар",
-      "digor": "дуар"
+      "iron_alt": "dwar",
+      "digor": "дуар",
+      "digor_alt": "dwar"
     }
   ],
   [
     {
-      "color": "CDDC38",
+      "ФЙЙЦ": "CDDC38",
       "english": "fruits",
       "russian": "фрукты",
       "turkish": "meyveler",
       "iron": "дыргътæ",
-      "digor": "рæзæ"
+      "iron_alt": "dyrghtæ",
+      "digor": "рæзæ",
+      "digor_alt": "ræzæ"
     },
     {
       "english": "raspberry",
       "russian": "малина",
       "turkish": "ahududu",
       "iron": "мæнæргъы",
-      "digor": "нинæгъ"
+      "iron_alt": "mænærghy",
+      "digor": "нинæгъ",
+      "digor_alt": "ninægh"
     },
     {
       "english": "grapes",
       "russian": "виноград",
       "turkish": "üzüm",
       "iron": "сæнæфсир",
-      "digor": "сæнæфсерæ"
+      "iron_alt": "sænæfsir",
+      "digor": "сæнæфсерæ sænæfseræ"
     },
     {
       "english": "pear",
       "russian": "груша",
       "turkish": "armut",
       "iron": "кæрдо",
-      "digor": "кæрдту"
+      "iron_alt": "kærdo",
+      "digor": "кæрдту",
+      "digor_alt": "kærdtu"
     },
     {
       "english": "cherry",
       "russian": "вишня",
       "turkish": "vişne",
       "iron": "бал",
-      "digor": "бали"
+      "iron_alt": "bal",
+      "digor": "бали",
+      "digor_alt": "bali"
     },
     {
       "english": "melon",
       "russian": "дыня",
       "turkish": "kavun",
       "iron": "неси",
-      "digor": "фиунасæ"
+      "iron_alt": "nesi",
+      "digor": "фиунасæ",
+      "digor_alt": "fiwnasæ"
     },
     {
       "english": "quince",
       "russian": "айва",
       "turkish": "ayva",
       "iron": "къомси",
-      "digor": "биа"
+      "iron_alt": "khomsi",
+      "digor": "биа",
+      "digor_alt": "bia"
     },
     {
       "english": "strawberry",
       "russian": "клубника",
       "turkish": "çilek",
-      "iron": "галарыскъæф",
-      "digor": "галлискъæф"
+      "iron": "галæрыскъæф",
+      "iron_alt": "galæryskhæf",
+      "digor": "галлискъæф",
+      "digor_alt": "galliskhæf"
     },
     {
       "english": "apple",
       "russian": "яблоко",
       "turkish": "elma",
       "iron": "фæткъуы",
-      "digor": "фæткъу"
+      "iron_alt": "fætkhwy",
+      "digor": "фæткъу",
+      "digor_alt": "fætkhu"
     },
     {
       "english": "plum",
       "russian": "слива",
       "turkish": "erik",
       "iron": "чылауи",
-      "digor": "æхсинцъæ"
+      "iron_alt": "ĉylawi",
+      "digor": "æхсинцъæ",
+      "digor_alt": "æxsinchæ"
     },
     {
       "english": "peach",
       "russian": "персик",
       "turkish": "şeftali",
       "iron": "алтъами",
-      "digor": "алтъами"
+      "iron_alt": "althami",
+      "digor": "алтъами",
+      "digor_alt": "althami"
     },
     {
       "english": "watermelon",
       "russian": "арбуз",
       "turkish": "karpuz",
       "iron": "харбыз",
-      "digor": "харбуз"
+      "iron_alt": "xarbyz",
+      "digor": "харбуз",
+      "digor_alt": "xarbuz"
     },
     {
       "english": "apricot",
       "russian": "абрикос",
       "turkish": "kayısı",
       "iron": "чъерами",
-      "digor": "къерами"
+      "iron_alt": "ĉherami",
+      "digor": "къерами",
+      "digor_alt": "kherami"
     }
   ],
   [
     {
-      "color": "4CAF49",
+      "ФЙЙЦ": "4CAF49",
       "english": "vegetables",
       "russian": "овощи",
       "turkish": "sebzeler",
       "iron": "халсартæ",
-      "digor": "халсартæ"
+      "iron_alt": "xalsartæ",
+      "digor": "халсартæ",
+      "digor_alt": "xalsartæ"
     },
     {
       "english": "potato",
       "russian": "картошка",
       "turkish": "patates",
       "iron": "картоф",
-      "digor": "картоф"
+      "iron_alt": "kartof",
+      "digor": "картоф",
+      "digor_alt": "kartof"
     },
     {
       "english": "carrot",
       "russian": "морковь",
       "turkish": "havuç",
       "iron": "уырыдзы",
-      "digor": "æпхæ"
+      "iron_alt": "wyrydzy",
+      "digor": "æпхæ",
+      "digor_alt": "æpxæ"
     },
     {
       "english": "beet",
       "russian": "свекла",
       "turkish": "pancar",
       "iron": "цæхæра",
-      "digor": "къумбул"
+      "iron_alt": "cæxæra",
+      "digor": "къумбул",
+      "digor_alt": "khumbul"
     },
     {
       "english": "pumpkin",
       "russian": "тыква",
       "turkish": "kabak",
       "iron": "нас",
-      "digor": "насæ"
+      "iron_alt": "nas",
+      "digor": "насæ",
+      "digor_alt": "nasæ"
     },
     {
       "english": "onion",
       "russian": "лук",
       "turkish": "soğan",
       "iron": "хъæдындз",
-      "digor": "гъæдзиндзæ"
+      "iron_alt": "qædyndz",
+      "digor": "гъæдзиндзæ ghædzindzæ"
     },
     {
       "english": "garlic",
       "russian": "чеснок",
       "turkish": "sarımsak",
       "iron": "нуры",
-      "digor": "бодæн"
+      "iron_alt": "nury",
+      "digor": "бодæн",
+      "digor_alt": "bodæn"
     },
     {
       "english": "paprica",
       "russian": "перец красный",
       "turkish": "biber",
       "iron": "цывзы",
-      "digor": "чивзæ"
+      "iron_alt": "cyvzy",
+      "digor": "цивзæ",
+      "digor_alt": "civzæ"
     },
     {
       "english": "bean",
       "russian": "фасоль",
       "turkish": "fasülye",
       "iron": "хъæдур",
-      "digor": "хъæдорæ"
+      "iron_alt": "qædur",
+      "digor": "хъæдорæ",
+      "digor_alt": "qædoræ"
     },
     {
       "english": "cucumber",
       "russian": "огурец",
       "turkish": "salatalık",
       "iron": "джитъри",
-      "digor": "хуæргæнасæ"
+      "iron_alt": "ĝithri",
+      "digor": "хуæргæнасæ",
+      "digor_alt": "xwærgænasæ"
     },
     {
       "english": "cabbage",
       "russian": "капуста",
       "turkish": "lahana",
       "iron": "къабуска",
-      "digor": "къабуска"
+      "iron_alt": "khabuska",
+      "digor": "къабуска",
+      "digor_alt": "khabuska"
     },
     {
       "english": "tomato",
       "russian": "помидор",
       "turkish": "domates",
-      "iron": "пъамидор"
+      "iron": "пъамидор",
+      "iron_alt": "phamidor",
+      "digor": "пъæмидор",
+      "digor_alt": "phæmidor"
     }
   ],
   [
     {
-      "color": "2196F2",
+      "ФЙЙЦ": "2196F2",
       "english": "city",
       "russian": "город",
       "turkish": "şehir",
       "iron": "сахар",
-      "digor": "сахар"
+      "iron_alt": "saxar",
+      "digor": "сахар",
+      "digor_alt": "saxar"
     },
     {
       "english": "village",
       "russian": "аул",
       "turkish": "köy",
       "iron": "хъæу",
-      "digor": "гъæу"
+      "iron_alt": "qæw",
+      "digor": "гъæу",
+      "digor_alt": "ghæw"
     },
     {
       "english": "road",
       "russian": "дорога",
       "turkish": "yol",
       "iron": "фæндаг",
-      "digor": "над"
+      "iron_alt": "fændag",
+      "digor": "над",
+      "digor_alt": "nad"
     },
     {
       "english": "street",
       "russian": "улица",
       "turkish": "sokak",
       "iron": "уынг",
-      "digor": "гъæунгæ"
+      "iron_alt": "wyng",
+      "digor": "гъæунгæ",
+      "digor_alt": "ghæwngæ"
     },
     {
       "english": "car",
       "russian": "машина",
       "turkish": "araba",
-      "iron": "хæдтулгæ"
+      "iron": "хæдтулгæ",
+      "iron_alt": "xædtulgæ",
+      "digor": "машинæ"
     },
     {
       "english": "bench",
       "russian": "лавочка",
       "turkish": "bank",
       "iron": "даргъ бандон",
-      "digor": "бадæн"
+      "iron_alt": "dargh bandon",
+      "digor": "бадæн",
+      "digor_alt": "badæn"
     },
     {
       "english": "mosque",
       "russian": "мечеть",
       "turkish": "cami",
       "iron": "мæзджыт",
-      "digor": "мæзгит"
+      "iron_alt": "mæzĝyt",
+      "digor": "мæзгит",
+      "digor_alt": "mæzgit"
     },
     {
       "english": "church",
       "russian": "церковь",
       "turkish": "kilise",
       "iron": "аргъуан",
-      "digor": "аргъауæн"
+      "iron_alt": "arghwan",
+      "digor": "аргъауæн",
+      "digor_alt": "arghawæn"
     },
     {
       "english": "bridge",
       "russian": "мост",
       "turkish": "köprü",
       "iron": "хид",
-      "digor": "хед"
+      "iron_alt": "xid",
+      "digor": "хед",
+      "digor_alt": "xed"
     },
     {
       "english": "school",
       "russian": "школа",
       "turkish": "okul",
       "iron": "скъола",
-      "digor": "скъола"
+      "iron_alt": "skhola",
+      "digor": "скъола",
+      "digor_alt": "skhola"
     },
     {
       "english": "kindergarten",
       "russian": "детский сад",
       "turkish": "anaokulu",
       "iron": "рæвдауæндон",
-      "digor": "рæвдауæндонæ"
+      "iron_alt": "rævdawændon",
+      "digor": "рæвдауæндонæ",
+      "digor_alt": "rævdawændonæ"
     },
     {
       "english": "store",
       "russian": "магазин",
       "turkish": "dükkan",
       "iron": "дукани",
-      "digor": "тукан"
+      "iron_alt": "dukani",
+      "digor": "тукан",
+      "digor_alt": "tukan"
     },
     {
       "english": "pond",
       "russian": "пруд",
       "turkish": "gölet",
       "iron": "ауæзт",
-      "digor": "кулсун"
+      "iron_alt": "awæzt",
+      "digor": "кулсун",
+      "digor_alt": "kulsun"
     },
     {
       "english": "hotel",
       "russian": "гостиница",
       "turkish": "otel",
       "iron": "уазæгдзæрæн",
-      "digor": "фусунуат"
+      "iron_alt": "wazægdzæræn",
+      "digor": "фусунуат",
+      "digor_alt": "fusunwat"
     }
   ],
   [
@@ -734,163 +924,243 @@
       "english": "nature",
       "russian": "природа",
       "turkish": "doğa",
-      "iron": "æрдз"
+      "iron": "æрдз",
+      "iron_alt": "ærdz",
+      "digor": "æрдзæ",
+      "digor_alt": "ærdzæ"
     },
     {
       "english": "puddle",
       "russian": "лужа",
       "iron": "кул",
-      "digor": "колæ"
+      "iron_alt": "kul",
+      "digor": "колæ",
+      "digor_alt": "kolæ"
     },
     {
       "english": "tree",
       "russian": "дерево",
       "turkish": "ağaç",
-      "iron": "бæлас"
+      "iron": "бæлас",
+      "iron_alt": "bælas",
+      "digor": "бæласæ",
+      "digor_alt": "bælasæ"
     },
     {
       "english": "forest",
       "russian": "лес",
       "turkish": "orman",
-      "iron": "хъæд"
+      "iron": "хъæд",
+      "iron_alt": "qæd",
+      "digor": "гъæдæ",
+      "digor_alt": "ghædæ"
     },
     {
       "english": "flower",
       "russian": "цветок",
       "turkish": "çiçek",
-      "iron": "дидинæг"
+      "iron": "дидинæг",
+      "iron_alt": "didinæg",
+      "digor": "деденæг",
+      "digor_alt": "dedenæg"
     },
     {
       "english": "river",
       "russian": "река",
       "turkish": "nehir",
-      "iron": "цæугæдон"
+      "iron": "цæугæдон",
+      "iron_alt": "cæwgædon",
+      "digor": "цæугæдон",
+      "digor_alt": "cæwgædon"
     },
     {
       "english": "sky",
       "russian": "небо",
       "turkish": "gökyüzü",
-      "iron": "арв"
+      "iron": "арв",
+      "iron_alt": "arv",
+      "digor": "арв",
+      "digor_alt": "arv"
     },
     {
       "english": "clouds",
       "russian": "облака",
       "turkish": "bulut",
-      "iron": "ӕврӕгътӕ"
+      "iron": "ӕврӕгътӕ",
+      "iron_alt": "ævræghtæ",
+      "digor": "ӕврӕгътӕ",
+      "digor_alt": "ævræghtæ"
     },
     {
       "english": "rainbow",
       "russian": "радуга",
       "turkish": "gökkuşağı",
-      "iron": "арвæрдын"
+      "iron": "арвæрдын",
+      "iron_alt": "arværdyn",
+      "digor": "сослани ӕндурӕ",
+      "digor_alt": "soslani ӕndurӕ"
     },
     {
       "english": "meadow",
       "russian": "поляна",
       "turkish": "çayır",
-      "iron": "æрдуз"
+      "iron": "æрдуз",
+      "iron_alt": "ærduz",
+      "digor": "ӕрдозӕ",
+      "digor_alt": "ӕrdozӕ"
     },
     {
       "english": "flatland",
       "russian": "равнина",
       "turkish": "düzlük alan",
-      "iron": "быдыр"
+      "iron": "быдыр",
+      "iron_alt": "bydyr",
+      "digor": "ӕндзӕр",
+      "digor_alt": "ӕndzӕr"
     },
     {
       "english": "mountains",
       "russian": "горы",
       "turkish": "dağlar",
-      "iron": "хæхтæ"
+      "iron": "хæхтæ",
+      "iron_alt": "xæxtæ",
+      "digor": "хуӕнхтӕ",
+      "digor_alt": "xwӕnxtӕ"
     },
     {
       "english": "ravine",
       "russian": "ущелье",
       "turkish": "vadi",
-      "iron": "ком"
+      "iron": "ком",
+      "iron_alt": "kom",
+      "digor": "ком",
+      "digor_alt": "kom"
     },
     {
       "english": "winter",
       "russian": "зима",
       "turkish": "kış",
-      "iron": "зымæг"
+      "iron": "зымæг",
+      "iron_alt": "zymæg",
+      "digor": "зумӕг",
+      "digor_alt": "zumӕg"
     },
     {
       "english": "spring",
       "russian": "весна",
       "turkish": "ilkbahar",
-      "iron": "уалдзæг"
+      "iron": "уалдзæг",
+      "iron_alt": "waldzæg",
+      "digor": "уалдзæг",
+      "digor_alt": "waldzæg"
     },
     {
       "english": "summer",
       "russian": "лето",
       "turkish": "yaz",
-      "iron": "сæрд"
+      "iron": "сæрд",
+      "iron_alt": "særd",
+      "digor": "сæрдæ",
+      "digor_alt": "særdæ"
     },
     {
       "english": "autumn",
       "russian": "осень",
       "turkish": "sonbahar",
-      "iron": "фæззæг"
+      "iron": "фæззæг",
+      "iron_alt": "fæzzæg",
+      "digor": "фæззæг",
+      "digor_alt": "fæzzæg"
     },
     {
       "english": "snow",
       "russian": "снег",
       "turkish": "kar",
-      "iron": "мит"
+      "iron": "мит",
+      "iron_alt": "mit",
+      "digor": "мет",
+      "digor_alt": "met"
     },
     {
       "english": "rain",
       "russian": "дождь",
       "turkish": "yağmur",
-      "iron": "къæвда"
+      "iron": "къæвда",
+      "iron_alt": "khævda",
+      "digor": "къæвда",
+      "digor_alt": "khævda"
     },
     {
       "english": "fog",
       "russian": "туман",
       "turkish": "sis",
-      "iron": "мигъ"
+      "iron": "мигъ",
+      "iron_alt": "migh",
+      "digor": "мегъæ",
+      "digor_alt": "meghæ"
     },
     {
       "english": "sun",
       "russian": "солнце",
       "turkish": "güneş",
-      "iron": "хур"
+      "iron": "хур",
+      "iron_alt": "xur",
+      "digor": "хор",
+      "digor_alt": "xor"
     },
     {
       "english": "moon",
       "russian": "луна",
       "turkish": "ay",
-      "iron": "мæй"
+      "iron": "мæй",
+      "iron_alt": "mæj",
+      "digor": "мæйæ",
+      "digor_alt": "mæjæ"
     },
     {
       "english": "wind",
       "russian": "ветер",
       "turkish": "rüzgar",
-      "iron": "дымгæ"
+      "iron": "дымгæ",
+      "iron_alt": "dymgæ",
+      "digor": "думгæ",
+      "digor_alt": "dumgæ"
     },
     {
       "english": "night",
       "russian": "ночь",
       "turkish": "gece",
-      "iron": "æхсæв"
+      "iron": "æхсæв",
+      "iron_alt": "æxsæv",
+      "digor": "æхсæвæ",
+      "digor_alt": "æxsævæ"
     },
     {
       "english": "day",
       "russian": "день",
       "turkish": "gün",
-      "iron": "бон"
+      "iron": "бон",
+      "iron_alt": "bon",
+      "digor": "бон",
+      "digor_alt": "bon"
     },
     {
       "english": "morning",
       "russian": "утро",
       "turkish": "sabah",
-      "iron": "сæумæрайсом"
+      "iron": "сæумæрайсом",
+      "iron_alt": "sæwmærajsom",
+      "digor": "сæумæ",
+      "digor_alt": "sæwmæ"
     },
     {
       "english": "evening",
       "russian": "вечер",
       "turkish": "akşam",
-      "iron": "изæр"
+      "iron": "изæр",
+      "iron_alt": "izær",
+      "digor": "изæр",
+      "digor_alt": "izær"
     }
   ],
   [
@@ -898,647 +1168,1096 @@
       "english": "pronouns",
       "russian": "местоимения",
       "turkish": "zamirler",
-      "iron": "номивæгджытæ"
+      "iron": "номивджытæ",
+      "iron_alt": "nomivĝytæ",
+      "digor": "номевгутæ",
+      "digor_alt": "nomevgutæ"
     },
     {
       "english": "i",
       "russian": "я",
       "turkish": "ben",
-      "iron": "æз"
+      "iron": "æз",
+      "iron_alt": "æz",
+      "digor": "æз",
+      "digor_alt": "æz"
     },
     {
       "english": "you",
       "russian": "ты",
       "turkish": "sen",
-      "iron": "ды"
+      "iron": "ды",
+      "iron_alt": "dy",
+      "digor": "ду",
+      "digor_alt": "du"
     },
     {
       "english": "he",
       "russian": "он",
       "turkish": "o",
-      "iron": "уый"
+      "iron": "уый",
+      "iron_alt": "wyj",
+      "digor": "е",
+      "digor_alt": "e"
     },
     {
       "english": "she",
       "russian": "она",
       "turkish": "o",
-      "iron": "уый"
+      "iron": "уый",
+      "iron_alt": "wyj",
+      "digor": "e",
+      "digor_alt": "e"
     },
     {
       "english": "it",
       "russian": "оно",
       "turkish": "o",
-      "iron": "уый"
+      "iron": "уый",
+      "iron_alt": "wyj",
+      "digor": "e",
+      "digor_alt": "e"
     },
     {
       "english": "we",
       "russian": "мы",
       "turkish": "biz",
-      "iron": "мах"
+      "iron": "мах",
+      "iron_alt": "max",
+      "digor": "мах",
+      "digor_alt": "max"
     },
     {
       "english": "you (plural)",
       "russian": "вы",
       "turkish": "siz",
-      "iron": "сымах"
+      "iron": "сымах",
+      "iron_alt": "symax",
+      "digor": "сумах",
+      "digor_alt": "sumax"
     },
     {
       "english": "they",
       "russian": "они",
       "turkish": "onlar",
-      "iron": "уыдон"
+      "iron": "уыдон",
+      "iron_alt": "wydon",
+      "digor": "етæ",
+      "digor_alt": "etæ"
     }
   ],
   [
     {
-      "color": "795548",
+      "ФЙЙЦ": "795548",
       "english": "animals",
       "russian": "животные",
       "turkish": "hayvanlar",
       "iron": "сырдтæ",
-      "digor": "сирдтæ"
+      "iron_alt": "syrdtæ",
+      "digor": "сирдтæ",
+      "digor_alt": "sirdtæ"
     },
     {
       "english": "bear",
       "russian": "медведь",
       "turkish": "ayı",
       "iron": "арс",
-      "digor": "арс"
+      "iron_alt": "ars",
+      "digor": "арс",
+      "digor_alt": "ars"
     },
     {
       "english": "cat",
       "russian": "кот",
       "turkish": "kedi",
       "iron": "гæды",
-      "digor": "тикис"
+      "iron_alt": "gædy",
+      "digor": "тикис",
+      "digor_alt": "tikis"
     },
     {
       "english": "cow",
       "russian": "корова",
       "turkish": "inek",
       "iron": "хъуг",
-      "digor": "гъог"
+      "iron_alt": "qug",
+      "digor": "гъог",
+      "digor_alt": "ghog"
     },
     {
       "english": "crocodile",
       "russian": "крокодил",
       "turkish": "timsah",
-      "iron": "кӕфхъуындар"
+      "iron": "кӕфхъуындар",
+      "iron_alt": "kæfqwyndar",
+      "digor": "кæфхъундар",
+      "digor_alt": "kæfqundar"
     },
     {
       "english": "dog",
       "russian": "собака",
       "turkish": "köpek",
       "iron": "куыдз",
-      "digor": "куй"
+      "iron_alt": "kwydz",
+      "digor": "куй",
+      "digor_alt": "kuj"
     },
     {
       "english": "dove",
       "russian": "голубь",
       "turkish": "güvercin",
       "iron": "бæлон",
-      "digor": "бæлæу"
+      "iron_alt": "bælon",
+      "digor": "бæлæу",
+      "digor_alt": "bælæw"
     },
     {
       "english": "eagle",
       "russian": "орел",
       "turkish": "kartal",
       "iron": "цæргæс",
-      "digor": "цæргæс"
+      "iron_alt": "cærgæs",
+      "digor": "цæргæс",
+      "digor_alt": "cærgæs"
     },
     {
       "english": "fox",
       "russian": "лиса",
       "turkish": "tilki",
       "iron": "рувас",
-      "digor": "робас"
+      "iron_alt": "ruvas",
+      "digor": "робас",
+      "digor_alt": "robas"
     },
     {
       "english": "frog",
       "russian": "лягушка",
       "turkish": "kurbağa",
       "iron": "хæфс",
-      "digor": "хæпсæ"
+      "iron_alt": "xæfs",
+      "digor": "хæпсæ",
+      "digor_alt": "xæpsæ"
     },
     {
       "english": "elefant",
       "russian": "слон",
       "turkish": "fil",
       "iron": "пыл",
-      "digor": "пил"
+      "iron_alt": "pyl",
+      "digor": "пил",
+      "digor_alt": "pil"
     },
     {
       "english": "horse",
       "russian": "лошадь",
       "turkish": "at",
       "iron": "бæх",
-      "digor": "бæх"
+      "iron_alt": "bæx",
+      "digor": "бæх",
+      "digor_alt": "bæx"
     },
     {
       "english": "leopard",
       "russian": "барс",
       "turkish": "leopar",
       "iron": "фыранк",
-      "digor": "фæланк"
+      "iron_alt": "fyrank",
+      "digor": "фæланк",
+      "digor_alt": "fælank"
     },
     {
       "english": "lion",
       "russian": "лев",
       "turkish": "aslan",
       "iron": "цомахъ",
-      "digor": "цомахъ"
+      "iron_alt": "comaq",
+      "digor": "цомахъ",
+      "digor_alt": "comaq"
     },
     {
       "english": "monkey",
       "russian": "обезьяна",
       "turkish": "maymun",
       "iron": "маймули",
-      "digor": "маймул"
+      "iron_alt": "majmuli",
+      "digor": "маймул",
+      "digor_alt": "majmul"
     },
     {
       "english": "mouse",
       "russian": "мышь",
       "turkish": "fare",
       "iron": "мыст",
-      "digor": "мистæ"
+      "iron_alt": "myst",
+      "digor": "мистæ",
+      "digor_alt": "mistæ"
     },
     {
       "english": "owl",
       "russian": "сова",
       "turkish": "baykuş",
       "iron": "уыг",
-      "digor": "уг"
+      "iron_alt": "wyg",
+      "digor": "уг",
+      "digor_alt": "ug"
     },
     {
       "english": "sheep",
       "russian": "овца",
       "turkish": "koyun",
       "iron": "фыс",
-      "digor": "фус"
+      "iron_alt": "fys",
+      "digor": "фус",
+      "digor_alt": "fus"
     },
     {
       "english": "wolf",
       "russian": "волк",
       "turkish": "kurt",
       "iron": "бирæгъ",
-      "digor": "берæгъ"
+      "iron_alt": "birægh",
+      "digor": "берæгъ",
+      "digor_alt": "berægh"
     }
   ],
   [
     {
       "english": "clothes",
       "russian": "одежда",
-      "turkish": "kıyafetler"
+      "turkish": "kıyafetler",
+      "iron": "дарæс",
+      "iron_alt": "daræs",
+      "digor": "хъæппæлтæ",
+      "digor_alt": "qæppæltæ"
     },
     {
       "english": "hat",
       "russian": "шапка",
       "turkish": "şapka",
-      "iron": "худ"
+      "iron": "худ",
+      "iron_alt": "xud",
+      "digor": "ходæ",
+      "digor_alt": "xodæ"
     },
     {
       "english": "karakul hat",
       "russian": "папаха каракулевая",
-      "iron": "бухайраг худ"
+      "turkish": "karakul şapkası",
+      "iron": "бухайраг худ",
+      "iron_alt": "buxajrag xud",
+      "digor": "бухарходæ",
+      "digor_alt": "buxarxodæ"
     },
     {
       "english": "muton hat",
-      "russian": "папаха овчинная"
+      "russian": "папаха овчинная",
+      "iron": "уæлдзарм худ",
+      "iron_alt": "wældzarm xud",
+      "digor": "уæлдзар ходæ",
+      "digor_alt": "wældzar xodæ"
     },
     {
       "english": "felt hat",
       "russian": "войлочная шляпа",
-      "iron": "нымæт худ"
+      "turkish": "keçe şapkası",
+      "iron": "нымæт худ",
+      "iron_alt": "nymæt xud",
+      "digor": "буйнаг ходæ",
+      "digor_alt": "bujnag xodæ"
     },
     {
       "english": "caucasian coat",
       "russian": "черкесска",
-      "iron": "цухъхъа"
+      "turkish": "kafkas montu",
+      "iron": "цухъхъа",
+      "iron_alt": "cuqqa",
+      "digor": "цохъа",
+      "digor_alt": "coqa"
     },
     {
       "english": "shirt",
       "russian": "рубашка",
       "turkish": "gömlek",
-      "iron": "хадон"
+      "iron": "хæдон",
+      "iron_alt": "xædon",
+      "digor": "хæдонæ",
+      "digor_alt": "xædonæ"
     },
     {
       "english": "kaftan",
       "russian": "бешмет",
-      "iron": "куырæт"
+      "iron": "куырæт",
+      "iron_alt": "kwyræt",
+      "digor": "курæт",
+      "digor_alt": "kuræt"
     },
     {
       "english": "hood",
-      "russian": "башлык"
+      "russian": "башлык",
+      "turkish": "başlık",
+      "iron": "басылыхъхъ",
+      "iron_alt": "basylyqq",
+      "digor": "баслæхъ",
+      "digor_alt": "baslæq"
     },
     {
       "english": "button",
       "russian": "пуговица",
       "turkish": "düğme",
-      "iron": "æгъна"
+      "iron": "æгънæг",
+      "iron_alt": "æghnæg",
+      "digor": "æгънæг",
+      "digor_alt": "æghnæg"
     },
     {
       "english": "pants",
       "russian": "штаны",
       "turkish": "pantolon",
-      "iron": "хæлаф"
+      "iron": "хæлаф",
+      "iron_alt": "xælaf",
+      "digor": "хæлаф",
+      "digor_alt": "xælaf"
     },
     {
       "english": "high boots",
       "russian": "сапоги",
-      "turkish": "çizme"
+      "turkish": "çizme",
+      "iron": "цырыхъхъытæ",
+      "iron_alt": "cyryqqytæ",
+      "digor": "цулухътæ",
+      "digor_alt": "culuqtæ"
     },
     {
       "english": "shoes",
       "russian": "обувь",
       "turkish": "ayakkabı",
-      "iron": "дзабыртæ"
+      "iron": "дзабыртæ",
+      "iron_alt": "dzabyrtæ",
+      "digor": "къахидарæс",
+      "digor_alt": "khaxidaræs"
     },
     {
       "english": "dress",
       "russian": "платье",
       "turkish": "elbise",
-      "iron": "къаба"
+      "iron": "къаба",
+      "iron_alt": "khaba",
+      "digor": "пъолци",
+      "digor_alt": "pholci"
     },
     {
       "english": "skirt",
-      "russian": "юбка"
+      "russian": "юбка",
+      "turkish": "etek",
+      "iron": "дæллагуыр",
+      "iron_alt": "dællagwyr",
+      "digor": "дæллаггурæ",
+      "digor_alt": "dællagguræ"
     },
     {
       "english": "kerchief",
-      "russian": "платок ",
+      "russian": "платок",
       "turkish": "başörtüsü",
-      "iron": "сæрбæттæн"
+      "iron": "сæрбæттæн",
+      "iron_alt": "særbættæn",
+      "digor": "сæрбæттæн",
+      "digor_alt": "særbættæn"
     },
     {
       "english": "veil",
       "russian": "шаль",
       "turkish": "şal",
-      "iron": "кæлмæрзæн"
+      "iron": "кæлмæрзæн",
+      "iron_alt": "kælmærzæn",
+      "digor": "сасуг",
+      "digor_alt": "sasug"
     },
     {
       "english": "fur/sheepskin coat",
-      "russian": "шуба/дубленка"
-    },
-    {
-      "english": "jacket",
-      "russian": "куртка",
-      "turkish": "ceket"
+      "russian": "шуба/дубленка",
+      "turkish": "koyun kürkü",
+      "iron": "кæрц",
+      "iron_alt": "kærc",
+      "digor": "кæрцæ",
+      "digor_alt": "kærcæ"
     },
     {
       "english": "belt",
       "russian": "пояс",
       "turkish": "kemer",
-      "iron": "рон"
+      "iron": "рон",
+      "iron_alt": "ron",
+      "digor": "ронæ",
+      "digor_alt": "ronæ"
     },
     {
       "english": "bandolier",
       "russian": "газыри",
-      "iron": "бæрцытæ"
+      "iron": "бæрцытæ",
+      "iron_alt": "bærcytæ",
+      "digor": "бæрцитæ",
+      "digor_alt": "bærcitæ"
     },
     {
       "english": "dagger",
       "russian": "кинжал",
       "turkish": "hançer",
-      "iron": "хъама"
+      "iron": "хъама",
+      "iron_alt": "qama",
+      "digor": "хъама",
+      "digor_alt": "qama"
     },
     {
       "english": "sabre",
       "russian": "сабля",
       "turkish": "kılıç",
-      "iron": "æхсæргард"
+      "iron": "æхсаргард",
+      "iron_alt": "æxsargard",
+      "digor": "æхсаргард",
+      "digor_alt": "æxsargard"
     },
     {
       "english": "rifle",
       "russian": "ружье",
       "turkish": "silah",
-      "iron": "топп"
+      "iron": "топп",
+      "iron_alt": "topp",
+      "digor": "топп",
+      "digor_alt": "topp"
     },
     {
       "english": "gun",
       "russian": "пистолет",
-      "turkish": "tabanca"
+      "turkish": "tabanca",
+      "iron": "дамбаца",
+      "iron_alt": "dambaca",
+      "digor": "дамбаца",
+      "digor_alt": "dambaca"
     }
   ],
   [
     {
       "english": "body parts",
       "russian": "части тела",
-      "turkish": "vücut hatları"
+      "turkish": "vücut hatları",
+      "iron": "буары уæнгтæ",
+      "iron_alt": "bwary wængtæ",
+      "digor": "бауæри иуæнгтæ",
+      "digor_alt": "bawæri iwængtæ"
     },
     {
       "english": "head",
       "russian": "голова",
       "turkish": "kafa",
-      "iron": "сæр"
+      "iron": "сæр",
+      "iron_alt": "sær",
+      "digor": "сæр",
+      "digor_alt": "sær"
+    },
+    {
+      "english": "face",
+      "russian": "лицо",
+      "iron": "цæсгом",
+      "iron_alt": "cæsgom",
+      "digor": "цæсгон",
+      "digor_alt": "cæsgon"
     },
     {
       "english": "eye",
       "russian": "глаз",
       "turkish": "göz",
-      "iron": "цæст"
+      "iron": "цæст",
+      "iron_alt": "cæst",
+      "digor": "цæстæ",
+      "digor_alt": "cæstæ"
     },
     {
       "english": "ear",
       "russian": "ухо",
       "turkish": "kulak",
-      "iron": "хъус"
+      "iron": "хъус",
+      "iron_alt": "qhus",
+      "digor": "гъос",
+      "digor_alt": "ghos"
     },
     {
       "english": "nose",
       "russian": "нос",
       "turkish": "burun",
-      "iron": "фындз"
+      "iron": "фындз",
+      "iron_alt": "fyndz",
+      "digor": "фий",
+      "digor_alt": "fij"
     },
     {
       "english": "forehead",
       "russian": "лоб",
-      "turkish": "alın"
+      "turkish": "alın",
+      "iron": "ных",
+      "iron_alt": "nyx",
+      "digor": "тæрних",
+      "digor_alt": "tærnix"
     },
     {
       "english": "cheek",
       "russian": "щека",
-      "turkish": "yanak"
+      "turkish": "yanak",
+      "iron": "рус",
+      "iron_alt": "rus",
+      "digor": "рос",
+      "digor_alt": "ros"
     },
     {
       "english": "mouth",
       "russian": "рот",
       "turkish": "ağız",
-      "iron": "ком"
+      "iron": "ком",
+      "iron_alt": "kom",
+      "digor": "цъух",
+      "digor_alt": "chux"
     },
     {
       "english": "lips",
       "russian": "губы",
       "turkish": "dudak",
-      "iron": "былтæ"
+      "iron": "былтæ",
+      "iron_alt": "byltæ",
+      "digor": "билтæ",
+      "digor_alt": "biltæ"
     },
     {
       "english": "neck",
       "russian": "шея",
       "turkish": "boyun",
-      "iron": "бæрзæй"
+      "iron": "бæрзæй",
+      "iron_alt": "bærzæj",
+      "digor": "бæрзæй",
+      "digor_alt": "bærzæj"
     },
     {
-      "english": "nand",
+      "english": "hand",
       "russian": "рука",
       "turkish": "el",
-      "iron": "къух"
+      "iron": "къух",
+      "iron_alt": "khux",
+      "digor": "къох",
+      "digor_alt": "khox"
     },
     {
       "english": "leg",
       "russian": "нога",
       "turkish": "bacak",
-      "iron": "къах"
+      "iron": "къах",
+      "iron_alt": "khax",
+      "digor": "къах",
+      "digor_alt": "khax"
     },
     {
       "english": "back",
       "russian": "спина",
-      "turkish": "sırt"
+      "turkish": "sırt",
+      "iron": "фæсонтæ",
+      "iron_alt": "fæsontæ",
+      "digor": "фæсонтæ",
+      "digor_alt": "fæsontæ"
     },
     {
       "english": "stomach",
       "russian": "живот",
       "turkish": "karın",
-      "iron": "гуыбын"
+      "iron": "гуыбын",
+      "iron_alt": "gwybyn",
+      "digor": "губун",
+      "digor_alt": "gubun"
     },
     {
       "english": "hair",
       "russian": "волосы",
-      "iron": "дзыккутæ"
+      "turkish": "saç",
+      "iron": "дзыккутæ",
+      "iron_alt": "dzykkutæ",
+      "digor": "дзиккотæ",
+      "digor_alt": "dzikkotæ"
     },
     {
-      "english": "throat",
-      "russian": "горло"
+      "english": "teeth",
+      "russian": "зубы",
+      "iron": "дæндæгтæ",
+      "iron_alt": "dændægtæ",
+      "digor": "дæндæгтæ",
+      "digor_alt": "dændægtæ"
     }
   ],
   [
     {
       "english": "verbs",
-      "russian": "глаголы"
+      "russian": "глаголы",
+      "turkish": "fiiller",
+      "iron": "мивдисæг",
+      "iron_alt": "mivsdisæg",
+      "digor": "миуæвдесæг",
+      "digor_alt": "miwævdesæg"
     },
     {
       "english": "to speak",
       "russian": "говорить",
-      "iron": "дзурын"
+      "turkish": "konuşmak",
+      "iron": "дзурын",
+      "iron_alt": "dzuryn",
+      "digor": "дзорун",
+      "digor_alt": "dzorun"
     },
     {
       "english": "to know",
       "russian": "знать",
-      "iron": "зонын"
+      "turkish": "bilmek",
+      "iron": "зонын",
+      "iron_alt": "zonyn",
+      "digor": "зонун",
+      "digor_alt": "zonun"
     },
     {
-      "english": "to go",
+      "english": "to walk",
       "russian": "идти",
-      "iron": "цæуын"
+      "turkish": "yürümek",
+      "iron": "цæуын",
+      "iron_alt": "cæwyn",
+      "digor": "цæун",
+      "digor_alt": "cæwn"
     },
     {
       "english": "to see",
       "russian": "видеть",
-      "iron": "уынын"
+      "turkish": "görmek",
+      "iron": "уынын",
+      "iron_alt": "wynyn",
+      "digor": "инун",
+      "digor_alt": "inun"
     },
     {
       "english": "to do",
       "russian": "делать",
-      "iron": "кæнын"
+      "turkish": "yapmak",
+      "iron": "кæнын",
+      "iron_alt": "kænyn",
+      "digor": "кæнун",
+      "digor_alt": "kænun"
     },
     {
       "english": "to live",
       "russian": "жить",
-      "iron": "цæрын"
+      "turkish": "yaşamak",
+      "iron": "цæрын",
+      "iron_alt": "cæryn",
+      "digor": "цæрун",
+      "digor_alt": "cærun"
     },
     {
       "english": "to pray",
       "russian": "молиться",
-      "iron": "кувын"
+      "turkish": "dua etmek",
+      "iron": "кувын",
+      "iron_alt": "kuvyn",
+      "digor": "ковун",
+      "digor_alt": "kovun"
     },
     {
       "english": "to watch",
       "russian": "смотреть",
-      "iron": "кæсын"
+      "turkish": "bakmak",
+      "iron": "кæсын",
+      "iron_alt": "kæsyn",
+      "digor": "кæсун",
+      "digor_alt": "kæsun"
     },
     {
       "english": "to work",
       "russian": "работать",
-      "iron": "кусын"
+      "turkish": "çalışmak",
+      "iron": "кусын",
+      "iron_alt": "kusyn",
+      "digor": "косун",
+      "digor_alt": "kosun"
     },
     {
       "english": "to play",
       "russian": "играть",
-      "iron": "хъазын"
+      "turkish": "oynamak",
+      "iron": "хъазын",
+      "iron_alt": "qazyn",
+      "digor": "гъазун",
+      "digor_alt": "ghazun"
     },
     {
       "english": "to understand",
       "russian": "понимать",
-      "iron": "æмбарын"
+      "turkish": "anlamak",
+      "iron": "æмбарын",
+      "iron_alt": "æmbaryn",
+      "digor": "лæдæрун",
+      "digor_alt": "lædærun"
     },
     {
       "english": "to ask",
       "russian": "спрашивать",
-      "iron": "фæрсын"
+      "turkish": "sormak",
+      "iron": "фæрсын",
+      "iron_alt": "færsyn",
+      "digor": "фæрсун",
+      "digor_alt": "færsun"
     },
     {
       "english": "to give",
       "russian": "давать",
-      "iron": "дæттын"
+      "turkish": "vermek",
+      "iron": "дæттын",
+      "iron_alt": "dættyn",
+      "digor": "дæттун",
+      "digor_alt": "dættun"
     },
     {
       "english": "to love",
       "russian": "любить",
-      "iron": "уарзын"
+      "turkish": "sevmek",
+      "iron": "уарзын",
+      "iron_alt": "warzyn",
+      "digor": "уарзун",
+      "digor_alt": "warzun"
     },
     {
       "english": "to count",
       "russian": "считать",
-      "iron": "нымайын"
+      "turkish": "saymak",
+      "iron": "нымайын",
+      "iron_alt": "nymajyn",
+      "digor": "нимайун",
+      "digor_alt": "nimajun"
     },
     {
       "english": "to write",
       "russian": "писать",
-      "iron": "фыссын"
+      "turkish": "yazmak",
+      "iron": "фыссын",
+      "iron_alt": "fyssyn",
+      "digor": "финсун",
+      "digor_alt": "finsun"
     },
     {
       "english": "to read",
       "russian": "читать",
-      "iron": "кæсын"
+      "turkish": "okumak",
+      "iron": "кæсын",
+      "iron_alt": "kæsyn",
+      "digor": "аргъаун",
+      "digor_alt": "arghawn"
     },
     {
       "english": "to stand",
       "russian": "стоять",
-      "iron": "лæууын"
+      "turkish": "durmak",
+      "iron": "лæууын",
+      "iron_alt": "læwwyn",
+      "digor": "лæуун",
+      "digor_alt": "læwwn"
     },
     {
       "english": "to search",
       "russian": "искать",
-      "iron": "агурын"
+      "turkish": "aramak",
+      "iron": "агурын",
+      "iron_alt": "aguryn",
+      "digor": "агорун",
+      "digor_alt": "agorun"
     },
     {
       "english": "to hear",
       "russian": "слышать",
-      "iron": "хъусын"
-    },
-    {
-      "english": "to hurry",
-      "russian": "торопиться",
-      "iron": "тагъд кæнын"
-    },
-    {
-      "english": "to create",
-      "russian": "создавать",
-      "iron": "аразын"
+      "turkish": "duymak",
+      "iron": "хъусын",
+      "iron_alt": "qusyn",
+      "digor": "игъосун",
+      "digor_alt": "ighosun"
     },
     {
       "english": "to shout",
       "russian": "кричать",
-      "iron": "хъæр кæнын"
+      "turkish": "bağırmak",
+      "iron": "хъæр кæнын",
+      "iron_alt": "qær kænyn",
+      "digor": "гъæр кæнун",
+      "digor_alt": "ghær kænun"
+    },
+    {
+      "english": "to eat",
+      "russian": "кушать",
+      "turkish": "yemek",
+      "iron": "хæрын",
+      "iron_alt": "xæryn",
+      "digor": "хуæрун",
+      "digor_alt": "xwærun"
+    },
+    {
+      "english": "to drink",
+      "russian": "пить",
+      "turkish": "içmek",
+      "iron": "нуазын",
+      "iron_alt": "nwazyn",
+      "digor": "ниуазун",
+      "digor_alt": "niwazun"
     },
     {
       "english": "to cry",
       "russian": "плакать",
-      "iron": "кæуын"
+      "turkish": "ağlamak",
+      "iron": "кæуын",
+      "iron_alt": "kæwyn",
+      "digor": "кæун",
+      "digor_alt": "kæwn"
+    },
+    {
+      "english": "to build",
+      "russian": "строить",
+      "turkish": "kurmak",
+      "iron": "амайын",
+      "iron_alt": "amajyn",
+      "digor": "амайун",
+      "digor_alt": "amajun"
+    },
+    {
+      "english": "to point",
+      "russian": "показывать",
+      "turkish": "göstermek",
+      "iron": "амонын",
+      "iron_alt": "amonyn",
+      "digor": "амонун",
+      "digor_alt": "amonun"
+    },
+    {
+      "english": "to seat",
+      "russian": "сидеть",
+      "turkish": "oturmak",
+      "iron": "бадын",
+      "iron_alt": "badyn",
+      "digor": "бадун",
+      "digor_alt": "badun"
+    },
+    {
+      "english": "to run",
+      "russian": "бежать",
+      "turkish": "koşmak",
+      "iron": "згъорын",
+      "iron_alt": "zghoryn",
+      "digor": "ледзун",
+      "digor_alt": "ledzun"
+    },
+    {
+      "english": "to hold",
+      "russian": "держать",
+      "turkish": "tutmak",
+      "iron": "хæцын",
+      "iron_alt": "xæcyn",
+      "digor": "хуæцун",
+      "digor_alt": "xwæcun"
     },
     {
       "english": "to laugh",
       "russian": "смеяться",
-      "iron": "худын"
+      "turkish": "gülmek",
+      "iron": "худын",
+      "iron_alt": "xudyn",
+      "digor": "ходун",
+      "digor_alt": "xodun"
     }
   ],
   [
     {
       "english": "numbers",
       "russian": "числа",
-      "iron": "нымæдзтæ"
+      "turkish": "sayılar",
+      "iron": "нымæцтæ",
+      "iron_alt": "nymæctæ",
+      "digor": "нимæдзитæ",
+      "digor_alt": "nimædzitæ"
     },
     {
       "english": "one",
       "russian": "один",
-      "iron": "иу"
+      "turkish": "bir",
+      "iron": "иу",
+      "iron_alt": "iw",
+      "digor": "еу",
+      "digor_alt": "ew"
     },
     {
       "english": "two",
       "russian": "два",
-      "iron": "дыууæ"
+      "turkish": "iki",
+      "iron": "дыууæ",
+      "iron_alt": "dywwæ",
+      "digor": "дууæ",
+      "digor_alt": "duwwæ"
     },
     {
       "english": "three",
       "russian": "три",
-      "iron": "æртæ"
+      "turkish": "üç",
+      "iron": "æртæ",
+      "iron_alt": "ærtæ",
+      "digor": "æртæ",
+      "digor_alt": "ærtæ"
     },
     {
       "english": "four",
       "russian": "четыре",
-      "iron": "цыппар"
+      "turkish": "dört",
+      "iron": "цыппар",
+      "iron_alt": "cyppar",
+      "digor": "цуппар",
+      "digor_alt": "cuppar"
     },
     {
       "english": "five",
       "russian": "пять",
-      "iron": "фондз"
+      "turkish": "beş",
+      "iron": "фондз",
+      "iron_alt": "fondz",
+      "digor": "фондз",
+      "digor_alt": "fondz"
     },
     {
       "english": "six",
       "russian": "шесть",
-      "iron": "æхсæз"
+      "turkish": "altı",
+      "iron": "æхсæз",
+      "iron_alt": "æxsæz",
+      "digor": "æхсæз",
+      "digor_alt": "æxsæz"
     },
     {
       "english": "seven",
       "russian": "семь",
-      "iron": "авд"
+      "turkish": "yedi",
+      "iron": "авд",
+      "iron_alt": "avd",
+      "digor": "авд",
+      "digor_alt": "avd"
     },
     {
       "english": "eight",
       "russian": "восемь",
-      "iron": "аст"
+      "turkish": "sekiz",
+      "iron": "аст",
+      "iron_alt": "ast",
+      "digor": "аст",
+      "digor_alt": "ast"
     },
     {
       "english": "nine",
       "russian": "девять",
-      "iron": "фараст"
+      "turkish": "dokuz",
+      "iron": "фараст",
+      "iron_alt": "farast",
+      "digor": "фараст",
+      "digor_alt": "farast"
     },
     {
       "english": "ten",
       "russian": "десять",
-      "iron": "дæс"
+      "turkish": "on",
+      "iron": "дæс",
+      "iron_alt": "dæs",
+      "digor": "дæс",
+      "digor_alt": "dæs"
     },
     {
       "english": "twenty",
       "russian": "двадцать",
-      "iron": "дыууын"
+      "turkish": "yirmi",
+      "iron": "ссæдз",
+      "iron_alt": "ssædz",
+      "digor": "инсæй",
+      "digor_alt": "insæj"
     },
     {
       "english": "thirty",
       "russian": "тридцать",
-      "iron": "æртын"
+      "turkish": "otuz",
+      "iron": "æртын",
+      "iron_alt": "ærtyn",
+      "digor": "æртин",
+      "digor_alt": "ærtin"
     },
     {
       "english": "forty",
       "russian": "сорок",
-      "iron": "цыппор"
+      "turkish": "kırk",
+      "iron": "цыппор",
+      "iron_alt": "cyppor",
+      "digor": "цуппор",
+      "digor_alt": "cuppor"
     },
     {
       "english": "fifty",
-      "russian": "пятьдесят"
+      "russian": "пятьдесят",
+      "turkish": "elli",
+      "iron": "фæндзай",
+      "iron_alt": "fændzaj",
+      "digor": "фæндзай",
+      "digor_alt": "fændzaj"
     },
     {
       "english": "sixty",
-      "russian": "шестьдесят"
+      "russian": "шестьдесят",
+      "turkish": "altmış",
+      "iron": "æхсай",
+      "iron_alt": "æxsaj",
+      "digor": "æхсай",
+      "digor_alt": "æxsaj"
     },
     {
       "english": "seventy",
-      "russian": "семьдесят"
+      "russian": "семьдесят",
+      "turkish": "yetmiş",
+      "iron": "æвдай",
+      "iron_alt": "ævdaj",
+      "digor": "æвдай",
+      "digor_alt": "ævdaj"
     },
     {
       "english": "eighty",
-      "russian": "восемьдесят"
+      "russian": "восемьдесят",
+      "turkish": "seksen",
+      "iron": "æстай",
+      "iron_alt": "æstaj",
+      "digor": "æстай",
+      "digor_alt": "æstaj"
     },
     {
       "english": "ninety",
-      "russian": "девяносто"
+      "russian": "девяносто",
+      "turkish": "doksan",
+      "iron": "нæуæдз",
+      "iron_alt": "næwædz",
+      "digor": "нæуæдзæ",
+      "digor_alt": "næwædzæ"
     },
     {
       "english": "hundred",
-      "russian": "сто"
+      "russian": "сто",
+      "turkish": "yüz",
+      "iron": "сæдæ",
+      "iron_alt": "sædæ",
+      "digor": "сæдæ",
+      "digor_alt": "sædæ"
     },
     {
       "english": "thousand",
-      "russian": "тысяча"
+      "russian": "тысяча",
+      "turkish": "bin",
+      "iron": "мин",
+      "iron_alt": "min",
+      "digor": "мин",
+      "digor_alt": "min"
     }
   ]
 ]
