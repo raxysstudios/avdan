@@ -55,7 +55,10 @@ class _HomeScreenState extends State<HomeScreen>
     );
   }
 
-  void openView(Chapter chapter, Translation item) {
+  void openView(BuildContext context, Chapter chapter, Translation item) {
+    final padding = EdgeInsets.only(
+      top: MediaQuery.of(context).padding.top,
+    );
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
@@ -63,10 +66,27 @@ class _HomeScreenState extends State<HomeScreen>
         chapter.color ?? Colors.transparent,
         Theme.of(context).colorScheme.surface,
       ),
-      builder: (_) {
-        return ItemsView(
-          chapter: chapter,
-          item: item,
+      builder: (context) {
+        return Padding(
+          padding: padding,
+          child: Stack(
+            children: [
+              ItemsView(
+                chapter: chapter,
+                item: item,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8),
+                child: Align(
+                  alignment: Alignment.topLeft,
+                  child: IconButton(
+                    onPressed: () => Navigator.of(context).pop(),
+                    icon: Icon(Icons.close_outlined),
+                  ),
+                ),
+              ),
+            ],
+          ),
         );
       },
     );
@@ -103,7 +123,11 @@ class _HomeScreenState extends State<HomeScreen>
       body: ChaptersView(
         controller: _tabController,
         chapters: Store.chapters,
-        onTap: openView,
+        onTap: (chapter, item) => openView(
+          context,
+          chapter,
+          item,
+        ),
       ),
       bottomNavigationBar: BottomAppBar(
         child: SizedBox(
