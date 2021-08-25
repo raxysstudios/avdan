@@ -21,7 +21,7 @@ playItem(Chapter chapter, Translation item) {
     'audio',
     Store.learning.name.id,
     chapter.title.id,
-    item.map[Store.learning.name.id]
+    chapter.alphabet ? item.learning : item.id,
   ].join('/');
   playAsset(path + '.mp3');
 }
