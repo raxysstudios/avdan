@@ -47,74 +47,51 @@ class ItemsViewState extends State<ItemsView> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: InkWell(
-        onTap: () => playItem(widget.chapter, item),
-        child: Stack(
-          children: [
-            Align(
-              child: IconButton(
-                onPressed: () => Navigator.of(context).pop(),
-                icon: Icon(Icons.close_outlined),
-              ),
-            ),
-            PageView.builder(
-              controller: _pageController,
-              itemCount: widget.chapter.items.length,
-              itemBuilder: (_, i) {
-                final item = widget.chapter.items[i];
-                return Padding(
-                  padding: const EdgeInsets.all(8),
-                  child: Stack(
-                    children: [
-                      if (item.id == null)
-                        Center(
-                          child: FittedBox(
-                            fit: BoxFit.contain,
-                            child: Text(
-                              item.learning!.toUpperCase() +
-                                  '\n' +
-                                  item.learning!,
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontSize: 96,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                          ),
-                        )
-                      else ...[
-                        Padding(
-                          padding: const EdgeInsets.only(
-                            top: 32,
-                            bottom: 124,
-                          ),
-                          child: Align(
-                            child: Image.asset(
-                              widget.chapter.getImageURL(item),
-                              errorBuilder: (_, __, ___) {
-                                return Center(
-                                  child: Text('?'),
-                                );
-                              },
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 24),
-                          child: Align(
-                            alignment: Alignment.bottomCenter,
-                            child: Label(item, titleSize: 36, subtitleSize: 30),
-                          ),
-                        ),
-                      ],
-                    ],
+    return InkWell(
+      onTap: () => playItem(widget.chapter, item),
+      child: PageView.builder(
+        controller: _pageController,
+        itemCount: widget.chapter.items.length,
+        itemBuilder: (_, i) {
+          final item = widget.chapter.items[i];
+          return Stack(
+            alignment: Alignment.center,
+            children: [
+              if (item.id == null)
+                FittedBox(
+                  fit: BoxFit.contain,
+                  child: Text(
+                    item.learning!.toUpperCase() + '\n' + item.learning!,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 96,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
-                );
-              },
-            ),
-          ],
-        ),
+                )
+              else ...[
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(8, 8, 8, 32),
+                  child: Image.asset(
+                    widget.chapter.getImageURL(item),
+                    errorBuilder: (_, __, ___) {
+                      return Center(
+                        child: Text('?'),
+                      );
+                    },
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 24),
+                  child: Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Label(item, titleSize: 36, subtitleSize: 30),
+                  ),
+                ),
+              ],
+            ],
+          );
+        },
       ),
     );
   }
