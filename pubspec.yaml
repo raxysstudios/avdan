@@ -138,13 +138,41 @@ flutter:
     - assets/images/fruits/
     - assets/images/home/
     - assets/images/nature/
+    - assets/images/numbers/
     - assets/images/people/
     - assets/images/pronouns/
     - assets/images/vegetables/
     - assets/images/verbs/
 
     - assets/audio/iron/alphabet/
+    - assets/audio/iron/animals/
+    - assets/audio/iron/body parts/
+    - assets/audio/iron/city/
+    - assets/audio/iron/clothes/
     - assets/audio/iron/food/
+    - assets/audio/iron/fruits/
+    - assets/audio/iron/home/
+    - assets/audio/iron/nature/
+    - assets/audio/iron/numbers/
+    - assets/audio/iron/people/
+    - assets/audio/iron/pronouns/
+    - assets/audio/iron/vegetables/
+    - assets/audio/iron/verbs/
+
+    - assets/audio/digor/alphabet/
+    - assets/audio/digor/animals/
+    - assets/audio/digor/body parts/
+    - assets/audio/digor/city/
+    - assets/audio/digor/clothes/
+    - assets/audio/digor/food/
+    - assets/audio/digor/fruits/
+    - assets/audio/digor/home/
+    - assets/audio/digor/nature/
+    - assets/audio/digor/numbers/
+    - assets/audio/digor/people/
+    - assets/audio/digor/pronouns/
+    - assets/audio/digor/vegetables/
+    - assets/audio/digor/verbs/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

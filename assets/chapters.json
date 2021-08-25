@@ -6,7 +6,7 @@
       "turkish": "alfabe",
       "iron": "дамгъуат",
       "iron_alt": "damghwat",
-      "digor": "дамгъуат",
+      "digor": "дамугъуат",
       "digor_alt": "damghwat"
     },
     {
@@ -66,6 +66,7 @@
     {
       "english": "father",
       "russian": "папа",
+      "turkish": "baba",
       "iron": "фыд",
       "iron_alt": "fyd",
       "digor": "фидæ",
@@ -86,8 +87,8 @@
       "turkish": "kız kardeş / abla",
       "iron": "хо",
       "iron_alt": "xo",
-      "digor": "хуарæ",
-      "digor_alt": "xwaræ"
+      "digor": "хуæрæ",
+      "digor_alt": "xwæræ"
     },
     {
       "english": "grandmother",
@@ -266,6 +267,7 @@
     {
       "english": "ossetian pies",
       "russian": "пироги",
+      "turkish": "Oset börekleri",
       "iron": "чъиритæ",
       "iron_alt": "ĉhiritæ",
       "digor": "къеретæ",
@@ -310,6 +312,7 @@
     {
       "english": "meat pie",
       "russian": "пирог с мясом",
+      "turkish": "etli börek",
       "iron": "фыдджын",
       "digor": "фидгун",
       "digor_alt": "fidgun"
@@ -317,6 +320,7 @@
     {
       "english": "potato pie",
       "russian": "пирог с картофелем",
+      "turkish": "patatesli börek",
       "iron": "картофджын",
       "iron_alt": "kartofĝyn",
       "digor": "картофгун",
@@ -325,6 +329,7 @@
     {
       "english": "pumpkin pie",
       "russian": "пирог с тыквой",
+      "turkish": "kabaklı börek",
       "iron": "насджын",
       "iron_alt": "nasĝyn",
       "digor": "насгун",
@@ -333,6 +338,7 @@
     {
       "english": "cheese pie",
       "russian": "пирог с сыром",
+      "turkish": "peynirli börek",
       "iron": "уæлибæх",
       "iron_alt": "wælibæx",
       "digor": "ӕхцин",
@@ -341,9 +347,11 @@
     {
       "english": "beet leaf pie",
       "russian": "пирог с листьями свеклы",
+      "turkish": "pancar yapraklı börek",
       "iron": "цæхæраджын",
       "iron_alt": "cæxæraĝyn",
-      "digor": "дзæхæрагун dzæxæragun"
+      "digor": "дзæхæрагун",
+      "digor_alt": "dzæxæragun"
     },
     {
       "english": "sweets",
@@ -351,7 +359,8 @@
       "turkish": "tatlı",
       "iron": "адджинӕгтæ",
       "iron_alt": "adĝinӕgtӕ",
-      "digor": "адгийнæгтæ ædgijnægtæ"
+      "digor": "адгийнæгтæ",
+      "digor_alt": "adgijnægtæ"
     },
     {
       "english": "cheese",
@@ -532,7 +541,7 @@
       "iron": "рудзынг",
       "iron_alt": "rudzyng",
       "digor": "къӕразгӕ",
-      "digor_alt": "khrazgæ"
+      "digor_alt": "khærazgæ"
     },
     {
       "english": "wall",
@@ -835,7 +844,8 @@
       "turkish": "araba",
       "iron": "хæдтулгæ",
       "iron_alt": "xædtulgæ",
-      "digor": "машинæ"
+      "digor": "машинæ",
+      "digor_alt": "masinæ"
     },
     {
       "english": "bench",
@@ -843,8 +853,7 @@
       "turkish": "bank",
       "iron": "даргъ бандон",
       "iron_alt": "dargh bandon",
-      "digor": "бадæн",
-      "digor_alt": "badæn"
+      "digor": ""
     },
     {
       "english": "mosque",
@@ -932,6 +941,7 @@
     {
       "english": "puddle",
       "russian": "лужа",
+      "turkish": "su birikintisi",
       "iron": "кул",
       "iron_alt": "kul",
       "digor": "колæ",
@@ -1451,6 +1461,7 @@
     {
       "english": "muton hat",
       "russian": "папаха овчинная",
+      "turkish": "papak",
       "iron": "уæлдзарм худ",
       "iron_alt": "wældzarm xud",
       "digor": "уæлдзар ходæ",
@@ -1486,6 +1497,7 @@
     {
       "english": "kaftan",
       "russian": "бешмет",
+      "turkish": "beşmet",
       "iron": "куырæт",
       "iron_alt": "kwyræt",
       "digor": "курæт",
@@ -1519,7 +1531,7 @@
       "digor_alt": "xælaf"
     },
     {
-      "english": "high boots",
+      "english": "riding boots",
       "russian": "сапоги",
       "turkish": "çizme",
       "iron": "цырыхъхъытæ",
@@ -1573,7 +1585,7 @@
       "digor_alt": "sasug"
     },
     {
-      "english": "fur/sheepskin coat",
+      "english": "fur or sheepskin coat",
       "russian": "шуба/дубленка",
       "turkish": "koyun kürkü",
       "iron": "кæрц",
@@ -1593,6 +1605,7 @@
     {
       "english": "bandolier",
       "russian": "газыри",
+      "turkish": "fişeklik",
       "iron": "бæрцытæ",
       "iron_alt": "bærcytæ",
       "digor": "бæрцитæ",
@@ -1657,6 +1670,7 @@
     {
       "english": "face",
       "russian": "лицо",
+      "turkish": "yüz",
       "iron": "цæсгом",
       "iron_alt": "cæsgom",
       "digor": "цæсгон",
@@ -1711,8 +1725,8 @@
       "english": "mouth",
       "russian": "рот",
       "turkish": "ağız",
-      "iron": "ком",
-      "iron_alt": "kom",
+      "iron": "дзых",
+      "iron_alt": "dzyx",
       "digor": "цъух",
       "digor_alt": "chux"
     },
@@ -1782,6 +1796,7 @@
     {
       "english": "teeth",
       "russian": "зубы",
+      "turkish": "dişler",
       "iron": "дæндæгтæ",
       "iron_alt": "dændægtæ",
       "digor": "дæндæгтæ",
@@ -1887,15 +1902,6 @@
       "iron_alt": "qazyn",
       "digor": "гъазун",
       "digor_alt": "ghazun"
-    },
-    {
-      "english": "to understand",
-      "russian": "понимать",
-      "turkish": "anlamak",
-      "iron": "æмбарын",
-      "iron_alt": "æmbaryn",
-      "digor": "лæдæрун",
-      "digor_alt": "lædærun"
     },
     {
       "english": "to ask",
