@@ -48,7 +48,7 @@ class ChaptersView extends StatelessWidget {
       ),
       builder: (_, child) {
         final index = controller.animation?.value ?? 0;
-        return Container(
+        return Material(
           color: Color.lerp(
             chapters[index.floor()].color,
             chapters[index.ceil()].color,
