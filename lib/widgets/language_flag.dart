@@ -23,15 +23,18 @@ class LanguageFlag extends StatelessWidget {
           angle: -pi / 4,
           child: Transform.scale(
             scale: scale,
-            child: Image.asset(
-              language.flagUrl,
-              repeat: ImageRepeat.repeatX,
-              errorBuilder: (
-                BuildContext context,
-                Object exception,
-                StackTrace? stackTrace,
-              ) =>
-                  Offstage(),
+            child: Opacity(
+              opacity: 0.8,
+              child: Image.asset(
+                language.flagUrl,
+                repeat: ImageRepeat.repeatX,
+                errorBuilder: (
+                  BuildContext context,
+                  Object exception,
+                  StackTrace? stackTrace,
+                ) =>
+                    Offstage(),
+              ),
             ),
           ),
         ),
