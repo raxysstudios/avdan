@@ -7,13 +7,15 @@ class LanguageTile extends StatelessWidget {
   const LanguageTile(
     this.language, {
     this.selected = false,
-    this.alt,
     this.onTap,
   });
   final Language language;
   final bool selected;
-  final bool? alt;
   final Function(bool? alt)? onTap;
+
+  bool get alt => Store.learning == language && Store.alt;
+  String get title => language.name.map[language.name.id]!;
+  String get titleAlt => language.name.map[language.alt]!;
 
   @override
   Widget build(BuildContext context) {
@@ -21,30 +23,40 @@ class LanguageTile extends StatelessWidget {
       leading: CircleAvatar(
         backgroundImage: AssetImage(language.flagUrl),
       ),
-      title: Text(
-        capitalize(
-          Store.alt && Store.learning == language
-              ? language.name.learning
-              : language.name.map[language.name.id]!,
-        ),
-        style: TextStyle(
-          fontWeight: FontWeight.w500,
-        ),
+      title: Row(
+        children: [
+          Text(
+            capitalize(alt ? titleAlt : title),
+            style: TextStyle(
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          if (language.alt != null) ...[
+            Spacer(),
+            Icon(
+              Icons.swap_horiz_outlined,
+              size: 16,
+              color: Theme.of(context).hintColor,
+            ),
+            SizedBox(width: 4),
+            Text(
+              capitalize(alt ? title : titleAlt),
+              style: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w500,
+                color: Theme.of(context).hintColor,
+              ),
+            ),
+          ],
+        ],
       ),
       subtitle: language.interface
           ? null
           : Text(
               capitalize(language.name.interface),
             ),
-      trailing: language.alt == null
-          ? null
-          : Switch(
-              value: alt == true,
-              onChanged: (alt) => onTap?.call(alt),
-              activeColor: Theme.of(context).colorScheme.primary,
-            ),
       onTap: () => onTap?.call(
-        alt == null || !selected ? null : !alt!,
+        language.alt != null && selected ? !alt : null,
       ),
       selected: selected,
     );

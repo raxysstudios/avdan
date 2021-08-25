@@ -130,7 +130,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   LanguageTile(
                     l,
                     selected: Store.learning == l,
-                    alt: l.alt != null && Store.learning == l && Store.alt,
                     onTap: (alt) {
                       setState(() {
                         Store.learning = l;
