@@ -15,13 +15,18 @@ Future<void> playAsset(String path) async {
   }
 }
 
-playItem(Chapter chapter, Translation item) {
+playItem(Chapter chapter, [Translation? item]) {
   final path = [
     'assets',
     'audio',
     Store.learning.name.id,
-    chapter.title.id,
-    chapter.alphabet ? item.learning : item.id,
+    if (item == null)
+      [Store.learning.name.id]
+    else
+      [
+        chapter.title.id,
+        chapter.alphabet ? item.map[Store.learning.alt] : item.id
+      ],
   ].join('/');
   playAsset(path + '.mp3');
 }
