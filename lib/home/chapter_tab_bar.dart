@@ -5,10 +5,12 @@ import 'item_card.dart';
 class ChapterTabBar extends AnimatedWidget {
   final List<Chapter> chapters;
   final TabController controller;
+  final ValueSetter<int>? onTap;
 
   ChapterTabBar({
     required this.controller,
     required this.chapters,
+    this.onTap,
   }) : super(listenable: controller.animation!);
 
   @override
@@ -48,7 +50,10 @@ class ChapterTabBar extends AnimatedWidget {
                     image: chapter.alphabet
                         ? null
                         : chapter.getImageURL(chapter.items.first),
-                    onTap: () => controller.animateTo(i),
+                    onTap: () {
+                      controller.animateTo(i);
+                      onTap?.call(i);
+                    },
                   ),
                 ),
               );

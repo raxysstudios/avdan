@@ -1,3 +1,4 @@
+import 'package:avdan/audio_player.dart';
 import 'package:avdan/data/chapter.dart';
 import 'package:avdan/data/translation.dart';
 import 'package:avdan/home/chapter_tab_bar.dart';
@@ -34,10 +35,12 @@ class _HomeScreenState extends State<HomeScreen>
       if (this.chapter != chapter)
         setState(() {
           this.chapter = chapter;
+          playItem(chapter);
         });
     });
-    SharedPreferences.getInstance().then((prefs) {
-      if (prefs.getString('interface') == null) openSettings();
+    SharedPreferences.getInstance().then((prefs) async {
+      if (prefs.getString('interface') == null) await openSettings();
+      playItem(chapter);
     });
   }
 
@@ -46,8 +49,8 @@ class _HomeScreenState extends State<HomeScreen>
     super.dispose();
   }
 
-  void openSettings() {
-    Navigator.push(
+  Future<void> openSettings() {
+    return Navigator.push(
       context,
       MaterialPageRoute(
         builder: (_) => SettingsScreen(),
@@ -135,6 +138,10 @@ class _HomeScreenState extends State<HomeScreen>
           child: ChapterTabBar(
             controller: _tabController,
             chapters: Store.chapters,
+            onTap: (i) {
+              final chapter = Store.chapters[i];
+              if (chapter == this.chapter) playItem(chapter);
+            },
           ),
         ),
       ),
