@@ -20,13 +20,12 @@ playItem(Chapter chapter, [Translation? item]) {
     'assets',
     'audio',
     Store.learning.name.id,
-    if (item == null)
-      [Store.learning.name.id]
-    else
-      [
-        chapter.title.id,
-        chapter.alphabet ? item.map[Store.learning.alt] : item.id
-      ],
+    chapter.title.id,
+    item == null
+        ? chapter.title.id
+        : chapter.alphabet
+            ? item.map[Store.learning.alt]
+            : item.id,
   ].join('/');
   playAsset(path + '.mp3');
 }
