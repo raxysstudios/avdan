@@ -10,9 +10,9 @@
       "digor_alt": "damghwat"
     },
     {
-      "iron": "а æ б в г гъ д дз дж е з и й к къ л м н о п пъ р с т тъ у у ф х хъ ц цъ ч чъ ы",
+      "iron": "а ӕ б в г гъ д дз дж е з и й к къ л м н о п пъ р с т тъ у у ф х хъ ц цъ ч чъ ы",
       "iron_alt": "a æ b v g gh d dz ĝ e z i j k kh l m n o p ph r s t th w u f x q c ch ĉ ĉh y",
-      "digor": "а æ б в г гъ д дз дж е з и й к къ л м н о п пъ р с т тъ у у ф х хъ ц цъ ч чъ ы",
+      "digor": "а ӕ б в г гъ д дз дж е з и й к къ л м н о п пъ р с т тъ у у ф х хъ ц цъ ч чъ ы",
       "digor_alt": "a æ b v g gh d dz ĝ e z i j k kh l m n o p ph r s t th w u f x q c ch ĉ ĉh y"
     }
   ],
@@ -930,6 +930,7 @@
   ],
   [
     {
+      "color": "FFCC80",
       "english": "nature",
       "russian": "природа",
       "turkish": "doğa",
@@ -1175,6 +1176,7 @@
   ],
   [
     {
+      "color": "80CBC4",
       "english": "pronouns",
       "russian": "местоимения",
       "turkish": "zamirler",
@@ -1184,7 +1186,7 @@
       "digor_alt": "nomevgutæ"
     },
     {
-      "english": "i",
+      "english": "I",
       "russian": "я",
       "turkish": "ben",
       "iron": "æз",
@@ -1258,7 +1260,7 @@
   ],
   [
     {
-      "color": "795548",
+      "color": "81C784",
       "english": "animals",
       "russian": "животные",
       "turkish": "hayvanlar",
@@ -1432,6 +1434,7 @@
   ],
   [
     {
+      "color": "9575CD",
       "english": "clothes",
       "russian": "одежда",
       "turkish": "kıyafetler",
@@ -1567,7 +1570,7 @@
       "digor_alt": "dællagguræ"
     },
     {
-      "english": "kerchief",
+      "english": "head scarf",
       "russian": "платок",
       "turkish": "başörtüsü",
       "iron": "сæрбæттæн",
@@ -1576,7 +1579,7 @@
       "digor_alt": "særbættæn"
     },
     {
-      "english": "veil",
+      "english": "sawl",
       "russian": "шаль",
       "turkish": "şal",
       "iron": "кæлмæрзæн",
@@ -1650,6 +1653,7 @@
   ],
   [
     {
+      "color": "42A5F5",
       "english": "body parts",
       "russian": "части тела",
       "turkish": "vücut hatları",
@@ -1805,6 +1809,7 @@
   ],
   [
     {
+      "color": "FFB74D",
       "english": "verbs",
       "russian": "глаголы",
       "turkish": "fiiller",
@@ -2077,6 +2082,7 @@
   ],
   [
     {
+      "color": "90A4AE",
       "english": "numbers",
       "russian": "числа",
       "turkish": "sayılar",
