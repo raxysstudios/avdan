@@ -27,6 +27,5 @@ playItem(Chapter chapter, [Translation? item]) {
             ? item.map[Store.learning.alt]
             : item.id,
   ].join('/');
-  print('PTH $path');
   playAsset(path + '.mp3');
 }
