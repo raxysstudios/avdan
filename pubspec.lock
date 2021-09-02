@@ -141,7 +141,7 @@ packages:
       name: in_app_purchase_android
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.4+5"
+    version: "0.1.4+6"
   in_app_purchase_ios:
     dependency: transitive
     description:
@@ -176,7 +176,7 @@ packages:
       name: just_audio
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.9.7"
+    version: "0.9.9"
   just_audio_platform_interface:
     dependency: transitive
     description:
@@ -190,7 +190,7 @@ packages:
       name: just_audio_web
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.4.1"
+    version: "0.4.2"
   matcher:
     dependency: transitive
     description:
@@ -468,7 +468,7 @@ packages:
       name: win32
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.2.6"
+    version: "2.2.8"
   xdg_directories:
     dependency: transitive
     description:
