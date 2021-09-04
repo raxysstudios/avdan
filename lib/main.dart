@@ -2,6 +2,7 @@ import 'package:avdan/home/home_screen.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'store.dart';
+import 'package:flutter/services.dart';
 import 'package:in_app_purchase_android/in_app_purchase_android.dart';
 
 void main() async {
@@ -9,10 +10,13 @@ void main() async {
   await Store.load();
   if (defaultTargetPlatform == TargetPlatform.android)
     InAppPurchaseAndroidPlatformAddition.enablePendingPurchases();
-  runApp(Avdan());
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+  ]);
+  runApp(App());
 }
 
-class Avdan extends StatelessWidget {
+class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
