@@ -1,6 +1,7 @@
 [
   [
     {
+      "color": "26A69A",
       "english": "alphabet",
       "russian": "алфавит",
       "turkish": "alfabe",
@@ -12,8 +13,8 @@
     {
       "iron": "а ӕ б в г гъ д дз дж е з и й к къ л м н о п пъ р с т тъ у у ф х хъ ц цъ ч чъ ы",
       "iron_alt": "a æ b v g gh d dz ĝ e z i j k kh l m n o p ph r s t th w u f x q c ch ĉ ĉh y",
-      "digor": "а ӕ б в г гъ д дз дж е з и й к къ л м н о п пъ р с т тъ у у ф х хъ ц цъ ч чъ ы",
-      "digor_alt": "a æ b v g gh d dz ĝ e z i j k kh l m n o p ph r s t th w u f x q c ch ĉ ĉh y"
+      "digor": "а ӕ б в г гъ д дз дж е з и й к къ л м н о п пъ р с т тъ у у ф х хъ ц цъ ч чъ",
+      "digor_alt": "a æ b v g gh d dz ĝ e z i j k kh l m n o p ph r s t th w u f x q c ch ĉ ĉh"
     }
   ],
   [
@@ -461,7 +462,8 @@
       "turkish": "yatak odası",
       "iron": "хуыссæнуат",
       "iron_alt": "xwyssænwat",
-      "digor": "хуссӕндонӕ xussændonæ"
+      "digor": "хуссӕндонӕ",
+      "digor_alt": "xussændonæ"
     },
     {
       "english": "bed",
@@ -532,7 +534,8 @@
       "turkish": "banyo",
       "iron": "найæнуат",
       "iron_alt": "najænwat",
-      "digor": "ӕртайӕндонӕ ærtajændonæ"
+      "digor": "ӕртайӕндонӕ",
+      "digor_alt": "ærtajændonæ"
     },
     {
       "english": "window",
@@ -743,7 +746,8 @@
       "turkish": "soğan",
       "iron": "хъæдындз",
       "iron_alt": "qædyndz",
-      "digor": "гъæдзиндзæ ghædzindzæ"
+      "digor": "гъæдзиндзæ",
+      "digor_alt": "ghædzindzæ"
     },
     {
       "english": "garlic",
@@ -2201,7 +2205,7 @@
       "digor_alt": "ærtin"
     },
     {
-      "english": "forty",
+      "english": "fourty",
       "russian": "сорок",
       "turkish": "kırk",
       "iron": "цыппор",
