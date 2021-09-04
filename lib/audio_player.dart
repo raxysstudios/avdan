@@ -3,19 +3,9 @@ import 'package:avdan/store.dart';
 import 'package:just_audio/just_audio.dart';
 import 'data/chapter.dart';
 
-final player = AudioPlayer();
+final _player = AudioPlayer();
 
-Future<void> playAsset(String path) async {
-  try {
-    if (player.playing) await player.stop();
-    await player.setAsset(path);
-    player.play();
-  } catch (e) {
-    print(e);
-  }
-}
-
-playItem(Chapter chapter, [Translation? item]) {
+void playItem(Chapter chapter, [Translation? item]) async {
   final path = [
     'assets',
     'audio',
@@ -27,5 +17,12 @@ playItem(Chapter chapter, [Translation? item]) {
             ? item.map[Store.learning.alt]
             : item.id,
   ].join('/');
-  playAsset(path + '.mp3');
+
+  try {
+    if (_player.playing) await _player.stop();
+    await _player.setAsset(path);
+    await _player.play();
+  } catch (e) {
+    print(e);
+  }
 }
