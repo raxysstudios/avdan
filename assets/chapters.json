@@ -12,7 +12,7 @@
     },
     {
       "iron": "а ӕ б в г гъ д дз дж е з и й к къ л м н о п пъ р с т тъ у у ф х хъ ц цъ ч чъ ы",
-      "iron_alt": "a æ b v g gh d dz ĝ e z i j k kh l m n o p ph r s t th w u f x q c ch ĉ ĉh y",
+      "iron_alt": "a æ b v g gh d dz ĝ e z i j k kh l m n o p ph r s t th u w f x q c ch ĉ ĉh y",
       "digor": "а ӕ б в г гъ д дз дж е з и й к къ л м н о п пъ р с т тъ у у ф х хъ ц цъ ч чъ",
       "digor_alt": "a æ b v g gh d dz ĝ e z i j k kh l m n o p ph r s t th w u f x q c ch ĉ ĉh"
     }
@@ -29,13 +29,13 @@
       "digor_alt": "adæn"
     },
     {
-      "english": "people",
-      "russian": "люди",
-      "turkish": "insanlar",
-      "iron": "адæм",
-      "iron_alt": "adæm",
-      "digor": "адæн",
-      "digor_alt": "adæn"
+      "english": "senior",
+      "russian": "старший",
+      "turkish": "ihtiyar",
+      "iron": "хистæр",
+      "iron_alt": "xistær",
+      "digor": "хестæр",
+      "digor_alt": "xestær"
     },
     {
       "english": "man",
@@ -45,6 +45,15 @@
       "iron_alt": "læg",
       "digor": "лæг",
       "digor_alt": "lӕg"
+    },
+    {
+      "english": "people",
+      "russian": "люди",
+      "turkish": "insanlar",
+      "iron": "адæм",
+      "iron_alt": "adæm",
+      "digor": "адæн",
+      "digor_alt": "adæn"
     },
     {
       "english": "woman",
@@ -95,8 +104,8 @@
       "english": "grandmother",
       "russian": "бабушка",
       "turkish": "anneanne / babaanne",
-      "iron": "бабу",
-      "iron_alt": "babu",
+      "iron": "нана",
+      "iron_alt": "nana",
       "digor": "нана",
       "digor_alt": "nana"
     },
@@ -146,15 +155,6 @@
       "digor_alt": "suvӕllon"
     },
     {
-      "english": "senior",
-      "russian": "старший",
-      "turkish": "ihtiyar",
-      "iron": "хистæр",
-      "iron_alt": "xistær",
-      "digor": "хестæр",
-      "digor_alt": "xestær"
-    },
-    {
       "english": "friend",
       "russian": "друг",
       "turkish": "arkadaş",
@@ -183,6 +183,15 @@
       "iron_alt": "xærinag",
       "digor": "хуæруйнаг",
       "digor_alt": "xwærujnag"
+    },
+    {
+      "english": "ossetian pies",
+      "russian": "пироги",
+      "turkish": "Oset börekleri",
+      "iron": "чъиритæ",
+      "iron_alt": "ĉhiritæ",
+      "digor": "къеретæ",
+      "digor_alt": "kheretæ"
     },
     {
       "english": "bread",
@@ -264,15 +273,6 @@
       "iron_alt": "qajmagh",
       "digor": "хъаймагъ",
       "digor_alt": "qajmagh"
-    },
-    {
-      "english": "ossetian pies",
-      "russian": "пироги",
-      "turkish": "Oset börekleri",
-      "iron": "чъиритæ",
-      "iron_alt": "ĉhiritæ",
-      "digor": "къеретæ",
-      "digor_alt": "kheretæ"
     },
     {
       "english": "oil",
@@ -385,6 +385,15 @@
       "digor_alt": "xædzaræ"
     },
     {
+      "english": "bed",
+      "russian": "кровать",
+      "turkish": "yatak",
+      "iron": "сынтæг",
+      "iron_alt": "syntæg",
+      "digor": "хуссӕн",
+      "digor_alt": "xussæn"
+    },
+    {
       "english": "kitchen",
       "russian": "кухня",
       "turkish": "mutfak",
@@ -464,15 +473,6 @@
       "iron_alt": "xwyssænwat",
       "digor": "хуссӕндонӕ",
       "digor_alt": "xussændonæ"
-    },
-    {
-      "english": "bed",
-      "russian": "кровать",
-      "turkish": "yatak",
-      "iron": "сынтæг",
-      "iron_alt": "syntæg",
-      "digor": "хуссӕн",
-      "digor_alt": "xussæn"
     },
     {
       "english": "blanket",
@@ -816,6 +816,15 @@
       "digor_alt": "saxar"
     },
     {
+      "english": "mosque",
+      "russian": "мечеть",
+      "turkish": "cami",
+      "iron": "мæзджыт",
+      "iron_alt": "mæzĝyt",
+      "digor": "мæзгит",
+      "digor_alt": "mæzgit"
+    },
+    {
       "english": "village",
       "russian": "аул",
       "turkish": "köy",
@@ -859,15 +868,6 @@
       "iron_alt": "dargh bandon",
       "digor": "бадæн",
       "digor_alt": "badæn"
-    },
-    {
-      "english": "mosque",
-      "russian": "мечеть",
-      "turkish": "cami",
-      "iron": "мæзджыт",
-      "iron_alt": "mæzĝyt",
-      "digor": "мæзгит",
-      "digor_alt": "mæzgit"
     },
     {
       "english": "church",
@@ -945,15 +945,6 @@
       "digor_alt": "ærdzæ"
     },
     {
-      "english": "puddle",
-      "russian": "лужа",
-      "turkish": "su birikintisi",
-      "iron": "кул",
-      "iron_alt": "kul",
-      "digor": "колæ",
-      "digor_alt": "kolæ"
-    },
-    {
       "english": "tree",
       "russian": "дерево",
       "turkish": "ağaç",
@@ -961,6 +952,15 @@
       "iron_alt": "bælas",
       "digor": "бæласæ",
       "digor_alt": "bælasæ"
+    },
+    {
+      "english": "puddle",
+      "russian": "лужа",
+      "turkish": "su birikintisi",
+      "iron": "кул",
+      "iron_alt": "kul",
+      "digor": "колæ",
+      "digor_alt": "kolæ"
     },
     {
       "english": "forest",
@@ -1191,15 +1191,6 @@
       "digor_alt": "nomevgutæ"
     },
     {
-      "english": "I",
-      "russian": "я",
-      "turkish": "ben",
-      "iron": "æз",
-      "iron_alt": "æz",
-      "digor": "æз",
-      "digor_alt": "æz"
-    },
-    {
       "english": "you",
       "russian": "ты",
       "turkish": "sen",
@@ -1207,6 +1198,15 @@
       "iron_alt": "dy",
       "digor": "ду",
       "digor_alt": "du"
+    },
+    {
+      "english": "I",
+      "russian": "я",
+      "turkish": "ben",
+      "iron": "æз",
+      "iron_alt": "æz",
+      "digor": "æз",
+      "digor_alt": "æz"
     },
     {
       "english": "he",
@@ -1449,6 +1449,15 @@
       "digor_alt": "qæppæltæ"
     },
     {
+      "english": "felt hat",
+      "russian": "войлочная шляпа",
+      "turkish": "keçe şapkası",
+      "iron": "нымæт худ",
+      "iron_alt": "nymæt xud",
+      "digor": "буйнаг ходæ",
+      "digor_alt": "bujnag xodæ"
+    },
+    {
       "english": "hat",
       "russian": "шапка",
       "turkish": "şapka",
@@ -1474,15 +1483,6 @@
       "iron_alt": "wældzarm xud",
       "digor": "уæлдзар ходæ",
       "digor_alt": "wældzar xodæ"
-    },
-    {
-      "english": "felt hat",
-      "russian": "войлочная шляпа",
-      "turkish": "keçe şapkası",
-      "iron": "нымæт худ",
-      "iron_alt": "nymæt xud",
-      "digor": "буйнаг ходæ",
-      "digor_alt": "bujnag xodæ"
     },
     {
       "english": "caucasian coat",
@@ -1668,6 +1668,15 @@
       "digor_alt": "bawæri iwængtæ"
     },
     {
+      "english": "hand",
+      "russian": "рука",
+      "turkish": "el",
+      "iron": "къух",
+      "iron_alt": "khux",
+      "digor": "къох",
+      "digor_alt": "khox"
+    },
+    {
       "english": "head",
       "russian": "голова",
       "turkish": "kafa",
@@ -1758,15 +1767,6 @@
       "digor_alt": "bærzæj"
     },
     {
-      "english": "hand",
-      "russian": "рука",
-      "turkish": "el",
-      "iron": "къух",
-      "iron_alt": "khux",
-      "digor": "къох",
-      "digor_alt": "khox"
-    },
-    {
       "english": "leg",
       "russian": "нога",
       "turkish": "bacak",
@@ -1822,6 +1822,15 @@
       "iron_alt": "mivsdisæg",
       "digor": "миуæвдесæг",
       "digor_alt": "miwævdesæg"
+    },
+    {
+      "english": "to hear",
+      "russian": "слышать",
+      "turkish": "duymak",
+      "iron": "хъусын",
+      "iron_alt": "qusyn",
+      "digor": "игъосун",
+      "digor_alt": "ighosun"
     },
     {
       "english": "to speak",
@@ -1984,15 +1993,6 @@
       "iron_alt": "aguryn",
       "digor": "агорун",
       "digor_alt": "agorun"
-    },
-    {
-      "english": "to hear",
-      "russian": "слышать",
-      "turkish": "duymak",
-      "iron": "хъусын",
-      "iron_alt": "qusyn",
-      "digor": "игъосун",
-      "digor_alt": "ighosun"
     },
     {
       "english": "to shout",
