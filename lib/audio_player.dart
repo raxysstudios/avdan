@@ -3,7 +3,7 @@ import 'package:avdan/store.dart';
 import 'package:just_audio/just_audio.dart';
 import 'data/chapter.dart';
 
-final _player = AudioPlayer();
+var _player = AudioPlayer();
 
 void playItem(Chapter chapter, [Translation? item]) async {
   final path = [
@@ -20,10 +20,14 @@ void playItem(Chapter chapter, [Translation? item]) async {
       '.mp3';
 
   try {
-    if (_player.playing) await _player.stop();
-    await _player.setAsset(path);
-    await _player.play();
+    await _player.stop();
+    final player = AudioPlayer();
+    _player = player;
+
+    await player.setAsset(path);
+    await player.play();
+    await player.dispose();
   } catch (e) {
-    print(e);
+    print("AUDIO CRASH $e");
   }
 }
