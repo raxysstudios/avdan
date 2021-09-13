@@ -102,9 +102,12 @@ class _HomeScreenState extends State<HomeScreen>
         leading: Stack(
           children: [
             Center(
-              child: LanguageFlag(
-                Store.learning,
-                offset: Offset(8, 0),
+              child: Opacity(
+                opacity: 0.8,
+                child: LanguageFlag(
+                  Store.learning,
+                  offset: Offset(8, 0),
+                ),
               ),
             )
           ],
