@@ -6,7 +6,7 @@ import 'data/chapter.dart';
 var _player = AudioPlayer();
 
 void playItem(Chapter chapter, [Translation? item]) async {
-  final path = [
+  final url = [
         'assets',
         'audio',
         Store.learning.name.id,
@@ -20,13 +20,12 @@ void playItem(Chapter chapter, [Translation? item]) async {
       '.mp3';
 
   try {
-    await _player.stop();
+    await _player.dispose();
     final player = AudioPlayer();
     _player = player;
 
-    await player.setAsset(path);
+    await player.setAsset(url);
     await player.play();
-    await player.dispose();
   } catch (e) {
     print("AUDIO CRASH $e");
   }
