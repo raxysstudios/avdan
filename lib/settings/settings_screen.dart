@@ -80,7 +80,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     SizedBox(width: 8),
                     Expanded(
                       child: ElevatedButton.icon(
-                        onPressed: () => launch('https://t.me/avzag'),
+                        onPressed: () => launch('https://t.me/studioraxys'),
                         icon: Icon(Icons.send_outlined),
                         label: Text(capitalize(Localization.get('contact'))),
                       ),
