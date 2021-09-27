@@ -29,7 +29,7 @@ class Label extends StatelessWidget {
           TextSpan(
             text: lt,
             style: TextStyle(
-              color: Theme.of(context).textTheme.bodyText2?.color,
+              color: Theme.of(context).colorScheme.onSurface,
               fontSize: titleSize,
               fontWeight: FontWeight.w500,
             ),

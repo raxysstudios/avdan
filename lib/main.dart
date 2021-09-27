@@ -24,8 +24,17 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Avdan',
-      theme: ThemeData(),
-      darkTheme: ThemeData.dark(),
+      theme: ThemeData().copyWith(
+        colorScheme: ColorScheme.fromSwatch(
+          accentColor: Colors.grey,
+        ),
+      ),
+      darkTheme: ThemeData.dark().copyWith(
+        colorScheme: ColorScheme.fromSwatch(
+          accentColor: Colors.grey,
+          brightness: Brightness.dark,
+        ),
+      ),
       home: const HomeScreen(),
     );
   }

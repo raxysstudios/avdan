@@ -103,6 +103,7 @@ class _HomeScreenState extends State<HomeScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.surface,
         leading: Stack(
           children: [
             Center(
@@ -125,6 +126,7 @@ class _HomeScreenState extends State<HomeScreen>
         actions: [
           IconButton(
             icon: const Icon(Icons.settings_outlined),
+            color: Theme.of(context).colorScheme.onSurface,
             onPressed: openSettings,
             visualDensity: const VisualDensity(horizontal: 2),
           ),
