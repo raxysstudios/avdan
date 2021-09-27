@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:avdan/data/utils.dart';
 import 'package:avdan/store.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 
@@ -13,25 +14,32 @@ class DonateButton extends StatefulWidget {
 
 class _DonateButtonState extends State<DonateButton> {
   late final StreamSubscription<List<PurchaseDetails>> subscription;
+  bool get isValidPlatform =>
+      defaultTargetPlatform == TargetPlatform.android ||
+      defaultTargetPlatform == TargetPlatform.iOS;
 
   @override
   void initState() {
     super.initState();
-    subscription = InAppPurchase.instance.purchaseStream.listen(
-      (purchaseDetailsList) async {
-        for (var purchase in purchaseDetailsList) {
-          if (purchase.pendingCompletePurchase) {
-            await InAppPurchase.instance.completePurchase(purchase);
+    if (isValidPlatform) {
+      subscription = InAppPurchase.instance.purchaseStream.listen(
+        (purchaseDetailsList) async {
+          for (var purchase in purchaseDetailsList) {
+            if (purchase.pendingCompletePurchase) {
+              await InAppPurchase.instance.completePurchase(purchase);
+            }
           }
-        }
-      },
-      onDone: () => subscription.cancel(),
-    );
+        },
+        onDone: () => subscription.cancel(),
+      );
+    }
   }
 
   @override
   void dispose() {
-    subscription.cancel();
+    if (isValidPlatform) {
+      subscription.cancel();
+    }
     super.dispose();
   }
 
@@ -49,7 +57,7 @@ class _DonateButtonState extends State<DonateButton> {
   @override
   Widget build(BuildContext context) {
     return TextButton.icon(
-      onPressed: purchase,
+      onPressed: isValidPlatform ? purchase : null,
       icon: const Icon(Icons.coffee_outlined),
       label: Text(capitalize(Localization.get('support'))),
     );
