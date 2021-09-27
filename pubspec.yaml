@@ -12,7 +12,7 @@ dependencies:
   url_launcher: ^6.0.9
   just_audio: ^0.9.5
   sensors_plus: ^1.0.2
-  in_app_purchase: ^1.0.6
+  in_app_purchase: ^1.0.8
 
 dev_dependencies:
   flutter_test:

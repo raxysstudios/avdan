@@ -27,7 +27,6 @@ class _DonateButtonState extends State<DonateButton> {
 
   @override
   void initState() {
-    super.initState();
     if (isValidPlatform) {
       subscription = InAppPurchase.instance.purchaseStream.listen(
         (purchaseDetailsList) async {
@@ -40,6 +39,7 @@ class _DonateButtonState extends State<DonateButton> {
         onDone: () => subscription.cancel(),
       );
     }
+    super.initState();
   }
 
   @override
