@@ -9,9 +9,10 @@ class Label extends StatelessWidget {
 
   const Label(
     this.item, {
+    Key? key,
     this.titleSize = 16,
     this.subtitleSize = 14,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +34,7 @@ class Label extends StatelessWidget {
               fontWeight: FontWeight.w500,
             ),
           ),
-          if (lt.isNotEmpty && it.isNotEmpty) TextSpan(text: '\n'),
+          if (lt.isNotEmpty && it.isNotEmpty) const TextSpan(text: '\n'),
           TextSpan(
             text: it,
           ),

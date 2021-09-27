@@ -13,6 +13,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
@@ -32,11 +34,12 @@ class _HomeScreenState extends State<HomeScreen>
     _tabController.animation?.addListener(() {
       final index = _tabController.animation?.value.round() ?? 0;
       final chapter = Store.chapters[index];
-      if (this.chapter != chapter)
+      if (this.chapter != chapter) {
         setState(() {
           this.chapter = chapter;
           playItem(chapter);
         });
+      }
     });
     SharedPreferences.getInstance().then((prefs) async {
       if (prefs.getString('interface') == null) await openSettings();
@@ -44,6 +47,7 @@ class _HomeScreenState extends State<HomeScreen>
     });
   }
 
+  @override
   void dispose() {
     _tabController.dispose();
     super.dispose();
@@ -53,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen>
     return Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (_) => SettingsScreen(),
+        builder: (_) => const SettingsScreen(),
       ),
     );
   }
@@ -84,7 +88,7 @@ class _HomeScreenState extends State<HomeScreen>
                   alignment: Alignment.topLeft,
                   child: IconButton(
                     onPressed: () => Navigator.of(context).pop(),
-                    icon: Icon(Icons.close_outlined),
+                    icon: const Icon(Icons.close_outlined),
                   ),
                 ),
               ),
@@ -106,7 +110,7 @@ class _HomeScreenState extends State<HomeScreen>
                 opacity: 0.8,
                 child: LanguageFlag(
                   Store.learning,
-                  offset: Offset(8, 0),
+                  offset: const Offset(8, 0),
                 ),
               ),
             )
@@ -120,9 +124,9 @@ class _HomeScreenState extends State<HomeScreen>
         centerTitle: true,
         actions: [
           IconButton(
-            icon: Icon(Icons.settings_outlined),
+            icon: const Icon(Icons.settings_outlined),
             onPressed: openSettings,
-            visualDensity: VisualDensity(horizontal: 2),
+            visualDensity: const VisualDensity(horizontal: 2),
           ),
         ],
       ),

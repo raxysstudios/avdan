@@ -9,10 +9,11 @@ class ItemsView extends StatefulWidget {
   final Chapter chapter;
   final Translation item;
 
-  ItemsView({
+  const ItemsView({
+    Key? key,
     required this.chapter,
     required this.item,
-  });
+  }) : super(key: key);
 
   @override
   ItemsViewState createState() => ItemsViewState();
@@ -30,11 +31,12 @@ class ItemsViewState extends State<ItemsView> {
     );
     _pageController.addListener(() {
       final item = widget.chapter.items[_pageController.page?.round() ?? 0];
-      if (this.item != item)
+      if (this.item != item) {
         setState(() {
           this.item = item;
           playItem(widget.chapter, item);
         });
+      }
     });
     playItem(widget.chapter, item);
   }
@@ -63,7 +65,7 @@ class ItemsViewState extends State<ItemsView> {
                   child: Text(
                     item.learning!.toUpperCase() + '\n' + item.learning!,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 96,
                       fontWeight: FontWeight.w500,
                     ),
@@ -75,7 +77,7 @@ class ItemsViewState extends State<ItemsView> {
                   child: Image.asset(
                     widget.chapter.getImageURL(item),
                     errorBuilder: (_, __, ___) {
-                      return Center(
+                      return const Center(
                         child: Text('?'),
                       );
                     },

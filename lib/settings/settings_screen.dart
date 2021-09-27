@@ -10,6 +10,8 @@ import 'package:url_launcher/url_launcher.dart';
 import 'language_tile.dart';
 
 class SettingsScreen extends StatefulWidget {
+  const SettingsScreen({Key? key}) : super(key: key);
+
   @override
   _SettingsScreenState createState() => _SettingsScreenState();
 }
@@ -50,7 +52,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () => Navigator.pop(context),
-        icon: Icon(Icons.home_outlined),
+        icon: const Icon(Icons.home_outlined),
         label: Text(
           capitalize(Localization.get('home')),
         ),
@@ -65,23 +67,23 @@ class _SettingsScreenState extends State<SettingsScreen> {
             padding: const EdgeInsets.all(8),
             child: Column(
               children: [
-                Icon(Icons.landscape_outlined),
-                SizedBox(height: 8),
+                const Icon(Icons.landscape_outlined),
+                const SizedBox(height: 8),
                 Text(
                   Localization.get('honor'),
                   textAlign: TextAlign.center,
                 ),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 Row(
                   children: [
-                    Expanded(
+                    const Expanded(
                       child: DonateButton(),
                     ),
-                    SizedBox(width: 8),
+                    const SizedBox(width: 8),
                     Expanded(
                       child: ElevatedButton.icon(
                         onPressed: () => launch('https://t.me/raxysstudios'),
-                        icon: Icon(Icons.send_outlined),
+                        icon: const Icon(Icons.send_outlined),
                         label: Text(capitalize(Localization.get('contact'))),
                       ),
                     ),
@@ -90,7 +92,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ],
             ),
           ),
-          Divider(height: 0),
+          const Divider(height: 0),
           Column(
             children: [
               Padding(
@@ -112,7 +114,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ),
             ],
           ),
-          Divider(height: 0),
+          const Divider(height: 0),
           Column(
             children: [
               Padding(

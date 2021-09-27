@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 
 class DonateButton extends StatefulWidget {
+  const DonateButton({Key? key}) : super(key: key);
+
   @override
   _DonateButtonState createState() => _DonateButtonState();
 }
@@ -16,11 +18,12 @@ class _DonateButtonState extends State<DonateButton> {
   void initState() {
     super.initState();
     subscription = InAppPurchase.instance.purchaseStream.listen(
-      (purchaseDetailsList) {
-        purchaseDetailsList.forEach((purchase) async {
-          if (purchase.pendingCompletePurchase)
+      (purchaseDetailsList) async {
+        for (var purchase in purchaseDetailsList) {
+          if (purchase.pendingCompletePurchase) {
             await InAppPurchase.instance.completePurchase(purchase);
-        });
+          }
+        }
       },
       onDone: () => subscription.cancel(),
     );
@@ -47,7 +50,7 @@ class _DonateButtonState extends State<DonateButton> {
   Widget build(BuildContext context) {
     return TextButton.icon(
       onPressed: purchase,
-      icon: Icon(Icons.coffee_outlined),
+      icon: const Icon(Icons.coffee_outlined),
       label: Text(capitalize(Localization.get('support'))),
     );
   }

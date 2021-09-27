@@ -4,14 +4,16 @@ import 'package:avdan/store.dart';
 import 'package:flutter/material.dart';
 
 class LanguageTile extends StatelessWidget {
-  const LanguageTile(
-    this.language, {
-    this.selected = false,
-    this.onTap,
-  });
   final Language language;
   final bool selected;
   final Function(bool? alt)? onTap;
+
+  const LanguageTile(
+    this.language, {
+    Key? key,
+    this.selected = false,
+    this.onTap,
+  }) : super(key: key);
 
   bool get alt => Store.learning == language && Store.alt;
   String get title => language.name.map[language.name.id]!;
@@ -27,18 +29,18 @@ class LanguageTile extends StatelessWidget {
         children: [
           Text(
             capitalize(alt ? titleAlt : title),
-            style: TextStyle(
+            style: const TextStyle(
               fontWeight: FontWeight.w500,
             ),
           ),
           if (language.alt != null) ...[
-            Spacer(),
+            const Spacer(),
             Icon(
               Icons.swap_horiz_outlined,
               size: 16,
               color: Theme.of(context).hintColor,
             ),
-            SizedBox(width: 4),
+            const SizedBox(width: 4),
             Text(
               capitalize(alt ? title : titleAlt),
               style: TextStyle(

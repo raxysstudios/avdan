@@ -2,16 +2,18 @@ import 'package:avdan/data/translation.dart';
 import 'package:flutter/material.dart';
 
 class ItemCard extends StatelessWidget {
-  ItemCard({
-    this.item,
-    this.image,
-    this.onTap,
-    this.color,
-  });
   final Translation? item;
   final String? image;
   final Function()? onTap;
   final Color? color;
+
+  const ItemCard({
+    Key? key,
+    this.item,
+    this.image,
+    this.onTap,
+    this.color,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +29,7 @@ class ItemCard extends StatelessWidget {
               ? Center(
                   child: Text(
                     item!.learning!.toUpperCase(),
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 42,
                       fontWeight: FontWeight.w500,
                     ),
@@ -36,7 +38,7 @@ class ItemCard extends StatelessWidget {
               : Image.asset(
                   image!,
                   errorBuilder: (_, __, ___) {
-                    return Center(
+                    return const Center(
                       child: Text('?'),
                     );
                   },

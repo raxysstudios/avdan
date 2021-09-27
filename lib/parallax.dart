@@ -10,14 +10,18 @@ class ParallaxPage extends StatefulWidget {
 
 class _ParallaxPageState extends State<ParallaxPage> {
   var images = [
-    AssetImage('assets/images/fruits/apple.png'),
-    AssetImage('assets/images/fruits/cherry.png'),
-    AssetImage('assets/images/fruits/melon.png')
+    const AssetImage('assets/images/fruits/apple.png'),
+    const AssetImage('assets/images/fruits/cherry.png'),
+    const AssetImage('assets/images/fruits/melon.png')
   ];
 
   var accelerometer = AccelerometerEvent(0, 0, 0);
-  var textX = TextEditingController.fromValue(TextEditingValue(text: '5.0'));
-  var textY = TextEditingController.fromValue(TextEditingValue(text: '-5.0'));
+  var textX = TextEditingController.fromValue(
+    const TextEditingValue(text: '5.0'),
+  );
+  var textY = TextEditingController.fromValue(
+    const TextEditingValue(text: '-5.0'),
+  );
   var scaleX = 5.0;
   var scaleY = -5.0;
 
@@ -64,7 +68,7 @@ class _ParallaxPageState extends State<ParallaxPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Parallax Test'),
+        title: const Text('Parallax Test'),
       ),
       body: Column(
         children: [
@@ -75,26 +79,26 @@ class _ParallaxPageState extends State<ParallaxPage> {
                 Expanded(
                   child: TextField(
                     controller: textX,
-                    keyboardType: TextInputType.numberWithOptions(
+                    keyboardType: const TextInputType.numberWithOptions(
                       signed: true,
                       decimal: true,
                     ),
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       prefixIcon: Icon(Icons.swap_horiz_outlined),
                       labelText: 'Horizontal scale',
                     ),
                   ),
                 ),
-                SizedBox(width: 8),
+                const SizedBox(width: 8),
                 Expanded(
                   child: TextField(
                     controller: textY,
-                    keyboardType: TextInputType.numberWithOptions(
+                    keyboardType: const TextInputType.numberWithOptions(
                       signed: true,
                       decimal: true,
                     ),
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       prefixIcon: Icon(Icons.swap_vert_outlined),
                       labelText: 'Vertical scale',
@@ -110,7 +114,7 @@ class _ParallaxPageState extends State<ParallaxPage> {
                 for (var i = 0; i < images.length; i++)
                   Center(
                     child: AnimatedContainer(
-                      duration: Duration(milliseconds: 350),
+                      duration: const Duration(milliseconds: 350),
                       transform: computeTranslation(i + 1),
                       child: Padding(
                         padding: const EdgeInsets.all(8),
@@ -118,12 +122,6 @@ class _ParallaxPageState extends State<ParallaxPage> {
                           image: images[i],
                           fit: BoxFit.fitWidth,
                           alignment: Alignment.bottomCenter,
-                          errorBuilder: (
-                            BuildContext context,
-                            Object exception,
-                            StackTrace? stackTrace,
-                          ) =>
-                              Text('AEAEAE'),
                         ),
                       ),
                     ),

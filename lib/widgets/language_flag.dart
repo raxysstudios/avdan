@@ -3,18 +3,20 @@ import 'package:avdan/data/language.dart';
 import 'package:flutter/material.dart';
 
 class LanguageFlag extends StatelessWidget {
-  const LanguageFlag(
-    this.language, {
-    this.offset = const Offset(0, 0),
-    this.scale = 18,
-  });
   final Language language;
   final Offset offset;
   final double scale;
 
+  const LanguageFlag(
+    this.language, {
+    Key? key,
+    this.offset = const Offset(0, 0),
+    this.scale = 18,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: 16,
       height: 4,
       child: Transform.translate(
@@ -28,12 +30,6 @@ class LanguageFlag extends StatelessWidget {
               child: Image.asset(
                 language.flagUrl,
                 repeat: ImageRepeat.repeatX,
-                errorBuilder: (
-                  BuildContext context,
-                  Object exception,
-                  StackTrace? stackTrace,
-                ) =>
-                    Offstage(),
               ),
             ),
           ),

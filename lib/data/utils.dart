@@ -2,7 +2,7 @@ String capitalize(String? value) {
   if (value == null) return '';
   return value
       .split(' ')
-      .where((w) => w.length > 0)
+      .where((w) => w.isNotEmpty)
       .map((w) => w[0].toUpperCase() + w.substring(1))
       .join(' ');
 }

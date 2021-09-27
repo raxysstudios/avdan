@@ -8,10 +8,11 @@ class ChapterTabBar extends AnimatedWidget {
   final ValueSetter<int>? onTap;
 
   ChapterTabBar({
+    Key? key,
     required this.controller,
     required this.chapters,
     this.onTap,
-  }) : super(listenable: controller.animation!);
+  }) : super(key: key, listenable: controller.animation!);
 
   @override
   Widget build(BuildContext context) {

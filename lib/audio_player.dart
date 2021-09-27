@@ -27,6 +27,6 @@ void playItem(Chapter chapter, [Translation? item]) async {
     await player.setAsset(url);
     await player.play();
   } catch (e) {
-    print("AUDIO CRASH $e");
+    rethrow;
   }
 }

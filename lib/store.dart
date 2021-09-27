@@ -28,8 +28,9 @@ class Store {
       final Map<String, Map<String, String>> map = {};
       for (final k in l.entries) {
         map[k.key] = {};
-        for (final t in (k.value as Map<String, dynamic>).entries)
+        for (final t in (k.value as Map<String, dynamic>).entries) {
           map[k.key]![t.key] = t.value;
+        }
       }
       Localization.map = map;
     });

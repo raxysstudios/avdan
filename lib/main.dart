@@ -8,35 +8,25 @@ import 'package:in_app_purchase_android/in_app_purchase_android.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Store.load();
-  if (defaultTargetPlatform == TargetPlatform.android)
+  if (defaultTargetPlatform == TargetPlatform.android) {
     InAppPurchaseAndroidPlatformAddition.enablePendingPurchases();
+  }
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]);
-  runApp(App());
+  runApp(const App());
 }
 
 class App extends StatelessWidget {
+  const App({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Avdan',
-      theme: ThemeData(
-        primaryColor: Colors.white,
-        accentColor: Colors.grey,
-        scaffoldBackgroundColor: Colors.blueGrey.shade50,
-        cardTheme: CardTheme(
-          clipBehavior: Clip.antiAlias,
-        ),
-      ),
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
-        accentColor: Colors.grey,
-        cardTheme: CardTheme(
-          clipBehavior: Clip.antiAlias,
-        ),
-      ),
-      home: HomeScreen(),
+      theme: ThemeData(),
+      darkTheme: ThemeData.dark(),
+      home: const HomeScreen(),
     );
   }
 }

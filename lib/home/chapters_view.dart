@@ -8,11 +8,12 @@ class ChaptersView extends StatelessWidget {
   final TabController controller;
   final void Function(Chapter chapter, Translation item)? onTap;
 
-  ChaptersView({
+  const ChaptersView({
+    Key? key,
     required this.controller,
     required this.chapters,
     this.onTap,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +28,7 @@ class ChaptersView extends StatelessWidget {
                 final items =
                     chapter.items.where((i) => i.learning != null).toList();
                 return GridView.builder(
-                  gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                  gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                     maxCrossAxisExtent: 128,
                   ),
                   itemCount: items.length,

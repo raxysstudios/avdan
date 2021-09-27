@@ -27,9 +27,10 @@ class Chapter {
     final length = letters.map((a) => a.length).reduce(max);
 
     for (var i = 0; i < length; i++) {
-      final letter = Translation({});
-      for (var j = 0; j < languages.length; j++)
+      const letter = Translation({});
+      for (var j = 0; j < languages.length; j++) {
         if (i < letters[j].length) letter.map[languages[j]] = letters[j][i];
+      }
       yield letter;
     }
   }
