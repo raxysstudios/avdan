@@ -1,12 +1,19 @@
 import 'dart:async';
-import 'package:avdan/data/utils.dart';
-import 'package:avdan/store.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 
 class DonateButton extends StatefulWidget {
-  const DonateButton({Key? key}) : super(key: key);
+  final String text;
+  final IconData icon;
+  final String productId;
+
+  const DonateButton({
+    required this.text,
+    this.icon = Icons.coffee_outlined,
+    this.productId = 'support',
+    Key? key,
+  }) : super(key: key);
 
   @override
   _DonateButtonState createState() => _DonateButtonState();
@@ -45,7 +52,7 @@ class _DonateButtonState extends State<DonateButton> {
 
   void purchase() async {
     final response = await InAppPurchase.instance.queryProductDetails(
-      {'support'},
+      {widget.productId},
     );
     await InAppPurchase.instance.buyConsumable(
       purchaseParam: PurchaseParam(
@@ -58,8 +65,8 @@ class _DonateButtonState extends State<DonateButton> {
   Widget build(BuildContext context) {
     return TextButton.icon(
       onPressed: isValidPlatform ? purchase : null,
-      icon: const Icon(Icons.coffee_outlined),
-      label: Text(capitalize(Localization.get('support'))),
+      icon: Icon(widget.icon),
+      label: Text(widget.text),
     );
   }
 }

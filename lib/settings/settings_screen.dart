@@ -80,8 +80,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 const SizedBox(height: 8),
                 Row(
                   children: [
-                    const Expanded(
-                      child: DonateButton(),
+                    Expanded(
+                      child: DonateButton(
+                        text: capitalize(Localization.get('support')),
+                      ),
                     ),
                     const SizedBox(width: 8),
                     Expanded(
