@@ -32,6 +32,7 @@ flutter_native_splash:
   image: assets/splash_light.png
   color_dark: "#121212"
   image_dark: assets/splash_dark.png
+  web_image_mode: contain
 
 flutter:
   uses-material-design: true
