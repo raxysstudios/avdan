@@ -21,14 +21,11 @@ class Label extends StatelessWidget {
     return RichText(
       textAlign: TextAlign.center,
       text: TextSpan(
-        style: TextStyle(
-          color: Theme.of(context).hintColor,
-          fontSize: subtitleSize,
-        ),
         children: [
           TextSpan(
             text: lt,
             style: TextStyle(
+              color: Theme.of(context).textTheme.bodyText1?.color,
               fontSize: titleSize,
               fontWeight: FontWeight.w500,
             ),
@@ -36,6 +33,10 @@ class Label extends StatelessWidget {
           if (lt.isNotEmpty && it.isNotEmpty) const TextSpan(text: '\n'),
           TextSpan(
             text: it,
+            style: TextStyle(
+              color: Theme.of(context).hintColor,
+              fontSize: subtitleSize,
+            ),
           ),
         ],
       ),

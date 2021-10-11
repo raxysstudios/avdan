@@ -54,6 +54,7 @@ class _DonateButtonState extends State<DonateButton> {
     final response = await InAppPurchase.instance.queryProductDetails(
       {widget.productId},
     );
+    print(response.productDetails);
     await InAppPurchase.instance.buyConsumable(
       purchaseParam: PurchaseParam(
         productDetails: response.productDetails.first,

@@ -18,7 +18,6 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_launcher_icons: ^0.9.0
-  flutter_native_splash: ^1.2.0
   flutter_lints: ^1.0.4
 
 flutter_icons:
@@ -27,19 +26,10 @@ flutter_icons:
   ios: true
   remove_alpha_ios: true
 
-flutter_native_splash:
-  color: "#ffffff"
-  image: assets/splash_light.png
-  color_dark: "#121212"
-  image_dark: assets/splash_dark.png
-  web_image_mode: contain
-
 flutter:
   uses-material-design: true
   assets:
-    - assets/localization.json
-    - assets/languages.json
-    - assets/chapters.json
+    - assets/
     - assets/flags/
 
     - assets/images/animals/

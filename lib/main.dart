@@ -7,7 +7,6 @@ import 'package:in_app_purchase_android/in_app_purchase_android.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Store.load();
   if (defaultTargetPlatform == TargetPlatform.android) {
     InAppPurchaseAndroidPlatformAddition.enablePendingPurchases();
   }
@@ -62,7 +61,30 @@ class App extends StatelessWidget {
       title: 'Avdan',
       theme: themes[0],
       darkTheme: themes[1],
-      home: const HomeScreen(),
+      home: FutureBuilder(
+          future: Future.delayed(
+            const Duration(seconds: 3),
+            Store.load,
+          ),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.done) {
+              return const HomeScreen();
+            }
+            final theme = Theme.of(context);
+            return Material(
+              color: theme.scaffoldBackgroundColor,
+              child: SafeArea(
+                child: Center(
+                  child: SizedBox(
+                    height: 500,
+                    child: theme.brightness == Brightness.dark
+                        ? Image.asset('assets/splash_dark.png')
+                        : Image.asset('assets/splash_light.png'),
+                  ),
+                ),
+              ),
+            );
+          }),
     );
   }
 }

@@ -61,83 +61,87 @@ class _SettingsScreenState extends State<SettingsScreen> {
       body: ListView(
         padding: const EdgeInsets.only(bottom: 76),
         children: [
-          Padding(
-            padding: const EdgeInsets.all(8),
+          Card(
+            child: Padding(
+              padding: const EdgeInsets.all(8),
+              child: Column(
+                children: [
+                  const Icon(Icons.landscape_outlined),
+                  const SizedBox(height: 8),
+                  Text(
+                    Localization.get('honor'),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 8),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: DonateButton(
+                          text: capitalize(Localization.get('support')),
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: ElevatedButton.icon(
+                          onPressed: () => launch('https://t.me/raxysstudios'),
+                          icon: const Icon(Icons.send_outlined),
+                          label: Text(capitalize(Localization.get('contact'))),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Card(
             child: Column(
               children: [
-                const Icon(Icons.landscape_outlined),
-                const SizedBox(height: 8),
-                Text(
-                  Localization.get('honor'),
-                  textAlign: TextAlign.center,
+                Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Text(
+                    capitalize(Localization.get('interface')),
+                    style: Theme.of(context).textTheme.headline6,
+                    textAlign: TextAlign.center,
+                  ),
                 ),
-                const SizedBox(height: 8),
-                Row(
-                  children: [
-                    Expanded(
-                      child: DonateButton(
-                        text: capitalize(Localization.get('support')),
-                      ),
-                    ),
-                    const SizedBox(width: 8),
-                    Expanded(
-                      child: ElevatedButton.icon(
-                        onPressed: () => launch('https://t.me/raxysstudios'),
-                        icon: const Icon(Icons.send_outlined),
-                        label: Text(capitalize(Localization.get('contact'))),
-                      ),
-                    ),
-                  ],
-                ),
+                for (final l in interface)
+                  LanguageTile(
+                    l,
+                    selected: Store.interface == l,
+                    onTap: (_) {
+                      setState(() => Store.interface = l);
+                      saveChoice('interface', l);
+                    },
+                  ),
               ],
             ),
           ),
-          const Divider(height: 0),
-          Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(16),
-                child: Text(
-                  capitalize(Localization.get('interface')),
-                  style: Theme.of(context).textTheme.headline6,
-                  textAlign: TextAlign.center,
+          Card(
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Text(
+                    capitalize(Localization.get('learning')),
+                    style: Theme.of(context).textTheme.headline6,
+                    textAlign: TextAlign.center,
+                  ),
                 ),
-              ),
-              for (final l in interface)
-                LanguageTile(
-                  l,
-                  selected: Store.interface == l,
-                  onTap: (_) {
-                    setState(() => Store.interface = l);
-                    saveChoice('interface', l);
-                  },
-                ),
-            ],
-          ),
-          const Divider(height: 0),
-          Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(16),
-                child: Text(
-                  capitalize(Localization.get('learning')),
-                  style: Theme.of(context).textTheme.headline6,
-                  textAlign: TextAlign.center,
-                ),
-              ),
-              for (final l in learning)
-                LanguageTile(
-                  l,
-                  selected: Store.learning == l,
-                  onTap: (alt) {
-                    setState(() {
-                      Store.learning = l;
-                      Store.alt = alt ?? false;
-                    });
-                    saveChoice('learning', l, alt: Store.alt);
-                  },
-                ),
-            ],
+                for (final l in learning)
+                  LanguageTile(
+                    l,
+                    selected: Store.learning == l,
+                    onTap: (alt) {
+                      setState(() {
+                        Store.learning = l;
+                        Store.alt = alt ?? false;
+                      });
+                      saveChoice('learning', l, alt: Store.alt);
+                    },
+                  ),
+              ],
+            ),
           ),
         ],
       ),
