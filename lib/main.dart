@@ -62,29 +62,30 @@ class App extends StatelessWidget {
       theme: themes[0],
       darkTheme: themes[1],
       home: FutureBuilder(
-          future: Future.delayed(
-            const Duration(seconds: 3),
-            Store.load,
-          ),
-          builder: (context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.done) {
-              return const HomeScreen();
-            }
-            final theme = Theme.of(context);
-            return Material(
-              color: theme.scaffoldBackgroundColor,
-              child: SafeArea(
-                child: Center(
-                  child: SizedBox(
-                    height: 500,
-                    child: theme.brightness == Brightness.dark
-                        ? Image.asset('assets/splash_dark.png')
-                        : Image.asset('assets/splash_light.png'),
-                  ),
+        future: Future.delayed(
+          const Duration(seconds: 3),
+          Store.load,
+        ),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            return const HomeScreen();
+          }
+          final theme = Theme.of(context);
+          return Material(
+            color: theme.scaffoldBackgroundColor,
+            child: SafeArea(
+              child: Center(
+                child: SizedBox(
+                  height: 500,
+                  child: theme.brightness == Brightness.dark
+                      ? Image.asset('assets/splash_dark.png')
+                      : Image.asset('assets/splash_light.png'),
                 ),
               ),
-            );
-          }),
+            ),
+          );
+        },
+      ),
     );
   }
 }
