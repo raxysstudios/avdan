@@ -44,13 +44,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.surface,
         automaticallyImplyLeading: false,
         title: Text(
           capitalize(Localization.get('settings')),
-          style: TextStyle(
-            color: Theme.of(context).colorScheme.onSurface,
-          ),
         ),
         centerTitle: true,
       ),
@@ -60,8 +56,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
         label: Text(
           capitalize(Localization.get('home')),
         ),
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        foregroundColor: Theme.of(context).colorScheme.onPrimary,
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       body: ListView(
