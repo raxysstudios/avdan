@@ -43,7 +43,7 @@ class ItemsView extends StatelessWidget {
                     builder: (content, store, child) {
                       final text = item.text(store.learning, store.alt);
                       return Text(
-                        '${text.toUpperCase()}\n$text',
+                        '${text.toUpperCase()}\n${text.toLowerCase()}',
                         textAlign: TextAlign.center,
                         style: const TextStyle(
                           fontSize: 96,
