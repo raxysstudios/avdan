@@ -4,8 +4,8 @@ import 'package:avdan/data/translation.dart';
 import 'package:avdan/home/chapter_tab_bar.dart';
 import 'package:avdan/home/chapters_view.dart';
 import 'package:avdan/home/items_view.dart';
-import 'package:avdan/store.dart';
 import 'package:avdan/settings/settings_screen.dart';
+import 'package:avdan/store.dart';
 import 'package:avdan/widgets/label.dart';
 import 'package:avdan/widgets/language_flag.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -13,7 +13,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen(
+    this.store, {
+    Key? key,
+  }) : super(key: key);
+
+  final Store store;
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -22,28 +27,30 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
   late final TabController _tabController;
-  var chapter = Store.chapters.first;
+
+  List<Chapter> get chapters => widget.store.chapters;
+  late Chapter chapter = chapters.first;
 
   @override
   void initState() {
     super.initState();
     _tabController = TabController(
-      length: Store.chapters.length,
+      length: chapters.length,
       vsync: this,
     );
     _tabController.animation?.addListener(() {
       final index = _tabController.animation?.value.round() ?? 0;
-      final chapter = Store.chapters[index];
+      final chapter = chapters[index];
       if (this.chapter != chapter) {
         setState(() {
           this.chapter = chapter;
-          playItem(chapter);
+          playItem(widget.store.learning, chapter);
         });
       }
     });
     SharedPreferences.getInstance().then((prefs) async {
       if (prefs.getString('interface') == null) await openSettings();
-      playItem(chapter);
+      playItem(widget.store.learning, chapter);
     });
   }
 
@@ -57,12 +64,12 @@ class _HomeScreenState extends State<HomeScreen>
     return Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (_) => const SettingsScreen(),
+        builder: (_) => SettingsScreen(widget.store),
       ),
     );
   }
 
-  void openView(BuildContext context, Chapter chapter, Translation item) {
+  void openView(BuildContext context, Chapter chapter, int item) {
     final padding = EdgeInsets.only(
       top: MediaQuery.of(context).padding.top,
     );
@@ -79,8 +86,8 @@ class _HomeScreenState extends State<HomeScreen>
           child: Stack(
             children: [
               ItemsView(
-                chapter: chapter,
-                item: item,
+                chapter,
+                initialItem: item,
               ),
               Padding(
                 padding: const EdgeInsets.all(8),
@@ -109,7 +116,7 @@ class _HomeScreenState extends State<HomeScreen>
               child: Opacity(
                 opacity: 0.8,
                 child: LanguageFlag(
-                  Store.learning,
+                  widget.store.learning,
                   offset: const Offset(8, 0),
                 ),
               ),
@@ -133,7 +140,8 @@ class _HomeScreenState extends State<HomeScreen>
       ),
       body: ChaptersView(
         controller: _tabController,
-        chapters: Store.chapters,
+        chapters: chapters,
+        store: widget.store,
         onTap: (chapter, item) => openView(
           context,
           chapter,
@@ -145,10 +153,12 @@ class _HomeScreenState extends State<HomeScreen>
           height: 98,
           child: ChapterTabBar(
             controller: _tabController,
-            chapters: Store.chapters,
+            chapters: chapters,
             onTap: (i) {
-              final chapter = Store.chapters[i];
-              if (chapter == this.chapter) playItem(chapter);
+              final chapter = chapters[i];
+              if (chapter == this.chapter) {
+                playItem(widget.store.learning, chapter);
+              }
             },
           ),
         ),

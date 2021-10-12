@@ -1,9 +1,12 @@
 import 'package:avdan/data/translation.dart';
+import 'package:avdan/store.dart';
+import 'package:avdan/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ItemCard extends StatelessWidget {
   final Translation? item;
-  final String? image;
+  final Image? image;
   final Function()? onTap;
   final Color? color;
 
@@ -25,24 +28,32 @@ class ItemCard extends StatelessWidget {
         highlightColor: color,
         child: Padding(
           padding: const EdgeInsets.all(8),
-          child: image == null
-              ? Center(
-                  child: Text(
-                    item!.learning!.toUpperCase(),
-                    style: const TextStyle(
-                      fontSize: 42,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                )
-              : Image.asset(
-                  image!,
-                  errorBuilder: (_, __, ___) {
-                    return const Center(
-                      child: Text('?'),
-                    );
+          child: image ??
+              Center(
+                child: Builder(
+                  builder: (contenxt) {
+                    if (image != null) return image!;
+                    if (item != null) {
+                      return Consumer<Store>(
+                        builder: (contenxt, store, child) {
+                          return Text(
+                            getText(
+                              item!,
+                              store.learning,
+                              store.alt,
+                            ).toUpperCase(),
+                            style: const TextStyle(
+                              fontSize: 42,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          );
+                        },
+                      );
+                    }
+                    return const SizedBox();
                   },
                 ),
+              ),
         ),
       ),
     );

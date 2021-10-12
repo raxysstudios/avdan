@@ -1,6 +1,8 @@
 import 'package:avdan/data/translation.dart';
-import 'package:avdan/data/utils.dart';
+import 'package:avdan/store.dart';
+import 'package:avdan/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class Label extends StatelessWidget {
   final Translation item;
@@ -16,30 +18,39 @@ class Label extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final lt = capitalize(item.learning);
-    final it = capitalize(item.interface);
-    return RichText(
-      textAlign: TextAlign.center,
-      text: TextSpan(
-        children: [
-          TextSpan(
-            text: lt,
-            style: TextStyle(
-              color: Theme.of(context).textTheme.bodyText1?.color,
-              fontSize: titleSize,
-              fontWeight: FontWeight.w500,
-            ),
+    return Consumer<Store>(
+      builder: (context, store, child) {
+        final learning = capitalize(
+          getText(item, store.learning),
+        );
+        final interface = capitalize(
+          getText(item, store.interface, store.alt),
+        );
+        return RichText(
+          textAlign: TextAlign.center,
+          text: TextSpan(
+            children: [
+              TextSpan(
+                text: learning,
+                style: TextStyle(
+                  color: Theme.of(context).textTheme.bodyText1?.color,
+                  fontSize: titleSize,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              if (learning.isNotEmpty && interface.isNotEmpty)
+                const TextSpan(text: '\n'),
+              TextSpan(
+                text: interface,
+                style: TextStyle(
+                  color: Theme.of(context).hintColor,
+                  fontSize: subtitleSize,
+                ),
+              ),
+            ],
           ),
-          if (lt.isNotEmpty && it.isNotEmpty) const TextSpan(text: '\n'),
-          TextSpan(
-            text: it,
-            style: TextStyle(
-              color: Theme.of(context).hintColor,
-              fontSize: subtitleSize,
-            ),
-          ),
-        ],
-      ),
+        );
+      },
     );
   }
 }

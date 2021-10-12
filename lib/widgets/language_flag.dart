@@ -30,6 +30,7 @@ class LanguageFlag extends StatelessWidget {
               child: Image.asset(
                 language.flagUrl,
                 repeat: ImageRepeat.repeatX,
+                filterQuality: FilterQuality.medium,
               ),
             ),
           ),

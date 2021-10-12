@@ -1,16 +1,13 @@
-import 'package:avdan/store.dart';
-
 class Translation {
-  final Map<String, String> map;
-  const Translation(this.map);
+  const Translation(this._map);
 
-  String? get id => map['english'];
-  String? get interface => map[Store.interface.name.id];
-  String? get learning {
-    final learning = map[Store.learning.name.id];
-    if (!Store.alt) return learning;
-    return map[Store.learning.alt] ?? learning;
-  }
+  final Map<String, String> _map;
+
+  Iterable<String> get keys => _map.keys;
+  Iterable<String> get values => _map.values;
+
+  String? get(String? key) => _map[key];
+  String get id => get('english')!;
 
   factory Translation.fromJson(dynamic json) {
     return Translation(

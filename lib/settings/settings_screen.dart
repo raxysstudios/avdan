@@ -1,60 +1,41 @@
-import 'dart:async';
 import 'package:avdan/data/language.dart';
-import 'package:avdan/data/utils.dart';
-import 'package:avdan/widgets/donate_button.dart';
 import 'package:avdan/store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import 'donate_button.dart';
 import 'language_tile.dart';
 
-class SettingsScreen extends StatefulWidget {
-  const SettingsScreen({Key? key}) : super(key: key);
+class SettingsScreen extends StatelessWidget {
+  const SettingsScreen(
+    this.store, {
+    Key? key,
+  }) : super(key: key);
 
-  @override
-  _SettingsScreenState createState() => _SettingsScreenState();
-}
+  final Store store;
 
-class _SettingsScreenState extends State<SettingsScreen> {
-  late final List<Language> interface;
-  late final List<Language> learning;
-  SharedPreferences? prefs;
-
-  @override
-  initState() {
-    super.initState();
-    interface = Store.languages.where((l) => l.interface).toList();
-    learning = Store.languages.where((l) => !l.interface).toList();
-    saveChoice('interface', Store.interface);
-    saveChoice('learning', Store.learning, alt: Store.alt);
-  }
-
-  Future<void> saveChoice(
-    String index,
-    Language language, {
-    bool? alt,
-  }) async {
-    prefs ??= await SharedPreferences.getInstance();
-    await prefs!.setString(index, language.name.id!);
-    if (alt != null) await prefs!.setBool('alt', alt);
-  }
+  List<Language> get interfaceLanguages =>
+      store.languages.where((l) => l.interface).toList();
+  List<Language> get learningLanguages =>
+      store.languages.where((l) => !l.interface).toList();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text(
-          capitalize(Localization.get('settings')),
-        ),
+        title: Text(store.localize('settings')),
         centerTitle: true,
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () => Navigator.pop(context),
         icon: const Icon(Icons.home_outlined),
-        label: Text(
-          capitalize(Localization.get('home')),
+        label: Consumer<Store>(
+          builder: (contenxt, store, child) {
+            return Text(store.localize('home'));
+          },
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
@@ -69,7 +50,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   const Icon(Icons.landscape_outlined),
                   const SizedBox(height: 8),
                   Text(
-                    Localization.get('honor'),
+                    store.localize('honor'),
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(height: 8),
@@ -77,7 +58,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     children: [
                       Expanded(
                         child: DonateButton(
-                          text: capitalize(Localization.get('support')),
+                          text: store.localize('support'),
                         ),
                       ),
                       const SizedBox(width: 8),
@@ -85,7 +66,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         child: ElevatedButton.icon(
                           onPressed: () => launch('https://t.me/raxysstudios'),
                           icon: const Icon(Icons.send_outlined),
-                          label: Text(capitalize(Localization.get('contact'))),
+                          label: Text(store.localize('contact')),
                         ),
                       ),
                     ],
@@ -100,21 +81,18 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 Padding(
                   padding: const EdgeInsets.all(16),
                   child: Text(
-                    capitalize(Localization.get('interface')),
+                    store.localize('interface'),
                     style: Theme.of(context).textTheme.headline6,
                     textAlign: TextAlign.center,
                   ),
                 ),
-                for (final l in interface)
+                for (final l in interfaceLanguages)
                   LanguageTile(
                     l,
-                    mode: Store.interface == l
+                    mode: store.interface == l
                         ? LanguageMode.main
                         : LanguageMode.none,
-                    onTap: (alt) {
-                      setState(() => Store.interface = l);
-                      saveChoice('interface', l);
-                    },
+                    onTap: (alt) => store.interface = l,
                   ),
               ],
             ),
@@ -125,25 +103,22 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 Padding(
                   padding: const EdgeInsets.all(16),
                   child: Text(
-                    capitalize(Localization.get('learning')),
+                    store.localize('learning'),
                     style: Theme.of(context).textTheme.headline6,
                     textAlign: TextAlign.center,
                   ),
                 ),
-                for (final l in learning)
+                for (final l in learningLanguages)
                   LanguageTile(
                     l,
-                    mode: Store.learning == l
-                        ? Store.alt
+                    mode: store.learning == l
+                        ? store.alt
                             ? LanguageMode.main
                             : LanguageMode.alt
                         : LanguageMode.none,
                     onTap: (mode) {
-                      setState(() {
-                        Store.learning = l;
-                        Store.alt = mode == LanguageMode.alt;
-                      });
-                      saveChoice('learning', l, alt: Store.alt);
+                      store.learning = l;
+                      store.alt = mode == LanguageMode.alt;
                     },
                   ),
               ],

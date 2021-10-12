@@ -1,18 +1,21 @@
 import 'package:avdan/data/chapter.dart';
-import 'package:avdan/data/translation.dart';
 import 'package:avdan/home/item_card.dart';
+import 'package:avdan/store.dart';
+import 'package:avdan/utils.dart';
 import 'package:flutter/material.dart';
 
 class ChaptersView extends StatelessWidget {
   final List<Chapter> chapters;
   final TabController controller;
-  final void Function(Chapter chapter, Translation item)? onTap;
+  final Store store;
+  final void Function(Chapter chapter, int item)? onTap;
 
   const ChaptersView({
-    Key? key,
     required this.controller,
     required this.chapters,
+    required this.store,
     this.onTap,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -25,8 +28,11 @@ class ChaptersView extends StatelessWidget {
           for (final chapter in chapters)
             Builder(
               builder: (_) {
-                final items =
-                    chapter.items.where((i) => i.learning != null).toList();
+                final items = chapter.items
+                    .where(
+                      (i) => getText(i, store.learning).isNotEmpty,
+                    )
+                    .toList();
                 return GridView.builder(
                   gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                     maxCrossAxisExtent: 128,
@@ -37,9 +43,12 @@ class ChaptersView extends StatelessWidget {
                     return ItemCard(
                       color: chapter.color,
                       item: chapter.alphabet ? item : null,
-                      image:
-                          chapter.alphabet ? null : chapter.getImageURL(item),
-                      onTap: () => onTap?.call(chapter, item),
+                      image: chapter.alphabet
+                          ? null
+                          : Image.asset(
+                              getImageUrl(chapter, item),
+                            ),
+                      onTap: () => onTap?.call(chapter, i),
                     );
                   },
                 );

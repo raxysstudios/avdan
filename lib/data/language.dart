@@ -5,12 +5,13 @@ class Language {
   final String flag;
   final bool interface;
 
-  String get flagUrl => 'assets/flags/$flag.png';
-
+  String get id => name.id;
   String? get alt {
-    final alt = name.id! + '_alt';
-    return name.map[alt] == null ? null : alt;
+    final alt = name.id + '_alt';
+    return name.get(alt) == null ? null : alt;
   }
+
+  String get flagUrl => 'assets/flags/$flag.png';
 
   const Language(
     this.name, {

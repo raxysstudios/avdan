@@ -1,4 +1,5 @@
 import 'package:avdan/data/chapter.dart';
+import 'package:avdan/utils.dart';
 import 'package:flutter/material.dart';
 import 'item_card.dart';
 
@@ -12,7 +13,10 @@ class ChapterTabBar extends AnimatedWidget {
     required this.controller,
     required this.chapters,
     this.onTap,
-  }) : super(key: key, listenable: controller.animation!);
+  }) : super(
+          key: key,
+          listenable: controller.animation!,
+        );
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +43,7 @@ class ChapterTabBar extends AnimatedWidget {
       tabs: [
         for (var i = 0; i < chapters.length; i++)
           Builder(
-            builder: (_) {
+            builder: (context) {
               final chapter = chapters[i];
               return AspectRatio(
                 aspectRatio: 1,
@@ -50,7 +54,9 @@ class ChapterTabBar extends AnimatedWidget {
                     item: chapter.alphabet ? chapter.items.first : null,
                     image: chapter.alphabet
                         ? null
-                        : chapter.getImageURL(chapter.items.first),
+                        : Image.asset(
+                            getImageUrl(chapter),
+                          ),
                     onTap: () {
                       controller.animateTo(i);
                       onTap?.call(i);

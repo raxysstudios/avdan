@@ -1,70 +1,114 @@
-import 'dart:async';
 import 'dart:convert';
+
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
 import 'data/chapter.dart';
 import 'data/language.dart';
-import 'package:flutter/services.dart' show rootBundle;
+import 'utils.dart';
 
-class Localization {
-  static late final Map<String, Map<String, String>> map;
-  static String get(String key) {
-    return map[key]?[Store.interface.name.id ?? 'english'] ?? '';
+typedef Dict<T> = Map<String, T>;
+
+class Store with ChangeNotifier {
+  Store();
+  late final SharedPreferences _prefs;
+
+  late final Dict<Dict<String>> _localization;
+  String localize(String key) => capitalize(
+        _localization[key]?[interface.name.id],
+      );
+
+  late final List<Language> _languages;
+  List<Language> get languages => _languages;
+
+  static late final List<Chapter> _chapters;
+  List<Chapter> get chapters => _chapters;
+
+  late Language _interface;
+  Language get interface => _interface;
+  set interface(Language val) {
+    _interface = val;
+    _prefs.setString('interface', _interface.name.id);
+    notifyListeners();
   }
-}
 
-class Store {
-  static late final List<Chapter> chapters;
-  static late final List<Language> languages;
+  late Language _learning;
+  Language get learning => _learning;
+  set learning(Language val) {
+    _learning = val;
+    _prefs.setString('learning', _learning.name.id);
+    notifyListeners();
+  }
 
-  static late Language interface;
-  static late Language learning;
-  static bool alt = false;
+  late bool _alt;
+  bool get alt => _alt;
+  set alt(bool val) {
+    _alt = val;
+    _prefs.setBool('alt', _alt);
+    notifyListeners();
+  }
 
-  static Future<void> load() async {
-    await rootBundle
-        .loadString('assets/localization.json')
-        .then((t) => json.decode(t) as Map<String, dynamic>)
-        .then((l) {
-      final Map<String, Map<String, String>> map = {};
-      for (final k in l.entries) {
-        map[k.key] = {};
-        for (final t in (k.value as Map<String, dynamic>).entries) {
-          map[k.key]![t.key] = t.value;
-        }
-      }
-      Localization.map = map;
-    });
+  Future<void> load() async {
+    _localization = await _loadLocalization('assets/localization.json');
+    _languages = await _loadLanguages('assets/languages.json');
+    _chapters = await _loadChapters('assets/chapters.json');
 
-    await rootBundle
-        .loadString('assets/chapters.json')
-        .then((t) => json.decode(t) as List)
-        .then((l) {
-      chapters = l.map((j) => Chapter.fromJson(j)).toList();
-    });
-    await rootBundle
-        .loadString('assets/languages.json')
-        .then((t) => json.decode(t) as List)
-        .then((l) {
-      languages = l.map((j) => Language.fromJson(j)).toList();
-      languages.sort((a, b) => a.name.id!.compareTo(b.name.id!));
-    });
-
-    final prefs = await SharedPreferences.getInstance();
-    Store.interface = _findLanguage(
-      prefs.getString('interface'),
+    _prefs = await SharedPreferences.getInstance();
+    _interface = _findLanguage(
+      _prefs.getString('interface'),
+      languages,
       languages.firstWhere((l) => l.interface),
     );
-    Store.learning = _findLanguage(
-      prefs.getString('learning'),
+    _learning = _findLanguage(
+      _prefs.getString('learning'),
+      languages,
       languages.firstWhere((l) => !l.interface),
     );
-    alt = prefs.getBool('alt') ?? false;
+    _alt = _prefs.getBool('alt') ?? false;
+
+    notifyListeners();
   }
 
-  static Language _findLanguage(String? name, Language orElse) {
-    return languages.firstWhere(
-      (l) => l.name.id == name,
-      orElse: () => orElse,
-    );
+  static Language _findLanguage(
+    String? name,
+    List<Language> langauges,
+    Language orElse,
+  ) =>
+      langauges.firstWhere(
+        (l) => l.name.id == name,
+        orElse: () => orElse,
+      );
+
+  static Future<Dict<Dict<String>>> _loadLocalization(assetUrl) async {
+    final data = await rootBundle
+        .loadString(assetUrl)
+        .then((t) => json.decode(t) as Dict);
+
+    return {
+      for (final term in data.entries)
+        term.key: {
+          for (final lang in (term.value as Dict).entries) lang.key: lang.value
+        }
+    };
+  }
+
+  static Future<List<Language>> _loadLanguages(assetUrl) async {
+    final data = await rootBundle
+        .loadString(assetUrl)
+        .then((t) => json.decode(t) as List);
+
+    final languages = data.map((j) => Language.fromJson(j)).toList();
+    languages.sort((a, b) => a.name.id.compareTo(b.name.id));
+    return languages;
+  }
+
+  static Future<List<Chapter>> _loadChapters(assetUrl) async {
+    final data = await rootBundle
+        .loadString(assetUrl)
+        .then((t) => json.decode(t) as List);
+
+    return data.map((j) => Chapter.fromJson(j)).toList();
   }
 }

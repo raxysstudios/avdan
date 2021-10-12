@@ -1,20 +1,24 @@
 import 'package:avdan/data/translation.dart';
-import 'package:avdan/store.dart';
 import 'package:just_audio/just_audio.dart';
 import 'data/chapter.dart';
+import 'data/language.dart';
 
 var _player = AudioPlayer();
 
-void playItem(Chapter chapter, [Translation? item]) async {
+void playItem(
+  Language language,
+  Chapter chapter, [
+  Translation? item,
+]) async {
   final url = [
         'assets',
         'audio',
-        Store.learning.name.id,
+        language.id,
         chapter.title.id,
         item == null
             ? chapter.title.id
             : chapter.alphabet
-                ? item.map[Store.learning.alt]
+                ? item.get(language.alt)
                 : item.id,
       ].join('/') +
       '.mp3';
