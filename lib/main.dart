@@ -1,4 +1,6 @@
 import 'package:avdan/home/home_screen.dart';
+import 'package:avdan/parallax.dart';
+import 'package:avdan/settings/settings_screen.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -68,37 +70,34 @@ class App extends StatelessWidget {
       title: 'Avdan',
       theme: themes[0],
       darkTheme: themes[1],
-      home: Consumer<Store>(
-        builder: (context, store, child) {
-          return FutureBuilder(
-            future: Future.wait([
-              Future.delayed(const Duration(seconds: 1)),
-              store.load(),
-            ]),
-            builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.done) {
-                Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(
-                    builder: (context) => HomeScreen(store),
-                  ),
-                );
-              }
-              return child ?? const SizedBox();
-            },
-          );
-        },
-        child: Material(
-          child: SafeArea(
-            child: Center(
-              child: SizedBox(
-                height: 500,
-                child: Theme.of(context).brightness == Brightness.dark
-                    ? Image.asset('assets/splash_dark.png')
-                    : Image.asset('assets/splash_light.png'),
+      home: FutureBuilder(
+        future: Future.wait([
+          Future.delayed(const Duration(seconds: 1)),
+          Provider.of<Store>(context, listen: false).load(),
+        ]),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            Future.microtask(
+              () => Navigator.of(context).pushReplacement(
+                MaterialPageRoute(
+                  builder: (context) => const HomeScreen(),
+                ),
+              ),
+            );
+          }
+          return Material(
+            child: SafeArea(
+              child: Center(
+                child: SizedBox(
+                  height: 500,
+                  child: Theme.of(context).brightness == Brightness.dark
+                      ? Image.asset('assets/splash_dark.png')
+                      : Image.asset('assets/splash_light.png'),
+                ),
               ),
             ),
-          ),
-        ),
+          );
+        },
       ),
     );
   }

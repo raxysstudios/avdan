@@ -7,17 +7,13 @@ import 'package:avdan/settings/settings_screen.dart';
 import 'package:avdan/store.dart';
 import 'package:avdan/widgets/label.dart';
 import 'package:avdan/widgets/language_flag.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen(
-    this.store, {
-    Key? key,
-  }) : super(key: key);
-
-  final Store store;
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -27,7 +23,8 @@ class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
   late final TabController _tabController;
 
-  List<Chapter> get chapters => widget.store.chapters;
+  List<Chapter> get chapters =>
+      Provider.of<Store>(context, listen: false).chapters;
   late Chapter chapter = chapters.first;
 
   @override
@@ -43,13 +40,19 @@ class _HomeScreenState extends State<HomeScreen>
       if (this.chapter != chapter) {
         setState(() {
           this.chapter = chapter;
-          playItem(widget.store.learning, chapter);
+          playItem(
+            Provider.of<Store>(context, listen: false).learning,
+            chapter,
+          );
         });
       }
     });
     SharedPreferences.getInstance().then((prefs) async {
       if (prefs.getString('interface') == null) await openSettings();
-      playItem(widget.store.learning, chapter);
+      playItem(
+        Provider.of<Store>(context, listen: false).learning,
+        chapter,
+      );
     });
   }
 
@@ -63,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen>
     return Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (_) => SettingsScreen(widget.store),
+        builder: (context) => const SettingsScreen(),
       ),
     );
   }
@@ -114,9 +117,13 @@ class _HomeScreenState extends State<HomeScreen>
             Center(
               child: Opacity(
                 opacity: 0.8,
-                child: LanguageFlag(
-                  widget.store.learning,
-                  offset: const Offset(8, 0),
+                child: Consumer<Store>(
+                  builder: (context, store, child) {
+                    return LanguageFlag(
+                      store.learning,
+                      offset: const Offset(8, 0),
+                    );
+                  },
                 ),
               ),
             )
@@ -140,12 +147,7 @@ class _HomeScreenState extends State<HomeScreen>
       body: ChaptersView(
         controller: _tabController,
         chapters: chapters,
-        store: widget.store,
-        onTap: (chapter, item) => openView(
-          context,
-          chapter,
-          item,
-        ),
+        onTap: (chapter, item) => openView(context, chapter, item),
       ),
       bottomNavigationBar: BottomAppBar(
         child: SizedBox(
@@ -156,7 +158,10 @@ class _HomeScreenState extends State<HomeScreen>
             onTap: (i) {
               final chapter = chapters[i];
               if (chapter == this.chapter) {
-                playItem(widget.store.learning, chapter);
+                playItem(
+                  Provider.of<Store>(context, listen: false).learning,
+                  chapter,
+                );
               }
             },
           ),

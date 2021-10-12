@@ -72,10 +72,10 @@ class Store with ChangeNotifier {
 
   static Language _findLanguage(
     String? name,
-    List<Language> langauges,
+    List<Language> languages,
     Language orElse,
   ) =>
-      langauges.firstWhere(
+      languages.firstWhere(
         (l) => l.name.id == name,
         orElse: () => orElse,
       );
