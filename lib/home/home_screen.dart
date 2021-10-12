@@ -24,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
   late final TabController _tabController;
 
-  List<Chapter> get chapters =>
+  late final List<Chapter> chapters =
       Provider.of<Store>(context, listen: false).chapters;
   late Chapter chapter = chapters.first;
 
