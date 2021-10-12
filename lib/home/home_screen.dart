@@ -90,6 +90,11 @@ class _HomeScreenState extends State<HomeScreen>
               ItemsView(
                 chapter,
                 initialItem: item,
+                onChange: (i) => playItem(
+                  Provider.of<Store>(context, listen: false).learning,
+                  chapter,
+                  chapter.items[i],
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.all(8),
