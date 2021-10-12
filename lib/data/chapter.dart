@@ -28,8 +28,8 @@ class Chapter {
         : Color(int.parse('0xff' + title.get('color')!)).withOpacity(0.25);
 
     title.chapter = this;
-    for (final i in items) {
-      i.chapter = this;
+    for (final item in items) {
+      item.chapter = this;
     }
   }
 

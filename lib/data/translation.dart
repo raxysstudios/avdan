@@ -36,11 +36,11 @@ class Translation {
 
   ImageProvider image() {
     final url = [
-          'assets/images/',
-          if (chapter != null) chapter!.id!,
-          id,
-        ].join('/') +
-        '.png';
+      'assets',
+      'images',
+      if (chapter != null) chapter!.id,
+      '$id.png',
+    ].join('/');
     return AssetImage(url);
   }
 }

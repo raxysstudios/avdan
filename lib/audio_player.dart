@@ -10,18 +10,18 @@ void playItem(
   Chapter chapter, [
   Translation? item,
 ]) async {
+  final name = item == null
+      ? chapter.title.id
+      : chapter.alphabet
+          ? item.get(language.alt)
+          : item.id;
   final url = [
-        'assets',
-        'audio',
-        language.id,
-        chapter.title.id,
-        item == null
-            ? chapter.title.id
-            : chapter.alphabet
-                ? item.get(language.alt)
-                : item.id,
-      ].join('/') +
-      '.mp3';
+    'assets',
+    'audio',
+    language.id,
+    chapter.title.id,
+    '$name.mp3',
+  ].join('/');
 
   try {
     await _player.dispose();
