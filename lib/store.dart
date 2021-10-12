@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'capitalize.dart';
+import 'capitalize.dart' as cap;
 import 'data/chapter.dart';
 import 'data/language.dart';
 
@@ -16,10 +16,10 @@ class Store with ChangeNotifier {
   late final SharedPreferences _prefs;
 
   late final Dict<Dict<String>> _localization;
-  String localize(String key, [cap = true]) {
+  String localize(String key, [capitalize = true]) {
     var text = _localization[key]?[interface.name.id] ?? '';
-    if (cap) {
-      text = capitalize(text);
+    if (capitalize) {
+      text = cap.capitalize(text);
     }
     return text;
   }

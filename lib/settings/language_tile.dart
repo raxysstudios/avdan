@@ -69,9 +69,9 @@ class LanguageTile extends StatelessWidget {
               },
             ),
       onTap: () => onTap?.call(
-        language.alt != null && mode == LanguageMode.main
-            ? LanguageMode.alt
-            : LanguageMode.main,
+        mode != LanguageMode.main || language.alt == null
+            ? LanguageMode.main
+            : LanguageMode.alt,
       ),
       selected: mode != LanguageMode.none,
     );

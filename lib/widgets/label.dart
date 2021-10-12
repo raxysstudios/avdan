@@ -19,7 +19,7 @@ class Label extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<Store>(
       builder: (context, store, child) {
-        final learning = item.text(store.learning);
+        final learning = item.text(store.learning, store.alt);
         final interface = item.text(store.interface);
         return RichText(
           textAlign: TextAlign.center,

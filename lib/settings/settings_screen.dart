@@ -1,4 +1,3 @@
-import 'package:avdan/capitalize.dart';
 import 'package:avdan/store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -23,12 +22,8 @@ class SettingsScreen extends StatelessWidget {
           ),
           floatingActionButton: FloatingActionButton.extended(
             onPressed: () => Navigator.pop(context),
-            icon: const Icon(Icons.home_outlined),
-            label: Consumer<Store>(
-              builder: (contenxt, store, child) {
-                return Text(store.localize('home'));
-              },
-            ),
+            icon: const Icon(Icons.arrow_back_outlined),
+            label: Text(store.localize('home')),
           ),
           floatingActionButtonLocation:
               FloatingActionButtonLocation.centerFloat,
@@ -51,7 +46,7 @@ class SettingsScreen extends StatelessWidget {
                         children: [
                           Expanded(
                             child: DonateButton(
-                              text: store.localize('support'),
+                              label: Text(store.localize('support')),
                             ),
                           ),
                           const SizedBox(width: 8),
@@ -107,8 +102,8 @@ class SettingsScreen extends StatelessWidget {
                         l,
                         mode: store.learning == l
                             ? store.alt
-                                ? LanguageMode.main
-                                : LanguageMode.alt
+                                ? LanguageMode.alt
+                                : LanguageMode.main
                             : LanguageMode.none,
                         onTap: (mode) {
                           store.learning = l;

@@ -1,16 +1,17 @@
 import 'dart:async';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 
 class DonateButton extends StatefulWidget {
-  final String text;
-  final IconData icon;
   final String productId;
+  final Widget icon;
+  final Widget label;
 
   const DonateButton({
-    required this.text,
-    this.icon = Icons.coffee_outlined,
+    this.label = const Text('Donate'),
+    this.icon = const Icon(Icons.coffee_outlined),
     this.productId = 'support',
     Key? key,
   }) : super(key: key);
@@ -65,8 +66,8 @@ class _DonateButtonState extends State<DonateButton> {
   Widget build(BuildContext context) {
     return TextButton.icon(
       onPressed: isValidPlatform ? purchase : null,
-      icon: Icon(widget.icon),
-      label: Text(widget.text),
+      icon: widget.icon,
+      label: widget.label,
     );
   }
 }
