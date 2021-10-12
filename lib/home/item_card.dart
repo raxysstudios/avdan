@@ -1,6 +1,5 @@
 import 'package:avdan/data/translation.dart';
 import 'package:avdan/store.dart';
-import 'package:avdan/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -37,11 +36,7 @@ class ItemCard extends StatelessWidget {
                       return Consumer<Store>(
                         builder: (contenxt, store, child) {
                           return Text(
-                            getText(
-                              item!,
-                              store.learning,
-                              store.alt,
-                            ).toUpperCase(),
+                            item!.text(store.learning, store.alt),
                             style: const TextStyle(
                               fontSize: 42,
                               fontWeight: FontWeight.w500,

@@ -13,35 +13,45 @@ class Chapter {
   String? get id => title.id;
 
   Chapter(
-    Iterable<Translation> items, {
+    List<Translation> items, {
     this.alphabet = false,
   }) {
     title = items.first;
-    this.items = (alphabet ? _parseAlphabet(items.elementAt(1)) : items.skip(1))
-        .toList();
+    if (alphabet) {
+      this.items = _parseAlphabet(items[1]);
+    } else {
+      this.items = items.skip(1).toList();
+    }
+
     color = title.get('color') == null
         ? null
         : Color(int.parse('0xff' + title.get('color')!)).withOpacity(0.25);
+
+    title.chapter = this;
+    for (final i in items) {
+      i.chapter = this;
+    }
   }
 
-  Iterable<Translation> _parseAlphabet(Translation alphabet) sync* {
+  List<Translation> _parseAlphabet(Translation alphabet) {
     final languages = alphabet.keys.toList();
     final letters = alphabet.values.map((a) => a.split(' ')).toList();
     final length = letters.map((a) => a.length).reduce(max);
 
-    for (var i = 0; i < length; i++) {
-      yield Translation({
-        'english': i.toString(),
-        for (var j = 0; j < languages.length; j++)
-          if (i < letters[j].length) languages[j]: letters[j][i]
-      });
-    }
+    return [
+      for (var i = 0; i < length; i++)
+        Translation({
+          'english': i.toString(),
+          for (var j = 0; j < languages.length; j++)
+            if (i < letters[j].length) languages[j]: letters[j][i],
+        }),
+    ];
   }
 
   factory Chapter.fromJson(dynamic json) {
-    var items = (json as Iterable).map((i) => Translation.fromJson(i));
+    final items = (json as Iterable).map((i) => Translation.fromJson(i));
     return Chapter(
-      items,
+      items.toList(),
       alphabet: items.first.id == 'alphabet',
     );
   }

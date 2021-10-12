@@ -1,3 +1,5 @@
+import 'package:flutter/cupertino.dart';
+
 import 'translation.dart';
 
 class Language {
@@ -11,7 +13,7 @@ class Language {
     return name.get(alt) == null ? null : alt;
   }
 
-  String get flagUrl => 'assets/flags/$flag.png';
+  ImageProvider get flagImage => AssetImage('assets/flags/$flag.png');
 
   const Language(
     this.name, {

@@ -15,9 +15,11 @@ void main() async {
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]);
-  ChangeNotifierProvider(
-    create: (context) => Store(),
-    child: const App(),
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => Store(),
+      child: const App(),
+    ),
   );
 }
 

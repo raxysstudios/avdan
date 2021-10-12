@@ -27,8 +27,8 @@ class LanguageFlag extends StatelessWidget {
             scale: scale,
             child: Opacity(
               opacity: 0.8,
-              child: Image.asset(
-                language.flagUrl,
+              child: Image(
+                image: language.flagImage,
                 repeat: ImageRepeat.repeatX,
                 filterQuality: FilterQuality.medium,
               ),

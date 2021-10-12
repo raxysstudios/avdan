@@ -1,5 +1,4 @@
 import 'package:avdan/data/chapter.dart';
-import 'package:avdan/utils.dart';
 import 'package:flutter/material.dart';
 import 'item_card.dart';
 
@@ -54,8 +53,8 @@ class ChapterTabBar extends AnimatedWidget {
                     item: chapter.alphabet ? chapter.items.first : null,
                     image: chapter.alphabet
                         ? null
-                        : Image.asset(
-                            getImageUrl(chapter),
+                        : Image(
+                            image: chapter.items.first.image(),
                           ),
                     onTap: () {
                       controller.animateTo(i);

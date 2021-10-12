@@ -4,10 +4,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:recase/recase.dart';
 
 import 'data/chapter.dart';
 import 'data/language.dart';
-import 'utils.dart';
 
 typedef Dict<T> = Map<String, T>;
 
@@ -16,9 +16,8 @@ class Store with ChangeNotifier {
   late final SharedPreferences _prefs;
 
   late final Dict<Dict<String>> _localization;
-  String localize(String key) => capitalize(
-        _localization[key]?[interface.name.id],
-      );
+  String localize(String key) =>
+      _localization[key]?[interface.name.id]?.headerCase ?? '';
 
   late final List<Language> _languages;
   List<Language> get languages => _languages;

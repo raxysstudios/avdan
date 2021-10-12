@@ -1,7 +1,6 @@
 import 'package:avdan/data/chapter.dart';
 import 'package:avdan/home/item_card.dart';
 import 'package:avdan/store.dart';
-import 'package:avdan/utils.dart';
 import 'package:flutter/material.dart';
 
 class ChaptersView extends StatelessWidget {
@@ -27,11 +26,9 @@ class ChaptersView extends StatelessWidget {
         children: [
           for (final chapter in chapters)
             Builder(
-              builder: (_) {
+              builder: (context) {
                 final items = chapter.items
-                    .where(
-                      (i) => getText(i, store.learning).isNotEmpty,
-                    )
+                    .where((i) => i.text(store.learning).isNotEmpty)
                     .toList();
                 return GridView.builder(
                   gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
@@ -45,8 +42,8 @@ class ChaptersView extends StatelessWidget {
                       item: chapter.alphabet ? item : null,
                       image: chapter.alphabet
                           ? null
-                          : Image.asset(
-                              getImageUrl(chapter, item),
+                          : Image(
+                              image: item.image(),
                             ),
                       onTap: () => onTap?.call(chapter, i),
                     );

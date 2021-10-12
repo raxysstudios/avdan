@@ -1,6 +1,5 @@
 import 'package:avdan/audio_player.dart';
 import 'package:avdan/data/chapter.dart';
-import 'package:avdan/data/translation.dart';
 import 'package:avdan/home/chapter_tab_bar.dart';
 import 'package:avdan/home/chapters_view.dart';
 import 'package:avdan/home/items_view.dart';

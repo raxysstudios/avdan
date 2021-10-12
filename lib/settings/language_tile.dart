@@ -1,6 +1,6 @@
 import 'package:avdan/data/language.dart';
 import 'package:avdan/store.dart';
-import 'package:avdan/utils.dart';
+import 'package:recase/recase.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -13,9 +13,9 @@ class LanguageTile extends StatelessWidget {
 
   const LanguageTile(
     this.language, {
-    Key? key,
     this.mode = LanguageMode.none,
     this.onTap,
+    Key? key,
   }) : super(key: key);
 
   String get title => language.name.get(language.id)!;
@@ -23,8 +23,8 @@ class LanguageTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String? title = language.name.get(language.id);
-    String? subtitle = language.name.get(language.alt);
+    String title = language.name.get(language.id) ?? '';
+    String subtitle = language.name.get(language.alt) ?? '';
     if (mode == LanguageMode.alt) {
       final t = title;
       title = subtitle;
@@ -33,12 +33,12 @@ class LanguageTile extends StatelessWidget {
 
     return ListTile(
       leading: CircleAvatar(
-        backgroundImage: AssetImage(language.flagUrl),
+        backgroundImage: language.flagImage,
       ),
       title: Row(
         children: [
           Text(
-            capitalize(title),
+            title.headerCase,
             style: const TextStyle(
               fontWeight: FontWeight.w500,
             ),
@@ -52,7 +52,7 @@ class LanguageTile extends StatelessWidget {
             ),
             const SizedBox(width: 4),
             Text(
-              capitalize(subtitle),
+              subtitle.headerCase,
               style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w500,
@@ -67,9 +67,7 @@ class LanguageTile extends StatelessWidget {
           : Consumer<Store>(
               builder: (contenxt, store, child) {
                 return Text(
-                  capitalize(
-                    getText(language.name, store.interface),
-                  ),
+                  language.name.text(store.interface),
                 );
               },
             ),

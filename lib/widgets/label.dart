@@ -1,6 +1,5 @@
 import 'package:avdan/data/translation.dart';
 import 'package:avdan/store.dart';
-import 'package:avdan/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -20,12 +19,8 @@ class Label extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<Store>(
       builder: (context, store, child) {
-        final learning = capitalize(
-          getText(item, store.learning),
-        );
-        final interface = capitalize(
-          getText(item, store.interface, store.alt),
-        );
+        final learning = item.text(store.learning);
+        final interface = item.text(store.interface);
         return RichText(
           textAlign: TextAlign.center,
           text: TextSpan(

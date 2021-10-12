@@ -1,7 +1,6 @@
 import 'package:avdan/data/chapter.dart';
 import 'package:avdan/data/translation.dart';
 import 'package:avdan/store.dart';
-import 'package:avdan/utils.dart';
 import 'package:avdan/widgets/label.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -67,12 +66,12 @@ class ItemsViewState extends State<ItemsView> {
           return Stack(
             alignment: Alignment.center,
             children: [
-              if (item.id == null)
+              if (widget.chapter.alphabet)
                 FittedBox(
                   fit: BoxFit.contain,
                   child: Consumer<Store>(
                     builder: (content, store, child) {
-                      final text = getText(item, store.learning, store.alt);
+                      final text = item.text(store.learning, store.alt);
                       return Text(
                         '${text.toUpperCase()}\n$text',
                         textAlign: TextAlign.center,
@@ -89,8 +88,8 @@ class ItemsViewState extends State<ItemsView> {
                   padding: const EdgeInsets.fromLTRB(8, 8, 8, 32),
                   child: Consumer<Store>(
                     builder: (context, store, child) {
-                      return Image.asset(
-                        getImageUrl(widget.chapter, item),
+                      return Image(
+                        image: item.image(),
                       );
                     },
                   ),
