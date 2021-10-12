@@ -62,13 +62,17 @@ class App extends StatelessWidget {
       theme: themes[0],
       darkTheme: themes[1],
       home: FutureBuilder(
-        future: Future.delayed(
-          const Duration(seconds: 3),
-          Store.load,
-        ),
+        future: Future.wait([
+          Future.delayed(const Duration(seconds: 1)),
+          Store.load(),
+        ]),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
-            return const HomeScreen();
+            Navigator.of(context).pushReplacement(
+              MaterialPageRoute(
+                builder: (context) => const HomeScreen(),
+              ),
+            );
           }
           final theme = Theme.of(context);
           return Material(
