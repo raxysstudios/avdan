@@ -31,7 +31,6 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   void initState() {
     super.initState();
-    print(chapter.items);
     _tabController = TabController(
       length: chapters.length,
       vsync: this,
