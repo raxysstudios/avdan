@@ -1,21 +1,21 @@
 import 'package:avdan/data/language.dart';
 import 'package:avdan/data/utils.dart';
-import 'package:avdan/store.dart';
 import 'package:flutter/material.dart';
+
+enum LanguageMode { none, main, alt }
 
 class LanguageTile extends StatelessWidget {
   final Language language;
-  final bool selected;
-  final Function(bool? alt)? onTap;
+  final LanguageMode mode;
+  final ValueSetter<LanguageMode>? onTap;
 
   const LanguageTile(
     this.language, {
     Key? key,
-    this.selected = false,
+    this.mode = LanguageMode.none,
     this.onTap,
   }) : super(key: key);
 
-  bool get alt => Store.learning == language && Store.alt;
   String get title => language.name.map[language.name.id]!;
   String get titleAlt => language.name.map[language.alt]!;
 
@@ -28,7 +28,7 @@ class LanguageTile extends StatelessWidget {
       title: Row(
         children: [
           Text(
-            capitalize(alt ? titleAlt : title),
+            capitalize(mode == LanguageMode.alt ? titleAlt : title),
             style: const TextStyle(
               fontWeight: FontWeight.w500,
             ),
@@ -42,7 +42,7 @@ class LanguageTile extends StatelessWidget {
             ),
             const SizedBox(width: 4),
             Text(
-              capitalize(alt ? title : titleAlt),
+              capitalize(mode == LanguageMode.alt ? title : titleAlt),
               style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w500,
@@ -58,9 +58,11 @@ class LanguageTile extends StatelessWidget {
               capitalize(language.name.interface),
             ),
       onTap: () => onTap?.call(
-        language.alt != null && selected ? !alt : null,
+        language.alt != null && mode == LanguageMode.main
+            ? LanguageMode.alt
+            : LanguageMode.main,
       ),
-      selected: selected,
+      selected: mode != LanguageMode.none,
     );
   }
 }

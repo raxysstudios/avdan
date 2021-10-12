@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:avdan/data/language.dart';
 import 'package:avdan/data/utils.dart';
-import 'package:avdan/settings/donate_button.dart';
+import 'package:avdan/widgets/donate_button.dart';
 import 'package:avdan/store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -108,8 +108,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 for (final l in interface)
                   LanguageTile(
                     l,
-                    selected: Store.interface == l,
-                    onTap: (_) {
+                    mode: Store.interface == l
+                        ? LanguageMode.main
+                        : LanguageMode.none,
+                    onTap: (alt) {
                       setState(() => Store.interface = l);
                       saveChoice('interface', l);
                     },
@@ -131,11 +133,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 for (final l in learning)
                   LanguageTile(
                     l,
-                    selected: Store.learning == l,
-                    onTap: (alt) {
+                    mode: Store.learning == l
+                        ? Store.alt
+                            ? LanguageMode.main
+                            : LanguageMode.alt
+                        : LanguageMode.none,
+                    onTap: (mode) {
                       setState(() {
                         Store.learning = l;
-                        Store.alt = alt ?? false;
+                        Store.alt = mode == LanguageMode.alt;
                       });
                       saveChoice('learning', l, alt: Store.alt);
                     },
