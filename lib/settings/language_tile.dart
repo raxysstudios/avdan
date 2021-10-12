@@ -1,6 +1,6 @@
+import 'package:avdan/capitalize.dart';
 import 'package:avdan/data/language.dart';
 import 'package:avdan/store.dart';
-import 'package:recase/recase.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -18,13 +18,10 @@ class LanguageTile extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  String get title => language.name.get(language.id)!;
-  String get titleAlt => language.name.get(language.alt)!;
-
   @override
   Widget build(BuildContext context) {
-    String title = language.name.get(language.id) ?? '';
-    String subtitle = language.name.get(language.alt) ?? '';
+    String title = capitalize(language.name.get(language.id));
+    String subtitle = capitalize(language.name.get(language.alt));
     if (mode == LanguageMode.alt) {
       final t = title;
       title = subtitle;
@@ -38,7 +35,7 @@ class LanguageTile extends StatelessWidget {
       title: Row(
         children: [
           Text(
-            title.headerCase,
+            title,
             style: const TextStyle(
               fontWeight: FontWeight.w500,
             ),
@@ -52,7 +49,7 @@ class LanguageTile extends StatelessWidget {
             ),
             const SizedBox(width: 4),
             Text(
-              subtitle.headerCase,
+              subtitle,
               style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w500,

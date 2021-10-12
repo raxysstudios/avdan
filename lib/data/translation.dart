@@ -1,5 +1,5 @@
+import 'package:avdan/capitalize.dart';
 import 'package:avdan/data/chapter.dart';
-import 'package:recase/recase.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -31,7 +31,7 @@ class Translation {
   ]) {
     var text = get(language.name.id) ?? '';
     if (alt) text = get(language.alt) ?? text;
-    return text.headerCase;
+    return capitalize(text);
   }
 
   ImageProvider image() {

@@ -4,8 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:recase/recase.dart';
 
+import 'capitalize.dart';
 import 'data/chapter.dart';
 import 'data/language.dart';
 
@@ -17,7 +17,7 @@ class Store with ChangeNotifier {
 
   late final Dict<Dict<String>> _localization;
   String localize(String key) =>
-      _localization[key]?[interface.name.id]?.headerCase ?? '';
+      capitalize(_localization[key]?[interface.name.id]);
 
   late final List<Language> _languages;
   List<Language> get languages => _languages;

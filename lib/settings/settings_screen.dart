@@ -1,3 +1,4 @@
+import 'package:avdan/capitalize.dart';
 import 'package:avdan/store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -17,7 +18,7 @@ class SettingsScreen extends StatelessWidget {
         return Scaffold(
           appBar: AppBar(
             automaticallyImplyLeading: false,
-            title: Text(store.localize('settings')),
+            title: Text(capitalize('karachasy-balkar-aeae')),
             centerTitle: true,
           ),
           floatingActionButton: FloatingActionButton.extended(
