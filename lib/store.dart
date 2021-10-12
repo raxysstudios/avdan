@@ -16,8 +16,13 @@ class Store with ChangeNotifier {
   late final SharedPreferences _prefs;
 
   late final Dict<Dict<String>> _localization;
-  String localize(String key) =>
-      capitalize(_localization[key]?[interface.name.id]);
+  String localize(String key, [cap = true]) {
+    var text = _localization[key]?[interface.name.id] ?? '';
+    if (cap) {
+      text = capitalize(text);
+    }
+    return text;
+  }
 
   late final List<Language> _languages;
   List<Language> get languages => _languages;

@@ -18,7 +18,7 @@ class SettingsScreen extends StatelessWidget {
         return Scaffold(
           appBar: AppBar(
             automaticallyImplyLeading: false,
-            title: Text(capitalize('karachasy-balkar-aeae')),
+            title: Text(store.localize('settings')),
             centerTitle: true,
           ),
           floatingActionButton: FloatingActionButton.extended(
@@ -43,7 +43,7 @@ class SettingsScreen extends StatelessWidget {
                       const Icon(Icons.landscape_outlined),
                       const SizedBox(height: 8),
                       Text(
-                        store.localize('honor'),
+                        store.localize('honor', false),
                         textAlign: TextAlign.center,
                       ),
                       const SizedBox(height: 8),
