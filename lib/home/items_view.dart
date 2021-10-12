@@ -1,72 +1,42 @@
 import 'package:avdan/data/chapter.dart';
-import 'package:avdan/data/translation.dart';
 import 'package:avdan/store.dart';
 import 'package:avdan/widgets/label.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 
-class ItemsView extends StatefulWidget {
-  final Chapter chapter;
-  final int initialItem;
-  final ValueSetter<int>? onChange;
-
-  const ItemsView(
+class ItemsView extends StatelessWidget {
+  ItemsView(
     this.chapter, {
-    this.initialItem = 0,
+    int initialItem = 0,
     this.onChange,
     Key? key,
-  }) : super(key: key);
-
-  @override
-  ItemsViewState createState() => ItemsViewState();
-}
-
-class ItemsViewState extends State<ItemsView> {
-  late final PageController _pageController;
-  List<Translation> get items => widget.chapter.items;
-  // late Translation item = widget.items[widget.initialItem];
-
-  @override
-  void initState() {
-    super.initState();
+  }) : super(key: key) {
     _pageController = PageController(
-      initialPage: widget.initialItem,
+      initialPage: initialItem,
     );
-    // _pageController.addListener(() {
-    //   final item = widget.chapter.items[_pageController.page?.round() ?? 0];
-    //   if (this.item != item) {
-    //     setState(() {
-    //       this.item = item;
-    //     });
-    //     widget.onChange?.call(item);
-    //   }
-    // });
-    widget.onChange?.call(widget.initialItem);
   }
 
-  @override
-  void dispose() {
-    _pageController.dispose();
-    super.dispose();
-  }
+  final Chapter chapter;
+  final ValueSetter<int>? onChange;
+  late final PageController _pageController;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => widget.onChange?.call(
+      onTap: () => onChange?.call(
         _pageController.page?.round() ?? 0,
       ),
       child: PageView.builder(
-        onPageChanged: widget.onChange,
+        onPageChanged: onChange,
         controller: _pageController,
-        itemCount: items.length,
+        itemCount: chapter.items.length,
         itemBuilder: (context, i) {
-          final item = items[i];
+          final item = chapter.items[i];
           return Stack(
             alignment: Alignment.center,
             children: [
-              if (widget.chapter.alphabet)
+              if (chapter.alphabet)
                 FittedBox(
                   fit: BoxFit.contain,
                   child: Consumer<Store>(

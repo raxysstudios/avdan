@@ -1,5 +1,6 @@
 import 'package:avdan/audio_player.dart';
 import 'package:avdan/data/chapter.dart';
+import 'package:avdan/data/translation.dart';
 import 'package:avdan/home/chapter_tab_bar.dart';
 import 'package:avdan/home/chapters_view.dart';
 import 'package:avdan/home/items_view.dart';
@@ -49,10 +50,7 @@ class _HomeScreenState extends State<HomeScreen>
     });
     SharedPreferences.getInstance().then((prefs) async {
       if (prefs.getString('interface') == null) await openSettings();
-      playItem(
-        Provider.of<Store>(context, listen: false).learning,
-        chapter,
-      );
+      playItemContext(context, chapter);
     });
   }
 
@@ -71,10 +69,22 @@ class _HomeScreenState extends State<HomeScreen>
     );
   }
 
+  void playItemContext(
+    BuildContext context,
+    Chapter chapter, [
+    Translation? item,
+  ]) =>
+      playItem(
+        Provider.of<Store>(context, listen: false).learning,
+        chapter,
+        item,
+      );
+
   void openView(BuildContext context, Chapter chapter, int item) {
     final padding = EdgeInsets.only(
       top: MediaQuery.of(context).padding.top,
     );
+    playItemContext(context, chapter, chapter.items[item]);
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
@@ -90,8 +100,8 @@ class _HomeScreenState extends State<HomeScreen>
               ItemsView(
                 chapter,
                 initialItem: item,
-                onChange: (i) => playItem(
-                  Provider.of<Store>(context, listen: false).learning,
+                onChange: (i) => playItemContext(
+                  context,
                   chapter,
                   chapter.items[i],
                 ),
@@ -163,10 +173,7 @@ class _HomeScreenState extends State<HomeScreen>
             onTap: (i) {
               final chapter = chapters[i];
               if (chapter == this.chapter) {
-                playItem(
-                  Provider.of<Store>(context, listen: false).learning,
-                  chapter,
-                );
+                playItemContext(context, chapter);
               }
             },
           ),
