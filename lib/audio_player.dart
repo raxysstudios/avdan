@@ -20,7 +20,7 @@ void playItem(
     'audio',
     language.id,
     chapter.title.id,
-    '$name.mp3',
+    '$name.m4a',
   ].join('/');
 
   try {
