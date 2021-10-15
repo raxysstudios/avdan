@@ -70,7 +70,7 @@ class App extends StatelessWidget {
       darkTheme: themes[1],
       home: FutureBuilder(
         future: Future.wait([
-          Future.delayed(const Duration(seconds: 1)),
+          Future.delayed(const Duration(seconds: 2)),
           Provider.of<Store>(context, listen: false).load(),
         ]),
         builder: (context, snapshot) {
