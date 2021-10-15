@@ -49,7 +49,13 @@ class _HomeScreenState extends State<HomeScreen>
       }
     });
     SharedPreferences.getInstance().then((prefs) async {
-      if (prefs.getString('interface') == null) await openSettings();
+      if (prefs.getString('interface') == null) {
+        final store = Provider.of<Store>(context, listen: false);
+        store.interface = store.interface;
+        store.learning = store.learning;
+        store.alt = store.alt;
+        await openSettings();
+      }
       playItemContext(context, chapter);
     });
   }
