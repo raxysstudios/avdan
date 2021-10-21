@@ -1,4 +1,5 @@
 import 'package:avdan/store.dart';
+import 'package:avdan/widgets/raxys_logo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
@@ -33,30 +34,38 @@ class SettingsScreen extends StatelessWidget {
               Card(
                 child: Padding(
                   padding: const EdgeInsets.all(8),
-                  child: Column(
+                  child: Stack(
+                    alignment: AlignmentDirectional.center,
                     children: [
-                      const Icon(Icons.landscape_outlined),
-                      const SizedBox(height: 8),
-                      Text(
-                        store.localize('honor', false),
-                        textAlign: TextAlign.center,
+                      const RaxysLogo(
+                        opacity: .1,
+                        scale: 11,
                       ),
-                      const SizedBox(height: 8),
-                      Row(
+                      Column(
                         children: [
-                          Expanded(
-                            child: DonateButton(
-                              label: Text(store.localize('support')),
-                            ),
+                          const SizedBox(height: 8),
+                          Text(
+                            store.localize('honor', false),
+                            style: Theme.of(context).textTheme.bodyText1,
                           ),
-                          const SizedBox(width: 8),
-                          Expanded(
-                            child: ElevatedButton.icon(
-                              onPressed: () =>
-                                  launch('https://t.me/raxysstudios'),
-                              icon: const Icon(Icons.send_outlined),
-                              label: Text(store.localize('contact')),
-                            ),
+                          const SizedBox(height: 8),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: DonateButton(
+                                  label: Text(store.localize('support')),
+                                ),
+                              ),
+                              const SizedBox(width: 8),
+                              Expanded(
+                                child: ElevatedButton.icon(
+                                  onPressed: () =>
+                                      launch('https://t.me/raxysstudios'),
+                                  icon: const Icon(Icons.send_outlined),
+                                  label: Text(store.localize('contact')),
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       ),
