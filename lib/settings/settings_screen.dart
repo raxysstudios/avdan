@@ -23,7 +23,7 @@ class SettingsScreen extends StatelessWidget {
           ),
           floatingActionButton: FloatingActionButton.extended(
             onPressed: () => Navigator.pop(context),
-            icon: const Icon(Icons.arrow_back_outlined),
+            icon: const Icon(Icons.home_outlined),
             label: Text(store.localize('home')),
           ),
           floatingActionButtonLocation:
