@@ -27,7 +27,7 @@ class Store with ChangeNotifier {
   late final List<Language> _languages;
   List<Language> get languages => _languages;
 
-  static late final List<Chapter> _chapters;
+  late final List<Chapter> _chapters;
   List<Chapter> get chapters => _chapters;
 
   late Language _interface;

@@ -71,7 +71,7 @@ class App extends StatelessWidget {
       home: FutureBuilder(
         future: Future.wait([
           Future.delayed(const Duration(seconds: 2)),
-          Provider.of<Store>(context, listen: false).load(),
+          context.read<Store>().load(),
         ]),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {

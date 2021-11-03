@@ -61,12 +61,8 @@ class LanguageTile extends StatelessWidget {
       ),
       subtitle: language.interface
           ? null
-          : Consumer<Store>(
-              builder: (contenxt, store, child) {
-                return Text(
-                  language.name.text(store.interface),
-                );
-              },
+          : Text(
+              language.name.text(context.watch<Store>().interface),
             ),
       onTap: () => onTap?.call(
         mode != LanguageMode.main || language.alt == null

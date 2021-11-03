@@ -81,7 +81,7 @@ class _HomeScreenState extends State<HomeScreen>
     Translation? item,
   ]) =>
       playItem(
-        Provider.of<Store>(context, listen: false).learning,
+        context.read<Store>().learning,
         chapter,
         item,
       );
@@ -117,7 +117,7 @@ class _HomeScreenState extends State<HomeScreen>
                 child: Align(
                   alignment: Alignment.topLeft,
                   child: IconButton(
-                    onPressed: () => Navigator.of(context).pop(),
+                    onPressed: () => Navigator.pop(context),
                     icon: const Icon(Icons.close_outlined),
                   ),
                 ),
@@ -138,13 +138,9 @@ class _HomeScreenState extends State<HomeScreen>
             Center(
               child: Opacity(
                 opacity: 0.8,
-                child: Consumer<Store>(
-                  builder: (context, store, child) {
-                    return LanguageFlag(
-                      store.learning,
-                      offset: const Offset(8, 0),
-                    );
-                  },
+                child: LanguageFlag(
+                  context.watch<Store>().learning,
+                  offset: const Offset(8, 0),
                 ),
               ),
             )

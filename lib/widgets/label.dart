@@ -18,36 +18,33 @@ class Label extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<Store>(
-      builder: (context, store, child) {
-        final learning = item.text(store.learning, store.alt);
-        final interface = item.text(store.interface);
-        return RichText(
-          textAlign: TextAlign.center,
-          text: TextSpan(
-            style: GoogleFonts.robotoSlab(),
-            children: [
-              TextSpan(
-                text: learning,
-                style: TextStyle(
-                  color: Theme.of(context).textTheme.bodyText1?.color,
-                  fontSize: titleSize,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              if (learning.isNotEmpty && interface.isNotEmpty)
-                const TextSpan(text: '\n'),
-              TextSpan(
-                text: interface,
-                style: TextStyle(
-                  color: Theme.of(context).hintColor,
-                  fontSize: subtitleSize,
-                ),
-              ),
-            ],
+    final store = context.watch<Store>();
+    final learning = item.text(store.learning, store.alt);
+    final interface = item.text(store.interface);
+    return RichText(
+      textAlign: TextAlign.center,
+      text: TextSpan(
+        style: GoogleFonts.robotoSlab(),
+        children: [
+          TextSpan(
+            text: learning,
+            style: TextStyle(
+              color: Theme.of(context).textTheme.bodyText1?.color,
+              fontSize: titleSize,
+              fontWeight: FontWeight.w500,
+            ),
           ),
-        );
-      },
+          if (learning.isNotEmpty && interface.isNotEmpty)
+            const TextSpan(text: '\n'),
+          TextSpan(
+            text: interface,
+            style: TextStyle(
+              color: Theme.of(context).hintColor,
+              fontSize: subtitleSize,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

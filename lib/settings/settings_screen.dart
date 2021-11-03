@@ -13,119 +13,115 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<Store>(
-      builder: (context, store, child) {
-        return Scaffold(
-          appBar: AppBar(
-            automaticallyImplyLeading: false,
-            title: Text(store.localize('settings')),
-            centerTitle: true,
-          ),
-          floatingActionButton: FloatingActionButton.extended(
-            onPressed: () => Navigator.pop(context),
-            icon: const Icon(Icons.home_outlined),
-            label: Text(store.localize('home')),
-          ),
-          floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerFloat,
-          body: ListView(
-            padding: const EdgeInsets.only(bottom: 76),
-            children: [
-              Card(
-                child: Padding(
-                  padding: const EdgeInsets.all(8),
-                  child: Stack(
-                    alignment: AlignmentDirectional.center,
+    final store = context.watch<Store>();
+    return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: Text(store.localize('settings')),
+        centerTitle: true,
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () => Navigator.pop(context),
+        icon: const Icon(Icons.home_outlined),
+        label: Text(store.localize('home')),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      body: ListView(
+        padding: const EdgeInsets.only(bottom: 76),
+        children: [
+          Card(
+            child: Padding(
+              padding: const EdgeInsets.all(8),
+              child: Stack(
+                alignment: AlignmentDirectional.center,
+                children: [
+                  const RaxysLogo(
+                    opacity: .1,
+                    scale: 11,
+                  ),
+                  Column(
                     children: [
-                      const RaxysLogo(
-                        opacity: .1,
-                        scale: 11,
+                      const SizedBox(height: 8),
+                      Text(
+                        store.localize('honor', false),
+                        style: Theme.of(context).textTheme.bodyText1,
                       ),
-                      Column(
+                      const SizedBox(height: 8),
+                      Row(
                         children: [
-                          const SizedBox(height: 8),
-                          Text(
-                            store.localize('honor', false),
-                            style: Theme.of(context).textTheme.bodyText1,
+                          Expanded(
+                            child: DonateButton(
+                              label: Text(store.localize('support')),
+                            ),
                           ),
-                          const SizedBox(height: 8),
-                          Row(
-                            children: [
-                              Expanded(
-                                child: DonateButton(
-                                  label: Text(store.localize('support')),
-                                ),
-                              ),
-                              const SizedBox(width: 8),
-                              Expanded(
-                                child: ElevatedButton.icon(
-                                  onPressed: () =>
-                                      launch('https://t.me/raxysstudios'),
-                                  icon: const Icon(Icons.send_outlined),
-                                  label: Text(store.localize('contact')),
-                                ),
-                              ),
-                            ],
+                          const SizedBox(width: 8),
+                          Expanded(
+                            child: ElevatedButton.icon(
+                              onPressed: () =>
+                                  launch('https://t.me/raxysstudios'),
+                              icon: const Icon(Icons.send_outlined),
+                              label: Text(store.localize('contact')),
+                            ),
                           ),
                         ],
                       ),
                     ],
                   ),
-                ),
+                ],
               ),
-              Card(
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(16),
-                      child: Text(
-                        store.localize('interface'),
-                        style: Theme.of(context).textTheme.headline6,
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    for (final l in store.languages.where((l) => l.interface))
-                      LanguageTile(
-                        l,
-                        mode: store.interface == l
-                            ? LanguageMode.main
-                            : LanguageMode.none,
-                        onTap: (alt) => store.interface = l,
-                      ),
-                  ],
-                ),
-              ),
-              Card(
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(16),
-                      child: Text(
-                        store.localize('learning'),
-                        style: Theme.of(context).textTheme.headline6,
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    for (final l in store.languages.where((l) => !l.interface))
-                      LanguageTile(
-                        l,
-                        mode: store.learning == l
-                            ? store.alt
-                                ? LanguageMode.alt
-                                : LanguageMode.main
-                            : LanguageMode.none,
-                        onTap: (mode) {
-                          store.learning = l;
-                          store.alt = mode == LanguageMode.alt;
-                        },
-                      ),
-                  ],
-                ),
-              ),
-            ],
+            ),
           ),
-        );
-      },
+          Card(
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Text(
+                    store.localize('interface'),
+                    style: Theme.of(context).textTheme.headline6,
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                for (final l in store.languages.where((l) => l.interface))
+                  LanguageTile(
+                    l,
+                    mode: store.interface == l
+                        ? LanguageMode.main
+                        : LanguageMode.none,
+                    onTap: (alt) => store.interface = l,
+                  ),
+              ],
+            ),
+          ),
+          Card(
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Text(
+                    store.localize('learning'),
+                    style: Theme.of(context).textTheme.headline6,
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                for (final l in store.languages.where((l) => !l.interface))
+                  LanguageTile(
+                    l,
+                    mode: store.learning == l
+                        ? store.alt
+                            ? LanguageMode.alt
+                            : LanguageMode.main
+                        : LanguageMode.none,
+                    onTap: (mode) {
+                      store.learning = l;
+                      store.alt = mode == LanguageMode.alt;
+                    },
+                  ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

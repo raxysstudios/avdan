@@ -33,16 +33,13 @@ class ItemCard extends StatelessWidget {
                   builder: (contenxt) {
                     if (image != null) return image!;
                     if (item != null) {
-                      return Consumer<Store>(
-                        builder: (contenxt, store, child) {
-                          return Text(
-                            item!.text(store.learning, store.alt),
-                            style: const TextStyle(
-                              fontSize: 42,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          );
-                        },
+                      final store = context.watch<Store>();
+                      return Text(
+                        item!.text(store.learning, store.alt),
+                        style: const TextStyle(
+                          fontSize: 42,
+                          fontWeight: FontWeight.w500,
+                        ),
                       );
                     }
                     return const SizedBox();

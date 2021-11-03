@@ -20,42 +20,38 @@ class ChaptersView extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnimatedBuilder(
       animation: controller.animation!,
-      child: Consumer<Store>(
-        builder: (context, store, child) {
-          return TabBarView(
-            controller: controller,
-            children: [
-              for (final chapter in chapters)
-                Builder(
-                  builder: (context) {
-                    final items = chapter.items
-                        .where((i) => i.text(store.learning).isNotEmpty)
-                        .toList();
-                    return GridView.builder(
-                      gridDelegate:
-                          const SliverGridDelegateWithMaxCrossAxisExtent(
-                        maxCrossAxisExtent: 128,
-                      ),
-                      itemCount: items.length,
-                      itemBuilder: (_, i) {
-                        final item = items[i];
-                        return ItemCard(
-                          color: chapter.color,
-                          item: chapter.alphabet ? item : null,
-                          image: chapter.alphabet
-                              ? null
-                              : Image(
-                                  image: item.image(),
-                                ),
-                          onTap: () => onTap?.call(chapter, i),
-                        );
-                      },
+      child: TabBarView(
+        controller: controller,
+        children: [
+          for (final chapter in chapters)
+            Builder(
+              builder: (context) {
+                final store = context.watch<Store>();
+                final items = chapter.items
+                    .where((i) => i.text(store.learning).isNotEmpty)
+                    .toList();
+                return GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                    maxCrossAxisExtent: 128,
+                  ),
+                  itemCount: items.length,
+                  itemBuilder: (_, i) {
+                    final item = items[i];
+                    return ItemCard(
+                      color: chapter.color,
+                      item: chapter.alphabet ? item : null,
+                      image: chapter.alphabet
+                          ? null
+                          : Image(
+                              image: item.image(),
+                            ),
+                      onTap: () => onTap?.call(chapter, i),
                     );
                   },
-                ),
-            ],
-          );
-        },
+                );
+              },
+            ),
+        ],
       ),
       builder: (context, child) {
         final index = controller.animation?.value ?? 0;

@@ -33,35 +33,28 @@ class ItemsView extends StatelessWidget {
         itemCount: chapter.items.length,
         itemBuilder: (context, i) {
           final item = chapter.items[i];
+          final store = context.watch<Store>();
+          final text = item.text(store.learning, store.alt);
           return Stack(
             alignment: Alignment.center,
             children: [
               if (chapter.alphabet)
                 FittedBox(
                   fit: BoxFit.contain,
-                  child: Consumer<Store>(
-                    builder: (content, store, child) {
-                      final text = item.text(store.learning, store.alt);
-                      return Text(
-                        '${text.toUpperCase()}\n${text.toLowerCase()}',
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          fontSize: 96,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      );
-                    },
+                  child: Text(
+                    '${text.toUpperCase()}\n${text.toLowerCase()}',
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                      fontSize: 96,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 )
               else ...[
                 Padding(
                   padding: const EdgeInsets.fromLTRB(8, 8, 8, 32),
-                  child: Consumer<Store>(
-                    builder: (context, store, child) {
-                      return Image(
-                        image: item.image(),
-                      );
-                    },
+                  child: Image(
+                    image: item.image(),
                   ),
                 ),
                 Padding(
