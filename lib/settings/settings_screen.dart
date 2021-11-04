@@ -29,59 +29,59 @@ class SettingsScreen extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.only(bottom: 76),
         children: [
-          Card(
-            child: Padding(
-              padding: const EdgeInsets.all(8),
-              child: Stack(
-                alignment: AlignmentDirectional.center,
-                children: [
-                  const RaxysLogo(
-                    opacity: .1,
-                    scale: 11,
-                  ),
-                  Column(
-                    children: [
-                      const SizedBox(height: 8),
-                      Text(
-                        store.localize('honor', false),
-                        style: Theme.of(context).textTheme.bodyText1,
-                      ),
-                      const SizedBox(height: 8),
-                      Row(
-                        children: [
-                          Expanded(
-                            child: DonateButton(
-                              label: Text(store.localize('support')),
-                            ),
-                          ),
-                          const SizedBox(width: 8),
-                          Expanded(
-                            child: ElevatedButton.icon(
-                              onPressed: () =>
-                                  launch('https://t.me/raxysstudios'),
-                              icon: const Icon(Icons.send_outlined),
-                              label: Text(store.localize('contact')),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ],
+          Stack(
+            alignment: AlignmentDirectional.topCenter,
+            children: [
+              const RaxysLogo(
+                opacity: .1,
+                scale: 7,
               ),
+              Padding(
+                padding: const EdgeInsets.all(8),
+                child: Column(
+                  children: [
+                    const SizedBox(height: 8),
+                    Text(
+                      store.localize('honor', false),
+                      style: Theme.of(context).textTheme.bodyText1,
+                    ),
+                    const SizedBox(height: 8),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: DonateButton(
+                            label: Text(store.localize('support')),
+                          ),
+                        ),
+                        const SizedBox(width: 8),
+                        Expanded(
+                          child: ElevatedButton.icon(
+                            onPressed: () =>
+                                launch('https://t.me/raxysstudios'),
+                            icon: const Icon(Icons.send_outlined),
+                            label: Text(store.localize('contact')),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          const Divider(),
+          const SizedBox(height: 8),
+          Padding(
+            padding: const EdgeInsets.all(8),
+            child: Text(
+              store.localize('interface'),
+              style: Theme.of(context).textTheme.headline6,
+              textAlign: TextAlign.center,
             ),
           ),
           Card(
             child: Column(
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: Text(
-                    store.localize('interface'),
-                    style: Theme.of(context).textTheme.headline6,
-                    textAlign: TextAlign.center,
-                  ),
-                ),
                 for (final l in store.languages.where((l) => l.interface))
                   LanguageTile(
                     l,
@@ -93,17 +93,18 @@ class SettingsScreen extends StatelessWidget {
               ],
             ),
           ),
+          const SizedBox(height: 8),
+          Padding(
+            padding: const EdgeInsets.all(8),
+            child: Text(
+              store.localize('learning'),
+              style: Theme.of(context).textTheme.headline6,
+              textAlign: TextAlign.center,
+            ),
+          ),
           Card(
             child: Column(
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: Text(
-                    store.localize('learning'),
-                    style: Theme.of(context).textTheme.headline6,
-                    textAlign: TextAlign.center,
-                  ),
-                ),
                 for (final l in store.languages.where((l) => !l.interface))
                   LanguageTile(
                     l,
