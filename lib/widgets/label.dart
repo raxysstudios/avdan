@@ -1,7 +1,6 @@
 import 'package:avdan/data/translation.dart';
 import 'package:avdan/store.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class Label extends StatelessWidget {
@@ -24,7 +23,6 @@ class Label extends StatelessWidget {
     return RichText(
       textAlign: TextAlign.center,
       text: TextSpan(
-        style: GoogleFonts.robotoSlab(),
         children: [
           TextSpan(
             text: learning,
