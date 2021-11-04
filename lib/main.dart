@@ -35,6 +35,7 @@ class App extends StatelessWidget {
     const cardTheme = CardTheme(
       clipBehavior: Clip.antiAlias,
     );
+    const dividerTheme = DividerThemeData(space: 0);
     return [
       ThemeData().copyWith(
         scaffoldBackgroundColor: Colors.blueGrey.shade50,
@@ -48,6 +49,7 @@ class App extends StatelessWidget {
         cardTheme: cardTheme,
         toggleableActiveColor: colorScheme.primary,
         floatingActionButtonTheme: floatingActionButtonTheme,
+        dividerTheme: dividerTheme,
       ),
       ThemeData.dark().copyWith(
         colorScheme: ColorScheme.fromSwatch(
@@ -57,6 +59,7 @@ class App extends StatelessWidget {
         cardTheme: cardTheme,
         toggleableActiveColor: colorScheme.primary,
         floatingActionButtonTheme: floatingActionButtonTheme,
+        dividerTheme: dividerTheme,
       ),
     ];
   }
