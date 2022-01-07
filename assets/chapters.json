@@ -8,13 +8,16 @@
       "iron": "дамгъуат",
       "iron_alt": "damghwat",
       "digor": "дамугъуат",
-      "digor_alt": "damghwat"
+      "digor_alt": "damghwat",
+      "kubachi": "алифбе"
     },
     {
       "iron": "а ӕ б в г гъ д дз дж е з и й к къ л м н о п пъ р с т тъ у у ф х хъ ц цъ ч чъ ы",
       "iron_alt": "a æ b v g gh d dz ĝ e z i j k kh l m n o p ph r s t th u w f x q c ch ĉ ĉh y",
       "digor": "а ӕ б в г гъ д дз дж е з и й к къ л м н о п пъ р с т тъ у у ф х хъ ц цъ ч чъ",
-      "digor_alt": "a æ b v g gh d dz ĝ e z i j k kh l m n o p ph r s t th w u f x q c ch ĉ ĉh"
+      "digor_alt": "a æ b v g gh d dz ĝ e z i j k kh l m n o p ph r s t th w u f x q c ch ĉ ĉh",
+      "kubachi": "а аа б в г гв гъ гъв гь гӏ гӏя гӏяя гӏе гӏее гӏи гӏии гӏю гӏюю э/е ээ/ее ж з и ии й к кв кк ккв къ къв къкъ къкъв кь кьв кӏ кӏв л м н п пп пӏ р с сс т тт тӏ у уу х хв хх ххв хъ хъв хь хьв хьхь хьхьв хӏ ц цц цӏ ч чч чӏ ш шш ъ",
+      "kubachi_alt": "а аа ааӏ аӏ б в г гв гъ гъв гь гӏ е ее ееӏ еӏ ж з и ии ииӏ иӏ й к кв кк ккв къ къв ккъ ккъв кь кьв кӏ кӏв л м н п пп пӏ р с сс т тт тӏ у уу ууӏ уӏ х хв хх ххв хъ хъв хь хьв ххь ххьв хӏ ц цц цӏ ч чч чӏ ш шш ъ"
     }
   ],
   [
@@ -26,7 +29,8 @@
       "iron": "адæм",
       "iron_alt": "adæm",
       "digor": "адæн",
-      "digor_alt": "adæn"
+      "digor_alt": "adæn",
+      "kubachi": "уй"
     },
     {
       "english": "senior",
@@ -35,7 +39,8 @@
       "iron": "хистæр",
       "iron_alt": "xistær",
       "digor": "хестæр",
-      "digor_alt": "xestær"
+      "digor_alt": "xestær",
+      "kubachi": "хвалел"
     },
     {
       "english": "man",
@@ -44,16 +49,8 @@
       "iron": "лæг",
       "iron_alt": "læg",
       "digor": "лæг",
-      "digor_alt": "lӕg"
-    },
-    {
-      "english": "people",
-      "russian": "люди",
-      "turkish": "insanlar",
-      "iron": "адæм",
-      "iron_alt": "adæm",
-      "digor": "адæн",
-      "digor_alt": "adæn"
+      "digor_alt": "lӕg",
+      "kubachi": "кьапӏачибан"
     },
     {
       "english": "woman",
@@ -62,7 +59,8 @@
       "iron": "сылгоймаг",
       "iron_alt": "sylgojmag",
       "digor": "уосæ",
-      "digor_alt": "wosӕ"
+      "digor_alt": "wosӕ",
+      "kubachi": "кӏазчибан"
     },
     {
       "english": "mother",
@@ -71,7 +69,8 @@
       "iron": "мад",
       "iron_alt": "mad",
       "digor": "мадæ",
-      "digor_alt": "madæ"
+      "digor_alt": "madæ",
+      "kubachi": "аба"
     },
     {
       "english": "father",
@@ -80,7 +79,8 @@
       "iron": "фыд",
       "iron_alt": "fyd",
       "digor": "фидæ",
-      "digor_alt": "fidæ"
+      "digor_alt": "fidæ",
+      "kubachi": "атта"
     },
     {
       "english": "brother",
@@ -89,7 +89,8 @@
       "iron": "æфсымæр",
       "iron_alt": "æfsymær",
       "digor": "æнсувæр",
-      "digor_alt": "ænsuvær"
+      "digor_alt": "ænsuvær",
+      "kubachi": "уцце"
     },
     {
       "english": "sister",
@@ -98,7 +99,8 @@
       "iron": "хо",
       "iron_alt": "xo",
       "digor": "хуæрæ",
-      "digor_alt": "xwæræ"
+      "digor_alt": "xwæræ",
+      "kubachi": "йуцце"
     },
     {
       "english": "grandmother",
@@ -107,7 +109,8 @@
       "iron": "нана",
       "iron_alt": "nana",
       "digor": "нана",
-      "digor_alt": "nana"
+      "digor_alt": "nana",
+      "kubachi": "аттааба / абахъалааба"
     },
     {
       "english": "grandfather",
@@ -116,7 +119,8 @@
       "iron": "дада",
       "iron_alt": "dada",
       "digor": "баба",
-      "digor_alt": "baba"
+      "digor_alt": "baba",
+      "kubachi": "аттаатта / абахъалаатта"
     },
     {
       "english": "family",
@@ -125,7 +129,8 @@
       "iron": "бинонтæ",
       "iron_alt": "binontæ",
       "digor": "бийнонтæ",
-      "digor_alt": "bijnontæ"
+      "digor_alt": "bijnontæ",
+      "kubachi": "кулпат"
     },
     {
       "english": "boy",
@@ -134,7 +139,8 @@
       "iron": "лæппу",
       "iron_alt": "læppu",
       "digor": "биццеу",
-      "digor_alt": "biccew"
+      "digor_alt": "biccew",
+      "kubachi": "гал"
     },
     {
       "english": "girl",
@@ -143,7 +149,8 @@
       "iron": "чызг",
       "iron_alt": "ĉyzg",
       "digor": "кизгæ",
-      "digor_alt": "kizgæ"
+      "digor_alt": "kizgæ",
+      "kubachi": "йууссе"
     },
     {
       "english": "child",
@@ -152,7 +159,8 @@
       "iron": "сывæллон",
       "iron_alt": "syvællon",
       "digor": "сувæллон",
-      "digor_alt": "suvӕllon"
+      "digor_alt": "suvӕllon",
+      "kubachi": "биикӏате"
     },
     {
       "english": "friend",
@@ -161,7 +169,8 @@
       "iron": "æмбал",
       "iron_alt": "ӕmbal",
       "digor": "æнбал",
-      "digor_alt": "ӕnbal"
+      "digor_alt": "ӕnbal",
+      "kubachi": "йулдаш"
     },
     {
       "english": "neighbour",
@@ -170,7 +179,8 @@
       "iron": "сыхаг",
       "iron_alt": "syxag",
       "digor": "синхон",
-      "digor_alt": "sinxon"
+      "digor_alt": "sinxon",
+      "kubachi": "деене"
     }
   ],
   [
@@ -182,7 +192,8 @@
       "iron": "хæринаг",
       "iron_alt": "xærinag",
       "digor": "хуæруйнаг",
-      "digor_alt": "xwærujnag"
+      "digor_alt": "xwærujnag",
+      "kubachi": "буккин"
     },
     {
       "english": "ossetian pies",
@@ -191,7 +202,9 @@
       "iron": "чъиритæ",
       "iron_alt": "ĉhiritæ",
       "digor": "къеретæ",
-      "digor_alt": "kheretæ"
+      "digor_alt": "kheretæ",
+      "kubachi": "хӏялаккуц",
+      "kubachi_alt": "хӏалаккуц"
     },
     {
       "english": "bread",
@@ -200,7 +213,8 @@
       "iron": "дзул",
       "iron_alt": "dzul",
       "digor": "дзол",
-      "digor_alt": "dzol"
+      "digor_alt": "dzol",
+      "kubachi": "тӏулутӏ"
     },
     {
       "english": "water",
@@ -209,7 +223,8 @@
       "iron": "дон",
       "iron_alt": "don",
       "digor": "дон",
-      "digor_alt": "don"
+      "digor_alt": "don",
+      "kubachi": "шин"
     },
     {
       "english": "salt",
@@ -218,7 +233,8 @@
       "iron": "цæхх",
       "iron_alt": "cæxx",
       "digor": "цӕнхӕ",
-      "digor_alt": "cӕnxӕ"
+      "digor_alt": "cӕnxӕ",
+      "kubachi": "цце"
     },
     {
       "english": "sugar",
@@ -227,7 +243,8 @@
       "iron": "сæкæр",
       "iron_alt": "sækær",
       "digor": "сæкæр",
-      "digor_alt": "sӕkӕr"
+      "digor_alt": "sӕkӕr",
+      "kubachi": "чакай"
     },
     {
       "english": "pepper",
@@ -236,7 +253,8 @@
       "iron": "бырц",
       "iron_alt": "byrc",
       "digor": "бурцæ",
-      "digor_alt": "burcӕ"
+      "digor_alt": "burcӕ",
+      "kubachi": "иссут"
     },
     {
       "english": "meat",
@@ -245,7 +263,8 @@
       "iron": "фыд",
       "iron_alt": "fyd",
       "digor": "фид",
-      "digor_alt": "fid"
+      "digor_alt": "fid",
+      "kubachi": "диг"
     },
     {
       "english": "milk",
@@ -254,7 +273,8 @@
       "iron": "æхсыр",
       "iron_alt": "æxsyr",
       "digor": "æхсир",
-      "digor_alt": "ӕxsir"
+      "digor_alt": "ӕxsir",
+      "kubachi": "ниг"
     },
     {
       "english": "kefir",
@@ -263,7 +283,8 @@
       "iron": "мисын",
       "iron_alt": "misyn",
       "digor": "месин",
-      "digor_alt": "mesin"
+      "digor_alt": "mesin",
+      "kubachi": "деетиб ниг"
     },
     {
       "english": "sour cream",
@@ -272,7 +293,8 @@
       "iron": "хъаймагъ",
       "iron_alt": "qajmagh",
       "digor": "хъаймагъ",
-      "digor_alt": "qajmagh"
+      "digor_alt": "qajmagh",
+      "kubachi": "буут"
     },
     {
       "english": "oil",
@@ -281,7 +303,8 @@
       "iron": "зети",
       "iron_alt": "zeti",
       "digor": "зети",
-      "digor_alt": "zeti"
+      "digor_alt": "zeti",
+      "kubachi": "пуснимасла"
     },
     {
       "english": "butter",
@@ -290,7 +313,9 @@
       "iron": "нæлхæ",
       "iron_alt": "nælxæ",
       "digor": "нæлхæ",
-      "digor_alt": "nælxæ"
+      "digor_alt": "nælxæ",
+      "kubachi": "бгӏяхъгӏяла",
+      "kubachi_alt": "баӏхъаӏла"
     },
     {
       "english": "porridge",
@@ -299,7 +324,8 @@
       "iron": "кас",
       "iron_alt": "kas",
       "digor": "касӕ",
-      "digor_alt": "kasæ"
+      "digor_alt": "kasæ",
+      "kubachi": "гьаашше"
     },
     {
       "english": "soup",
@@ -308,7 +334,8 @@
       "iron": "хъæрмхуыпп",
       "iron_alt": "qærmxwypp",
       "digor": "цумуйнаг",
-      "digor_alt": "cumujnag"
+      "digor_alt": "cumujnag",
+      "kubachi": "неегъ"
     },
     {
       "english": "meat pie",
@@ -361,7 +388,8 @@
       "iron": "адджинӕгтæ",
       "iron_alt": "adĝinӕgtӕ",
       "digor": "адгийнæгтæ",
-      "digor_alt": "adgijnægtæ"
+      "digor_alt": "adgijnægtæ",
+      "kubachi": "мидидишше"
     },
     {
       "english": "cheese",
@@ -370,7 +398,8 @@
       "iron": "цыхт",
       "iron_alt": "cyxt",
       "digor": "цихт",
-      "digor_alt": "cixt"
+      "digor_alt": "cixt",
+      "kubachi": "нисса"
     }
   ],
   [
@@ -382,7 +411,8 @@
       "iron": "хæдзар",
       "iron_alt": "xædzar",
       "digor": "хӕдзарӕ",
-      "digor_alt": "xædzaræ"
+      "digor_alt": "xædzaræ",
+      "kubachi": "хъал"
     },
     {
       "english": "bed",
@@ -391,16 +421,18 @@
       "iron": "сынтæг",
       "iron_alt": "syntæg",
       "digor": "хуссӕн",
-      "digor_alt": "xussæn"
+      "digor_alt": "xussæn",
+      "kubachi": "ттамхъ"
     },
     {
       "english": "kitchen",
       "russian": "кухня",
       "turkish": "mutfak",
-      "iron": "хæрæндон",
+      "iron": "хæрæндон цаелгаенаен",
       "iron_alt": "xærændon",
       "digor": "цӕлгӕнӕн",
-      "digor_alt": "cælgænæn"
+      "digor_alt": "cælgænæn",
+      "kubachi": "пичлахъал"
     },
     {
       "english": "table",
@@ -409,7 +441,8 @@
       "iron": "фынг",
       "iron_alt": "fyng",
       "digor": "фингӕ",
-      "digor_alt": "fingæ"
+      "digor_alt": "fingæ",
+      "kubachi": "тахт"
     },
     {
       "english": "chair",
@@ -418,7 +451,8 @@
       "iron": "бандон",
       "iron_alt": "bandon",
       "digor": "къела",
-      "digor_alt": "khela"
+      "digor_alt": "khela",
+      "kubachi": "гута"
     },
     {
       "english": "refreegerator",
@@ -427,7 +461,8 @@
       "iron": "уазалгæнæг",
       "iron_alt": "wazalgænæg",
       "digor": "гаргадонӕ",
-      "digor_alt": "gargadonæ"
+      "digor_alt": "gargadonæ",
+      "kubachi": "ццуминжила"
     },
     {
       "english": "plate",
@@ -436,7 +471,8 @@
       "iron": "тæбæгъ",
       "iron_alt": "tæbægh",
       "digor": "тефсег",
-      "digor_alt": "tefseg"
+      "digor_alt": "tefseg",
+      "kubachi": "хатӏа"
     },
     {
       "english": "cup",
@@ -445,7 +481,8 @@
       "iron": "къус",
       "iron_alt": "khus",
       "digor": "къос",
-      "digor_alt": "khos"
+      "digor_alt": "khos",
+      "kubachi": "вахъ"
     },
     {
       "english": "spoon",
@@ -454,7 +491,8 @@
       "iron": "уидыг",
       "iron_alt": "widyg",
       "digor": "едуг",
-      "digor_alt": "edug"
+      "digor_alt": "edug",
+      "kubachi": "милкьа"
     },
     {
       "english": "fork",
@@ -463,7 +501,8 @@
       "iron": "саджилæг",
       "iron_alt": "saĝilæg",
       "digor": "сагелӕг",
-      "digor_alt": "sagelæg"
+      "digor_alt": "sagelæg",
+      "kubachi": "чӏала"
     },
     {
       "english": "bedroom",
@@ -472,7 +511,8 @@
       "iron": "хуыссæнуат",
       "iron_alt": "xwyssænwat",
       "digor": "хуссӕндонӕ",
-      "digor_alt": "xussændonæ"
+      "digor_alt": "xussændonæ",
+      "kubachi": "килсунзив хъал"
     },
     {
       "english": "blanket",
@@ -481,7 +521,8 @@
       "iron": "хъæццул",
       "iron_alt": "qæccul",
       "digor": "гъӕццол",
-      "digor_alt": "ghæccol"
+      "digor_alt": "ghæccol",
+      "kubachi": "йургъан"
     },
     {
       "english": "pillow",
@@ -490,7 +531,9 @@
       "iron": "баз",
       "iron_alt": "baz",
       "digor": "баз",
-      "digor_alt": "baz"
+      "digor_alt": "baz",
+      "kubachi": "гӏянихьхьала",
+      "kubachi_alt": "аӏниххьала"
     },
     {
       "english": "cradle",
@@ -499,7 +542,8 @@
       "iron": "авдæн",
       "iron_alt": "avdæn",
       "digor": "авдӕнӕ",
-      "digor_alt": "avdænæ"
+      "digor_alt": "avdænæ",
+      "kubachi": "лакьуй"
     },
     {
       "english": "toy",
@@ -517,7 +561,8 @@
       "iron": "cкъапп",
       "iron_alt": "skhapp",
       "digor": "скъапп",
-      "digor_alt": "skhapp"
+      "digor_alt": "skhapp",
+      "kubachi": "ишкап"
     },
     {
       "english": "sofa",
@@ -535,7 +580,9 @@
       "iron": "найæнуат",
       "iron_alt": "najænwat",
       "digor": "ӕртайӕндонӕ",
-      "digor_alt": "ærtajændonæ"
+      "digor_alt": "ærtajændonæ",
+      "kubachi": "хӏямам",
+      "kubachi_alt": "хӏамам"
     },
     {
       "english": "window",
@@ -544,7 +591,8 @@
       "iron": "рудзынг",
       "iron_alt": "rudzyng",
       "digor": "къӕразгӕ",
-      "digor_alt": "khærazgæ"
+      "digor_alt": "khærazgæ",
+      "kubachi": "уццадигала"
     },
     {
       "english": "wall",
@@ -553,7 +601,8 @@
       "iron": "къул",
       "iron_alt": "khul",
       "digor": "фарс",
-      "digor_alt": "fars"
+      "digor_alt": "fars",
+      "kubachi": "лас"
     },
     {
       "english": "chandelier",
@@ -562,7 +611,8 @@
       "iron": "цырагъ",
       "iron_alt": "cyragh",
       "digor": "цирагъ",
-      "digor_alt": "ciragh"
+      "digor_alt": "ciragh",
+      "kubachi": "чаагъ"
     },
     {
       "english": "door",
@@ -571,7 +621,8 @@
       "iron": "дуар",
       "iron_alt": "dwar",
       "digor": "дуар",
-      "digor_alt": "dwar"
+      "digor_alt": "dwar",
+      "kubachi": "уцца"
     }
   ],
   [
@@ -600,7 +651,8 @@
       "turkish": "üzüm",
       "iron": "сæнæфсир",
       "iron_alt": "sænæfsir",
-      "digor": "сæнæфсерæ sænæfseræ"
+      "digor": "сæнæфсерæ",
+      "digor_alt": "sænæfseræ"
     },
     {
       "english": "pear",
@@ -954,6 +1006,9 @@
       "digor_alt": "bælasæ"
     },
     {
+      "russian": "трава"
+    },
+    {
       "english": "puddle",
       "russian": "лужа",
       "turkish": "su birikintisi",
@@ -1051,6 +1106,9 @@
       "iron_alt": "kom",
       "digor": "ком",
       "digor_alt": "kom"
+    },
+    {
+      "russian": "остров"
     },
     {
       "english": "winter",
@@ -1269,10 +1327,11 @@
       "english": "animals",
       "russian": "животные",
       "turkish": "hayvanlar",
-      "iron": "сырдтæ",
+      "iron": "сырдтæ цаераегойтае",
       "iron_alt": "syrdtæ",
       "digor": "сирдтæ",
-      "digor_alt": "sirdtæ"
+      "digor_alt": "sirdtæ",
+      "kubachi": "жанаварте"
     },
     {
       "english": "bear",
@@ -1281,7 +1340,8 @@
       "iron": "арс",
       "iron_alt": "ars",
       "digor": "арс",
-      "digor_alt": "ars"
+      "digor_alt": "ars",
+      "kubachi": "ссика"
     },
     {
       "english": "cat",
@@ -1290,7 +1350,8 @@
       "iron": "гæды",
       "iron_alt": "gædy",
       "digor": "тикис",
-      "digor_alt": "tikis"
+      "digor_alt": "tikis",
+      "kubachi": "ччиту"
     },
     {
       "english": "cow",
@@ -1299,7 +1360,9 @@
       "iron": "хъуг",
       "iron_alt": "qug",
       "digor": "гъог",
-      "digor_alt": "ghog"
+      "digor_alt": "ghog",
+      "kubachi": "кьгӏюл",
+      "kubachi_alt": "кьуӏл"
     },
     {
       "english": "crocodile",
@@ -1317,7 +1380,8 @@
       "iron": "куыдз",
       "iron_alt": "kwydz",
       "digor": "куй",
-      "digor_alt": "kuj"
+      "digor_alt": "kuj",
+      "kubachi": "ххве"
     },
     {
       "english": "dove",
@@ -1326,7 +1390,8 @@
       "iron": "бæлон",
       "iron_alt": "bælon",
       "digor": "бæлæу",
-      "digor_alt": "bælæw"
+      "digor_alt": "bælæw",
+      "kubachi": "нахьва"
     },
     {
       "english": "eagle",
@@ -1335,7 +1400,9 @@
       "iron": "цæргæс",
       "iron_alt": "cærgæs",
       "digor": "цæргæс",
-      "digor_alt": "cærgæs"
+      "digor_alt": "cærgæs",
+      "kubachi": "чӏгӏикгӏя",
+      "kubachi_alt": "чӏиӏкаӏ"
     },
     {
       "english": "fox",
@@ -1344,7 +1411,8 @@
       "iron": "рувас",
       "iron_alt": "ruvas",
       "digor": "робас",
-      "digor_alt": "robas"
+      "digor_alt": "robas",
+      "kubachi": "ккуутта"
     },
     {
       "english": "frog",
@@ -1353,16 +1421,18 @@
       "iron": "хæфс",
       "iron_alt": "xæfs",
       "digor": "хæпсæ",
-      "digor_alt": "xæpsæ"
+      "digor_alt": "xæpsæ",
+      "kubachi": "хӏитӏа"
     },
     {
-      "english": "elefant",
+      "english": "elephant",
       "russian": "слон",
       "turkish": "fil",
       "iron": "пыл",
       "iron_alt": "pyl",
       "digor": "пил",
-      "digor_alt": "pil"
+      "digor_alt": "pil",
+      "kubachi": "пилжакьа"
     },
     {
       "english": "horse",
@@ -1371,7 +1441,8 @@
       "iron": "бæх",
       "iron_alt": "bæx",
       "digor": "бæх",
-      "digor_alt": "bæx"
+      "digor_alt": "bæx",
+      "kubachi": "ууче"
     },
     {
       "english": "leopard",
@@ -1389,7 +1460,8 @@
       "iron": "цомахъ",
       "iron_alt": "comaq",
       "digor": "цомахъ",
-      "digor_alt": "comaq"
+      "digor_alt": "comaq",
+      "kubachi": "арслан"
     },
     {
       "english": "monkey",
@@ -1398,7 +1470,9 @@
       "iron": "маймули",
       "iron_alt": "majmuli",
       "digor": "маймул",
-      "digor_alt": "majmul"
+      "digor_alt": "majmul",
+      "kubachi": "мягӏмгӏялук",
+      "kubachi_alt": "магӏмаӏлук"
     },
     {
       "english": "mouse",
@@ -1407,7 +1481,8 @@
       "iron": "мыст",
       "iron_alt": "myst",
       "digor": "мистæ",
-      "digor_alt": "mistæ"
+      "digor_alt": "mistæ",
+      "kubachi": "васа"
     },
     {
       "english": "owl",
@@ -1416,7 +1491,8 @@
       "iron": "уыг",
       "iron_alt": "wyg",
       "digor": "уг",
-      "digor_alt": "ug"
+      "digor_alt": "ug",
+      "kubachi": "тӏума"
     },
     {
       "english": "sheep",
@@ -1425,7 +1501,8 @@
       "iron": "фыс",
       "iron_alt": "fys",
       "digor": "фус",
-      "digor_alt": "fus"
+      "digor_alt": "fus",
+      "kubachi": "мацца"
     },
     {
       "english": "wolf",
@@ -1434,16 +1511,17 @@
       "iron": "бирæгъ",
       "iron_alt": "birægh",
       "digor": "берæгъ",
-      "digor_alt": "berægh"
+      "digor_alt": "berægh",
+      "kubachi": "бицӏ"
     }
   ],
   [
     {
       "color": "9575CD",
-      "english": "clothes",
-      "russian": "одежда",
+      "english": "belongings",
+      "russian": "вещи",
       "turkish": "kıyafetler",
-      "iron": "дарæс",
+      "iron": "дарæс дзаумаеттае",
       "iron_alt": "daræs",
       "digor": "хъæппæлтæ",
       "digor_alt": "qæppæltæ"
@@ -1524,7 +1602,7 @@
       "english": "button",
       "russian": "пуговица",
       "turkish": "düğme",
-      "iron": "æгънæг",
+      "iron": "æгънæг цаеппаер",
       "iron_alt": "æghnæg",
       "digor": "æгънæг",
       "digor_alt": "æghnæg"
@@ -2094,7 +2172,8 @@
       "iron": "нымæцтæ",
       "iron_alt": "nymæctæ",
       "digor": "нимæдзитæ",
-      "digor_alt": "nimædzitæ"
+      "digor_alt": "nimædzitæ",
+      "kubachi": "лугге"
     },
     {
       "english": "one",
@@ -2103,7 +2182,8 @@
       "iron": "иу",
       "iron_alt": "iw",
       "digor": "еу",
-      "digor_alt": "ew"
+      "digor_alt": "ew",
+      "kubachi": "са"
     },
     {
       "english": "two",
@@ -2112,7 +2192,8 @@
       "iron": "дыууæ",
       "iron_alt": "dywwæ",
       "digor": "дууæ",
-      "digor_alt": "duwwæ"
+      "digor_alt": "duwwæ",
+      "kubachi": "кӏве"
     },
     {
       "english": "three",
@@ -2121,7 +2202,9 @@
       "iron": "æртæ",
       "iron_alt": "ærtæ",
       "digor": "æртæ",
-      "digor_alt": "ærtæ"
+      "digor_alt": "ærtæ",
+      "kubachi": "гӏяб",
+      "kubachi_alt": "аӏб"
     },
     {
       "english": "four",
@@ -2130,7 +2213,8 @@
       "iron": "цыппар",
       "iron_alt": "cyppar",
       "digor": "цуппар",
-      "digor_alt": "cuppar"
+      "digor_alt": "cuppar",
+      "kubachi": "агъв"
     },
     {
       "english": "five",
@@ -2139,7 +2223,8 @@
       "iron": "фондз",
       "iron_alt": "fondz",
       "digor": "фондз",
-      "digor_alt": "fondz"
+      "digor_alt": "fondz",
+      "kubachi": "хьу"
     },
     {
       "english": "six",
@@ -2148,7 +2233,9 @@
       "iron": "æхсæз",
       "iron_alt": "æxsæz",
       "digor": "æхсæз",
-      "digor_alt": "æxsæz"
+      "digor_alt": "æxsæz",
+      "kubachi": "эк",
+      "kubachi_alt": "ек"
     },
     {
       "english": "seven",
@@ -2157,7 +2244,8 @@
       "iron": "авд",
       "iron_alt": "avd",
       "digor": "авд",
-      "digor_alt": "avd"
+      "digor_alt": "avd",
+      "kubachi": "вее"
     },
     {
       "english": "eight",
@@ -2166,7 +2254,8 @@
       "iron": "аст",
       "iron_alt": "ast",
       "digor": "аст",
-      "digor_alt": "ast"
+      "digor_alt": "ast",
+      "kubachi": "ккаа"
     },
     {
       "english": "nine",
@@ -2175,7 +2264,9 @@
       "iron": "фараст",
       "iron_alt": "farast",
       "digor": "фараст",
-      "digor_alt": "farast"
+      "digor_alt": "farast",
+      "kubachi": "гӏючӏгӏюм",
+      "kubachi_alt": "учӏум"
     },
     {
       "english": "ten",
@@ -2184,7 +2275,8 @@
       "iron": "дæс",
       "iron_alt": "dæs",
       "digor": "дæс",
-      "digor_alt": "dæs"
+      "digor_alt": "dæs",
+      "kubachi": "вицӏ"
     },
     {
       "english": "twenty",
@@ -2193,7 +2285,8 @@
       "iron": "ссæдз",
       "iron_alt": "ssædz",
       "digor": "инсæй",
-      "digor_alt": "insæj"
+      "digor_alt": "insæj",
+      "kubachi": "гъа"
     },
     {
       "english": "thirty",
@@ -2202,7 +2295,9 @@
       "iron": "æртын",
       "iron_alt": "ærtyn",
       "digor": "æртин",
-      "digor_alt": "ærtin"
+      "digor_alt": "ærtin",
+      "kubachi": "гӏябцӏал",
+      "kubachi_alt": "аӏбцӏал"
     },
     {
       "english": "fourty",
@@ -2211,7 +2306,8 @@
       "iron": "цыппор",
       "iron_alt": "cyppor",
       "digor": "цуппор",
-      "digor_alt": "cuppor"
+      "digor_alt": "cuppor",
+      "kubachi": "агъвцӏал"
     },
     {
       "english": "fifty",
@@ -2220,7 +2316,8 @@
       "iron": "фæндзай",
       "iron_alt": "fændzaj",
       "digor": "фæндзай",
-      "digor_alt": "fændzaj"
+      "digor_alt": "fændzaj",
+      "kubachi": "хьуцӏал"
     },
     {
       "english": "sixty",
@@ -2229,7 +2326,9 @@
       "iron": "æхсай",
       "iron_alt": "æxsaj",
       "digor": "æхсай",
-      "digor_alt": "æxsaj"
+      "digor_alt": "æxsaj",
+      "kubachi": "экцӏал",
+      "kubachi_alt": "екцӏал"
     },
     {
       "english": "seventy",
@@ -2238,7 +2337,8 @@
       "iron": "æвдай",
       "iron_alt": "ævdaj",
       "digor": "æвдай",
-      "digor_alt": "ævdaj"
+      "digor_alt": "ævdaj",
+      "kubachi": "веецӏал"
     },
     {
       "english": "eighty",
@@ -2247,7 +2347,8 @@
       "iron": "æстай",
       "iron_alt": "æstaj",
       "digor": "æстай",
-      "digor_alt": "æstaj"
+      "digor_alt": "æstaj",
+      "kubachi": "ккаацӏал"
     },
     {
       "english": "ninety",
@@ -2256,7 +2357,9 @@
       "iron": "нæуæдз",
       "iron_alt": "næwædz",
       "digor": "нæуæдзæ",
-      "digor_alt": "næwædzæ"
+      "digor_alt": "næwædzæ",
+      "kubachi": "гӏючӏгӏюмцӏал",
+      "kubachi_alt": "уӏчӏуӏмцӏал"
     },
     {
       "english": "hundred",
@@ -2265,7 +2368,9 @@
       "iron": "сæдæ",
       "iron_alt": "sædæ",
       "digor": "сæдæ",
-      "digor_alt": "sædæ"
+      "digor_alt": "sædæ",
+      "kubachi": "дгӏяш",
+      "kubachi_alt": "даӏш"
     },
     {
       "english": "thousand",
@@ -2274,7 +2379,15 @@
       "iron": "мин",
       "iron_alt": "min",
       "digor": "мин",
-      "digor_alt": "min"
+      "digor_alt": "min",
+      "kubachi": "азии"
+    }
+  ],
+  [
+    {
+      "english": "patterns",
+      "russian": "узоры",
+      "kubachi": "накьиш"
     }
   ]
 ]
