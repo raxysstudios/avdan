@@ -6,6 +6,7 @@ import 'package:in_app_purchase_android/in_app_purchase_android.dart';
 import 'package:provider/provider.dart';
 
 import 'store.dart';
+import 'widgets/splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -71,34 +72,16 @@ class App extends StatelessWidget {
       title: 'Avdan',
       theme: themes[0],
       darkTheme: themes[1],
-      home: FutureBuilder(
-        future: Future.wait([
-          Future.delayed(const Duration(seconds: 2)),
-          context.read<Store>().load(),
-        ]),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.done) {
-            Future.microtask(
-              () => Navigator.of(context).pushReplacement(
-                MaterialPageRoute(
-                  builder: (context) => const HomeScreen(),
-                ),
-              ),
-            );
-          }
-          return Material(
-            child: SafeArea(
-              child: Center(
-                child: SizedBox(
-                  height: 500,
-                  child: Theme.of(context).brightness == Brightness.dark
-                      ? Image.asset('assets/splash_dark.png')
-                      : Image.asset('assets/splash_light.png'),
-                ),
-              ),
-            ),
-          );
-        },
+      home: SplashScreen(
+        title: 'ÆVZAG',
+        minDuration: const Duration(seconds: 2),
+        future: context.read<Store>().load(),
+        onLoaded: (context) => Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const HomeScreen(),
+          ),
+        ),
       ),
     );
   }
