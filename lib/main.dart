@@ -1,8 +1,6 @@
 import 'package:avdan/home/home_screen.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:in_app_purchase_android/in_app_purchase_android.dart';
 import 'package:provider/provider.dart';
 
 import 'store.dart';
@@ -10,9 +8,6 @@ import 'widgets/splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  if (defaultTargetPlatform == TargetPlatform.android) {
-    InAppPurchaseAndroidPlatformAddition.enablePendingPurchases();
-  }
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]);
