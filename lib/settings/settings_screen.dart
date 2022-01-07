@@ -1,7 +1,6 @@
 import 'package:avdan/store.dart';
 import 'package:avdan/widgets/raxys_logo.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 

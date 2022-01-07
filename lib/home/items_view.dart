@@ -2,7 +2,6 @@ import 'package:avdan/data/chapter.dart';
 import 'package:avdan/store.dart';
 import 'package:avdan/widgets/label.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 
 class ItemsView extends StatelessWidget {
