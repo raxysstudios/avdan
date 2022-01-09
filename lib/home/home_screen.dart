@@ -122,7 +122,7 @@ class _HomeScreenState extends State<HomeScreen>
           children: [
             Center(
               child: Opacity(
-                opacity: 0.8,
+                opacity: .5,
                 child: LanguageFlag(
                   context.watch<Store>().learning,
                   offset: const Offset(8, 0),
