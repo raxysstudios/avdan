@@ -13,7 +13,7 @@ void playItem(
   final name = item == null
       ? chapter.title.id
       : chapter.alphabet
-          ? item.get(language.alt)
+          ? item.get(language.alt) ?? item.get(language.id)
           : item.id;
   final url = [
     'assets',
