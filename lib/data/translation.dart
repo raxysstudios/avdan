@@ -15,7 +15,7 @@ class Translation {
   Iterable<String> get values => _map.values;
 
   String? get(String? key) => _map[key];
-  String get id => get('english')!;
+  String get id => get('english') ?? values.first;
 
   factory Translation.fromJson(dynamic json) {
     return Translation(
