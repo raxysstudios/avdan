@@ -22,14 +22,18 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
   late final TabController _tabController;
-
-  late final List<Chapter> chapters =
-      Provider.of<Store>(context, listen: false).chapters;
-  late Chapter chapter = chapters.first;
+  late final List<Chapter> chapters;
+  late Chapter chapter;
 
   @override
   void initState() {
     super.initState();
+    final store = Provider.of<Store>(context, listen: false);
+    chapters = store.chapters
+        .where((i) => i.title.text(store.learning).isNotEmpty)
+        .toList();
+    chapter = chapters.first;
+
     _tabController = TabController(
       length: chapters.length,
       vsync: this,
@@ -47,31 +51,13 @@ class _HomeScreenState extends State<HomeScreen>
         });
       }
     });
-    SharedPreferences.getInstance().then((prefs) async {
-      if (prefs.getString('interface') == null) {
-        final store = Provider.of<Store>(context, listen: false);
-        store.interface = store.interface;
-        store.learning = store.learning;
-        store.alt = store.alt;
-        await openSettings();
-      }
-      playItemContext(context, chapter);
-    });
+    playItemContext(context, chapter);
   }
 
   @override
   void dispose() {
     _tabController.dispose();
     super.dispose();
-  }
-
-  Future<void> openSettings() {
-    return Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const SettingsScreen(),
-      ),
-    );
   }
 
   void playItemContext(
@@ -155,7 +141,12 @@ class _HomeScreenState extends State<HomeScreen>
           IconButton(
             icon: const Icon(Icons.settings_outlined),
             color: Theme.of(context).colorScheme.onSurface,
-            onPressed: openSettings,
+            onPressed: () => Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const SettingsScreen(),
+              ),
+            ),
             visualDensity: const VisualDensity(horizontal: 2),
           ),
         ],

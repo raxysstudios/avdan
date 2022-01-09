@@ -1,3 +1,4 @@
+import 'package:avdan/home/home_screen.dart';
 import 'package:avdan/store.dart';
 import 'package:avdan/widgets/raxys_logo.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,12 @@ class SettingsScreen extends StatelessWidget {
         centerTitle: true,
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () => Navigator.pop(context),
+        onPressed: () => Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const HomeScreen(),
+          ),
+        ),
         icon: const Icon(Icons.home_outlined),
         label: Text(store.localize('home')),
       ),

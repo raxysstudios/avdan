@@ -1,10 +1,11 @@
 import 'package:avdan/home/home_screen.dart';
+import 'package:avdan/settings/settings_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'store.dart';
-import 'widgets/splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -67,16 +68,45 @@ class App extends StatelessWidget {
       title: 'Avdan',
       theme: themes[0],
       darkTheme: themes[1],
-      home: SplashScreen(
-        title: 'ÆVZAG',
-        minDuration: const Duration(seconds: 2),
-        future: context.read<Store>().load(),
-        onLoaded: (context) => Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const HomeScreen(),
-          ),
-        ),
+      home: FutureBuilder(
+        future: Future.wait([
+          Future.delayed(const Duration(seconds: 2)),
+          context.read<Store>().load(),
+        ]),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            SharedPreferences.getInstance().then((prefs) async {
+              late Widget screen;
+              if (prefs.getString('interface') == null) {
+                final store = Provider.of<Store>(context, listen: false);
+                store.interface = store.interface;
+                store.learning = store.learning;
+                store.alt = store.alt;
+                screen = const SettingsScreen();
+              } else {
+                screen = const HomeScreen();
+              }
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => screen,
+                ),
+              );
+            });
+          }
+          return Material(
+            child: SafeArea(
+              child: Center(
+                child: SizedBox(
+                  height: 500,
+                  child: Theme.of(context).brightness == Brightness.dark
+                      ? Image.asset('assets/splash_dark.png')
+                      : Image.asset('assets/splash_light.png'),
+                ),
+              ),
+            ),
+          );
+        },
       ),
     );
   }
