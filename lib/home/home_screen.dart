@@ -9,7 +9,6 @@ import 'package:avdan/store.dart';
 import 'package:avdan/widgets/label.dart';
 import 'package:avdan/widgets/language_flag.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
