@@ -34,11 +34,14 @@ class ItemCard extends StatelessWidget {
                     if (image != null) return image!;
                     if (item != null) {
                       final store = context.watch<Store>();
-                      return Text(
-                        item!.text(store.learning, store.alt),
-                        style: const TextStyle(
-                          fontSize: 42,
-                          fontWeight: FontWeight.w500,
+                      return FittedBox(
+                        fit: BoxFit.fitWidth,
+                        child: Text(
+                          item!.text(store.learning, store.alt),
+                          style: const TextStyle(
+                            fontSize: 42,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
                       );
                     }
