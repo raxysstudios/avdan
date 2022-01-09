@@ -1,6 +1,6 @@
 name: avdan
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
-version: 0.8.1+19
+version: 0.8.2+20
 
 environment:
   sdk: ">=2.13.0 <3.0.0"
@@ -47,6 +47,22 @@ flutter:
     - assets/images/pronouns/
     - assets/images/vegetables/
     - assets/images/verbs/
+    - assets/images/ornament/
+
+    - assets/audio/digor/alphabet/
+    - assets/audio/digor/animals/
+    - assets/audio/digor/body parts/
+    - assets/audio/digor/city/
+    - assets/audio/digor/clothes/
+    - assets/audio/digor/food/
+    - assets/audio/digor/fruits/
+    - assets/audio/digor/home/
+    - assets/audio/digor/nature/
+    - assets/audio/digor/numbers/
+    - assets/audio/digor/people/
+    - assets/audio/digor/pronouns/
+    - assets/audio/digor/vegetables/
+    - assets/audio/digor/verbs/
 
     - assets/audio/iron/alphabet/
     - assets/audio/iron/animals/
@@ -63,17 +79,4 @@ flutter:
     - assets/audio/iron/vegetables/
     - assets/audio/iron/verbs/
 
-    - assets/audio/digor/alphabet/
-    - assets/audio/digor/animals/
-    - assets/audio/digor/body parts/
-    - assets/audio/digor/city/
-    - assets/audio/digor/clothes/
-    - assets/audio/digor/food/
-    - assets/audio/digor/fruits/
-    - assets/audio/digor/home/
-    - assets/audio/digor/nature/
-    - assets/audio/digor/numbers/
-    - assets/audio/digor/people/
-    - assets/audio/digor/pronouns/
-    - assets/audio/digor/vegetables/
-    - assets/audio/digor/verbs/
+    - assets/audio/kubachi/ornament/
