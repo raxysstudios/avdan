@@ -11,7 +11,7 @@ void playItem(
   Translation? item,
 ]) async {
   final name = item == null
-      ? chapter.title.id
+      ? chapter.id
       : chapter.alphabet
           ? item.get(language.alt) ?? item.get(language.id)
           : item.id;
@@ -23,7 +23,6 @@ void playItem(
     '$name.mp3',
   ].join('/');
 
-  print('PLAY $url');
   try {
     await _player.dispose();
     final player = AudioPlayer();
