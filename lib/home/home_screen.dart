@@ -92,6 +92,7 @@ class _HomeScreenState extends State<HomeScreen>
               ItemsView(
                 items,
                 initialItem: item,
+                isAlphabet: chapter.alphabet,
                 onChange: (i) => playItemContext(
                   context,
                   chapter,
