@@ -110,7 +110,7 @@
       "iron_alt": "nana",
       "digor": "нана",
       "digor_alt": "nana",
-      "kubachi": "аттааба / абахъалааба"
+      "kubachi": "аттааба, абахъалааба"
     },
     {
       "english": "grandfather",
@@ -120,7 +120,7 @@
       "iron_alt": "dada",
       "digor": "баба",
       "digor_alt": "baba",
-      "kubachi": "аттаатта / абахъалаатта"
+      "kubachi": "аттаатта, абахъалаатта"
     },
     {
       "english": "family",
@@ -342,6 +342,7 @@
       "russian": "пирог с мясом",
       "turkish": "etli börek",
       "iron": "фыдджын",
+      "iron_alt": "fydĝyn",
       "digor": "фидгун",
       "digor_alt": "fidgun"
     },
@@ -421,14 +422,13 @@
       "iron": "сынтæг",
       "iron_alt": "syntæg",
       "digor": "хуссӕн",
-      "digor_alt": "xussæn",
-      "kubachi": "ттамхъ"
+      "digor_alt": "xussæn"
     },
     {
       "english": "kitchen",
       "russian": "кухня",
       "turkish": "mutfak",
-      "iron": "хæрæндон цаелгаенаен",
+      "iron": "хæрæндон",
       "iron_alt": "xærændon",
       "digor": "цӕлгӕнӕн",
       "digor_alt": "cælgænæn",
@@ -611,8 +611,7 @@
       "iron": "цырагъ",
       "iron_alt": "cyragh",
       "digor": "цирагъ",
-      "digor_alt": "ciragh",
-      "kubachi": "чаагъ"
+      "digor_alt": "ciragh"
     },
     {
       "english": "door",
@@ -1327,7 +1326,7 @@
       "english": "animals",
       "russian": "животные",
       "turkish": "hayvanlar",
-      "iron": "сырдтæ цаераегойтае",
+      "iron": "сырдтæ",
       "iron_alt": "syrdtæ",
       "digor": "сирдтæ",
       "digor_alt": "sirdtæ",
@@ -1521,7 +1520,7 @@
       "english": "belongings",
       "russian": "вещи",
       "turkish": "kıyafetler",
-      "iron": "дарæс дзаумаеттае",
+      "iron": "дарæс",
       "iron_alt": "daræs",
       "digor": "хъæппæлтæ",
       "digor_alt": "qæppæltæ"
@@ -1602,7 +1601,7 @@
       "english": "button",
       "russian": "пуговица",
       "turkish": "düğme",
-      "iron": "æгънæг цаеппаер",
+      "iron": "æгънæг",
       "iron_alt": "æghnæg",
       "digor": "æгънæг",
       "digor_alt": "æghnæg"
@@ -2404,7 +2403,7 @@
     },
     {
       "kubachi": "бабкье кьгӏяцала бикӏ",
-      "kubachi_alt": "бабкье каӏцала бикӏ"
+      "kubachi_alt": "бабкье кьаӏцала бикӏ"
     },
     {
       "kubachi": "гъутӏу бикӏ"
