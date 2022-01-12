@@ -23,6 +23,7 @@ void playItem(
     '$name.mp3',
   ].join('/');
 
+  print('PLAY $url');
   try {
     await _player.dispose();
     final player = AudioPlayer();
