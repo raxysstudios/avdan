@@ -23,15 +23,16 @@ class _HomeScreenState extends State<HomeScreen>
   late final TabController _tabController;
   late final List<Chapter> chapters;
   late Chapter chapter;
+  late List<Translation> items;
 
   @override
   void initState() {
     super.initState();
-    final store = Provider.of<Store>(context, listen: false);
+    final store = context.read<Store>();
     chapters = store.chapters
         .where((i) => i.title.text(store.learning).isNotEmpty)
         .toList();
-    chapter = chapters.first;
+    setChapter(chapters.first);
 
     _tabController = TabController(
       length: chapters.length,
@@ -41,22 +42,24 @@ class _HomeScreenState extends State<HomeScreen>
       final index = _tabController.animation?.value.round() ?? 0;
       final chapter = chapters[index];
       if (this.chapter != chapter) {
-        setState(() {
-          this.chapter = chapter;
-          playItem(
-            Provider.of<Store>(context, listen: false).learning,
-            chapter,
-          );
-        });
+        setChapter(chapter);
       }
     });
-    playItemContext(context, chapter);
   }
 
   @override
   void dispose() {
     _tabController.dispose();
     super.dispose();
+  }
+
+  void setChapter(Chapter value) {
+    final store = context.read<Store>();
+    chapter = value;
+    items =
+        chapter.items.where((i) => i.text(store.learning).isNotEmpty).toList();
+    playItem(store.learning, chapter);
+    setState(() {});
   }
 
   void playItemContext(
@@ -70,11 +73,10 @@ class _HomeScreenState extends State<HomeScreen>
         item,
       );
 
-  void openView(BuildContext context, Chapter chapter, int item) {
+  void openView(BuildContext context, Chapter chapter, Translation item) {
     final padding = EdgeInsets.only(
       top: MediaQuery.of(context).padding.top,
     );
-    playItemContext(context, chapter, chapter.items[item]);
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
@@ -88,12 +90,12 @@ class _HomeScreenState extends State<HomeScreen>
           child: Stack(
             children: [
               ItemsView(
-                chapter,
+                items,
                 initialItem: item,
                 onChange: (i) => playItemContext(
                   context,
                   chapter,
-                  chapter.items[i],
+                  items[i],
                 ),
               ),
               Padding(
@@ -153,7 +155,10 @@ class _HomeScreenState extends State<HomeScreen>
       body: ChaptersView(
         controller: _tabController,
         chapters: chapters,
-        onTap: (chapter, item) => openView(context, chapter, item),
+        onTap: (chapter, item) {
+          playItemContext(context, chapter, item);
+          openView(context, chapter, item);
+        },
       ),
       bottomNavigationBar: BottomAppBar(
         child: SizedBox(
