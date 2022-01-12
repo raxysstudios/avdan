@@ -79,4 +79,10 @@ flutter:
     - assets/audio/iron/vegetables/
     - assets/audio/iron/verbs/
 
+    - assets/audio/kubachi/alphabet/
+    - assets/audio/kubachi/people/
+    - assets/audio/kubachi/food/
+    - assets/audio/kubachi/home/
+    - assets/audio/kubachi/animals/
+    - assets/audio/kubachi/numbers/
     - assets/audio/kubachi/ornament/
