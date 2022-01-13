@@ -59,8 +59,7 @@ android {
         release {
             signingConfig signingConfigs.release
         }
-        // #TODO Re-enable
-        // debug {
+        // TODO debug {
         //     applicationIdSuffix ".debug"
         // }
     }

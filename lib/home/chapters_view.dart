@@ -1,4 +1,5 @@
 import 'package:avdan/data/chapter.dart';
+import 'package:avdan/data/translation.dart';
 import 'package:avdan/home/item_card.dart';
 import 'package:avdan/store.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +8,7 @@ import 'package:provider/provider.dart';
 class ChaptersView extends StatelessWidget {
   final List<Chapter> chapters;
   final TabController controller;
-  final void Function(Chapter chapter, int item)? onTap;
+  final void Function(Chapter chapter, Translation item)? onTap;
 
   const ChaptersView({
     required this.controller,
@@ -18,6 +19,7 @@ class ChaptersView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final store = context.watch<Store>();
     return AnimatedBuilder(
       animation: controller.animation!,
       child: TabBarView(
@@ -26,7 +28,6 @@ class ChaptersView extends StatelessWidget {
           for (final chapter in chapters)
             Builder(
               builder: (context) {
-                final store = context.watch<Store>();
                 final items = chapter.items
                     .where((i) => i.text(store.learning).isNotEmpty)
                     .toList();
@@ -35,7 +36,7 @@ class ChaptersView extends StatelessWidget {
                     maxCrossAxisExtent: 128,
                   ),
                   itemCount: items.length,
-                  itemBuilder: (_, i) {
+                  itemBuilder: (context, i) {
                     final item = items[i];
                     return ItemCard(
                       color: chapter.color,
@@ -45,7 +46,7 @@ class ChaptersView extends StatelessWidget {
                           : Image(
                               image: item.image(),
                             ),
-                      onTap: () => onTap?.call(chapter, i),
+                      onTap: () => onTap?.call(chapter, item),
                     );
                   },
                 );

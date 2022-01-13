@@ -9,9 +9,7 @@ import 'package:avdan/store.dart';
 import 'package:avdan/widgets/label.dart';
 import 'package:avdan/widgets/language_flag.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -23,14 +21,19 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
   late final TabController _tabController;
-
-  late final List<Chapter> chapters =
-      Provider.of<Store>(context, listen: false).chapters;
-  late Chapter chapter = chapters.first;
+  late final List<Chapter> chapters;
+  late Chapter chapter;
+  late List<Translation> items;
 
   @override
   void initState() {
     super.initState();
+    final store = context.read<Store>();
+    chapters = store.chapters
+        .where((i) => i.title.text(store.learning).isNotEmpty)
+        .toList();
+    setChapter(chapters.first);
+
     _tabController = TabController(
       length: chapters.length,
       vsync: this,
@@ -39,24 +42,8 @@ class _HomeScreenState extends State<HomeScreen>
       final index = _tabController.animation?.value.round() ?? 0;
       final chapter = chapters[index];
       if (this.chapter != chapter) {
-        setState(() {
-          this.chapter = chapter;
-          playItem(
-            Provider.of<Store>(context, listen: false).learning,
-            chapter,
-          );
-        });
+        setChapter(chapter);
       }
-    });
-    SharedPreferences.getInstance().then((prefs) async {
-      if (prefs.getString('interface') == null) {
-        final store = Provider.of<Store>(context, listen: false);
-        store.interface = store.interface;
-        store.learning = store.learning;
-        store.alt = store.alt;
-        await openSettings();
-      }
-      playItemContext(context, chapter);
     });
   }
 
@@ -66,13 +53,13 @@ class _HomeScreenState extends State<HomeScreen>
     super.dispose();
   }
 
-  Future<void> openSettings() {
-    return Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const SettingsScreen(),
-      ),
-    );
+  void setChapter(Chapter value) {
+    final store = context.read<Store>();
+    chapter = value;
+    items =
+        chapter.items.where((i) => i.text(store.learning).isNotEmpty).toList();
+    playItem(store.learning, chapter);
+    setState(() {});
   }
 
   void playItemContext(
@@ -86,11 +73,10 @@ class _HomeScreenState extends State<HomeScreen>
         item,
       );
 
-  void openView(BuildContext context, Chapter chapter, int item) {
+  void openView(BuildContext context, Chapter chapter, Translation item) {
     final padding = EdgeInsets.only(
       top: MediaQuery.of(context).padding.top,
     );
-    playItemContext(context, chapter, chapter.items[item]);
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
@@ -104,12 +90,13 @@ class _HomeScreenState extends State<HomeScreen>
           child: Stack(
             children: [
               ItemsView(
-                chapter,
+                items,
                 initialItem: item,
+                isAlphabet: chapter.alphabet,
                 onChange: (i) => playItemContext(
                   context,
                   chapter,
-                  chapter.items[i],
+                  items[i],
                 ),
               ),
               Padding(
@@ -137,7 +124,7 @@ class _HomeScreenState extends State<HomeScreen>
           children: [
             Center(
               child: Opacity(
-                opacity: 0.8,
+                opacity: .5,
                 child: LanguageFlag(
                   context.watch<Store>().learning,
                   offset: const Offset(8, 0),
@@ -156,7 +143,12 @@ class _HomeScreenState extends State<HomeScreen>
           IconButton(
             icon: const Icon(Icons.settings_outlined),
             color: Theme.of(context).colorScheme.onSurface,
-            onPressed: openSettings,
+            onPressed: () => Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const SettingsScreen(),
+              ),
+            ),
             visualDensity: const VisualDensity(horizontal: 2),
           ),
         ],
@@ -164,7 +156,10 @@ class _HomeScreenState extends State<HomeScreen>
       body: ChaptersView(
         controller: _tabController,
         chapters: chapters,
-        onTap: (chapter, item) => openView(context, chapter, item),
+        onTap: (chapter, item) {
+          playItemContext(context, chapter, item);
+          openView(context, chapter, item);
+        },
       ),
       bottomNavigationBar: BottomAppBar(
         child: SizedBox(

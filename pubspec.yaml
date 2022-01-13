@@ -1,6 +1,6 @@
 name: avdan
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
-version: 0.8.0+18
+version: 0.9.2+20
 
 environment:
   sdk: ">=2.13.0 <3.0.0"
@@ -8,18 +8,18 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  shared_preferences: ^2.0.6
-  url_launcher: ^6.0.9
-  just_audio: ^0.9.5
-  sensors_plus: ^1.0.2
-  in_app_purchase: ^1.0.9
-  provider: ^6.0.1
-  google_fonts: ^2.1.0
+  shared_preferences: ^2.0.11
+  url_launcher: ^6.0.17
+  just_audio: ^0.9.18
+  sensors_plus: ^1.2.1
+  in_app_purchase: ^2.0.1
+  provider: ^6.0.2
+  google_fonts: ^2.2.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_launcher_icons: ^0.9.0
+  flutter_launcher_icons: ^0.9.2
   flutter_lints: ^1.0.4
 
 flutter_icons:
@@ -47,6 +47,22 @@ flutter:
     - assets/images/pronouns/
     - assets/images/vegetables/
     - assets/images/verbs/
+    - assets/images/ornament/
+
+    - assets/audio/digor/alphabet/
+    - assets/audio/digor/animals/
+    - assets/audio/digor/body parts/
+    - assets/audio/digor/city/
+    - assets/audio/digor/clothes/
+    - assets/audio/digor/food/
+    - assets/audio/digor/fruits/
+    - assets/audio/digor/home/
+    - assets/audio/digor/nature/
+    - assets/audio/digor/numbers/
+    - assets/audio/digor/people/
+    - assets/audio/digor/pronouns/
+    - assets/audio/digor/vegetables/
+    - assets/audio/digor/verbs/
 
     - assets/audio/iron/alphabet/
     - assets/audio/iron/animals/
@@ -63,17 +79,10 @@ flutter:
     - assets/audio/iron/vegetables/
     - assets/audio/iron/verbs/
 
-    - assets/audio/digor/alphabet/
-    - assets/audio/digor/animals/
-    - assets/audio/digor/body parts/
-    - assets/audio/digor/city/
-    - assets/audio/digor/clothes/
-    - assets/audio/digor/food/
-    - assets/audio/digor/fruits/
-    - assets/audio/digor/home/
-    - assets/audio/digor/nature/
-    - assets/audio/digor/numbers/
-    - assets/audio/digor/people/
-    - assets/audio/digor/pronouns/
-    - assets/audio/digor/vegetables/
-    - assets/audio/digor/verbs/
+    - assets/audio/kubachi/alphabet/
+    - assets/audio/kubachi/people/
+    - assets/audio/kubachi/food/
+    - assets/audio/kubachi/home/
+    - assets/audio/kubachi/animals/
+    - assets/audio/kubachi/numbers/
+    - assets/audio/kubachi/ornament/

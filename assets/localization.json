@@ -1,37 +1,37 @@
 {
-    "settings": {
-        "english": "settings",
-        "russian": "настройки",
-        "turkish": "ayarlar"
-    },
-    "home": {
-        "english": "start",
-        "russian": "начать",
-        "turkish": "başlangıç"
-    },
-    "contact": {
-        "english": "contact",
-        "russian": "связаться",
-        "turkish": "iletişim"
-    },
-    "support": {
-        "english": "donate",
-        "russian": "поддержать",
-        "turkish": "bağış yap"
-    },
-    "interface": {
-        "english": "interface language",
-        "russian": "язык интерфейса",
-        "turkish": "arayüz dili"
-    },
-    "learning": {
-        "english": "learning language",
-        "russian": "язык обучения",
-        "turkish": "öğretim dili"
-    },
-    "honor": {
-        "english": "Made with honor in North Caucasus.",
-        "russian": "Сделано с честью на Северном Кавказе.",
-        "turkish": "Kuzey Kafkasya'da onurla hazırlanmıştır."
-    }
+  "settings": {
+    "english": "settings",
+    "russian": "настройки",
+    "turkish": "ayarlar"
+  },
+  "home": {
+    "english": "start",
+    "russian": "начать",
+    "turkish": "başlangıç"
+  },
+  "contact": {
+    "english": "contact",
+    "russian": "связаться",
+    "turkish": "iletişim"
+  },
+  "support": {
+    "english": "donate",
+    "russian": "поддержать",
+    "turkish": "bağış yap"
+  },
+  "interface": {
+    "english": "interface language",
+    "russian": "язык интерфейса",
+    "turkish": "arayüz dili"
+  },
+  "learning": {
+    "english": "learning language",
+    "russian": "язык обучения",
+    "turkish": "öğretim dili"
+  },
+  "honor": {
+    "english": "Made with honor in North Caucasus.",
+    "russian": "Сделано с честью на Северном Кавказе.",
+    "turkish": "Kuzey Kafkasya'da onurla hazırlanmıştır."
+  }
 }

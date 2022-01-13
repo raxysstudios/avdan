@@ -11,9 +11,9 @@ void playItem(
   Translation? item,
 ]) async {
   final name = item == null
-      ? chapter.title.id
+      ? chapter.id
       : chapter.alphabet
-          ? item.get(language.alt)
+          ? item.get(language.alt) ?? item.get(language.id)
           : item.id;
   final url = [
     'assets',

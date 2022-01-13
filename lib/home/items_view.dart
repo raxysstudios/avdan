@@ -1,28 +1,31 @@
-import 'package:avdan/data/chapter.dart';
+import 'package:avdan/data/translation.dart';
 import 'package:avdan/store.dart';
 import 'package:avdan/widgets/label.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 
 class ItemsView extends StatelessWidget {
   ItemsView(
-    this.chapter, {
-    int initialItem = 0,
+    this.items, {
+    Translation? initialItem,
     this.onChange,
+    this.isAlphabet = false,
     Key? key,
   }) : super(key: key) {
     _pageController = PageController(
-      initialPage: initialItem,
+      initialPage: initialItem == null ? 0 : items.indexOf(initialItem),
     );
   }
 
-  final Chapter chapter;
+  final bool isAlphabet;
+  final List<Translation> items;
   final ValueSetter<int>? onChange;
   late final PageController _pageController;
 
   @override
   Widget build(BuildContext context) {
+    final store = context.watch<Store>();
+
     return InkWell(
       onTap: () => onChange?.call(
         _pageController.page?.round() ?? 0,
@@ -30,15 +33,14 @@ class ItemsView extends StatelessWidget {
       child: PageView.builder(
         onPageChanged: onChange,
         controller: _pageController,
-        itemCount: chapter.items.length,
+        itemCount: items.length,
         itemBuilder: (context, i) {
-          final item = chapter.items[i];
-          final store = context.watch<Store>();
+          final item = items[i];
           final text = item.text(store.learning, store.alt);
           return Stack(
             alignment: Alignment.center,
             children: [
-              if (chapter.alphabet)
+              if (isAlphabet)
                 FittedBox(
                   fit: BoxFit.contain,
                   child: Text(

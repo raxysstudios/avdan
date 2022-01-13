@@ -41,5 +41,14 @@
       "iron_alt": "iron"
     },
     "flag": "ossetia"
+  },
+  {
+    "name": {
+      "english": "kubachi",
+      "russian": "кубачинский",
+      "kubachi": "гӏуугъбуган",
+      "kubachi_alt": "ууӏгъбуган"
+    },
+    "flag": "kubachi"
   }
 ]
