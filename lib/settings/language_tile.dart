@@ -43,7 +43,7 @@ class LanguageTile extends StatelessWidget {
           if (language.alt != null) ...[
             const Spacer(),
             Icon(
-              Icons.swap_horiz_outlined,
+              Icons.swap_horiz_rounded,
               size: 16,
               color: Theme.of(context).hintColor,
             ),

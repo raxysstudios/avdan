@@ -27,7 +27,7 @@ class SettingsScreen extends StatelessWidget {
             builder: (context) => const HomeScreen(),
           ),
         ),
-        icon: const Icon(Icons.home_outlined),
+        icon: const Icon(Icons.home_rounded),
         label: Text(store.localize('home')),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
@@ -63,7 +63,7 @@ class SettingsScreen extends StatelessWidget {
                           child: ElevatedButton.icon(
                             onPressed: () =>
                                 launch('https://t.me/raxysstudios'),
-                            icon: const Icon(Icons.send_outlined),
+                            icon: const Icon(Icons.send_rounded),
                             label: Text(store.localize('contact')),
                           ),
                         ),

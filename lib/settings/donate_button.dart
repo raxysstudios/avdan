@@ -11,7 +11,7 @@ class DonateButton extends StatefulWidget {
 
   const DonateButton({
     this.label = const Text('Donate'),
-    this.icon = const Icon(Icons.coffee_outlined),
+    this.icon = const Icon(Icons.coffee_rounded),
     this.productId = 'support',
     Key? key,
   }) : super(key: key);

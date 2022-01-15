@@ -105,7 +105,7 @@ class _HomeScreenState extends State<HomeScreen>
                   alignment: Alignment.topLeft,
                   child: IconButton(
                     onPressed: () => Navigator.pop(context),
-                    icon: const Icon(Icons.close_outlined),
+                    icon: const Icon(Icons.close_rounded),
                   ),
                 ),
               ),
@@ -141,7 +141,7 @@ class _HomeScreenState extends State<HomeScreen>
         centerTitle: true,
         actions: [
           IconButton(
-            icon: const Icon(Icons.settings_outlined),
+            icon: const Icon(Icons.settings_rounded),
             color: Theme.of(context).colorScheme.onSurface,
             onPressed: () => Navigator.pushReplacement(
               context,

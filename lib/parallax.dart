@@ -85,7 +85,7 @@ class _ParallaxPageState extends State<ParallaxPage> {
                     ),
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
-                      prefixIcon: Icon(Icons.swap_horiz_outlined),
+                      prefixIcon: Icon(Icons.swap_horiz_rounded),
                       labelText: 'Horizontal scale',
                     ),
                   ),
@@ -100,7 +100,7 @@ class _ParallaxPageState extends State<ParallaxPage> {
                     ),
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
-                      prefixIcon: Icon(Icons.swap_vert_outlined),
+                      prefixIcon: Icon(Icons.swap_vert_rounded),
                       labelText: 'Vertical scale',
                     ),
                   ),
