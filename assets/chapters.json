@@ -16,8 +16,8 @@
       "iron_alt": "a æ b v g gh d dz ĝ e z i j k kh l m n o p ph r s t th u w f x q c ch ĉ ĉh y",
       "digor": "а ӕ б в г гъ д дз дж е з и й к къ л м н о п пъ р с т тъ у у ф х хъ ц цъ ч чъ",
       "digor_alt": "a æ b v g gh d dz ĝ e z i j k kh l m n o p ph r s t th w u f x q c ch ĉ ĉh",
-      "kubachi": "а аа гӏяя гӏя б в г гв гъ гъв гб гӏ э-е ээ-ее гӏе гӏее ж з и ии гӏи гӏии й к кв кк ккв къ къв къкъ къкъв кь кьв кӏ кӏв л м н п пп пӏ р с сс т тт тӏ у уу гӏу гӏуу ф х хв хх ххв хъ хъв хь хьв хьхь хьхьв хӏ ц цц цӏ ч чч чӏ ш шш ъ",
-      "kubachi_alt": "а аа аӏ ааӏ б в г гв гъ гъв гь гӏ е ее еӏ ееӏ ж з и ии иӏ ииӏ й к кв кк ккв къ къв ккъ ккъв кь кьв кӏ кӏв л м н п пп пӏ р с сс т тт тӏ у уу уӏ ууӏ ф х хв хх ххв хъ хъв хь хьв ххь ххьв хӏ ц цц цӏ ч чч чӏ ш шш ъ"
+      "kubachi": "а аа аӏ ааӏ б в г гв гъ гъв гь гӏ е ее еӏ ееӏ ж з и ии иӏ ииӏ й к кв кк ккв къ къв ккъ ккъв кь кьв кӏ кӏв л м н п пп пӏ р с сс т тт тӏ у уу уӏ ууӏ ф х хв хх ххв хъ хъв хь хьв ххь ххьв хӏ ц цц цӏ ч чч чӏ ш шш ъ",
+      "kubachi_alt": "а аа гӏяя гӏя б в г гв гъ гъв гб гӏ э-е ээ-ее гӏе гӏее ж з и ии гӏи гӏии й к кв кк ккв къ къв къкъ къкъв кь кьв кӏ кӏв л м н п пп пӏ р с сс т тт тӏ у уу гӏу гӏуу ф х хв хх ххв хъ хъв хь хьв хьхь хьхьв хӏ ц цц цӏ ч чч чӏ ш шш ъ"
     }
   ],
   [
@@ -198,8 +198,8 @@
     {
       "english": "pie",
       "russian": "пирог",
-      "kubachi": "хӏялаккуц",
-      "kubachi_alt": "хӏалаккуц"
+      "kubachi": "хӏалаккуц",
+      "kubachi_alt": "хӏялаккуц"
     },
     {
       "english": "ossetian pies",
@@ -318,8 +318,8 @@
       "iron_alt": "nælxæ",
       "digor": "нæлхæ",
       "digor_alt": "nælxæ",
-      "kubachi": "бгӏяхъгӏяла",
-      "kubachi_alt": "баӏхъаӏла"
+      "kubachi": "баӏхъаӏла",
+      "kubachi_alt": "бгӏяхъгӏяла"
     },
     {
       "english": "porridge",
@@ -459,7 +459,7 @@
       "kubachi": "гута"
     },
     {
-      "english": "refrigerator",
+      "english": "refreegerator",
       "russian": "холодильник",
       "turkish": "buzdolabı",
       "iron": "уазалгæнæг",
@@ -536,8 +536,8 @@
       "iron_alt": "baz",
       "digor": "баз",
       "digor_alt": "baz",
-      "kubachi": "гӏянихьхьала",
-      "kubachi_alt": "аӏниххьала"
+      "kubachi": "аӏниххьала",
+      "kubachi_alt": "гӏянихьхьала"
     },
     {
       "english": "cradle",
@@ -585,8 +585,8 @@
       "iron_alt": "najænwat",
       "digor": "ӕртайӕндонӕ",
       "digor_alt": "ærtajændonæ",
-      "kubachi": "хӏямам",
-      "kubachi_alt": "хӏамам"
+      "kubachi": "хӏамам",
+      "kubachi_alt": "хӏямам"
     },
     {
       "english": "window",
@@ -1364,8 +1364,8 @@
       "iron_alt": "qug",
       "digor": "гъог",
       "digor_alt": "ghog",
-      "kubachi": "кьгӏюл",
-      "kubachi_alt": "кьуӏл"
+      "kubachi": "кьуӏл",
+      "kubachi_alt": "кьгӏюл"
     },
     {
       "english": "crocodile",
@@ -1404,8 +1404,8 @@
       "iron_alt": "cærgæs",
       "digor": "цæргæс",
       "digor_alt": "cærgæs",
-      "kubachi": "чӏгӏикгӏя",
-      "kubachi_alt": "чӏиӏкаӏ"
+      "kubachi": "чӏиӏкаӏ",
+      "kubachi_alt": "чӏгӏикгӏя"
     },
     {
       "english": "fox",
@@ -1473,8 +1473,8 @@
       "iron_alt": "majmuli",
       "digor": "маймул",
       "digor_alt": "majmul",
-      "kubachi": "мягӏмгӏялук",
-      "kubachi_alt": "магӏмаӏлук"
+      "kubachi": "магӏмаӏлук",
+      "kubachi_alt": "мягӏмгӏялук"
     },
     {
       "english": "mouse",
@@ -2205,8 +2205,8 @@
       "iron_alt": "ærtæ",
       "digor": "æртæ",
       "digor_alt": "ærtæ",
-      "kubachi": "гӏяб",
-      "kubachi_alt": "аӏб"
+      "kubachi": "аӏб",
+      "kubachi_alt": "гӏяб"
     },
     {
       "english": "four",
@@ -2267,8 +2267,8 @@
       "iron_alt": "farast",
       "digor": "фараст",
       "digor_alt": "farast",
-      "kubachi": "гӏючӏгӏюм",
-      "kubachi_alt": "уӏчӏуӏм"
+      "kubachi": "уӏчӏуӏм",
+      "kubachi_alt": "гӏючӏгӏюм"
     },
     {
       "english": "ten",
@@ -2298,8 +2298,8 @@
       "iron_alt": "ærtyn",
       "digor": "æртин",
       "digor_alt": "ærtin",
-      "kubachi": "гӏябцӏал",
-      "kubachi_alt": "аӏбцӏал"
+      "kubachi": "аӏбцӏал",
+      "kubachi_alt": "гӏябцӏал"
     },
     {
       "english": "fourty",
@@ -2329,8 +2329,8 @@
       "iron_alt": "æxsaj",
       "digor": "æхсай",
       "digor_alt": "æxsaj",
-      "kubachi": "экцӏал",
-      "kubachi_alt": "екцӏал"
+      "kubachi": "екцӏал",
+      "kubachi_alt": "экцӏал"
     },
     {
       "english": "seventy",
@@ -2360,8 +2360,8 @@
       "iron_alt": "næwædz",
       "digor": "нæуæдзæ",
       "digor_alt": "næwædzæ",
-      "kubachi": "гӏючӏгӏюмцӏал",
-      "kubachi_alt": "уӏчӏуӏмцӏал"
+      "kubachi": "уӏчӏуӏмцӏал",
+      "kubachi_alt": "гӏючӏгӏюмцӏал"
     },
     {
       "english": "hundred",
@@ -2371,8 +2371,8 @@
       "iron_alt": "sædæ",
       "digor": "сæдæ",
       "digor_alt": "sædæ",
-      "kubachi": "дгӏяш",
-      "kubachi_alt": "даӏш"
+      "kubachi": "даӏш",
+      "kubachi_alt": "дгӏяш"
     },
     {
       "english": "thousand",
@@ -2405,22 +2405,22 @@
       "kubachi": "кӏвикал бикӏ"
     },
     {
-      "kubachi": "бабкье кьгӏяцала бикӏ",
-      "kubachi_alt": "бабкье кьаӏцала бикӏ"
+      "kubachi": "бабкье кьаӏцала бикӏ",
+      "kubachi_alt": "бабкье кьгӏяцала бикӏ"
     },
     {
       "kubachi": "гъутӏу бикӏ"
     },
     {
-      "kubachi": "гӏябкал бикӏ",
-      "kubachi_alt": "аӏбкал бикӏ"
+      "kubachi": "аӏбкал бикӏ",
+      "kubachi_alt": "гӏябкал бикӏ"
     },
     {
       "kubachi": "истамбул бикӏ"
     },
     {
-      "kubachi": "кьгӏяцала бикӏ",
-      "kubachi_alt": "кьаӏцала бикӏ"
+      "kubachi": "кьаӏцала бикӏ",
+      "kubachi_alt": "кьгӏяцала бикӏ"
     },
     {
       "kubachi": "пархикӏван"
@@ -2429,8 +2429,8 @@
       "kubachi": "сулка бикӏ"
     },
     {
-      "kubachi": "гӏюццгӏямма бикӏ",
-      "kubachi_alt": "уӏццаӏмма бикӏ"
+      "kubachi": "уӏццаӏмма бикӏ",
+      "kubachi_alt": "гӏюццгӏямма бикӏ"
     },
     {
       "kubachi": "муучӏал бикӏ"
@@ -2439,16 +2439,16 @@
       "kubachi": "къинала бикӏ"
     },
     {
-      "kubachi": "кьгӏякьне",
-      "kubachi_alt": "кьаӏкьне"
+      "kubachi": "кьаӏкьне",
+      "kubachi_alt": "кьгӏякьне"
     },
     {
-      "kubachi": "къгӏялкъгӏус",
-      "kubachi_alt": "къаӏлкъуӏс"
+      "kubachi": "къаӏлкъуӏс",
+      "kubachi_alt": "къгӏялкъгӏус"
     },
     {
-      "kubachi": "шивгӏяй",
-      "kubachi_alt": "шиваӏй"
+      "kubachi": "шиваӏй",
+      "kubachi_alt": "шивгӏяй"
     },
     {
       "kubachi": "кутӏлуппар"
