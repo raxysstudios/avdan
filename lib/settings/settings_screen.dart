@@ -2,6 +2,7 @@ import 'package:avdan/home/home_screen.dart';
 import 'package:avdan/store.dart';
 import 'package:avdan/widgets/raxys_logo.dart';
 import 'package:flutter/material.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -124,6 +125,38 @@ class SettingsScreen extends StatelessWidget {
                     },
                   ),
               ],
+            ),
+          ),
+          Center(
+            child: Card(
+              color: Colors.transparent,
+              elevation: 0,
+              margin: const EdgeInsets.all(8),
+              child: InkWell(
+                onTap: () => launch(
+                  'https://github.com/raxysstudios/avdan',
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: FutureBuilder<PackageInfo>(
+                    future: PackageInfo.fromPlatform(),
+                    builder: (context, snapshot) {
+                      var info = 'Loading...';
+                      final package = snapshot.data;
+                      if (package != null) {
+                        info = [
+                          'v' + package.version,
+                          'b' + package.buildNumber
+                        ].join(' • ');
+                      }
+                      return Text(
+                        info,
+                        style: Theme.of(context).textTheme.caption,
+                      );
+                    },
+                  ),
+                ),
+              ),
             ),
           ),
         ],
