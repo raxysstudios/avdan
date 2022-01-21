@@ -16,7 +16,7 @@ class Store with ChangeNotifier {
   late final SharedPreferences _prefs;
 
   late final Dict<Dict<String>> _localization;
-  String localize(String key, [capitalize = true]) {
+  String localize(String key, [bool capitalize = true]) {
     var text = _localization[key]?[interface.name.id] ?? '';
     if (capitalize) {
       text = cap.capitalize(text);
@@ -85,7 +85,7 @@ class Store with ChangeNotifier {
         orElse: () => orElse,
       );
 
-  static Future<Dict<Dict<String>>> _loadLocalization(assetUrl) async {
+  static Future<Dict<Dict<String>>> _loadLocalization(String assetUrl) async {
     final data = await rootBundle
         .loadString(assetUrl)
         .then((t) => json.decode(t) as Dict);
@@ -93,26 +93,29 @@ class Store with ChangeNotifier {
     return {
       for (final term in data.entries)
         term.key: {
-          for (final lang in (term.value as Dict).entries) lang.key: lang.value
+          for (final lang in (term.value as Dict).entries)
+            lang.key: lang.value as String
         }
     };
   }
 
-  static Future<List<Language>> _loadLanguages(assetUrl) async {
+  static Future<List<Language>> _loadLanguages(String assetUrl) async {
     final data = await rootBundle
         .loadString(assetUrl)
         .then((t) => json.decode(t) as List);
 
-    final languages = data.map((j) => Language.fromJson(j)).toList();
+    final languages = data
+        .map((dynamic j) => Language.fromJson(j as Map<String, dynamic>))
+        .toList();
     languages.sort((a, b) => a.name.id.compareTo(b.name.id));
     return languages;
   }
 
-  static Future<List<Chapter>> _loadChapters(assetUrl) async {
+  static Future<List<Chapter>> _loadChapters(String assetUrl) async {
     final data = await rootBundle
         .loadString(assetUrl)
         .then((t) => json.decode(t) as List);
 
-    return data.map((j) => Chapter.fromJson(j)).toList();
+    return data.map((dynamic j) => Chapter.fromJson(j)).toList();
   }
 }

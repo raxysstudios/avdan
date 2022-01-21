@@ -24,7 +24,7 @@ class SettingsScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () => Navigator.pushReplacement(
           context,
-          MaterialPageRoute(
+          MaterialPageRoute<void>(
             builder: (context) => const HomeScreen(),
           ),
         ),

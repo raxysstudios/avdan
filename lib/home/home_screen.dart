@@ -77,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen>
     final padding = EdgeInsets.only(
       top: MediaQuery.of(context).padding.top,
     );
-    showModalBottomSheet(
+    showModalBottomSheet<void>(
       context: context,
       isScrollControlled: true,
       backgroundColor: Color.alphaBlend(
@@ -145,7 +145,7 @@ class _HomeScreenState extends State<HomeScreen>
             color: Theme.of(context).colorScheme.onSurface,
             onPressed: () => Navigator.pushReplacement(
               context,
-              MaterialPageRoute(
+              MaterialPageRoute<void>(
                 builder: (context) => const SettingsScreen(),
               ),
             ),

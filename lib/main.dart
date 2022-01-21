@@ -70,7 +70,7 @@ class App extends StatelessWidget {
       darkTheme: themes[1],
       home: FutureBuilder(
         future: Future.wait([
-          Future.delayed(const Duration(seconds: 2)),
+          Future<void>.delayed(const Duration(seconds: 2)),
           context.read<Store>().load(),
         ]),
         builder: (context, snapshot) {
@@ -88,7 +88,7 @@ class App extends StatelessWidget {
               }
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(
+                MaterialPageRoute<void>(
                   builder: (context) => screen,
                 ),
               );

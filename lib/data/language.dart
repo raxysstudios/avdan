@@ -24,7 +24,7 @@ class Language {
   factory Language.fromJson(Map<String, dynamic> json) {
     return Language(
       Translation.fromJson(json['name']),
-      flag: json['flag'],
+      flag: json['flag'] as String,
       interface: (json['interface'] ?? false) as bool,
     );
   }
