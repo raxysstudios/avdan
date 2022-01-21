@@ -1,18 +1,21 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 
 class DonateButton extends StatefulWidget {
-  final String productId;
+  final String androidProductId;
+  final String iosProductId;
   final Widget icon;
   final Widget label;
 
   const DonateButton({
     this.label = const Text('Donate'),
     this.icon = const Icon(Icons.coffee_rounded),
-    this.productId = 'support',
+    this.androidProductId = 'support',
+    this.iosProductId = 'support',
     Key? key,
   }) : super(key: key);
 
@@ -53,7 +56,7 @@ class _DonateButtonState extends State<DonateButton> {
 
   void purchase() async {
     final response = await InAppPurchase.instance.queryProductDetails(
-      {widget.productId},
+      {Platform.isIOS ? widget.iosProductId : widget.androidProductId},
     );
     await InAppPurchase.instance.buyConsumable(
       purchaseParam: PurchaseParam(

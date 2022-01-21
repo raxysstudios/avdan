@@ -57,6 +57,7 @@ class SettingsScreen extends StatelessWidget {
                         Expanded(
                           child: DonateButton(
                             label: Text(store.localize('support')),
+                            iosProductId: 'com.alkaitagi.avdanapp.support',
                           ),
                         ),
                         const SizedBox(width: 8),
