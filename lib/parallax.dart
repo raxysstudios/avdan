@@ -25,7 +25,7 @@ class _ParallaxPageState extends State<ParallaxPage> {
   var scaleX = 5.0;
   var scaleY = -5.0;
 
-  Matrix4 computeTranslation(scale) {
+  Matrix4 computeTranslation(double scale) {
     return Matrix4.translationValues(
       accelerometer.x * scale * scaleX,
       accelerometer.y * scale * scaleY,

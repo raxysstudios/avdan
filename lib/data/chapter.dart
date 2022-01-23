@@ -49,7 +49,8 @@ class Chapter {
   }
 
   factory Chapter.fromJson(dynamic json) {
-    final items = (json as Iterable).map((i) => Translation.fromJson(i));
+    final items =
+        (json as Iterable).map((dynamic i) => Translation.fromJson(i));
     return Chapter(
       items.toList(),
       alphabet: items.first.id == 'alphabet',
