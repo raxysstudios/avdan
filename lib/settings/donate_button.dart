@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 
@@ -25,9 +24,7 @@ class DonateButton extends StatefulWidget {
 
 class _DonateButtonState extends State<DonateButton> {
   late final StreamSubscription<List<PurchaseDetails>> subscription;
-  bool get isValidPlatform =>
-      defaultTargetPlatform == Platform.isAndroid ||
-      defaultTargetPlatform == Platform.isIOS;
+  bool get isValidPlatform => Platform.isAndroid || Platform.isIOS;
 
   @override
   void initState() {
