@@ -25,7 +25,7 @@ class DonateButton extends StatefulWidget {
 
 class _DonateButtonState extends State<DonateButton> {
   late final StreamSubscription<List<PurchaseDetails>> subscription;
-  bool get isValidPlatform => !kIsWeb && (Platform.isAndroid || Platform.isIOS);
+  bool get isValidPlatform => Platform.isAndroid /*|| Platform.isIOS*/;
 
   @override
   void initState() {
