@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 
@@ -25,12 +24,10 @@ class DonateButton extends StatefulWidget {
 
 class _DonateButtonState extends State<DonateButton> {
   late final StreamSubscription<List<PurchaseDetails>> subscription;
-  bool get isValidPlatform =>
-      !kIsWeb && (Platform.isAndroid /*|| Platform.isIOS*/);
 
   @override
   void initState() {
-    if (isValidPlatform) {
+
       subscription = InAppPurchase.instance.purchaseStream.listen(
         (purchaseDetailsList) async {
           for (var purchase in purchaseDetailsList) {
@@ -41,15 +38,14 @@ class _DonateButtonState extends State<DonateButton> {
         },
         onDone: () => subscription.cancel(),
       );
-    }
+    
     super.initState();
   }
 
   @override
   void dispose() {
-    if (isValidPlatform) {
       subscription.cancel();
-    }
+    
     super.dispose();
   }
 
@@ -67,7 +63,7 @@ class _DonateButtonState extends State<DonateButton> {
   @override
   Widget build(BuildContext context) {
     return TextButton.icon(
-      onPressed: isValidPlatform ? purchase : null,
+      onPressed: purchase,
       icon: widget.icon,
       label: widget.label,
     );

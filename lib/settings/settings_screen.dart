@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:avdan/home/home_screen.dart';
 import 'package:avdan/store.dart';
 import 'package:avdan/widgets/raxys_logo.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
@@ -54,13 +57,16 @@ class SettingsScreen extends StatelessWidget {
                     const SizedBox(height: 8),
                     Row(
                       children: [
-                        Expanded(
-                          child: DonateButton(
-                            label: Text(store.localize('support')),
-                            iosProductId: 'com.alkaitagi.avdanapp.support',
+                        if (!kIsWeb &&
+                            (Platform.isAndroid /* || Platform.isIOS*/)) ...[
+                          Expanded(
+                            child: DonateButton(
+                              label: Text(store.localize('support')),
+                              iosProductId: 'com.alkaitagi.avdanapp.support',
+                            ),
                           ),
-                        ),
-                        const SizedBox(width: 8),
+                          const SizedBox(width: 8),
+                        ],
                         Expanded(
                           child: ElevatedButton.icon(
                             onPressed: () =>
