@@ -78,7 +78,7 @@ class App extends StatelessWidget {
             SharedPreferences.getInstance().then((prefs) async {
               late Widget screen;
               if (prefs.getString('interface') == null) {
-                final store = Provider.of<Store>(context, listen: false);
+                final store = context.read<Store>();
                 store.interface = store.interface;
                 store.learning = store.learning;
                 store.alt = store.alt;
