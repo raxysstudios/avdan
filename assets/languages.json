@@ -46,9 +46,17 @@
     "name": {
       "english": "kubachi",
       "russian": "кубачинский",
-      "kubachi": "ууӏгъбуган",
-      "kubachi_alt": "гӏююгъбуган"
+      "kubachi": "гӏююгъбуган",
+      "kubachi_alt": "ууӏгъбуган"
     },
     "flag": "kubachi"
+  },
+  {
+    "name": {
+      "english": "kaitag",
+      "russian": "кайтагский",
+      "kaitag": "хайдакьан"
+    },
+    "flag": "kaitag"
   }
 ]
