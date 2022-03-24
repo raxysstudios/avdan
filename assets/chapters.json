@@ -381,6 +381,7 @@
       "kaitag": "маӏлутӏай"
     },
     {
+      "english": "bone",
       "russian": "кость",
       "kaitag": "ликка"
     },
@@ -2417,8 +2418,20 @@
       "kaitag": "дикал дикӏвара"
     }
   ],
-  [],
-  [],
+  [
+    {
+      "english": "colors",
+      "russian": "цвета",
+      "kaitag": "ранг"
+    }
+  ],
+  [
+    {
+      "english": "adjectives",
+      "russian": "прилагательные",
+      "kaitag": "куцгъай"
+    }
+  ],
   [
     {
       "color": "90A4AE",
