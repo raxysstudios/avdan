@@ -49,8 +49,8 @@ flutter:
     - assets/images/vegetables/
     - assets/images/verbs/
     - assets/images/ornament/
-    - assets/images/adjectives/
-    - assets/images/colors/
+    # - assets/images/adjectives/
+    # - assets/images/colors/
 
     - assets/audio/digor/alphabet/
     - assets/audio/digor/animals/
@@ -66,8 +66,8 @@ flutter:
     - assets/audio/digor/pronouns/
     - assets/audio/digor/vegetables/
     - assets/audio/digor/verbs/
-    - assets/audio/digor/adjectives/
-    - assets/audio/digor/colors/
+    # - assets/audio/digor/adjectives/
+    # - assets/audio/digor/colors/
 
     - assets/audio/iron/alphabet/
     - assets/audio/iron/animals/
@@ -83,25 +83,25 @@ flutter:
     - assets/audio/iron/pronouns/
     - assets/audio/iron/vegetables/
     - assets/audio/iron/verbs/
-    - assets/audio/iron/adjectives/
-    - assets/audio/iron/colors/
+    # - assets/audio/iron/adjectives/
+    # - assets/audio/iron/colors/
 
-    - assets/audio/kaitag/alphabet/
-    - assets/audio/kaitag/animals/
-    - assets/audio/kaitag/body parts/
-    - assets/audio/kaitag/city/
-    - assets/audio/kaitag/clothes/
-    - assets/audio/kaitag/food/
-    - assets/audio/kaitag/fruits/
-    - assets/audio/kaitag/home/
-    - assets/audio/kaitag/nature/
-    - assets/audio/kaitag/numbers/
+    # - assets/audio/kaitag/alphabet/
+    # - assets/audio/kaitag/animals/
+    # - assets/audio/kaitag/body parts/
+    # - assets/audio/kaitag/city/
+    # - assets/audio/kaitag/clothes/
+    # - assets/audio/kaitag/food/
+    # - assets/audio/kaitag/fruits/
+    # - assets/audio/kaitag/home/
+    # - assets/audio/kaitag/nature/
+    # - assets/audio/kaitag/numbers/
     - assets/audio/kaitag/people/
-    - assets/audio/kaitag/pronouns/
-    - assets/audio/kaitag/vegetables/
-    - assets/audio/kaitag/verbs/
-    - assets/audio/kaitag/adjectives/
-    - assets/audio/kaitag/colors/
+    # - assets/audio/kaitag/pronouns/
+    # - assets/audio/kaitag/vegetables/
+    # - assets/audio/kaitag/verbs/
+    # - assets/audio/kaitag/adjectives/
+    # - assets/audio/kaitag/colors/
 
     - assets/audio/kubachi/alphabet/
     - assets/audio/kubachi/people/
