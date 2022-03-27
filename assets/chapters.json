@@ -19,7 +19,7 @@
       "digor_alt": "a æ b v g gh d dz ĝ e z i j k kh l m n o p ph r s t th w u f x q c ch ĉ ĉh",
       "kubachi": "а аа аӏ ааӏ б в г гв гъ гъв гь гӏ е ее еӏ ееӏ ж з и ии иӏ ииӏ й к кв кк ккв къ къв ккъ ккъв кь кьв кӏ кӏв л м н п пп пӏ р с сс т тт тӏ у уу уӏ ууӏ ф х хв хх ххв хъ хъв хь хьв ххь ххьв хӏ ц цц цӏ ч чч чӏ ш шш ъ",
       "kubachi_alt": "а аа гӏя гӏяя б в г гв гъ гъв гь гӏ е ее гӏе гӏее ж з и ии гӏи гӏии й к кв кк ккв къ къв къкъ къкъв кь кьв кӏ кӏв л м н п пп пӏ р с сс т тт тӏ у уу гӏю гӏюю ф х хв хх ххв хъ хъв хь хьв хьхь хьхьв хӏ ц цц цӏ ч чч чӏ ш шш ъ",
-      "kaitag": "а аӏ б в г гв гъ гъв гь гьв гӏ д е ж жв з и й к кв кк ккв къ къв кь кьв кӏ кӏв л м н п пп пӏ р с сс т тт тӏ у ф х хв хх ххв ххь ххьв хъ хъв хь хьв хӏ ц цц цӏ ч чв чч ччв чӏ чӏв ш шв шш шшв ъ"
+      "kaitag": "а аӏ б в г гв гъ гъв гь гьв д е ж жв з и й к кв кк ккв кӏ кӏв хъ хъв къ къв кь кьв л м н п пп пӏ р с сс т тт тӏ у ф х хв хх ххв хь хьв ххь ххьв ц цц цӏ ч чв чч ччв чӏ чӏв ш шв шш шшв ъ"
     }
   ],
   [
@@ -176,7 +176,7 @@
       "digor": "сувæллон",
       "digor_alt": "suvӕllon",
       "kubachi": "биикӏате",
-      "kaitag": "даӏрхӏа"
+      "kaitag": "даӏргьаӏ"
     },
     {
       "english": "friend",
@@ -239,7 +239,7 @@
       "digor": "дзол",
       "digor_alt": "dzol",
       "kubachi": "тӏулутӏ",
-      "kaitag": "чӏвакьва"
+      "kaitag": "чӏакьва"
     },
     {
       "english": "water",
@@ -490,7 +490,7 @@
       "iron_alt": "syntæg",
       "digor": "хуссӕн",
       "digor_alt": "xussæn",
-      "kaitag": "тамхъ"
+      "kaitag": "мег"
     },
     {
       "english": "kitchen",
@@ -688,7 +688,7 @@
       "digor": "фарс",
       "digor_alt": "fars",
       "kubachi": "лас",
-      "kaitag": "багӏ"
+      "kaitag": "баӏъ"
     },
     {
       "english": "chandelier",
@@ -842,7 +842,7 @@
       "iron_alt": "ĉherami",
       "digor": "къерами",
       "digor_alt": "kherami",
-      "kaitag": "кваракква"
+      "kaitag": "кваркки"
     }
   ],
   [
@@ -1121,7 +1121,7 @@
       "iron_alt": "ærdz",
       "digor": "æрдзæ",
       "digor_alt": "ærdzæ",
-      "kaitag": "тӏабигӏат"
+      "kaitag": "тӏабиъаӏт"
     },
     {
       "english": "tree",
@@ -1206,7 +1206,7 @@
       "iron_alt": "arværdyn",
       "digor": "сослани ӕндурӕ",
       "digor_alt": "soslani ӕndurӕ",
-      "kaitag": "амилла дерекка"
+      "kaitag": "ццирххаӏв"
     },
     {
       "english": "meadow",
@@ -1301,7 +1301,7 @@
       "iron_alt": "mit",
       "digor": "мет",
       "digor_alt": "met",
-      "kaitag": "духӏа"
+      "kaitag": "дугьаӏ"
     },
     {
       "english": "rain",
@@ -1576,7 +1576,7 @@
       "digor_alt": "cærgæs",
       "kubachi": "чӏиӏкаӏ",
       "kubachi_alt": "чӏгӏикгӏя",
-      "kaitag": "чӏваква"
+      "kaitag": "чӏаква"
     },
     {
       "english": "fox",
@@ -1779,7 +1779,7 @@
       "iron_alt": "kwyræt",
       "digor": "курæт",
       "digor_alt": "kuræt",
-      "kaitag": "хӏавсур"
+      "kaitag": "гьаӏвсур"
     },
     {
       "english": "hood",
@@ -1879,7 +1879,7 @@
       "iron_alt": "kærc",
       "digor": "кæрцæ",
       "digor_alt": "kærcæ",
-      "kaitag": "хӏака"
+      "kaitag": "гьаӏка"
     },
     {
       "english": "belt",
@@ -1889,7 +1889,7 @@
       "iron_alt": "ron",
       "digor": "ронæ",
       "digor_alt": "ronæ",
-      "kaitag": "ппагӏни"
+      "kaitag": "ппаӏъни"
     },
     {
       "english": "bandolier",
@@ -1982,7 +1982,7 @@
       "iron_alt": "cæsgom",
       "digor": "цæсгон",
       "digor_alt": "cæsgon",
-      "kaitag": "дагӏ"
+      "kaitag": "даӏъ"
     },
     {
       "english": "eye",
@@ -2002,7 +2002,7 @@
       "iron_alt": "qhus",
       "digor": "гъос",
       "digor_alt": "ghos",
-      "kaitag": "лагӏ"
+      "kaitag": "лаӏъ"
     },
     {
       "english": "nose",
@@ -2072,7 +2072,7 @@
       "iron_alt": "khax",
       "digor": "къах",
       "digor_alt": "khax",
-      "kaitag": "тӏагӏ"
+      "kaitag": "тӏаӏ"
     },
     {
       "english": "back",
@@ -2175,7 +2175,7 @@
       "iron_alt": "wynyn",
       "digor": "инун",
       "digor_alt": "inun",
-      "kaitag": "чидагара"
+      "kaitag": "чидигара"
     },
     {
       "english": "to do",
@@ -2375,7 +2375,7 @@
       "iron_alt": "amonyn",
       "digor": "амонун",
       "digor_alt": "amonun",
-      "kaitag": "чидажахара"
+      "kaitag": "чидижахара"
     },
     {
       "english": "to seat",

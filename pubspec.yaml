@@ -91,7 +91,7 @@ flutter:
     # - assets/audio/kaitag/body parts/
     # - assets/audio/kaitag/city/
     # - assets/audio/kaitag/clothes/
-    # - assets/audio/kaitag/food/
+    - assets/audio/kaitag/food/
     # - assets/audio/kaitag/fruits/
     # - assets/audio/kaitag/home/
     # - assets/audio/kaitag/nature/
