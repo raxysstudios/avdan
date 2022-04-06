@@ -9,8 +9,10 @@
       "iron_alt": "damghwat",
       "digor": "дамугъуат",
       "digor_alt": "damghwat",
+      "east circassian": "тхыпкъылъэ",
       "kubachi": "алифбе",
-      "kaitag": "алиппе"
+      "kaitag": "алиппе",
+      "dargwa": "алипуни"
     },
     {
       "iron": "а ӕ б в г гъ д дз дж е з и й к къ л м н о п пъ р с т тъ у у ф х хъ ц цъ ч чъ ы",
@@ -19,7 +21,8 @@
       "digor_alt": "a æ b v g gh d dz ĝ e z i j k kh l m n o p ph r s t th w u f x q c ch ĉ ĉh",
       "kubachi": "а аа аӏ ааӏ б в г гв гъ гъв гь гӏ е ее еӏ ееӏ ж з и ии иӏ ииӏ й к кв кк ккв къ къв ккъ ккъв кь кьв кӏ кӏв л м н п пп пӏ р с сс т тт тӏ у уу уӏ ууӏ ф х хв хх ххв хъ хъв хь хьв ххь ххьв хӏ ц цц цӏ ч чч чӏ ш шш ъ",
       "kubachi_alt": "а аа гӏя гӏяя б в г гв гъ гъв гь гӏ е ее гӏе гӏее ж з и ии гӏи гӏии й к кв кк ккв къ къв къкъ къкъв кь кьв кӏ кӏв л м н п пп пӏ р с сс т тт тӏ у уу гӏю гӏюю ф х хв хх ххв хъ хъв хь хьв хьхь хьхьв хӏ ц цц цӏ ч чч чӏ ш шш ъ",
-      "kaitag": "а аӏ б в г гв гъ гъв гь гьв д е ж жв з и й к кв кк ккв кӏ кӏв хъ хъв къ къв кь кьв л м н п пп пӏ р с сс т тт тӏ у ф х хв хх ххв хь хьв ххь ххьв ц цц цӏ ч чв чч ччв чӏ чӏв ш шв шш шшв ъ"
+      "kaitag": "а аӏ б в г гв гъ гъв гь гьв д е ж жв з и й к кв кк ккв кӏ кӏв хъ хъв къ къв кь кьв л м н п пп пӏ р с сс т тт тӏ у ф х хв хх ххв хь хьв ххь ххьв ц цц цӏ ч чв чч ччв чӏ чӏв ш шв шш шшв ъ",
+      "dargwa": "а б в г гъ гь гӀ д е ё ж з и й к къ кь кӀ л м н о п пӀ р с т тӀ у ф х хъ хь хӀ ц цӀ ч чӀ ш щ ъ ы ь э ю я"
     }
   ],
   [
@@ -32,6 +35,7 @@
       "iron_alt": "adæm",
       "digor": "адæн",
       "digor_alt": "adæn",
+      "east circassian": "цIыху",
       "kubachi": "уй",
       "kaitag": "укка"
     },
@@ -43,6 +47,7 @@
       "iron_alt": "xistær",
       "digor": "хестæр",
       "digor_alt": "xestær",
+      "east circassian": "нэхъыжь",
       "kubachi": "хвалел",
       "kaitag": "хвала"
     },
@@ -54,6 +59,7 @@
       "iron_alt": "læg",
       "digor": "лæг",
       "digor_alt": "lӕg",
+      "east circassian": "цIыхухъу",
       "kubachi": "кьапӏачибан",
       "kaitag": "мургул"
     },
@@ -65,6 +71,7 @@
       "iron_alt": "sylgojmag",
       "digor": "уосæ",
       "digor_alt": "wosӕ",
+      "east circassian": "цIыхубз",
       "kubachi": "кӏазчибан",
       "kaitag": "ххьулум"
     },
@@ -76,6 +83,7 @@
       "iron_alt": "mad",
       "digor": "мадæ",
       "digor_alt": "madæ",
+      "east circassian": "анэ",
       "kubachi": "аба",
       "kaitag": "уба"
     },
@@ -87,6 +95,7 @@
       "iron_alt": "fyd",
       "digor": "фидæ",
       "digor_alt": "fidæ",
+      "east circassian": "адэ",
       "kubachi": "атта",
       "kaitag": "атта"
     },
@@ -98,6 +107,7 @@
       "iron_alt": "æfsymær",
       "digor": "æнсувæр",
       "digor_alt": "ænsuvær",
+      "east circassian": "къуэш",
       "kubachi": "уцце",
       "kaitag": "уцци"
     },
@@ -109,6 +119,7 @@
       "iron_alt": "xo",
       "digor": "хуæрæ",
       "digor_alt": "xwæræ",
+      "east circassian": "шыпхъу",
       "kubachi": "йуцце",
       "kaitag": "рицци"
     },
@@ -120,6 +131,7 @@
       "iron_alt": "nana",
       "digor": "нана",
       "digor_alt": "nana",
+      "east circassian": "нанэ",
       "kubachi": "аттааба, абахъалааба",
       "kaitag": "авба, аттуба"
     },
@@ -131,6 +143,7 @@
       "iron_alt": "dada",
       "digor": "баба",
       "digor_alt": "baba",
+      "east circassian": "дадэ",
       "kubachi": "аттаатта, абахъалаатта",
       "kaitag": "хвалатта"
     },
@@ -142,6 +155,7 @@
       "iron_alt": "binontæ",
       "digor": "бийнонтæ",
       "digor_alt": "bijnontæ",
+      "east circassian": "унагъуэ",
       "kubachi": "кулпат",
       "kaitag": "хъалицӏа"
     },
@@ -153,6 +167,7 @@
       "iron_alt": "læppu",
       "digor": "биццеу",
       "digor_alt": "biccew",
+      "east circassian": "щIалэ",
       "kubachi": "гал",
       "kaitag": "уршши"
     },
@@ -164,6 +179,7 @@
       "iron_alt": "ĉyzg",
       "digor": "кизгæ",
       "digor_alt": "kizgæ",
+      "east circassian": "хъыджэбз",
       "kubachi": "йууссе",
       "kaitag": "рирсси"
     },
@@ -175,6 +191,7 @@
       "iron_alt": "syvællon",
       "digor": "сувæллон",
       "digor_alt": "suvӕllon",
+      "east circassian": "сабий",
       "kubachi": "биикӏате",
       "kaitag": "даӏргьаӏ"
     },
@@ -186,6 +203,7 @@
       "iron_alt": "ӕmbal",
       "digor": "æнбал",
       "digor_alt": "ӕnbal",
+      "east circassian": "ныбжьэгъу",
       "kubachi": "йулдаш",
       "kaitag": "уртахъ"
     },
@@ -197,6 +215,7 @@
       "iron_alt": "syxag",
       "digor": "синхон",
       "digor_alt": "sinxon",
+      "east circassian": "гъунэгъу",
       "kubachi": "деене",
       "kaitag": "умра"
     }
@@ -211,12 +230,14 @@
       "iron_alt": "xærinag",
       "digor": "хуæруйнаг",
       "digor_alt": "xwærujnag",
+      "east circassian": "шхын",
       "kubachi": "буккин",
       "kaitag": "букан"
     },
     {
       "english": "pie",
       "russian": "пирог",
+      "east circassian": "дэлэн",
       "kubachi": "хӏалаккуц",
       "kubachi_alt": "хӏялаккуц",
       "kaitag": "бацӏбикӏ"
@@ -238,6 +259,7 @@
       "iron_alt": "dzul",
       "digor": "дзол",
       "digor_alt": "dzol",
+      "east circassian": "щIакхъуэ",
       "kubachi": "тӏулутӏ",
       "kaitag": "чӏакьва"
     },
@@ -249,6 +271,7 @@
       "iron_alt": "don",
       "digor": "дон",
       "digor_alt": "don",
+      "east circassian": "псы",
       "kubachi": "шин",
       "kaitag": "шин"
     },
@@ -260,6 +283,7 @@
       "iron_alt": "cæxx",
       "digor": "цӕнхӕ",
       "digor_alt": "cӕnxӕ",
+      "east circassian": "шыгъу",
       "kubachi": "цце",
       "kaitag": "цце"
     },
@@ -271,6 +295,7 @@
       "iron_alt": "sækær",
       "digor": "сæкæр",
       "digor_alt": "sӕkӕr",
+      "east circassian": "фэшыгъу",
       "kubachi": "чакай",
       "kaitag": "чакар"
     },
@@ -282,6 +307,7 @@
       "iron_alt": "byrc",
       "digor": "бурцæ",
       "digor_alt": "burcӕ",
+      "east circassian": "шыбжий",
       "kubachi": "иссут",
       "kaitag": "иссут"
     },
@@ -293,6 +319,7 @@
       "iron_alt": "fyd",
       "digor": "фид",
       "digor_alt": "fid",
+      "east circassian": "лы",
       "kubachi": "диг",
       "kaitag": "диг"
     },
@@ -304,6 +331,7 @@
       "iron_alt": "æxsyr",
       "digor": "æхсир",
       "digor_alt": "ӕxsir",
+      "east circassian": "шэ",
       "kubachi": "ниг",
       "kaitag": "нег"
     },
@@ -315,6 +343,7 @@
       "iron_alt": "misyn",
       "digor": "месин",
       "digor_alt": "mesin",
+      "east circassian": "шху",
       "kubachi": "деетиб ниг",
       "kaitag": "дертур нег"
     },
@@ -326,6 +355,7 @@
       "iron_alt": "qajmagh",
       "digor": "хъаймагъ",
       "digor_alt": "qajmagh",
+      "east circassian": "шатэ",
       "kubachi": "буут",
       "kaitag": "четтинег"
     },
@@ -337,6 +367,7 @@
       "iron_alt": "zeti",
       "digor": "зети",
       "digor_alt": "zeti",
+      "east circassian": "дагъэ",
       "kubachi": "пуснимасла",
       "kaitag": "метӏе"
     },
@@ -348,6 +379,7 @@
       "iron_alt": "nælxæ",
       "digor": "нæлхæ",
       "digor_alt": "nælxæ",
+      "east circassian": "тхъу",
       "kubachi": "баӏхъаӏла",
       "kubachi_alt": "бгӏяхъгӏяла",
       "kaitag": "баӏхъаӏла"
@@ -360,6 +392,7 @@
       "iron_alt": "kas",
       "digor": "касӕ",
       "digor_alt": "kasæ",
+      "east circassian": "кашэ",
       "kubachi": "гьаашше",
       "kaitag": "буттугъ"
     },
@@ -371,18 +404,21 @@
       "iron_alt": "qærmxwypp",
       "digor": "цумуйнаг",
       "digor_alt": "cumujnag",
+      "east circassian": "хьэнтхъупс",
       "kubachi": "неегъ",
       "kaitag": "нергъ"
     },
     {
       "english": "pretzel",
       "russian": "бублик",
+      "east circassian": "хьэлыгъуанэ",
       "kubachi": "уригала",
       "kaitag": "маӏлутӏай"
     },
     {
       "english": "bone",
       "russian": "кость",
+      "east circassian": "къупщхьэ",
       "kaitag": "ликка"
     },
     {
@@ -393,6 +429,7 @@
       "iron_alt": "fydĝyn",
       "digor": "фидгун",
       "digor_alt": "fidgun",
+      "east circassian": "лы дэлэн",
       "kaitag": "дигла бацӏбикӏ"
     },
     {
@@ -403,6 +440,7 @@
       "iron_alt": "kartofĝyn",
       "digor": "картофгун",
       "digor_alt": "kartofgun",
+      "east circassian": "дэлэн",
       "kaitag": "гъаӏбала бацӏбикӏ"
     },
     {
@@ -423,6 +461,7 @@
       "iron_alt": "wælibæx",
       "digor": "ӕхцин",
       "digor_alt": "æxcin",
+      "east circassian": "кхъуей дэлэн",
       "kaitag": "ниссила бацӏбикӏ"
     },
     {
@@ -438,6 +477,7 @@
     {
       "english": "sauce",
       "russian": "соус (приправа)",
+      "east circassian": "шыпс",
       "kaitag": "ччашин"
     },
     {
@@ -448,12 +488,14 @@
       "iron_alt": "adĝinӕgtӕ",
       "digor": "адгийнæгтæ",
       "digor_alt": "adgijnægtæ",
+      "east circassian": "IэфIыкIэ",
       "kubachi": "мидидишше",
       "kaitag": "музидехь"
     },
     {
       "english": "candy",
       "russian": "конфета",
+      "east circassian": "кIэнфет",
       "kubachi": "кьуппа",
       "kaitag": "къампит"
     },
@@ -465,6 +507,7 @@
       "iron_alt": "cyxt",
       "digor": "цихт",
       "digor_alt": "cixt",
+      "east circassian": "кхъуей",
       "kubachi": "нисса",
       "kaitag": "нисси"
     }
@@ -479,6 +522,7 @@
       "iron_alt": "xædzar",
       "digor": "хӕдзарӕ",
       "digor_alt": "xædzaræ",
+      "east circassian": "унэ",
       "kubachi": "хъал",
       "kaitag": "бурхха"
     },
@@ -490,6 +534,7 @@
       "iron_alt": "syntæg",
       "digor": "хуссӕн",
       "digor_alt": "xussæn",
+      "east circassian": "пIэ",
       "kaitag": "мег"
     },
     {
@@ -500,6 +545,7 @@
       "iron_alt": "xærændon",
       "digor": "цӕлгӕнӕн",
       "digor_alt": "cælgænæn",
+      "east circassian": "пщэфIапIэ",
       "kubachi": "пичлахъал",
       "kaitag": "аӏкъихъа"
     },
@@ -511,6 +557,7 @@
       "iron_alt": "fyng",
       "digor": "фингӕ",
       "digor_alt": "fingæ",
+      "east circassian": "Iэнэ",
       "kubachi": "тахт",
       "kaitag": "усттул"
     },
@@ -522,6 +569,7 @@
       "iron_alt": "bandon",
       "digor": "къела",
       "digor_alt": "khela",
+      "east circassian": "шэнт",
       "kubachi": "гута",
       "kaitag": "курсси"
     },
@@ -533,6 +581,7 @@
       "iron_alt": "wazalgænæg",
       "digor": "гаргадонӕ",
       "digor_alt": "gargadonæ",
+      "east circassian": "щIыIалъэ",
       "kubachi": "ццуминжила",
       "kaitag": "буххарукь"
     },
@@ -544,6 +593,7 @@
       "iron_alt": "tæbægh",
       "digor": "тефсег",
       "digor_alt": "tefseg",
+      "east circassian": "тепщэч",
       "kubachi": "хатӏа",
       "kaitag": "тӏарачӏи"
     },
@@ -555,6 +605,7 @@
       "iron_alt": "khus",
       "digor": "къос",
       "digor_alt": "khos",
+      "east circassian": "шынакъ",
       "kubachi": "вахъ",
       "kaitag": "исттикӏан"
     },
@@ -566,6 +617,7 @@
       "iron_alt": "widyg",
       "digor": "едуг",
       "digor_alt": "edug",
+      "east circassian": "бжэмышх",
       "kubachi": "милкьа",
       "kaitag": "кӏацӏул"
     },
@@ -577,6 +629,7 @@
       "iron_alt": "saĝilæg",
       "digor": "сагелӕг",
       "digor_alt": "sagelæg",
+      "east circassian": "гуахъуэ",
       "kubachi": "чӏала",
       "kaitag": "чӏала"
     },
@@ -588,6 +641,7 @@
       "iron_alt": "xwyssænwat",
       "digor": "хуссӕндонӕ",
       "digor_alt": "xussændonæ",
+      "east circassian": "жеипIэ",
       "kubachi": "килсунзив хъал",
       "kaitag": "анкӏахъа"
     },
@@ -599,6 +653,7 @@
       "iron_alt": "qæccul",
       "digor": "гъӕццол",
       "digor_alt": "ghæccol",
+      "east circassian": "шхыIэн",
       "kubachi": "йургъан",
       "kaitag": "йургъан"
     },
@@ -610,6 +665,7 @@
       "iron_alt": "baz",
       "digor": "баз",
       "digor_alt": "baz",
+      "east circassian": "щхьэнтэ",
       "kubachi": "аӏниххьала",
       "kubachi_alt": "гӏянихьхьала",
       "kaitag": "гута"
@@ -622,6 +678,7 @@
       "iron_alt": "avdæn",
       "digor": "авдӕнӕ",
       "digor_alt": "avdænæ",
+      "east circassian": "гущэ",
       "kubachi": "лакьуй",
       "kaitag": "шинт"
     },
@@ -633,6 +690,7 @@
       "iron_alt": "qazæn",
       "digor": "гъазӕн",
       "digor_alt": "ghazæn",
+      "east circassian": "джэгуалъэ",
       "kaitag": "луцума"
     },
     {
@@ -643,6 +701,7 @@
       "iron_alt": "skhapp",
       "digor": "скъапп",
       "digor_alt": "skhapp",
+      "east circassian": "шкIаф",
       "kubachi": "ишкап",
       "kaitag": "ишкӏап"
     },
@@ -654,6 +713,7 @@
       "iron_alt": "divan",
       "digor": "сире",
       "digor_alt": "sire",
+      "east circassian": "диван",
       "kaitag": "тамхъ"
     },
     {
@@ -676,6 +736,7 @@
       "iron_alt": "rudzyng",
       "digor": "къӕразгӕ",
       "digor_alt": "khærazgæ",
+      "east circassian": "щхьэгъумбжэ",
       "kubachi": "уццадигала",
       "kaitag": "маӏла"
     },
@@ -687,6 +748,7 @@
       "iron_alt": "khul",
       "digor": "фарс",
       "digor_alt": "fars",
+      "east circassian": "блын",
       "kubachi": "лас",
       "kaitag": "баӏъ"
     },
@@ -698,6 +760,7 @@
       "iron_alt": "cyragh",
       "digor": "цирагъ",
       "digor_alt": "ciragh",
+      "east circassian": "люстрэ",
       "kaitag": "чирагъ"
     },
     {
@@ -708,6 +771,7 @@
       "iron_alt": "dwar",
       "digor": "дуар",
       "digor_alt": "dwar",
+      "east circassian": "бжэ",
       "kubachi": "уцца",
       "kaitag": "уцца"
     }
@@ -722,6 +786,7 @@
       "iron_alt": "dyrghtæ",
       "digor": "рæзæ",
       "digor_alt": "ræzæ",
+      "east circassian": "пхъэщхьэмыщхьэ",
       "kaitag": "цӏидехь"
     },
     {
@@ -732,6 +797,7 @@
       "iron_alt": "mænærghy",
       "digor": "нинæгъ",
       "digor_alt": "ninægh",
+      "east circassian": "мамкъут",
       "kaitag": "леххьалазе"
     },
     {
@@ -742,6 +808,7 @@
       "iron_alt": "sænæfsir",
       "digor": "сæнæфсерæ",
       "digor_alt": "sænæfseræ",
+      "east circassian": "жызум",
       "kaitag": "тӏутӏи"
     },
     {
@@ -752,6 +819,7 @@
       "iron_alt": "kærdo",
       "digor": "кæрдту",
       "digor_alt": "kærdtu",
+      "east circassian": "кхъужь",
       "kaitag": "хъаӏр"
     },
     {
@@ -762,6 +830,7 @@
       "iron_alt": "bal",
       "digor": "бали",
       "digor_alt": "bali",
+      "east circassian": "балий",
       "kaitag": "пӏаӏпӏин"
     },
     {
@@ -772,6 +841,7 @@
       "iron_alt": "nesi",
       "digor": "фиунасæ",
       "digor_alt": "fiwnasæ",
+      "east circassian": "хъэуан",
       "kaitag": "гьабарзаг"
     },
     {
@@ -782,6 +852,7 @@
       "iron_alt": "khomsi",
       "digor": "биа",
       "digor_alt": "bia",
+      "east circassian": "хьэиуэ",
       "kaitag": "ччимсе"
     },
     {
@@ -792,6 +863,7 @@
       "iron_alt": "galæryskhæf",
       "digor": "галлискъæф",
       "digor_alt": "galliskhæf",
+      "east circassian": "мэракIуэ",
       "kaitag": "лазе"
     },
     {
@@ -802,6 +874,7 @@
       "iron_alt": "fætkhwy",
       "digor": "фæткъу",
       "digor_alt": "fætkhu",
+      "east circassian": "мыIэрысэ",
       "kaitag": "гьинце"
     },
     {
@@ -812,6 +885,7 @@
       "iron_alt": "ĉylawi",
       "digor": "æхсинцъæ",
       "digor_alt": "æxsinchæ",
+      "east circassian": "къыпцIэ",
       "kaitag": "гъимгъе"
     },
     {
@@ -822,6 +896,7 @@
       "iron_alt": "althami",
       "digor": "алтъами",
       "digor_alt": "althami",
+      "east circassian": "шэфтал",
       "kaitag": "кьваӏрче"
     },
     {
@@ -832,6 +907,7 @@
       "iron_alt": "xarbyz",
       "digor": "харбуз",
       "digor_alt": "xarbuz",
+      "east circassian": "хъэрэбыз",
       "kaitag": "гариххьан"
     },
     {
@@ -842,6 +918,7 @@
       "iron_alt": "ĉherami",
       "digor": "къерами",
       "digor_alt": "kherami",
+      "east circassian": "хуэрэджэ",
       "kaitag": "кваркки"
     }
   ],
@@ -855,6 +932,7 @@
       "iron_alt": "xalsartæ",
       "digor": "халсартæ",
       "digor_alt": "xalsartæ",
+      "east circassian": "хадэхэкI",
       "kaitag": "хъуцӏидехь"
     },
     {
@@ -865,6 +943,7 @@
       "iron_alt": "kartof",
       "digor": "картоф",
       "digor_alt": "kartof",
+      "east circassian": "кIэртоф",
       "kaitag": "гъаӏба"
     },
     {
@@ -875,6 +954,7 @@
       "iron_alt": "wyrydzy",
       "digor": "æпхæ",
       "digor_alt": "æpxæ",
+      "east circassian": "пхъы",
       "kaitag": "житӏа"
     },
     {
@@ -885,6 +965,7 @@
       "iron_alt": "cæxæra",
       "digor": "къумбул",
       "digor_alt": "khumbul",
+      "east circassian": "жэгундэ",
       "kaitag": "кьай"
     },
     {
@@ -895,6 +976,7 @@
       "iron_alt": "nas",
       "digor": "насæ",
       "digor_alt": "nasæ",
+      "east circassian": "къэб",
       "kaitag": "къабагъ"
     },
     {
@@ -905,6 +987,7 @@
       "iron_alt": "qædyndz",
       "digor": "гъæдзиндзæ",
       "digor_alt": "ghædzindzæ",
+      "east circassian": "бжьын",
       "kaitag": "гваргвар"
     },
     {
@@ -915,6 +998,7 @@
       "iron_alt": "nury",
       "digor": "бодæн",
       "digor_alt": "bodæn",
+      "east circassian": "бжьыныху",
       "kaitag": "шерже"
     },
     {
@@ -925,6 +1009,7 @@
       "iron_alt": "cyvzy",
       "digor": "цивзæ",
       "digor_alt": "civzæ",
+      "east circassian": "шыбжий плъыжь",
       "kaitag": "тунт иссут"
     },
     {
@@ -935,6 +1020,7 @@
       "iron_alt": "qædur",
       "digor": "хъæдорæ",
       "digor_alt": "qædoræ",
+      "east circassian": "джэрш",
       "kaitag": "хъара"
     },
     {
@@ -945,6 +1031,7 @@
       "iron_alt": "ĝithri",
       "digor": "хуæргæнасæ",
       "digor_alt": "xwærgænasæ",
+      "east circassian": "нащэ",
       "kaitag": "хийар"
     },
     {
@@ -955,6 +1042,7 @@
       "iron_alt": "khabuska",
       "digor": "къабуска",
       "digor_alt": "khabuska",
+      "east circassian": "къэбыстэ",
       "kaitag": "калам"
     },
     {
@@ -965,6 +1053,7 @@
       "iron_alt": "phamidor",
       "digor": "пъæмидор",
       "digor_alt": "phæmidor",
+      "east circassian": "бэдрэжан",
       "kaitag": "пӏамидур"
     }
   ],
@@ -978,6 +1067,7 @@
       "iron_alt": "saxar",
       "digor": "сахар",
       "digor_alt": "saxar",
+      "east circassian": "къалэ",
       "kaitag": "шагьар"
     },
     {
@@ -988,6 +1078,7 @@
       "iron_alt": "mæzĝyt",
       "digor": "мæзгит",
       "digor_alt": "mæzgit",
+      "east circassian": "мэжджыт",
       "kaitag": "мисттикӏ"
     },
     {
@@ -998,6 +1089,7 @@
       "iron_alt": "qæw",
       "digor": "гъæу",
       "digor_alt": "ghæw",
+      "east circassian": "къуажэ",
       "kaitag": "шши"
     },
     {
@@ -1008,6 +1100,7 @@
       "iron_alt": "fændag",
       "digor": "над",
       "digor_alt": "nad",
+      "east circassian": "гъуэгу",
       "kaitag": "ххьуне"
     },
     {
@@ -1018,6 +1111,7 @@
       "iron_alt": "wyng",
       "digor": "гъæунгæ",
       "digor_alt": "ghæwngæ",
+      "east circassian": "уэрам",
       "kaitag": "хъалса"
     },
     {
@@ -1028,7 +1122,8 @@
       "iron_alt": "xædtulgæ",
       "digor": "машинæ",
       "digor_alt": "masinæ",
-      "kaitag": "машин"
+      "east circassian": "мэшынэ",
+      "kaitag": "урку"
     },
     {
       "english": "bench",
@@ -1038,6 +1133,7 @@
       "iron_alt": "dargh bandon",
       "digor": "бадæн",
       "digor_alt": "badæn",
+      "east circassian": "тIысыпIэ",
       "kaitag": "кабигла"
     },
     {
@@ -1048,6 +1144,7 @@
       "iron_alt": "arghwan",
       "digor": "аргъауæн",
       "digor_alt": "arghawæn",
+      "east circassian": "чылисэ",
       "kaitag": "киласа"
     },
     {
@@ -1058,6 +1155,7 @@
       "iron_alt": "xid",
       "digor": "хед",
       "digor_alt": "xed",
+      "east circassian": "лъэмыж",
       "kaitag": "ччеме"
     },
     {
@@ -1068,7 +1166,8 @@
       "iron_alt": "skhola",
       "digor": "скъола",
       "digor_alt": "skhola",
-      "kaitag": "мактав"
+      "east circassian": "еджапIэ",
+      "kaitag": "ушкул"
     },
     {
       "english": "kindergarten",
@@ -1078,6 +1177,7 @@
       "iron_alt": "rævdawændon",
       "digor": "рæвдауæндонæ",
       "digor_alt": "rævdawændonæ",
+      "east circassian": "сабий сад",
       "kaitag": "никӏвадуг"
     },
     {
@@ -1088,6 +1188,7 @@
       "iron_alt": "dukani",
       "digor": "тукан",
       "digor_alt": "tukan",
+      "east circassian": "тыкуэн",
       "kaitag": "тукен"
     },
     {
@@ -1098,6 +1199,7 @@
       "iron_alt": "awæzt",
       "digor": "кулсун",
       "digor_alt": "kulsun",
+      "east circassian": "псы IущIа",
       "kaitag": "шаӏл"
     },
     {
@@ -1108,6 +1210,7 @@
       "iron_alt": "wazægdzæræn",
       "digor": "фусунуат",
       "digor_alt": "fusunwat",
+      "east circassian": "хьэщIэщ",
       "kaitag": "аххалхъа"
     }
   ],
@@ -1121,6 +1224,7 @@
       "iron_alt": "ærdz",
       "digor": "æрдзæ",
       "digor_alt": "ærdzæ",
+      "east circassian": "щIыуэпс",
       "kaitag": "тӏабиъаӏт"
     },
     {
@@ -1131,11 +1235,13 @@
       "iron_alt": "bælas",
       "digor": "бæласæ",
       "digor_alt": "bælasæ",
+      "east circassian": "жыг",
       "kaitag": "ккалкка"
     },
     {
       "english": "grass",
       "russian": "трава",
+      "east circassian": "удз",
       "kaitag": "кьар"
     },
     {
@@ -1146,6 +1252,7 @@
       "iron_alt": "kul",
       "digor": "колæ",
       "digor_alt": "kolæ",
+      "east circassian": "псы ина",
       "kaitag": "шара"
     },
     {
@@ -1156,6 +1263,7 @@
       "iron_alt": "qæd",
       "digor": "гъæдæ",
       "digor_alt": "ghædæ",
+      "east circassian": "мэз",
       "kaitag": "дуцца"
     },
     {
@@ -1166,6 +1274,7 @@
       "iron_alt": "didinæg",
       "digor": "деденæг",
       "digor_alt": "dedenæg",
+      "east circassian": "удз гъэгъа",
       "kaitag": "жуже"
     },
     {
@@ -1176,6 +1285,7 @@
       "iron_alt": "cæwgædon",
       "digor": "цæугæдон",
       "digor_alt": "cæwgædon",
+      "east circassian": "псы ежэх",
       "kaitag": "еркӏ"
     },
     {
@@ -1186,6 +1296,7 @@
       "iron_alt": "arv",
       "digor": "арв",
       "digor_alt": "arv",
+      "east circassian": "уафэ",
       "kaitag": "ццав"
     },
     {
@@ -1196,6 +1307,7 @@
       "iron_alt": "ævræghtæ",
       "digor": "ӕврӕгътӕ",
       "digor_alt": "ævræghtæ",
+      "east circassian": "пшэ",
       "kaitag": "къирме"
     },
     {
@@ -1206,6 +1318,7 @@
       "iron_alt": "arværdyn",
       "digor": "сослани ӕндурӕ",
       "digor_alt": "soslani ӕndurӕ",
+      "east circassian": "лэгъупыкъу",
       "kaitag": "ццирххаӏв"
     },
     {
@@ -1216,6 +1329,7 @@
       "iron_alt": "ærduz",
       "digor": "ӕрдозӕ",
       "digor_alt": "ӕrdozӕ",
+      "east circassian": "хуей",
       "kaitag": "мурккул"
     },
     {
@@ -1226,6 +1340,7 @@
       "iron_alt": "bydyr",
       "digor": "ӕндзӕр",
       "digor_alt": "ӕndzӕr",
+      "east circassian": "тафэ",
       "kaitag": "диркьа"
     },
     {
@@ -1236,6 +1351,7 @@
       "iron_alt": "xæxtæ",
       "digor": "хуӕнхтӕ",
       "digor_alt": "xwӕnxtӕ",
+      "east circassian": "къурш",
       "kaitag": "дубурте"
     },
     {
@@ -1246,11 +1362,13 @@
       "iron_alt": "kom",
       "digor": "ком",
       "digor_alt": "kom",
+      "east circassian": "бгызэхуаку",
       "kaitag": "къатта"
     },
     {
       "english": "island",
       "russian": "остров",
+      "east circassian": "хытIыгу",
       "kaitag": "шингьа"
     },
     {
@@ -1261,6 +1379,7 @@
       "iron_alt": "zymæg",
       "digor": "зумӕг",
       "digor_alt": "zumӕg",
+      "east circassian": "щIымахуэ",
       "kaitag": "га"
     },
     {
@@ -1271,6 +1390,7 @@
       "iron_alt": "waldzæg",
       "digor": "уалдзæг",
       "digor_alt": "waldzæg",
+      "east circassian": "гъатхэ",
       "kaitag": "ев"
     },
     {
@@ -1281,6 +1401,7 @@
       "iron_alt": "særd",
       "digor": "сæрдæ",
       "digor_alt": "særdæ",
+      "east circassian": "гъэмахуэ",
       "kaitag": "гьанаши"
     },
     {
@@ -1291,6 +1412,7 @@
       "iron_alt": "fæzzæg",
       "digor": "фæззæг",
       "digor_alt": "fæzzæg",
+      "east circassian": "бжьыхьэ",
       "kaitag": "ивхьне"
     },
     {
@@ -1301,6 +1423,7 @@
       "iron_alt": "mit",
       "digor": "мет",
       "digor_alt": "met",
+      "east circassian": "уэс",
       "kaitag": "дугьаӏ"
     },
     {
@@ -1311,6 +1434,7 @@
       "iron_alt": "khævda",
       "digor": "къæвда",
       "digor_alt": "khævda",
+      "east circassian": "уэшх",
       "kaitag": "марка"
     },
     {
@@ -1321,6 +1445,7 @@
       "iron_alt": "migh",
       "digor": "мегъæ",
       "digor_alt": "meghæ",
+      "east circassian": "пшагъуэ",
       "kaitag": "дирихь"
     },
     {
@@ -1331,6 +1456,7 @@
       "iron_alt": "xur",
       "digor": "хор",
       "digor_alt": "xor",
+      "east circassian": "дыгъэ",
       "kaitag": "баре"
     },
     {
@@ -1341,6 +1467,7 @@
       "iron_alt": "mæj",
       "digor": "мæйæ",
       "digor_alt": "mæjæ",
+      "east circassian": "мазэ",
       "kaitag": "бацц"
     },
     {
@@ -1351,6 +1478,7 @@
       "iron_alt": "dymgæ",
       "digor": "думгæ",
       "digor_alt": "dumgæ",
+      "east circassian": "жьы",
       "kaitag": "шшери"
     },
     {
@@ -1361,6 +1489,7 @@
       "iron_alt": "æxsæv",
       "digor": "æхсæвæ",
       "digor_alt": "æxsævæ",
+      "east circassian": "жэщ",
       "kaitag": "даӏрххаӏ"
     },
     {
@@ -1371,6 +1500,7 @@
       "iron_alt": "bon",
       "digor": "бон",
       "digor_alt": "bon",
+      "east circassian": "махуэ",
       "kaitag": "ери"
     },
     {
@@ -1381,6 +1511,7 @@
       "iron_alt": "sæwmærajsom",
       "digor": "сæумæ",
       "digor_alt": "sæwmæ",
+      "east circassian": "пщэдджыжь",
       "kaitag": "чирка"
     },
     {
@@ -1391,6 +1522,7 @@
       "iron_alt": "izær",
       "digor": "изæр",
       "digor_alt": "izær",
+      "east circassian": "пщыхьэщхьэ",
       "kaitag": "нисна"
     }
   ],
@@ -1404,6 +1536,7 @@
       "iron_alt": "nomivĝytæ",
       "digor": "номевгутæ",
       "digor_alt": "nomevgutæ",
+      "east circassian": "цIэпапщIэ",
       "kaitag": "чагъай"
     },
     {
@@ -1414,6 +1547,7 @@
       "iron_alt": "dy",
       "digor": "ду",
       "digor_alt": "du",
+      "east circassian": "уэ",
       "kaitag": "и"
     },
     {
@@ -1424,6 +1558,7 @@
       "iron_alt": "æz",
       "digor": "æз",
       "digor_alt": "æz",
+      "east circassian": "сэ",
       "kaitag": "ду"
     },
     {
@@ -1434,6 +1569,7 @@
       "iron_alt": "wyj",
       "digor": "е",
       "digor_alt": "e",
+      "east circassian": "ар",
       "kaitag": "гье"
     },
     {
@@ -1444,6 +1580,7 @@
       "iron_alt": "wyj",
       "digor": "e",
       "digor_alt": "e",
+      "east circassian": "ар",
       "kaitag": "гье"
     },
     {
@@ -1454,6 +1591,7 @@
       "iron_alt": "wyj",
       "digor": "e",
       "digor_alt": "e",
+      "east circassian": "ар",
       "kaitag": "гье"
     },
     {
@@ -1464,6 +1602,7 @@
       "iron_alt": "max",
       "digor": "мах",
       "digor_alt": "max",
+      "east circassian": "дэ",
       "kaitag": "нисса, ниххьва"
     },
     {
@@ -1474,6 +1613,7 @@
       "iron_alt": "symax",
       "digor": "сумах",
       "digor_alt": "sumax",
+      "east circassian": "фэ",
       "kaitag": "нишша"
     },
     {
@@ -1484,6 +1624,7 @@
       "iron_alt": "wydon",
       "digor": "етæ",
       "digor_alt": "etæ",
+      "east circassian": "ахэр",
       "kaitag": "гьетти"
     }
   ],
@@ -1497,6 +1638,7 @@
       "iron_alt": "syrdtæ",
       "digor": "сирдтæ",
       "digor_alt": "sirdtæ",
+      "east circassian": "хьэкIэкхъуэкIэ",
       "kubachi": "жанаварте",
       "kaitag": "мицӏираг"
     },
@@ -1508,6 +1650,7 @@
       "iron_alt": "ars",
       "digor": "арс",
       "digor_alt": "ars",
+      "east circassian": "мыщэ",
       "kubachi": "ссика",
       "kaitag": "ссика"
     },
@@ -1519,6 +1662,7 @@
       "iron_alt": "gædy",
       "digor": "тикис",
       "digor_alt": "tikis",
+      "east circassian": "джэду",
       "kubachi": "ччиту",
       "kaitag": "бизи"
     },
@@ -1530,6 +1674,7 @@
       "iron_alt": "qug",
       "digor": "гъог",
       "digor_alt": "ghog",
+      "east circassian": "жэм",
       "kubachi": "кьуӏл",
       "kubachi_alt": "кьгӏюл",
       "kaitag": "кьваӏл"
@@ -1542,6 +1687,7 @@
       "iron_alt": "kæfqwyndar",
       "digor": "кæфхъундар",
       "digor_alt": "kæfqundar",
+      "east circassian": "благъуэ",
       "kaitag": "аждагьа"
     },
     {
@@ -1552,6 +1698,7 @@
       "iron_alt": "kwydz",
       "digor": "куй",
       "digor_alt": "kuj",
+      "east circassian": "хьэ",
       "kubachi": "ххве",
       "kaitag": "ххваӏ"
     },
@@ -1563,6 +1710,7 @@
       "iron_alt": "bælon",
       "digor": "бæлæу",
       "digor_alt": "bælæw",
+      "east circassian": "тхьэрыкъуэ",
       "kubachi": "нахьва",
       "kaitag": "лахьва"
     },
@@ -1574,6 +1722,7 @@
       "iron_alt": "cærgæs",
       "digor": "цæргæс",
       "digor_alt": "cærgæs",
+      "east circassian": "бгъэ",
       "kubachi": "чӏиӏкаӏ",
       "kubachi_alt": "чӏгӏикгӏя",
       "kaitag": "чӏаква"
@@ -1586,6 +1735,7 @@
       "iron_alt": "ruvas",
       "digor": "робас",
       "digor_alt": "robas",
+      "east circassian": "бажэ",
       "kubachi": "ккуутта",
       "kaitag": "ккуртта"
     },
@@ -1597,6 +1747,7 @@
       "iron_alt": "xæfs",
       "digor": "хæпсæ",
       "digor_alt": "xæpsæ",
+      "east circassian": "хьэндрыкъуакъуэ",
       "kaitag": "аӏтӏа"
     },
     {
@@ -1607,6 +1758,7 @@
       "iron_alt": "pyl",
       "digor": "пил",
       "digor_alt": "pil",
+      "east circassian": "пыл",
       "kubachi": "пилжакьа",
       "kaitag": "пил"
     },
@@ -1618,6 +1770,7 @@
       "iron_alt": "bæx",
       "digor": "бæх",
       "digor_alt": "bæx",
+      "east circassian": "шы",
       "kubachi": "ууче",
       "kaitag": "йабу"
     },
@@ -1629,6 +1782,7 @@
       "iron_alt": "fyrank",
       "digor": "фæланк",
       "digor_alt": "fælank",
+      "east circassian": "щомыщ",
       "kaitag": "дуццабизи"
     },
     {
@@ -1639,6 +1793,7 @@
       "iron_alt": "comaq",
       "digor": "цомахъ",
       "digor_alt": "comaq",
+      "east circassian": "аслъэн",
       "kubachi": "арслан",
       "kaitag": "арслан"
     },
@@ -1650,6 +1805,7 @@
       "iron_alt": "majmuli",
       "digor": "маймул",
       "digor_alt": "majmul",
+      "east circassian": "номин",
       "kubachi": "магӏмаӏлук",
       "kubachi_alt": "мягӏмгӏялук",
       "kaitag": "маймун"
@@ -1662,6 +1818,7 @@
       "iron_alt": "myst",
       "digor": "мистæ",
       "digor_alt": "mistæ",
+      "east circassian": "дзыгъуэ",
       "kubachi": "васа",
       "kaitag": "гваца"
     },
@@ -1673,6 +1830,7 @@
       "iron_alt": "wyg",
       "digor": "уг",
       "digor_alt": "ug",
+      "east circassian": "жьынду",
       "kubachi": "тӏума",
       "kaitag": "тӏума"
     },
@@ -1684,6 +1842,7 @@
       "iron_alt": "fys",
       "digor": "фус",
       "digor_alt": "fus",
+      "east circassian": "мэл",
       "kubachi": "мацца",
       "kaitag": "маӏрцца"
     },
@@ -1695,6 +1854,7 @@
       "iron_alt": "birægh",
       "digor": "берæгъ",
       "digor_alt": "berægh",
+      "east circassian": "дыгъужь",
       "kubachi": "бицӏ",
       "kaitag": "бецӏ"
     }
@@ -1709,6 +1869,7 @@
       "iron_alt": "daræs",
       "digor": "хъæппæлтæ",
       "digor_alt": "qæppæltæ",
+      "east circassian": "щыгъын",
       "kaitag": "палтар"
     },
     {
@@ -1719,6 +1880,7 @@
       "iron_alt": "nymæt xud",
       "digor": "буйнаг ходæ",
       "digor_alt": "bujnag xodæ",
+      "east circassian": "упщэ пыIэ",
       "kaitag": "къизхъати"
     },
     {
@@ -1729,6 +1891,7 @@
       "iron_alt": "xud",
       "digor": "ходæ",
       "digor_alt": "xodæ",
+      "east circassian": "пыIэ",
       "kaitag": "хъати"
     },
     {
@@ -1739,6 +1902,7 @@
       "iron_alt": "buxajrag xud",
       "digor": "бухарходæ",
       "digor_alt": "buxarxodæ",
+      "east circassian": "хъурыфэ пыIэ",
       "kaitag": "кьакӏа"
     },
     {
@@ -1759,6 +1923,7 @@
       "iron_alt": "cuqqa",
       "digor": "цохъа",
       "digor_alt": "coqa",
+      "east circassian": "цей",
       "kaitag": "къичу"
     },
     {
@@ -1769,6 +1934,7 @@
       "iron_alt": "xædon",
       "digor": "хæдонæ",
       "digor_alt": "xædonæ",
+      "east circassian": "джанэ",
       "kaitag": "пенжек"
     },
     {
@@ -1779,6 +1945,7 @@
       "iron_alt": "kwyræt",
       "digor": "курæт",
       "digor_alt": "kuræt",
+      "east circassian": "къэптал",
       "kaitag": "гьаӏвсур"
     },
     {
@@ -1789,6 +1956,7 @@
       "iron_alt": "basylyqq",
       "digor": "баслæхъ",
       "digor_alt": "baslæq",
+      "east circassian": "щхьэрыхъуэн",
       "kaitag": "бекӏцӏар"
     },
     {
@@ -1799,6 +1967,7 @@
       "iron_alt": "æghnæg",
       "digor": "æгънæг",
       "digor_alt": "æghnæg",
+      "east circassian": "щIыIу",
       "kaitag": "пентӏ"
     },
     {
@@ -1809,6 +1978,7 @@
       "iron_alt": "xælaf",
       "digor": "хæлаф",
       "digor_alt": "xælaf",
+      "east circassian": "гъуэншэдж",
       "kaitag": "вачаг"
     },
     {
@@ -1819,6 +1989,7 @@
       "iron_alt": "cyryqqytæ",
       "digor": "цулухътæ",
       "digor_alt": "culuqtæ",
+      "east circassian": "шырыкъу",
       "kaitag": "чакма"
     },
     {
@@ -1829,6 +2000,7 @@
       "iron_alt": "dzabyrtæ",
       "digor": "къахидарæс",
       "digor_alt": "khaxidaræs",
+      "east circassian": "вакъэ",
       "kaitag": "тӏиппри"
     },
     {
@@ -1839,6 +2011,7 @@
       "iron_alt": "khaba",
       "digor": "пъолци",
       "digor_alt": "pholci",
+      "east circassian": "бостей",
       "kaitag": "ккуртте"
     },
     {
@@ -1849,6 +2022,7 @@
       "iron_alt": "dællagwyr",
       "digor": "дæллаггурæ",
       "digor_alt": "dællagguræ",
+      "east circassian": "кIэ",
       "kaitag": "йупкка"
     },
     {
@@ -1859,6 +2033,7 @@
       "iron_alt": "særbættæn",
       "digor": "сæрбæттæн",
       "digor_alt": "særbættæn",
+      "east circassian": "IэлъэщI",
       "kaitag": "кӏана"
     },
     {
@@ -1869,6 +2044,7 @@
       "iron_alt": "kælmærzæn",
       "digor": "сасуг",
       "digor_alt": "sasug",
+      "east circassian": "IэлъэщI ув",
       "kaitag": "ашмаг"
     },
     {
@@ -1879,6 +2055,7 @@
       "iron_alt": "kærc",
       "digor": "кæрцæ",
       "digor_alt": "kærcæ",
+      "east circassian": "джэдыгу",
       "kaitag": "гьаӏка"
     },
     {
@@ -1889,6 +2066,7 @@
       "iron_alt": "ron",
       "digor": "ронæ",
       "digor_alt": "ronæ",
+      "east circassian": "бгырыпх",
       "kaitag": "ппаӏъни"
     },
     {
@@ -1899,6 +2077,7 @@
       "iron_alt": "bærcytæ",
       "digor": "бæрцитæ",
       "digor_alt": "bærcitæ",
+      "east circassian": "хьэзыр",
       "kaitag": "бирцӏле"
     },
     {
@@ -1909,6 +2088,7 @@
       "iron_alt": "qama",
       "digor": "хъама",
       "digor_alt": "qama",
+      "east circassian": "къамэ",
       "kaitag": "хинжар"
     },
     {
@@ -1919,6 +2099,7 @@
       "iron_alt": "æxsargard",
       "digor": "æхсаргард",
       "digor_alt": "æxsargard",
+      "east circassian": "сэшхуэ",
       "kaitag": "шушкӏа"
     },
     {
@@ -1929,6 +2110,7 @@
       "iron_alt": "topp",
       "digor": "топп",
       "digor_alt": "topp",
+      "east circassian": "фоч",
       "kaitag": "тупанг"
     },
     {
@@ -1939,6 +2121,7 @@
       "iron_alt": "dambaca",
       "digor": "дамбаца",
       "digor_alt": "dambaca",
+      "east circassian": "кIэрахъуэ",
       "kaitag": "тапанча"
     }
   ],
@@ -1952,6 +2135,7 @@
       "iron_alt": "bwary wængtæ",
       "digor": "бауæри иуæнгтæ",
       "digor_alt": "bawæri iwængtæ",
+      "east circassian": "Iэпкълъэпкъым хыхьэхэр",
       "kaitag": "хамххала биркӏанте"
     },
     {
@@ -1962,6 +2146,7 @@
       "iron_alt": "khux",
       "digor": "къох",
       "digor_alt": "khox",
+      "east circassian": "Iэ",
       "kaitag": "наӏкъ"
     },
     {
@@ -1972,6 +2157,7 @@
       "iron_alt": "sær",
       "digor": "сæр",
       "digor_alt": "sær",
+      "east circassian": "щхьэ",
       "kaitag": "бекӏ"
     },
     {
@@ -1982,6 +2168,7 @@
       "iron_alt": "cæsgom",
       "digor": "цæсгон",
       "digor_alt": "cæsgon",
+      "east circassian": "нэкIу",
       "kaitag": "даӏъ"
     },
     {
@@ -1992,6 +2179,7 @@
       "iron_alt": "cæst",
       "digor": "цæстæ",
       "digor_alt": "cæstæ",
+      "east circassian": "нэ",
       "kaitag": "уле"
     },
     {
@@ -2002,6 +2190,7 @@
       "iron_alt": "qhus",
       "digor": "гъос",
       "digor_alt": "ghos",
+      "east circassian": "тхьэкIумэ",
       "kaitag": "лаӏъ"
     },
     {
@@ -2012,6 +2201,7 @@
       "iron_alt": "fyndz",
       "digor": "фий",
       "digor_alt": "fij",
+      "east circassian": "пэ",
       "kaitag": "маӏле"
     },
     {
@@ -2022,6 +2212,7 @@
       "iron_alt": "nyx",
       "digor": "тæрних",
       "digor_alt": "tærnix",
+      "east circassian": "натIэ",
       "kaitag": "антта"
     },
     {
@@ -2032,6 +2223,7 @@
       "iron_alt": "rus",
       "digor": "рос",
       "digor_alt": "ros",
+      "east circassian": "нэкIущхьэ",
       "kaitag": "иркъе"
     },
     {
@@ -2042,6 +2234,7 @@
       "iron_alt": "dzyx",
       "digor": "цъух",
       "digor_alt": "chux",
+      "east circassian": "жьэ",
       "kaitag": "ттутту"
     },
     {
@@ -2052,6 +2245,7 @@
       "iron_alt": "byltæ",
       "digor": "билтæ",
       "digor_alt": "biltæ",
+      "east circassian": "Iупэ",
       "kaitag": "чӏунтӏруппе"
     },
     {
@@ -2062,6 +2256,7 @@
       "iron_alt": "bærzæj",
       "digor": "бæрзæй",
       "digor_alt": "bærzæj",
+      "east circassian": "пщэ",
       "kaitag": "хъаӏв"
     },
     {
@@ -2072,6 +2267,7 @@
       "iron_alt": "khax",
       "digor": "къах",
       "digor_alt": "khax",
+      "east circassian": "лъакъуэ",
       "kaitag": "тӏаӏ"
     },
     {
@@ -2082,6 +2278,7 @@
       "iron_alt": "fæsontæ",
       "digor": "фæсонтæ",
       "digor_alt": "fæsontæ",
+      "east circassian": "щIыб",
       "kaitag": "мукь"
     },
     {
@@ -2092,6 +2289,7 @@
       "iron_alt": "gwybyn",
       "digor": "губун",
       "digor_alt": "gubun",
+      "east circassian": "ныбэ",
       "kaitag": "кӏултӏа"
     },
     {
@@ -2102,6 +2300,7 @@
       "iron_alt": "dzykkutæ",
       "digor": "дзиккотæ",
       "digor_alt": "dzikkotæ",
+      "east circassian": "щхьэц",
       "kaitag": "гъизбе"
     },
     {
@@ -2112,6 +2311,7 @@
       "iron_alt": "dændægtæ",
       "digor": "дæндæгтæ",
       "digor_alt": "dændægtæ",
+      "east circassian": "дзэ",
       "kaitag": "цилбе"
     }
   ],
@@ -2135,6 +2335,7 @@
       "iron_alt": "qusyn",
       "digor": "игъосун",
       "digor_alt": "ighosun",
+      "east circassian": "зыхэхын",
       "kaitag": "дикьара"
     },
     {
@@ -2145,6 +2346,7 @@
       "iron_alt": "dzuryn",
       "digor": "дзорун",
       "digor_alt": "dzorun",
+      "east circassian": "псэлъэн",
       "kaitag": "дикӏвара"
     },
     {
@@ -2155,6 +2357,7 @@
       "iron_alt": "zonyn",
       "digor": "зонун",
       "digor_alt": "zonun",
+      "east circassian": "щIэн",
       "kaitag": "даргьара"
     },
     {
@@ -2165,6 +2368,7 @@
       "iron_alt": "cæwyn",
       "digor": "цæун",
       "digor_alt": "cæwn",
+      "east circassian": "кIуэн",
       "kaitag": "дахьара"
     },
     {
@@ -2175,6 +2379,7 @@
       "iron_alt": "wynyn",
       "digor": "инун",
       "digor_alt": "inun",
+      "east circassian": "лъэгъун",
       "kaitag": "чидигара"
     },
     {
@@ -2185,6 +2390,7 @@
       "iron_alt": "kænyn",
       "digor": "кæнун",
       "digor_alt": "kænun",
+      "east circassian": "лэжьын",
       "kaitag": "дарара"
     },
     {
@@ -2195,6 +2401,7 @@
       "iron_alt": "cæryn",
       "digor": "цæрун",
       "digor_alt": "cærun",
+      "east circassian": "псэун",
       "kaitag": "гьер диргьвара"
     },
     {
@@ -2205,6 +2412,7 @@
       "iron_alt": "kuvyn",
       "digor": "ковун",
       "digor_alt": "kovun",
+      "east circassian": "Тхьэ елъэун",
       "kaitag": "далккана"
     },
     {
@@ -2215,7 +2423,8 @@
       "iron_alt": "kæsyn",
       "digor": "кæсун",
       "digor_alt": "kæsun",
-      "kaitag": "улбертара"
+      "east circassian": "плъэн",
+      "kaitag": "чигьара"
     },
     {
       "english": "to work",
@@ -2225,6 +2434,7 @@
       "iron_alt": "kusyn",
       "digor": "косун",
       "digor_alt": "kosun",
+      "east circassian": "лэжьэн",
       "kaitag": "улшана"
     },
     {
@@ -2235,6 +2445,7 @@
       "iron_alt": "qazyn",
       "digor": "гъазун",
       "digor_alt": "ghazun",
+      "east circassian": "джэгун",
       "kaitag": "диргара"
     },
     {
@@ -2245,6 +2456,7 @@
       "iron_alt": "færsyn",
       "digor": "фæрсун",
       "digor_alt": "færsun",
+      "east circassian": "еупщIын",
       "kaitag": "ххьар дикӏвара"
     },
     {
@@ -2255,6 +2467,7 @@
       "iron_alt": "dættyn",
       "digor": "дæттун",
       "digor_alt": "dættun",
+      "east circassian": "етын",
       "kaitag": "луккана"
     },
     {
@@ -2265,6 +2478,7 @@
       "iron_alt": "warzyn",
       "digor": "уарзун",
       "digor_alt": "warzun",
+      "east circassian": "фIыуэ лъагъун",
       "kaitag": "диччахара"
     },
     {
@@ -2275,6 +2489,7 @@
       "iron_alt": "nymajyn",
       "digor": "нимайун",
       "digor_alt": "nimajun",
+      "east circassian": "бжын",
       "kaitag": "лугана"
     },
     {
@@ -2285,6 +2500,7 @@
       "iron_alt": "fyssyn",
       "digor": "финсун",
       "digor_alt": "finsun",
+      "east circassian": "тхэн",
       "kaitag": "лукӏана"
     },
     {
@@ -2295,6 +2511,7 @@
       "iron_alt": "kæsyn",
       "digor": "аргъаун",
       "digor_alt": "arghawn",
+      "east circassian": "еджэн",
       "kaitag": "дулчӏана"
     },
     {
@@ -2305,6 +2522,7 @@
       "iron_alt": "læwwyn",
       "digor": "лæуун",
       "digor_alt": "læwwn",
+      "east circassian": "щытын",
       "kaitag": "кадирццара"
     },
     {
@@ -2315,6 +2533,7 @@
       "iron_alt": "aguryn",
       "digor": "агорун",
       "digor_alt": "agorun",
+      "east circassian": "лъыхъуэн",
       "kaitag": "умцӏана"
     },
     {
@@ -2325,6 +2544,7 @@
       "iron_alt": "qær kænyn",
       "digor": "гъæр кæнун",
       "digor_alt": "ghær kænun",
+      "east circassian": "кIиин",
       "kaitag": "чӏаӏгъ дикӏвара"
     },
     {
@@ -2335,6 +2555,7 @@
       "iron_alt": "xæryn",
       "digor": "хуæрун",
       "digor_alt": "xwærun",
+      "east circassian": "шхэн",
       "kaitag": "дукана"
     },
     {
@@ -2345,6 +2566,7 @@
       "iron_alt": "nwazyn",
       "digor": "ниуазун",
       "digor_alt": "niwazun",
+      "east circassian": "ефэн",
       "kaitag": "дерччара"
     },
     {
@@ -2355,6 +2577,7 @@
       "iron_alt": "kæwyn",
       "digor": "кæун",
       "digor_alt": "kæwn",
+      "east circassian": "гъын",
       "kaitag": "диссара"
     },
     {
@@ -2365,17 +2588,19 @@
       "iron_alt": "amajyn",
       "digor": "амайун",
       "digor_alt": "amajun",
+      "east circassian": "ухуэн",
       "kaitag": "калтӏана"
     },
     {
       "english": "to point",
-      "russian": "показывать",
+      "russian": "указывать",
       "turkish": "göstermek",
       "iron": "амонын",
       "iron_alt": "amonyn",
       "digor": "амонун",
       "digor_alt": "amonun",
-      "kaitag": "чидижахара"
+      "east circassian": "егъэплъын",
+      "kaitag": "чидирххьара"
     },
     {
       "english": "to seat",
@@ -2385,6 +2610,7 @@
       "iron_alt": "badyn",
       "digor": "бадун",
       "digor_alt": "badun",
+      "east circassian": "щысын",
       "kaitag": "кадиргара"
     },
     {
@@ -2395,6 +2621,7 @@
       "iron_alt": "zghoryn",
       "digor": "ледзун",
       "digor_alt": "ledzun",
+      "east circassian": "жэн",
       "kaitag": "девххьара"
     },
     {
@@ -2405,6 +2632,7 @@
       "iron_alt": "xæcyn",
       "digor": "хуæцун",
       "digor_alt": "xwæcun",
+      "east circassian": "Iыгъын",
       "kaitag": "дурцара"
     },
     {
@@ -2415,6 +2643,7 @@
       "iron_alt": "xudyn",
       "digor": "ходун",
       "digor_alt": "xodun",
+      "east circassian": "дыхьэшхын",
       "kaitag": "дикал дикӏвара"
     }
   ],
@@ -2422,6 +2651,7 @@
     {
       "english": "colors",
       "russian": "цвета",
+      "east circassian": "плъыфэ",
       "kaitag": "ранг"
     }
   ],
@@ -2429,6 +2659,7 @@
     {
       "english": "adjectives",
       "russian": "прилагательные",
+      "east circassian": "плъыфэцIэ",
       "kaitag": "куцгъай"
     }
   ],
@@ -2442,6 +2673,7 @@
       "iron_alt": "nymæctæ",
       "digor": "нимæдзитæ",
       "digor_alt": "nimædzitæ",
+      "east circassian": "бжыгъэ",
       "kubachi": "лугге",
       "kaitag": "лугне"
     },
@@ -2453,6 +2685,7 @@
       "iron_alt": "iw",
       "digor": "еу",
       "digor_alt": "ew",
+      "east circassian": "зы",
       "kubachi": "са",
       "kaitag": "ца"
     },
@@ -2464,6 +2697,7 @@
       "iron_alt": "dywwæ",
       "digor": "дууæ",
       "digor_alt": "duwwæ",
+      "east circassian": "тIу",
       "kubachi": "кӏве",
       "kaitag": "чӏвел"
     },
@@ -2475,6 +2709,7 @@
       "iron_alt": "ærtæ",
       "digor": "æртæ",
       "digor_alt": "ærtæ",
+      "east circassian": "щы",
       "kubachi": "аӏб",
       "kubachi_alt": "гӏяб",
       "kaitag": "аӏбал"
@@ -2487,6 +2722,7 @@
       "iron_alt": "cyppar",
       "digor": "цуппар",
       "digor_alt": "cuppar",
+      "east circassian": "плIы",
       "kubachi": "агъв",
       "kaitag": "угъал"
     },
@@ -2498,6 +2734,7 @@
       "iron_alt": "fondz",
       "digor": "фондз",
       "digor_alt": "fondz",
+      "east circassian": "тху",
       "kubachi": "хьу",
       "kaitag": "швел"
     },
@@ -2509,6 +2746,7 @@
       "iron_alt": "æxsæz",
       "digor": "æхсæз",
       "digor_alt": "æxsæz",
+      "east circassian": "хы",
       "kubachi": "ек",
       "kubachi_alt": "эк",
       "kaitag": "реккал"
@@ -2521,6 +2759,7 @@
       "iron_alt": "avd",
       "digor": "авд",
       "digor_alt": "avd",
+      "east circassian": "блы",
       "kubachi": "вее",
       "kaitag": "верал"
     },
@@ -2532,6 +2771,7 @@
       "iron_alt": "ast",
       "digor": "аст",
       "digor_alt": "ast",
+      "east circassian": "и",
       "kubachi": "ккаа",
       "kaitag": "гаъал"
     },
@@ -2543,6 +2783,7 @@
       "iron_alt": "farast",
       "digor": "фараст",
       "digor_alt": "farast",
+      "east circassian": "бгъу",
       "kubachi": "ууӏчӏуӏм",
       "kubachi_alt": "гӏюючӏгӏюм",
       "kaitag": "ирчӏамал"
@@ -2555,6 +2796,7 @@
       "iron_alt": "dæs",
       "digor": "дæс",
       "digor_alt": "dæs",
+      "east circassian": "пщIы",
       "kubachi": "вицӏ",
       "kaitag": "вецӏал"
     },
@@ -2566,6 +2808,7 @@
       "iron_alt": "ssædz",
       "digor": "инсæй",
       "digor_alt": "insæj",
+      "east circassian": "тIощI",
       "kubachi": "гъа",
       "kaitag": "гъайал"
     },
@@ -2577,6 +2820,7 @@
       "iron_alt": "ærtyn",
       "digor": "æртин",
       "digor_alt": "ærtin",
+      "east circassian": "щэщI",
       "kubachi": "аӏбцӏал",
       "kubachi_alt": "гӏябцӏал",
       "kaitag": "аӏвцӏале"
@@ -2589,6 +2833,7 @@
       "iron_alt": "cyppor",
       "digor": "цуппор",
       "digor_alt": "cuppor",
+      "east circassian": "плIыщI",
       "kubachi": "агъвцӏал",
       "kaitag": "угъцӏале"
     },
@@ -2600,6 +2845,7 @@
       "iron_alt": "fændzaj",
       "digor": "фæндзай",
       "digor_alt": "fændzaj",
+      "east circassian": "тхущI",
       "kubachi": "хьуцӏал",
       "kaitag": "шуцӏале"
     },
@@ -2611,6 +2857,7 @@
       "iron_alt": "æxsaj",
       "digor": "æхсай",
       "digor_alt": "æxsaj",
+      "east circassian": "хыщI",
       "kubachi": "екцӏал",
       "kubachi_alt": "экцӏал",
       "kaitag": "реккцӏале"
@@ -2623,6 +2870,7 @@
       "iron_alt": "ævdaj",
       "digor": "æвдай",
       "digor_alt": "ævdaj",
+      "east circassian": "блыщI",
       "kubachi": "веецӏал",
       "kaitag": "верцӏале"
     },
@@ -2634,6 +2882,7 @@
       "iron_alt": "æstaj",
       "digor": "æстай",
       "digor_alt": "æstaj",
+      "east circassian": "ищI",
       "kubachi": "ккаацӏал",
       "kaitag": "гаъцӏале"
     },
@@ -2645,6 +2894,7 @@
       "iron_alt": "næwædz",
       "digor": "нæуæдзæ",
       "digor_alt": "næwædzæ",
+      "east circassian": "бгъущI",
       "kubachi": "ууӏчӏуӏмцӏал",
       "kubachi_alt": "гӏюючӏгӏюмцӏал",
       "kaitag": "ирчӏамцӏале"
@@ -2657,6 +2907,7 @@
       "iron_alt": "sædæ",
       "digor": "сæдæ",
       "digor_alt": "sædæ",
+      "east circassian": "щэ",
       "kubachi": "даӏш",
       "kubachi_alt": "дгӏяш",
       "kaitag": "даршшал"
@@ -2669,6 +2920,7 @@
       "iron_alt": "min",
       "digor": "мин",
       "digor_alt": "min",
+      "east circassian": "мин",
       "kubachi": "азии",
       "kaitag": "азир"
     }

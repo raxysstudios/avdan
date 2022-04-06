@@ -58,5 +58,21 @@
       "kaitag": "хайдакьан"
     },
     "flag": "kaitag"
+  },
+  {
+    "name": {
+      "english": "east circassian",
+      "russian": "восточночеркесский",
+      "east circassian": "адыгэбзэ"
+    },
+    "flag": "circassia"
+  },
+  {
+    "name": {
+      "english": "dargwa",
+      "russian": "даргинский",
+      "dargwa": "дарган"
+    },
+    "flag": "dargwa"
   }
 ]
