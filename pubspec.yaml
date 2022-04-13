@@ -87,21 +87,21 @@ flutter:
     # - assets/audio/iron/colors/
 
     - assets/audio/kaitag/alphabet/
-    # - assets/audio/kaitag/animals/
-    # - assets/audio/kaitag/body parts/
+    - assets/audio/kaitag/animals/
+    - assets/audio/kaitag/body parts/
     - assets/audio/kaitag/city/
-    # - assets/audio/kaitag/clothes/
+    - assets/audio/kaitag/clothes/
     - assets/audio/kaitag/food/
     - assets/audio/kaitag/fruits/
     - assets/audio/kaitag/home/
-    # - assets/audio/kaitag/nature/
-    # - assets/audio/kaitag/numbers/
+    - assets/audio/kaitag/nature/
+    - assets/audio/kaitag/numbers/
     - assets/audio/kaitag/people/
-    # - assets/audio/kaitag/pronouns/
+    - assets/audio/kaitag/pronouns/
     - assets/audio/kaitag/vegetables/
-    # - assets/audio/kaitag/verbs/
-    # - assets/audio/kaitag/adjectives/
-    # - assets/audio/kaitag/colors/
+    - assets/audio/kaitag/verbs/
+    - assets/audio/kaitag/adjectives/
+    - assets/audio/kaitag/colors/
 
     - assets/audio/kubachi/alphabet/
     - assets/audio/kubachi/people/
