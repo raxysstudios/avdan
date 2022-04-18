@@ -44,6 +44,15 @@
   },
   {
     "name": {
+      "english": "kaitag",
+      "russian": "кайтагский",
+      "kaitag": "хайдакьан",
+      "kaitag_alt": "xaydaqʼan"
+    },
+    "flag": "kaitag"
+  },
+  {
+    "name": {
       "english": "kubachi",
       "russian": "кубачинский",
       "kubachi": "гӏююгъбуган",
@@ -53,26 +62,28 @@
   },
   {
     "name": {
-      "english": "kaitag",
-      "russian": "кайтагский",
-      "kaitag": "хайдакьан"
-    },
-    "flag": "kaitag"
-  },
-  {
-    "name": {
-      "english": "east circassian",
-      "russian": "восточночеркесский",
-      "east circassian": "адыгэбзэ"
-    },
-    "flag": "circassia"
-  },
-  {
-    "name": {
       "english": "dargwa",
       "russian": "даргинский",
       "dargwa": "дарган"
     },
     "flag": "dargwa"
+  },
+  {
+    "name": {
+      "english": "abkhaz",
+      "russian": "абхазский",
+      "turkish": "abhazca",
+      "abkhaz": "аԥсшәа"
+    },
+    "flag": "abkhaz"
+  },
+  {
+    "name": {
+      "english": "east circassian",
+      "russian": "восточночеркесский",
+      "turkish": "doğu çerkes",
+      "east circassian": "адыгэбзэ"
+    },
+    "flag": "circassia"
   }
 ]
