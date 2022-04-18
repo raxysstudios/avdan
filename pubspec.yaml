@@ -1,6 +1,6 @@
 name: avdan
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
-version: 0.9.6+26
+version: 0.9.7+27
 
 environment:
   sdk: ">=2.13.0 <3.0.0"
@@ -102,6 +102,40 @@ flutter:
     - assets/audio/kaitag/verbs/
     - assets/audio/kaitag/adjectives/
     - assets/audio/kaitag/colors/
+
+    - assets/audio/abkhaz/alphabet/
+    - assets/audio/abkhaz/animals/
+    - assets/audio/abkhaz/body parts/
+    - assets/audio/abkhaz/city/
+    - assets/audio/abkhaz/clothes/
+    - assets/audio/abkhaz/food/
+    - assets/audio/abkhaz/fruits/
+    - assets/audio/abkhaz/home/
+    - assets/audio/abkhaz/nature/
+    - assets/audio/abkhaz/numbers/
+    - assets/audio/abkhaz/people/
+    - assets/audio/abkhaz/pronouns/
+    - assets/audio/abkhaz/vegetables/
+    - assets/audio/abkhaz/verbs/
+    - assets/audio/abkhaz/adjectives/
+    - assets/audio/abkhaz/colors/
+
+    - assets/audio/dargwa/alphabet/
+    - assets/audio/dargwa/animals/
+    - assets/audio/dargwa/body parts/
+    - assets/audio/dargwa/city/
+    - assets/audio/dargwa/clothes/
+    - assets/audio/dargwa/food/
+    - assets/audio/dargwa/fruits/
+    - assets/audio/dargwa/home/
+    - assets/audio/dargwa/nature/
+    - assets/audio/dargwa/numbers/
+    - assets/audio/dargwa/people/
+    - assets/audio/dargwa/pronouns/
+    - assets/audio/dargwa/vegetables/
+    - assets/audio/dargwa/verbs/
+    - assets/audio/dargwa/adjectives/
+    - assets/audio/dargwa/colors/
 
     - assets/audio/kubachi/alphabet/
     - assets/audio/kubachi/people/
