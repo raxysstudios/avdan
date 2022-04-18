@@ -9,7 +9,6 @@ import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'donate_button.dart';
 import 'language_tile.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -48,6 +47,7 @@ class SettingsScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     const SizedBox(height: 8),
                     Text(
@@ -55,27 +55,12 @@ class SettingsScreen extends StatelessWidget {
                       style: Theme.of(context).textTheme.bodyText1,
                     ),
                     const SizedBox(height: 8),
-                    Row(
-                      children: [
-                        if (!kIsWeb &&
-                            (Platform.isAndroid /* || Platform.isIOS*/)) ...[
-                          Expanded(
-                            child: DonateButton(
-                              label: Text(store.localize('support')),
-                              iosProductId: 'com.alkaitagi.avdanapp.support',
-                            ),
-                          ),
-                          const SizedBox(width: 8),
-                        ],
-                        Expanded(
-                          child: ElevatedButton.icon(
-                            onPressed: () =>
-                                launch('https://t.me/raxysstudios'),
-                            icon: const Icon(Icons.send_rounded),
-                            label: Text(store.localize('contact')),
-                          ),
-                        ),
-                      ],
+                    Expanded(
+                      child: ElevatedButton.icon(
+                        onPressed: () => launch('https://t.me/raxysstudios'),
+                        icon: const Icon(Icons.send_rounded),
+                        label: Text(store.localize('contact')),
+                      ),
                     ),
                   ],
                 ),
