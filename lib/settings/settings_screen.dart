@@ -55,12 +55,10 @@ class SettingsScreen extends StatelessWidget {
                       style: Theme.of(context).textTheme.bodyText1,
                     ),
                     const SizedBox(height: 8),
-                    Expanded(
-                      child: ElevatedButton.icon(
-                        onPressed: () => launch('https://t.me/raxysstudios'),
-                        icon: const Icon(Icons.send_rounded),
-                        label: Text(store.localize('contact')),
-                      ),
+                    ElevatedButton.icon(
+                      onPressed: () => launch('https://t.me/raxysstudios'),
+                      icon: const Icon(Icons.send_rounded),
+                      label: Text(store.localize('contact')),
                     ),
                   ],
                 ),
