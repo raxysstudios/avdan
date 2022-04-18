@@ -52,6 +52,7 @@ class SettingsScreen extends StatelessWidget {
                     const SizedBox(height: 8),
                     Text(
                       store.localize('honor', false),
+                      textAlign: TextAlign.center,
                       style: Theme.of(context).textTheme.bodyText1,
                     ),
                     const SizedBox(height: 8),
