@@ -12,7 +12,7 @@ dependencies:
   url_launcher: ^6.0.17
   just_audio: ^0.9.18
   sensors_plus: ^1.2.1
-  in_app_purchase: ^2.0.1
+  in_app_purchase: ^3.0.2
   provider: ^6.0.2
   google_fonts: ^2.2.0
   package_info_plus: ^1.3.0
@@ -38,7 +38,7 @@ flutter:
     - assets/images/animals/
     - assets/images/body parts/
     - assets/images/city/
-    - assets/images/clothes/
+    - assets/images/belongings/
     - assets/images/food/
     - assets/images/fruits/
     - assets/images/home/
@@ -56,7 +56,7 @@ flutter:
     - assets/audio/digor/animals/
     - assets/audio/digor/body parts/
     - assets/audio/digor/city/
-    - assets/audio/digor/clothes/
+    - assets/audio/digor/belongings/
     - assets/audio/digor/food/
     - assets/audio/digor/fruits/
     - assets/audio/digor/home/
@@ -73,7 +73,7 @@ flutter:
     - assets/audio/iron/animals/
     - assets/audio/iron/body parts/
     - assets/audio/iron/city/
-    - assets/audio/iron/clothes/
+    - assets/audio/iron/belongings/
     - assets/audio/iron/food/
     - assets/audio/iron/fruits/
     - assets/audio/iron/home/
@@ -90,7 +90,7 @@ flutter:
     - assets/audio/kaitag/animals/
     - assets/audio/kaitag/body parts/
     - assets/audio/kaitag/city/
-    - assets/audio/kaitag/clothes/
+    - assets/audio/kaitag/belongings/
     - assets/audio/kaitag/food/
     - assets/audio/kaitag/fruits/
     - assets/audio/kaitag/home/
@@ -107,7 +107,7 @@ flutter:
     - assets/audio/abkhaz/animals/
     - assets/audio/abkhaz/body parts/
     - assets/audio/abkhaz/city/
-    - assets/audio/abkhaz/clothes/
+    - assets/audio/abkhaz/belongings/
     - assets/audio/abkhaz/food/
     - assets/audio/abkhaz/fruits/
     - assets/audio/abkhaz/home/
@@ -124,7 +124,7 @@ flutter:
     - assets/audio/dargwa/animals/
     - assets/audio/dargwa/body parts/
     - assets/audio/dargwa/city/
-    - assets/audio/dargwa/clothes/
+    - assets/audio/dargwa/belongings/
     - assets/audio/dargwa/food/
     - assets/audio/dargwa/fruits/
     - assets/audio/dargwa/home/
