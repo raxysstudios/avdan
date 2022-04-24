@@ -136,6 +136,23 @@ flutter:
     - assets/audio/dargwa/adjectives/
     - assets/audio/dargwa/colors/
 
+    # - assets/audio/east circassian/alphabet/
+    # - assets/audio/east circassian/animals/
+    # - assets/audio/east circassian/body parts/
+    # - assets/audio/east circassian/city/
+    # - assets/audio/east circassian/belongings/
+    # - assets/audio/east circassian/food/
+    # - assets/audio/east circassian/fruits/
+    # - assets/audio/east circassian/home/
+    # - assets/audio/east circassian/nature/
+    # - assets/audio/east circassian/numbers/
+    # - assets/audio/east circassian/people/
+    # - assets/audio/east circassian/pronouns/
+    # - assets/audio/east circassian/vegetables/
+    # - assets/audio/east circassian/verbs/
+    # - assets/audio/east circassian/adjectives/
+    # - assets/audio/east circassian/colors/
+
     - assets/audio/kubachi/alphabet/
     - assets/audio/kubachi/people/
     - assets/audio/kubachi/food/

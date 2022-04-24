@@ -11,8 +11,8 @@
       "digor_alt": "damghwat",
       "east circassian": "тхыпкъылъэ",
       "kubachi": "алифбе",
-      "kaitag": "алиппе",
-      "kaitag_alt": "alippe",
+      "kaitag": "гьаӏрпрукь",
+      "kaitag_alt": "hærpruqʼ",
       "abkhaz": "анбан",
       "dargwa": "алипуни"
     },
@@ -284,8 +284,8 @@
       "digor_alt": "xwærujnag",
       "east circassian": "шхын",
       "kubachi": "буккин",
-      "kaitag": "букан",
-      "kaitag_alt": "bukan",
+      "kaitag": "гьерква",
+      "kaitag_alt": "herkva",
       "abkhaz": "афатә",
       "dargwa": "беркала"
     },
@@ -423,8 +423,20 @@
       "dargwa": "ниъ"
     },
     {
+      "english": "egg",
+      "russian": "яйцо",
+      "east circassian": "джэдыкIэ",
+      "kubachi": "духъе",
+      "kaitag": "маӏъаӏ",
+      "kaitag_alt": "mæʼæ",
+      "abkhaz": "акәтаӷь",
+      "dargwa": "гидгари"
+    },
+    {
       "english": "scrambled eggs",
-      "russian": "яичница"
+      "russian": "яичница",
+      "kaitag": "берта",
+      "kaitag_alt": "berta"
     },
     {
       "english": "kefir",
@@ -635,7 +647,9 @@
     },
     {
       "english": "sour cream sauce",
-      "russian": "сметанный соус"
+      "russian": "сметанный соус",
+      "kaitag": "нису",
+      "kaitag_alt": "nisu"
     },
     {
       "english": "sweets",
@@ -728,8 +742,8 @@
       "digor_alt": "cælgænæn",
       "east circassian": "пщэфIапIэ",
       "kubachi": "пичлахъал",
-      "kaitag": "аӏкъихъа",
-      "kaitag_alt": "æqqiqa",
+      "kaitag": "аӏкъи",
+      "kaitag_alt": "æqqi",
       "abkhaz": "амаҵурҭа",
       "dargwa": "ужагъ"
     },
@@ -878,8 +892,8 @@
       "digor_alt": "xussændonæ",
       "east circassian": "жеипIэ",
       "kubachi": "килсунзив хъал",
-      "kaitag": "анкӏахъа",
-      "kaitag_alt": "ankʼaqa",
+      "kaitag": "анкӏна",
+      "kaitag_alt": "ankʼна",
       "abkhaz": "ашьҭаларҭа",
       "dargwa": "гьанкӀхана"
     },
@@ -991,8 +1005,8 @@
       "digor_alt": "ærtajændonæ",
       "kubachi": "хӏамам",
       "kubachi_alt": "хӏямам",
-      "kaitag": "биццла",
-      "kaitag_alt": "biccla",
+      "kaitag": "биццна",
+      "kaitag_alt": "biccna",
       "abkhaz": "аҽыкәабарҭа",
       "dargwa": "хӏямам"
     },
@@ -1037,6 +1051,24 @@
       "dargwa": "лац, чир, муцари"
     },
     {
+      "english": "painting",
+      "russian": "картина",
+      "kubachi": "суурат",
+      "kaitag": "къваӏчч",
+      "kaitag_alt": "qqvæçç",
+      "abkhaz": "асахьа",
+      "dargwa": "сурат"
+    },
+    {
+      "english": "photo",
+      "russian": "фотография",
+      "east circassian": "сурэт",
+      "kaitag": "гьитӏи",
+      "kaitag_alt": "hitʼi",
+      "abkhaz": "апатреҭ",
+      "dargwa": "сурат"
+    },
+    {
       "english": "corner",
       "russian": "угол",
       "east circassian": "плIанэпэ",
@@ -1077,12 +1109,22 @@
     {
       "english": "lock",
       "russian": "замок",
-      "east circassian": "ункIыбзэ",
+      "east circassian": "ӏункIыбзэ",
       "kubachi": "гъулмух",
       "kaitag": "мегь",
       "kaitag_alt": "meh",
       "abkhaz": "ацаԥха",
       "dargwa": "мегь, унзубхьала"
+    },
+    {
+      "english": "stairs",
+      "russian": "лестница",
+      "east circassian": "дэкIуеипIэ",
+      "kubachi": "ццаане",
+      "kaitag": "миккер",
+      "kaitag_alt": "mikker",
+      "abkhaz": "амардуан",
+      "dargwa": "ганзи, ганзухъ"
     },
     {
       "english": "floor",
@@ -1379,8 +1421,8 @@
       "digor": "гъæдзиндзæ",
       "digor_alt": "ghædzindzæ",
       "east circassian": "бжьын",
-      "kaitag": "гваргвар",
-      "kaitag_alt": "gvargvar",
+      "kaitag": "гварг",
+      "kaitag_alt": "gvarg",
       "abkhaz": "аџымшьы",
       "dargwa": "жерши"
     },
@@ -1532,11 +1574,18 @@
       "dargwa": "къала, кӀялгӀя"
     },
     {
-      "english": "cemetery",
+      "english": "crypt",
+      "russian": "склеп",
+      "kaitag": "ххаӏвхъа",
+      "kaitag_alt": "xxævqa",
+      "abkhaz": "адамра"
+    },
+    {
+      "english": "cementery",
       "russian": "кладбище",
       "east circassian": "кхъэ",
-      "kaitag": "ххаӏрбе",
-      "kaitag_alt": "xxærbe",
+      "kaitag": "ххаӏрбар",
+      "kaitag_alt": "xxærbar",
       "abkhaz": "анышәынҭра",
       "dargwa": "хӀябри"
     },
@@ -1544,8 +1593,8 @@
       "english": "monument",
       "russian": "памятник",
       "east circassian": "сын",
-      "kaitag": "цӏелтта",
-      "kaitag_alt": "cʼeltta",
+      "kaitag": "гьанбицц",
+      "kaitag_alt": "hanbicc",
       "abkhaz": "абаҟа",
       "dargwa": "памятник"
     },
@@ -1572,8 +1621,8 @@
       "digor": "гъæунгæ",
       "digor_alt": "ghæwngæ",
       "east circassian": "уэрам",
-      "kaitag": "хъалса",
-      "kaitag_alt": "qalsa",
+      "kaitag": "аӏйни",
+      "kaitag_alt": "æjni",
       "abkhaz": "амҩа",
       "dargwa": "кьакьа"
     },
@@ -1581,8 +1630,8 @@
       "english": "square",
       "russian": "площадь",
       "east circassian": "ут",
-      "kaitag": "ччимаса",
-      "kaitag_alt": "ççimasa",
+      "kaitag": "шеркка",
+      "kaitag_alt": "şerkka",
       "abkhaz": "амҽхак",
       "dargwa": "майдан"
     },
@@ -1610,6 +1659,15 @@
       "dargwa": "машина"
     },
     {
+      "english": "wheel",
+      "russian": "колесо",
+      "east circassian": "шэрхъ",
+      "kaitag": "аӏлай",
+      "kaitag_alt": "ælay",
+      "abkhaz": "акәыр",
+      "dargwa": "хӀула"
+    },
+    {
       "english": "bench",
       "russian": "лавочка",
       "turkish": "bank",
@@ -1618,8 +1676,8 @@
       "digor": "бадæн",
       "digor_alt": "badæn",
       "east circassian": "тIысыпIэ",
-      "kaitag": "кабигла",
-      "kaitag_alt": "kabigla",
+      "kaitag": "кигна",
+      "kaitag_alt": "kigna",
       "abkhaz": "армыӡ",
       "dargwa": "хъа гьала"
     },
@@ -1682,8 +1740,8 @@
       "digor": "рæвдауæндонæ",
       "digor_alt": "rævdawændonæ",
       "east circassian": "сабий сад",
-      "kaitag": "никӏвадуг",
-      "kaitag_alt": "nikʼvadug",
+      "kaitag": "дарххьна",
+      "kaitag_alt": "darĵĵna",
       "abkhaz": "ахәыҷбаҳча",
       "dargwa": "дурхӀнала анхъ"
     },
@@ -1705,8 +1763,8 @@
       "english": "quay",
       "russian": "набережная",
       "east circassian": "псы Iуфэ",
-      "kaitag": "ссабаъ",
-      "kaitag_alt": "ssabaʼ",
+      "kaitag": "ссадув",
+      "kaitag_alt": "ssaduv",
       "abkhaz": "аԥшаҳәа",
       "dargwa": "урхьула дуб"
     },
@@ -2491,8 +2549,8 @@
       "digor": "фæланк",
       "digor_alt": "fælank",
       "east circassian": "щомыщ",
-      "kaitag": "дуццабизи",
-      "kaitag_alt": "duccabizi",
+      "kaitag": "цӏерхъ",
+      "kaitag_alt": "cʼerq",
       "abkhaz": "алышькьынтыр",
       "dargwa": "дяхӀила гъалбецӀ"
     },
@@ -2599,8 +2657,8 @@
       "digor": "хъæппæлтæ",
       "digor_alt": "qæppæltæ",
       "east circassian": "щыгъын",
-      "kaitag": "палтар",
-      "kaitag_alt": "paltar",
+      "kaitag": "ваӏткьаӏт",
+      "kaitag_alt": "vætqʼæt",
       "abkhaz": "амаҭәа",
       "dargwa": "палтар"
     },
@@ -3263,8 +3321,8 @@
       "digor": "кæнун",
       "digor_alt": "kænun",
       "east circassian": "лэжьын",
-      "kaitag": "дарара",
-      "kaitag_alt": "darara",
+      "kaitag": "дирара",
+      "kaitag_alt": "dirara",
       "abkhaz": "аҟаҵара",
       "dargwa": "бирес"
     },
@@ -3291,8 +3349,8 @@
       "digor": "ковун",
       "digor_alt": "kovun",
       "east circassian": "Тхьэ елъэун",
-      "kaitag": "далккана",
-      "kaitag_alt": "dalkkana",
+      "kaitag": "дулккана",
+      "kaitag_alt": "dulkkana",
       "abkhaz": "аныҳәара",
       "dargwa": "балга бирес, дяхӏибала дирес"
     },
@@ -3319,8 +3377,8 @@
       "digor": "косун",
       "digor_alt": "kosun",
       "east circassian": "лэжьэн",
-      "kaitag": "улшана",
-      "kaitag_alt": "ulşana",
+      "kaitag": "дулшана",
+      "kaitag_alt": "dulşana",
       "abkhaz": "аусура",
       "dargwa": "узес"
     },
@@ -3487,8 +3545,8 @@
       "digor": "ниуазун",
       "digor_alt": "niwazun",
       "east circassian": "ефэн",
-      "kaitag": "дерччара",
-      "kaitag_alt": "derççara",
+      "kaitag": "дуччара",
+      "kaitag_alt": "duççara",
       "abkhaz": "ажәра",
       "dargwa": "ужес"
     },
@@ -3529,8 +3587,8 @@
       "digor": "амонун",
       "digor_alt": "amonun",
       "east circassian": "егъэплъын",
-      "kaitag": "чидирххьара",
-      "kaitag_alt": "çidirĵĵara",
+      "kaitag": "чибурхьара",
+      "kaitag_alt": "çibarĵara",
       "abkhaz": "арбара",
       "dargwa": "чебаахъес"
     },
@@ -3557,8 +3615,8 @@
       "digor": "ледзун",
       "digor_alt": "ledzun",
       "east circassian": "жэн",
-      "kaitag": "девххьара",
-      "kaitag_alt": "devĵĵara",
+      "kaitag": "дувххьара",
+      "kaitag_alt": "duvĵĵara",
       "abkhaz": "аҩра",
       "dargwa": "дуцӏикӏес"
     },
