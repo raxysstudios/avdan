@@ -6,12 +6,14 @@ class LanguageFlag extends StatelessWidget {
   final Language language;
   final Offset offset;
   final double scale;
+  final double opacity;
 
   const LanguageFlag(
     this.language, {
     Key? key,
     this.offset = const Offset(0, 0),
-    this.scale = 18,
+    this.opacity = 1,
+    this.scale = 15,
   }) : super(key: key);
 
   @override
@@ -26,7 +28,7 @@ class LanguageFlag extends StatelessWidget {
           child: Transform.scale(
             scale: scale,
             child: Opacity(
-              opacity: 0.8,
+              opacity: opacity,
               child: Image(
                 image: language.flagImage,
                 repeat: ImageRepeat.repeatX,

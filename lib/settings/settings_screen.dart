@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:avdan/home/home_screen.dart';
 import 'package:avdan/store.dart';
+import 'package:avdan/widgets/column_card.dart';
 import 'package:avdan/widgets/raxys_logo.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -45,7 +46,7 @@ class SettingsScreen extends StatelessWidget {
                 scale: 7,
               ),
               Padding(
-                padding: const EdgeInsets.all(8),
+                padding: const EdgeInsets.fromLTRB(8, 8, 8, 0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
@@ -66,57 +67,36 @@ class SettingsScreen extends StatelessWidget {
               ),
             ],
           ),
-          const Divider(),
-          const SizedBox(height: 8),
-          Padding(
-            padding: const EdgeInsets.all(8),
-            child: Text(
-              store.localize('interface'),
-              style: Theme.of(context).textTheme.headline6,
-              textAlign: TextAlign.center,
-            ),
+          ColumnCard(
+            header: store.localize('interface'),
+            children: [
+              for (final l in store.languages.where((l) => l.interface))
+                LanguageTile(
+                  l,
+                  mode: store.interface == l
+                      ? LanguageMode.main
+                      : LanguageMode.none,
+                  onTap: (alt) => store.interface = l,
+                ),
+            ],
           ),
-          Card(
-            child: Column(
-              children: [
-                for (final l in store.languages.where((l) => l.interface))
-                  LanguageTile(
-                    l,
-                    mode: store.interface == l
-                        ? LanguageMode.main
-                        : LanguageMode.none,
-                    onTap: (alt) => store.interface = l,
-                  ),
-              ],
-            ),
-          ),
-          const SizedBox(height: 8),
-          Padding(
-            padding: const EdgeInsets.all(8),
-            child: Text(
-              store.localize('learning'),
-              style: Theme.of(context).textTheme.headline6,
-              textAlign: TextAlign.center,
-            ),
-          ),
-          Card(
-            child: Column(
-              children: [
-                for (final l in store.languages.where((l) => !l.interface))
-                  LanguageTile(
-                    l,
-                    mode: store.learning == l
-                        ? store.alt
-                            ? LanguageMode.alt
-                            : LanguageMode.main
-                        : LanguageMode.none,
-                    onTap: (mode) {
-                      store.learning = l;
-                      store.alt = mode == LanguageMode.alt;
-                    },
-                  ),
-              ],
-            ),
+          ColumnCard(
+            header: store.localize('learning'),
+            children: [
+              for (final l in store.languages.where((l) => !l.interface))
+                LanguageTile(
+                  l,
+                  mode: store.learning == l
+                      ? store.alt
+                          ? LanguageMode.alt
+                          : LanguageMode.main
+                      : LanguageMode.none,
+                  onTap: (mode) {
+                    store.learning = l;
+                    store.alt = mode == LanguageMode.alt;
+                  },
+                ),
+            ],
           ),
           Center(
             child: Card(

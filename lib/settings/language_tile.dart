@@ -1,6 +1,7 @@
 import 'package:avdan/capitalize.dart';
 import 'package:avdan/data/language.dart';
 import 'package:avdan/store.dart';
+import 'package:avdan/widgets/language_flag.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -27,49 +28,52 @@ class LanguageTile extends StatelessWidget {
       title = subtitle;
       subtitle = t;
     }
-
-    return ListTile(
-      leading: CircleAvatar(
-        backgroundImage: language.flagImage,
-      ),
-      title: Row(
-        children: [
-          Text(
-            title,
-            style: const TextStyle(
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-          if (language.alt != null) ...[
-            const Spacer(),
-            Icon(
-              Icons.swap_horiz_rounded,
-              size: 16,
-              color: Theme.of(context).hintColor,
-            ),
-            const SizedBox(width: 4),
+    return ClipRect(
+      child: ListTile(
+        title: Row(
+          children: [
             Text(
-              subtitle,
-              style: TextStyle(
-                fontSize: 14,
+              title,
+              style: const TextStyle(
                 fontWeight: FontWeight.w500,
-                color: Theme.of(context).hintColor,
               ),
             ),
+            if (language.alt != null) ...[
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 4),
+                child: Icon(
+                  Icons.swap_horiz_rounded,
+                  size: 16,
+                  color: Theme.of(context).hintColor,
+                ),
+              ),
+              Text(
+                subtitle,
+                style: TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w500,
+                  color: Theme.of(context).hintColor,
+                ),
+              ),
+            ],
           ],
-        ],
+        ),
+        trailing: LanguageFlag(
+          language,
+          offset: const Offset(-8, 0),
+        ),
+        subtitle: language.interface
+            ? null
+            : Text(
+                language.name.text(context.watch<Store>().interface),
+              ),
+        onTap: () => onTap?.call(
+          mode != LanguageMode.main || language.alt == null
+              ? LanguageMode.main
+              : LanguageMode.alt,
+        ),
+        selected: mode != LanguageMode.none,
       ),
-      subtitle: language.interface
-          ? null
-          : Text(
-              language.name.text(context.watch<Store>().interface),
-            ),
-      onTap: () => onTap?.call(
-        mode != LanguageMode.main || language.alt == null
-            ? LanguageMode.main
-            : LanguageMode.alt,
-      ),
-      selected: mode != LanguageMode.none,
     );
   }
 }
