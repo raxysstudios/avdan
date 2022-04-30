@@ -4,7 +4,7 @@ class ColumnCard extends StatelessWidget {
   const ColumnCard({
     required this.children,
     this.header,
-    this.margin = const EdgeInsets.only(top: 16),
+    this.margin = const EdgeInsets.only(top: 12),
     this.divider = true,
     Key? key,
   }) : super(key: key);
@@ -23,7 +23,7 @@ class ColumnCard extends StatelessWidget {
         children: [
           if (header != null)
             Padding(
-              padding: const EdgeInsets.all(8),
+              padding: const EdgeInsets.all(16),
               child: Text(
                 header!,
                 style: const TextStyle(
