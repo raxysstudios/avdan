@@ -24,16 +24,6 @@
   },
   {
     "name": {
-      "english": "digor",
-      "russian": "дигорский",
-      "turkish": "digorca",
-      "digor": "дигорон",
-      "digor_alt": "digoron"
-    },
-    "flag": "ossetia"
-  },
-  {
-    "name": {
       "english": "iron",
       "russian": "иронский",
       "turkish": "ironca",
@@ -44,12 +34,22 @@
   },
   {
     "name": {
-      "english": "kaitag",
-      "russian": "кайтагский",
-      "kaitag": "хайдакьан",
-      "kaitag_alt": "xaydaqʼan"
+      "english": "digor",
+      "russian": "дигорский",
+      "turkish": "digorca",
+      "digor": "дигорон",
+      "digor_alt": "digoron"
     },
-    "flag": "kaitag"
+    "flag": "ossetia"
+  },
+  {
+    "name": {
+      "english": "east circassian",
+      "russian": "восточночеркесский",
+      "turkish": "doğu çerkes",
+      "east circassian": "адыгэ"
+    },
+    "flag": "circassia"
   },
   {
     "name": {
@@ -62,11 +62,12 @@
   },
   {
     "name": {
-      "english": "dargwa",
-      "russian": "даргинский",
-      "dargwa": "дарган"
+      "english": "kaitag",
+      "russian": "кайтагский",
+      "kaitag": "хайдакьан",
+      "kaitag_alt": "xaydaqʼan"
     },
-    "flag": "dargwa"
+    "flag": "kaitag"
   },
   {
     "name": {
@@ -79,11 +80,34 @@
   },
   {
     "name": {
-      "english": "east circassian",
-      "russian": "восточночеркесский",
-      "turkish": "doğu çerkes",
-      "east circassian": "адыгэ"
+      "english": "dargwa",
+      "russian": "даргинский",
+      "dargwa": "дарган"
     },
-    "flag": "circassia"
+    "flag": "dargwa"
+  },
+  {
+    "name": {
+      "english": "kumyk",
+      "russian": "кумыкский",
+      "kumyk": "къумукъ"
+    },
+    "flag": "kumyk"
+  },
+  {
+    "name": {
+      "english": "aghul",
+      "russian": "агульский",
+      "aghul": "агъул"
+    },
+    "flag": "aghul"
+  },
+  {
+    "name": {
+      "english": "lezgi",
+      "russian": "лезгинский",
+      "lezgi": "лезги"
+    },
+    "flag": "lezgi"
   }
 ]
