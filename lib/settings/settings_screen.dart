@@ -1,10 +1,7 @@
-import 'dart:io';
-
 import 'package:avdan/home/home_screen.dart';
 import 'package:avdan/store.dart';
 import 'package:avdan/widgets/column_card.dart';
-import 'package:avdan/widgets/raxys_logo.dart';
-import 'package:flutter/foundation.dart';
+import 'package:avdan/widgets/raxys.dart';
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
@@ -41,10 +38,7 @@ class SettingsScreen extends StatelessWidget {
           Stack(
             alignment: AlignmentDirectional.topCenter,
             children: [
-              const RaxysLogo(
-                opacity: .1,
-                scale: 7,
-              ),
+              const Raxys(),
               Padding(
                 padding: const EdgeInsets.fromLTRB(8, 8, 8, 0),
                 child: Column(
