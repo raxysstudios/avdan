@@ -5,17 +5,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'capitalize.dart' as cap;
-import 'data/chapter.dart';
-import 'data/language.dart';
+import 'models/chapter.dart';
+import 'models/language.dart';
+import 'shared/extensions.dart' as cap;
 
 typedef Dict<T> = Map<String, T>;
 
 class Store with ChangeNotifier {
   Store();
-  late final SharedPreferences _prefs;
-
-  late final Dict<Dict<String>> _localization;
+  late SharedPreferences _prefs;
+  late Dict<Dict<String>> _localization;
   String localize(String key, [bool capitalize = true]) {
     var text = _localization[key]?[interface.name.id] ?? '';
     if (capitalize) {
@@ -24,10 +23,10 @@ class Store with ChangeNotifier {
     return text;
   }
 
-  late final List<Language> _languages;
+  late List<Language> _languages;
   List<Language> get languages => _languages;
 
-  late final List<Chapter> _chapters;
+  late List<Chapter> _chapters;
   List<Chapter> get chapters => _chapters;
 
   late Language _interface;
@@ -66,7 +65,8 @@ class Store with ChangeNotifier {
       languages.firstWhere((l) => l.interface),
     );
     _learning = _findLanguage(
-      _prefs.getString('learning'),
+      'iron',
+      //_prefs.getString('learning'),
       languages,
       languages.firstWhere((l) => !l.interface),
     );

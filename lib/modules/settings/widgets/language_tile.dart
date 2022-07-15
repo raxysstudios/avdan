@@ -1,7 +1,7 @@
-import 'package:avdan/capitalize.dart';
-import 'package:avdan/data/language.dart';
+import 'package:avdan/models/language.dart';
+import 'package:avdan/shared/extensions.dart';
+import 'package:avdan/shared/widgets/language_flag.dart';
 import 'package:avdan/store.dart';
-import 'package:avdan/widgets/language_flag.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -58,9 +58,9 @@ class LanguageTile extends StatelessWidget {
             ],
           ],
         ),
-        trailing: LanguageFlag(
-          language,
-          offset: const Offset(-8, 0),
+        trailing: Center(
+          widthFactor: .4,
+          child: LanguageFlag(language.id),
         ),
         subtitle: language.interface
             ? null

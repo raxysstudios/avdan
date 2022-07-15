@@ -1,13 +1,13 @@
-import 'package:avdan/home/home_screen.dart';
+import 'package:avdan/modules/home/home.dart';
+import 'package:avdan/shared/widgets/column_card.dart';
+import 'package:avdan/shared/widgets/raxys.dart';
 import 'package:avdan/store.dart';
-import 'package:avdan/widgets/column_card.dart';
-import 'package:avdan/widgets/raxys.dart';
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
-import 'language_tile.dart';
+import 'widgets/language_tile.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({Key? key}) : super(key: key);

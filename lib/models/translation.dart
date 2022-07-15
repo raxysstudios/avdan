@@ -1,8 +1,8 @@
-import 'package:avdan/capitalize.dart';
-import 'package:avdan/data/chapter.dart';
+import 'package:avdan/shared/extensions.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'chapter.dart';
 import 'language.dart';
 
 class Translation {

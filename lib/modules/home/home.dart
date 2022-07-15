@@ -1,15 +1,16 @@
-import 'package:avdan/audio_player.dart';
-import 'package:avdan/data/chapter.dart';
-import 'package:avdan/data/translation.dart';
-import 'package:avdan/home/chapter_tab_bar.dart';
-import 'package:avdan/home/chapters_view.dart';
-import 'package:avdan/home/items_view.dart';
-import 'package:avdan/settings/settings_screen.dart';
+import 'package:avdan/models/chapter.dart';
+import 'package:avdan/models/translation.dart';
+import 'package:avdan/modules/settings/settings.dart';
+import 'package:avdan/shared/audio_player.dart';
+import 'package:avdan/shared/widgets/label.dart';
+import 'package:avdan/shared/widgets/language_flag.dart';
 import 'package:avdan/store.dart';
-import 'package:avdan/widgets/label.dart';
-import 'package:avdan/widgets/language_flag.dart';
-import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import 'widgets/chapter_tab_bar.dart';
+import 'widgets/chapters_view.dart';
+import 'widgets/items_view.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -120,15 +121,8 @@ class _HomeScreenState extends State<HomeScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Stack(
-          children: [
-            Center(
-              child: LanguageFlag(
-                context.watch<Store>().learning,
-                offset: const Offset(8, 0),
-              ),
-            )
-          ],
+        leading: UnconstrainedBox(
+          child: LanguageFlag(context.watch<Store>().learning.id),
         ),
         title: Label(
           chapter.title,

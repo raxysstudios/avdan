@@ -1,9 +1,10 @@
-import 'package:avdan/data/chapter.dart';
-import 'package:avdan/data/translation.dart';
-import 'package:avdan/home/item_card.dart';
+import 'package:avdan/models/chapter.dart';
+import 'package:avdan/models/translation.dart';
 import 'package:avdan/store.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import 'item_card.dart';
 
 class ChaptersView extends StatelessWidget {
   final List<Chapter> chapters;

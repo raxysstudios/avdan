@@ -1,4 +1,4 @@
-import 'package:avdan/data/translation.dart';
+import 'package:avdan/models/translation.dart';
 import 'package:avdan/store.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

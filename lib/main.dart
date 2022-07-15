@@ -1,14 +1,13 @@
-import 'package:avdan/home/home_screen.dart';
-import 'package:avdan/settings/settings_screen.dart';
+import 'package:avdan/modules/home/home.dart';
+import 'package:avdan/modules/settings/settings.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'store.dart';
-
-import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+import 'store.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

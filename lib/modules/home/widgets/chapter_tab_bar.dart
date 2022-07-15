@@ -1,4 +1,4 @@
-import 'package:avdan/data/chapter.dart';
+import 'package:avdan/models/chapter.dart';
 import 'package:flutter/material.dart';
 import 'item_card.dart';
 

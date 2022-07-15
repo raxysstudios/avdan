@@ -1,7 +1,7 @@
-import 'package:avdan/data/translation.dart';
+import 'package:avdan/models/chapter.dart';
+import 'package:avdan/models/language.dart';
+import 'package:avdan/models/translation.dart';
 import 'package:just_audio/just_audio.dart';
-import 'data/chapter.dart';
-import 'data/language.dart';
 
 var _player = AudioPlayer();
 
