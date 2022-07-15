@@ -54,6 +54,7 @@ class SettingsScreen extends StatelessWidget {
                     ElevatedButton.icon(
                       onPressed: () => launchUrlString(
                         'https://t.me/raxysstudios',
+                        mode: LaunchMode.externalApplication,
                       ),
                       icon: const Icon(Icons.send_rounded),
                       label: Text(store.localize('contact')),
@@ -102,6 +103,7 @@ class SettingsScreen extends StatelessWidget {
               child: InkWell(
                 onTap: () => launchUrlString(
                   'https://github.com/raxysstudios/avdan',
+                  mode: LaunchMode.externalApplication,
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(8),
