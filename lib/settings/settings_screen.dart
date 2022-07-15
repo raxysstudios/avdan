@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 import 'language_tile.dart';
 
@@ -52,7 +53,9 @@ class SettingsScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 8),
                     ElevatedButton.icon(
-                      onPressed: () => launch('https://t.me/raxysstudios'),
+                      onPressed: () => launchUrlString(
+                        'https://t.me/raxysstudios',
+                      ),
                       icon: const Icon(Icons.send_rounded),
                       label: Text(store.localize('contact')),
                     ),
@@ -98,7 +101,7 @@ class SettingsScreen extends StatelessWidget {
               elevation: 0,
               margin: const EdgeInsets.all(8),
               child: InkWell(
-                onTap: () => launch(
+                onTap: () => launchUrlString(
                   'https://github.com/raxysstudios/avdan',
                 ),
                 child: Padding(
