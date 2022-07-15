@@ -8,6 +8,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  firebase_core: ^1.19.2
+  cloud_firestore: ^3.3.0
+  firebase_storage: ^10.3.2
   shared_preferences: ^2.0.15
   url_launcher: ^6.1.4
   just_audio: ^0.9.27

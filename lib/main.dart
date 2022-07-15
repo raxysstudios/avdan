@@ -7,11 +7,17 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'store.dart';
 
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]);
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(
     ChangeNotifierProvider(
       create: (context) => Store(),
