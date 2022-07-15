@@ -9,7 +9,7 @@ class Language {
 
   String get id => name.id;
   String? get alt {
-    final alt = name.id + '_alt';
+    final alt = '${name.id}_alt';
     return name.get(alt) == null ? null : alt;
   }
 

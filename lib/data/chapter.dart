@@ -25,7 +25,7 @@ class Chapter {
 
     color = title.get('color') == null
         ? null
-        : Color(int.parse('0xff' + title.get('color')!)).withOpacity(0.25);
+        : Color(int.parse('0xff${title.get('color')!}')).withOpacity(0.25);
 
     title.chapter = this;
     for (final item in items) {

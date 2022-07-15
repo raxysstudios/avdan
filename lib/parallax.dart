@@ -5,7 +5,7 @@ class ParallaxPage extends StatefulWidget {
   const ParallaxPage({Key? key}) : super(key: key);
 
   @override
-  _ParallaxPageState createState() => _ParallaxPageState();
+  State<ParallaxPage> createState() => _ParallaxPageState();
 }
 
 class _ParallaxPageState extends State<ParallaxPage> {

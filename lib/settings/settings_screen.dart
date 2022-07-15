@@ -110,8 +110,8 @@ class SettingsScreen extends StatelessWidget {
                       final package = snapshot.data;
                       if (package != null) {
                         info = [
-                          'v' + package.version,
-                          'b' + package.buildNumber
+                          'v${package.version}',
+                          'b${package.buildNumber}'
                         ].join(' • ');
                       }
                       return Text(
