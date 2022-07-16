@@ -1,11 +1,11 @@
 import 'package:avdan/modules/home/home.dart';
+import 'package:avdan/shared/utils.dart';
 import 'package:avdan/shared/widgets/column_card.dart';
 import 'package:avdan/shared/widgets/raxys.dart';
 import 'package:avdan/store.dart';
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
-import 'package:url_launcher/url_launcher_string.dart';
 
 import 'widgets/language_tile.dart';
 
@@ -52,10 +52,7 @@ class SettingsScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 8),
                     ElevatedButton.icon(
-                      onPressed: () => launchUrlString(
-                        'https://t.me/raxysstudios',
-                        mode: LaunchMode.externalApplication,
-                      ),
+                      onPressed: () => openLink('https://t.me/raxysstudios'),
                       icon: const Icon(Icons.send_rounded),
                       label: Text(store.localize('contact')),
                     ),
@@ -101,10 +98,7 @@ class SettingsScreen extends StatelessWidget {
               elevation: 0,
               margin: const EdgeInsets.all(8),
               child: InkWell(
-                onTap: () => launchUrlString(
-                  'https://github.com/raxysstudios/avdan',
-                  mode: LaunchMode.externalApplication,
-                ),
+                onTap: () => openLink('https://github.com/raxysstudios/avdan'),
                 child: Padding(
                   padding: const EdgeInsets.all(8),
                   child: FutureBuilder<PackageInfo>(
