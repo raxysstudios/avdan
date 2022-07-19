@@ -13,7 +13,7 @@ void checkNews(BuildContext context) async {
         fromFirestore: (s, _) => Post.fromJson(s.data()!),
         toFirestore: (_, __) => {},
       )
-      .where('language', isEqualTo: context.read<Store>().interface)
+      .where('language', isEqualTo: context.read<Store>().interface.id)
       .orderBy('created', descending: true)
       .limit(1)
       .get()

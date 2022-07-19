@@ -34,7 +34,7 @@ class _NewsScreenState extends State<NewsScreen> {
           fromFirestore: (s, _) => Post.fromJson(s.data()!),
           toFirestore: (_, __) => {},
         )
-        .where('language', isEqualTo: context.read<Store>().interface)
+        .where('language', isEqualTo: context.read<Store>().interface.id)
         .orderBy('created', descending: true)
         .startAfter([start])
         .limit(_pageSize)
