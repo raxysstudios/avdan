@@ -73,10 +73,11 @@ class SettingsScreen extends StatelessWidget {
           ColumnCard(
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 8, bottom: 12),
+                padding: const EdgeInsets.symmetric(vertical: 16),
                 child: Text(
                   store.localize('interface'),
-                  style: textTheme.bodyText1,
+                  textAlign: TextAlign.center,
+                  style: textTheme.headline6,
                 ),
               ),
               for (final l in store.languages.where((l) => l.interface))
@@ -92,10 +93,11 @@ class SettingsScreen extends StatelessWidget {
           ColumnCard(
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 8, bottom: 12),
+                padding: const EdgeInsets.symmetric(vertical: 16),
                 child: Text(
                   store.localize('learning'),
-                  style: textTheme.bodyText1,
+                  textAlign: TextAlign.center,
+                  style: textTheme.headline6,
                 ),
               ),
               for (final l in store.languages.where((l) => !l.interface))
