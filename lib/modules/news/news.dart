@@ -27,8 +27,14 @@ class _NewsScreenState extends State<NewsScreen> {
     _paging.addPageRequestListener(_fetchPage);
   }
 
+  @override
+  void dispose() {
+    _paging.dispose();
+    super.dispose();
+  }
+
   Future<void> _fetchPage(QueryDocumentSnapshot? start) async {
-    final query = await FirebaseFirestore.instance
+    var query = FirebaseFirestore.instance
         .collection('posts')
         .withConverter(
           fromFirestore: (s, _) => Post.fromJson(s.data()!),
@@ -36,14 +42,16 @@ class _NewsScreenState extends State<NewsScreen> {
         )
         .where('language', isEqualTo: context.read<Store>().interface.id)
         .orderBy('created', descending: true)
-        .startAfter([start])
-        .limit(_pageSize)
-        .get();
-    final posts = query.docs.map((d) => d.data()).toList();
+        .limit(_pageSize);
+    if (start != null) {
+      query = query.startAfterDocument(start);
+    }
+    final snap = await query.get();
+    final posts = snap.docs.map((d) => d.data()).toList();
     if (posts.length < _pageSize) {
       _paging.appendLastPage(posts);
     } else {
-      _paging.appendPage(posts, query.docs[query.size - 1]);
+      _paging.appendPage(posts, snap.docs[snap.size - 1]);
     }
   }
 
@@ -53,19 +61,7 @@ class _NewsScreenState extends State<NewsScreen> {
     final store = context.read<Store>();
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
         title: Text(store.localize('news')),
-        centerTitle: true,
-      ),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () => Navigator.pushReplacement(
-          context,
-          MaterialPageRoute<void>(
-            builder: (context) => const HomeScreen(),
-          ),
-        ),
-        icon: const Icon(Icons.home_outlined),
-        label: Text(store.localize('home')),
       ),
       body: PagedListView(
         pagingController: _paging,
