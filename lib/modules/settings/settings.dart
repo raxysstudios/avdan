@@ -14,6 +14,7 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
     final store = context.watch<Store>();
     return Scaffold(
       appBar: AppBar(
@@ -62,8 +63,14 @@ class SettingsScreen extends StatelessWidget {
             ],
           ),
           ColumnCard(
-            header: store.localize('interface'),
             children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 8, bottom: 12),
+                child: Text(
+                  store.localize('interface'),
+                  style: textTheme.bodyText1,
+                ),
+              ),
               for (final l in store.languages.where((l) => l.interface))
                 LanguageTile(
                   l,
@@ -75,8 +82,14 @@ class SettingsScreen extends StatelessWidget {
             ],
           ),
           ColumnCard(
-            header: store.localize('learning'),
             children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 8, bottom: 12),
+                child: Text(
+                  store.localize('learning'),
+                  style: textTheme.bodyText1,
+                ),
+              ),
               for (final l in store.languages.where((l) => !l.interface))
                 LanguageTile(
                   l,
