@@ -21,13 +21,14 @@ class LanguageTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String title = capitalize(language.name.get(language.id));
-    String subtitle = capitalize(language.name.get(language.alt));
+    var title = capitalize(language.name.get(language.id));
+    var subtitle = capitalize(language.name.get(language.alt));
     if (mode == LanguageMode.alt) {
       final t = title;
       title = subtitle;
       subtitle = t;
     }
+    final selected = mode != LanguageMode.none;
     return ClipRect(
       child: ListTile(
         title: Row(
@@ -60,7 +61,11 @@ class LanguageTile extends StatelessWidget {
         ),
         trailing: Center(
           widthFactor: .4,
-          child: LanguageFlag(language.id),
+          child: AnimatedOpacity(
+            opacity: selected ? 1 : .4,
+            duration: const Duration(milliseconds: 200),
+            child: LanguageFlag(language.id),
+          ),
         ),
         subtitle: language.interface
             ? null
@@ -72,7 +77,7 @@ class LanguageTile extends StatelessWidget {
               ? LanguageMode.main
               : LanguageMode.alt,
         ),
-        selected: mode != LanguageMode.none,
+        selected: selected,
       ),
     );
   }

@@ -129,11 +129,14 @@ class _HomeScreenState extends State<HomeScreen>
     return Scaffold(
       appBar: AppBar(
         leading: UnconstrainedBox(
-          child: LanguageFlag(
-            context.watch<Store>().learning.id,
-            height: 8,
-            width: 24,
-            scale: 8,
+          child: Opacity(
+            opacity: .4,
+            child: LanguageFlag(
+              context.watch<Store>().learning.id,
+              height: 8,
+              width: 24,
+              scale: 8,
+            ),
           ),
         ),
         title: Label(
