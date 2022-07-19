@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class Post {
   final String title;
   final String body;
@@ -13,7 +15,7 @@ class Post {
     return Post(
       title: json['title'] as String,
       body: json['body'] as String,
-      created: DateTime.fromMillisecondsSinceEpoch(json['created'] as int),
+      created: (json['created'] as Timestamp).toDate(),
     );
   }
 }
