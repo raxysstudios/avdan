@@ -25,20 +25,20 @@ class PostCard extends StatelessWidget {
           children: [
             Expanded(
               child: Text(
-                post.title * 10,
+                post.title,
                 style: theme.textTheme.headline5?.copyWith(
                   fontWeight: FontWeight.w500,
                 ),
               ),
             ),
-            // if (highlight)
-            Padding(
-              padding: const EdgeInsets.only(left: 8),
-              child: Icon(
-                Icons.new_releases_outlined,
-                color: theme.colorScheme.primary,
+            if (highlight)
+              Padding(
+                padding: const EdgeInsets.only(left: 8),
+                child: Icon(
+                  Icons.new_releases_outlined,
+                  color: theme.colorScheme.primary,
+                ),
               ),
-            ),
           ],
         ),
         Text(
