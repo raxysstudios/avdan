@@ -30,8 +30,13 @@
     "turkish": "öğretim dili"
   },
   "honor": {
-    "english": "Made with honor in North Caucasus.",
-    "russian": "Сделано с честью на Северном Кавказе.",
-    "turkish": "Kuzey Kafkasya'da onurla hazırlanmıştır."
+    "english": "Made with honor in North Caucasus",
+    "russian": "Сделано с честью на Северном Кавказе",
+    "turkish": "Kuzey Kafkasya'da onurla hazırlanmıştır"
+  },
+  "news": {
+    "english": "news",
+    "russian": "новости",
+    "turkish": "haberler"
   }
 }
