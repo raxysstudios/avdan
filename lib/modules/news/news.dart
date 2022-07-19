@@ -82,7 +82,6 @@ class _NewsScreenState extends State<NewsScreen> {
                   post.created.toIso8601String().substring(0, 10),
                   style: textTheme.caption?.copyWith(
                     fontSize: 14,
-                    height: 1.5,
                   ),
                 ),
                 MarkdownText(post.body),
