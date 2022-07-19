@@ -61,8 +61,11 @@ class _HomeScreenState extends State<HomeScreen>
   void setChapter(Chapter value) {
     final store = context.read<Store>();
     chapter = value;
-    items =
-        chapter.items.where((i) => i.text(store.learning).isNotEmpty).toList();
+    items = chapter.items
+        .where(
+          (i) => i.text(store.learning).isNotEmpty,
+        )
+        .toList();
     playItem(store.learning, chapter);
     setState(() {});
   }
@@ -126,7 +129,12 @@ class _HomeScreenState extends State<HomeScreen>
     return Scaffold(
       appBar: AppBar(
         leading: UnconstrainedBox(
-          child: LanguageFlag(context.watch<Store>().learning.id),
+          child: LanguageFlag(
+            context.watch<Store>().learning.id,
+            height: 8,
+            width: 24,
+            scale: 8,
+          ),
         ),
         title: Label(
           chapter.title,
