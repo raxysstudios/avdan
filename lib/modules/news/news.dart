@@ -1,12 +1,12 @@
 import 'package:avdan/models/post.dart';
-import 'package:avdan/modules/home/home.dart';
-import 'package:avdan/shared/widgets/column_card.dart';
-import 'package:avdan/shared/widgets/markdown_text.dart';
+import 'package:avdan/modules/news/services/fetcher.dart';
+import 'package:avdan/modules/news/widgets/post_card.dart';
 import 'package:avdan/store.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class NewsScreen extends StatefulWidget {
   const NewsScreen({Key? key}) : super(key: key);
@@ -17,14 +17,27 @@ class NewsScreen extends StatefulWidget {
 
 class _NewsScreenState extends State<NewsScreen> {
   static const _pageSize = 25;
-  final _paging = PagingController<QueryDocumentSnapshot?, Post>(
+  final _paging = PagingController<DocumentSnapshot?, Post>(
     firstPageKey: null,
   );
+
+  var lastPost = 0;
+  late final String language;
 
   @override
   void initState() {
     super.initState();
+    language = context.read<Store>().interface.id;
     _paging.addPageRequestListener(_fetchPage);
+    SharedPreferences.getInstance().then(
+      (prefs) => setState(() async {
+        lastPost = prefs.getInt('lastPost') ?? 0;
+        prefs.setInt(
+          'lastPost',
+          await getNewestStamp(language),
+        );
+      }),
+    );
   }
 
   @override
@@ -33,31 +46,26 @@ class _NewsScreenState extends State<NewsScreen> {
     super.dispose();
   }
 
-  Future<void> _fetchPage(QueryDocumentSnapshot? start) async {
-    var query = FirebaseFirestore.instance
-        .collection('posts')
-        .withConverter(
-          fromFirestore: (s, _) => Post.fromJson(s.data()!),
-          toFirestore: (_, __) => {},
-        )
-        .where('language', isEqualTo: context.read<Store>().interface.id)
-        .orderBy('created', descending: true)
-        .limit(_pageSize);
-    if (start != null) {
-      query = query.startAfterDocument(start);
-    }
-    final snap = await query.get();
-    final posts = snap.docs.map((d) => d.data()).toList();
+  Future<void> _fetchPage(DocumentSnapshot? start) async {
+    late final DocumentSnapshot last;
+    final posts = await fetchPosts(
+      language,
+      startAfter: start,
+      limit: _pageSize,
+      lastDoc: (d) {
+        last = d;
+      },
+    );
+
     if (posts.length < _pageSize) {
       _paging.appendLastPage(posts);
     } else {
-      _paging.appendPage(posts, snap.docs[snap.size - 1]);
+      _paging.appendPage(posts, last);
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
     final store = context.read<Store>();
     return Scaffold(
       appBar: AppBar(
@@ -68,24 +76,9 @@ class _NewsScreenState extends State<NewsScreen> {
         padding: const EdgeInsets.only(bottom: 76),
         builderDelegate: PagedChildBuilderDelegate<Post>(
           itemBuilder: (context, post, _) {
-            return ColumnCard(
-              divider: const SizedBox(height: 8),
-              padding: const EdgeInsets.all(16),
-              children: [
-                Text(
-                  post.title,
-                  style: textTheme.headline5?.copyWith(
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-                Text(
-                  post.created.toIso8601String().substring(0, 10),
-                  style: textTheme.caption?.copyWith(
-                    fontSize: 14,
-                  ),
-                ),
-                MarkdownText(post.body),
-              ],
+            return PostCard(
+              post,
+              highlight: lastPost < post.created.millisecondsSinceEpoch,
             );
           },
         ),
