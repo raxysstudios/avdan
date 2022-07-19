@@ -1,5 +1,4 @@
 import 'package:avdan/shared/extensions.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'chapter.dart';
