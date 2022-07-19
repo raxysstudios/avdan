@@ -1,4 +1,5 @@
 import 'package:avdan/modules/home/home.dart';
+import 'package:avdan/modules/news/services/updater.dart';
 import 'package:avdan/shared/utils.dart';
 import 'package:avdan/shared/widgets/column_card.dart';
 import 'package:avdan/shared/widgets/raxys.dart';
@@ -21,6 +22,13 @@ class SettingsScreen extends StatelessWidget {
         automaticallyImplyLeading: false,
         title: Text(store.localize('settings')),
         centerTitle: true,
+        actions: [
+          IconButton(
+            onPressed: () => openNews(context),
+            icon: const Icon(Icons.feed_outlined),
+          ),
+          const SizedBox(width: 4),
+        ],
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () => Navigator.pushReplacement(
@@ -29,7 +37,7 @@ class SettingsScreen extends StatelessWidget {
             builder: (context) => const HomeScreen(),
           ),
         ),
-        icon: const Icon(Icons.home_rounded),
+        icon: const Icon(Icons.home_outlined),
         label: Text(store.localize('home')),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
@@ -54,7 +62,7 @@ class SettingsScreen extends StatelessWidget {
                     const SizedBox(height: 8),
                     ElevatedButton.icon(
                       onPressed: () => openLink('https://t.me/raxysstudios'),
-                      icon: const Icon(Icons.send_rounded),
+                      icon: const Icon(Icons.send_outlined),
                       label: Text(store.localize('contact')),
                     ),
                   ],

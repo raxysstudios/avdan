@@ -1,4 +1,5 @@
 import 'package:avdan/models/post.dart';
+import 'package:avdan/modules/home/home.dart';
 import 'package:avdan/shared/widgets/column_card.dart';
 import 'package:avdan/shared/widgets/markdown_text.dart';
 import 'package:avdan/store.dart';
@@ -49,9 +50,22 @@ class _NewsScreenState extends State<NewsScreen> {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
+    final store = context.read<Store>();
     return Scaffold(
       appBar: AppBar(
-        title: const Text('News'),
+        automaticallyImplyLeading: false,
+        title: Text(store.localize('news')),
+        centerTitle: true,
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () => Navigator.pushReplacement(
+          context,
+          MaterialPageRoute<void>(
+            builder: (context) => const HomeScreen(),
+          ),
+        ),
+        icon: const Icon(Icons.home_outlined),
+        label: Text(store.localize('home')),
       ),
       body: PagedListView(
         pagingController: _paging,

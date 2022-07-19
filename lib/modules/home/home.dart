@@ -1,5 +1,6 @@
 import 'package:avdan/models/chapter.dart';
 import 'package:avdan/models/translation.dart';
+import 'package:avdan/modules/news/services/updater.dart';
 import 'package:avdan/modules/settings/settings.dart';
 import 'package:avdan/shared/audio_player.dart';
 import 'package:avdan/shared/widgets/label.dart';
@@ -29,6 +30,9 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) => checkNews(context),
+    );
     final store = context.read<Store>();
     chapters = store.chapters
         .where((i) => i.title.text(store.learning).isNotEmpty)
@@ -106,7 +110,7 @@ class _HomeScreenState extends State<HomeScreen>
                   alignment: Alignment.topLeft,
                   child: IconButton(
                     onPressed: () => Navigator.pop(context),
-                    icon: const Icon(Icons.close_rounded),
+                    icon: const Icon(Icons.close_outlined),
                   ),
                 ),
               ),
@@ -132,7 +136,7 @@ class _HomeScreenState extends State<HomeScreen>
         centerTitle: true,
         actions: [
           IconButton(
-            icon: const Icon(Icons.settings_rounded),
+            icon: const Icon(Icons.settings_outlined),
             color: Theme.of(context).colorScheme.onSurface,
             onPressed: () => Navigator.pushReplacement(
               context,
