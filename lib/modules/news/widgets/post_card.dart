@@ -15,31 +15,35 @@ class PostCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
+    final theme = Theme.of(context);
     return ColumnCard(
       divider: const SizedBox(height: 8),
       padding: const EdgeInsets.all(16),
       children: [
         Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Expanded(
               child: Text(
                 post.title * 10,
-                style: textTheme.headline5?.copyWith(
+                style: theme.textTheme.headline5?.copyWith(
                   fontWeight: FontWeight.w500,
                 ),
               ),
             ),
             // if (highlight)
-            const Padding(
-              padding: EdgeInsets.only(left: 8),
-              child: Icon(Icons.new_releases_outlined),
+            Padding(
+              padding: const EdgeInsets.only(left: 8),
+              child: Icon(
+                Icons.new_releases_outlined,
+                color: theme.colorScheme.primary,
+              ),
             ),
           ],
         ),
         Text(
           post.created.toIso8601String().substring(0, 10),
-          style: textTheme.caption?.copyWith(
+          style: theme.textTheme.caption?.copyWith(
             fontSize: 14,
           ),
         ),
