@@ -17,9 +17,9 @@ void checkNews(BuildContext context) async {
       .orderBy('created', descending: true)
       .limit(1)
       .get()
-      .then((q) => q.docs.first.id);
+      .then((q) => q.size == 0 ? null : q.docs.first.id);
   final prefs = await SharedPreferences.getInstance();
-  if (prefs.getString('lastPostId') != id) {
+  if (prefs.getString('lastPostId') != id && id != null) {
     await openNews(context);
     await prefs.setString('lastPostId', id);
   }
