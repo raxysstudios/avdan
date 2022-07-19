@@ -42,7 +42,7 @@ class LanguageTile extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 4),
                 child: Icon(
-                  Icons.swap_horiz_rounded,
+                  Icons.swap_horiz_outlined,
                   size: 16,
                   color: Theme.of(context).hintColor,
                 ),
