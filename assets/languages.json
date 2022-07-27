@@ -88,26 +88,10 @@
   },
   {
     "name": {
-      "english": "kumyk",
-      "russian": "кумыкский",
-      "kumyk": "къумукъ"
-    },
-    "flag": "kumyk"
-  },
-  {
-    "name": {
       "english": "aghul",
       "russian": "агульский",
-      "aghul": "агъул"
+      "aghul": "ağul"
     },
     "flag": "aghul"
-  },
-  {
-    "name": {
-      "english": "lezgi",
-      "russian": "лезгинский",
-      "lezgi": "лезги"
-    },
-    "flag": "lezgi"
   }
 ]
