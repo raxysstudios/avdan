@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable require-jsdoc */
-import "./admin";
+import "./init";
 import * as admin from "firebase-admin";
 import glob from "glob";
 
