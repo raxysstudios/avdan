@@ -5,17 +5,26 @@ import "./admin";
 import * as admin from "firebase-admin";
 import glob from "glob";
 
-foo();
-async function foo() {
-  const storage = admin.storage().bucket();
-  await storage.deleteFiles({prefix: "static/"});
-  glob( "static/**/*.png", async ( _, files ) => {
-    for (const file of files) {
-      await storage.upload(
-          file,
-          {destination: file}
-      );
-      console.log(file);
-    }
+const storage = admin.storage().bucket();
+
+clean();
+async function clean(dir="") {
+  await storage.deleteFiles({
+    prefix: `static/${dir}`,
   });
+}
+
+upload();
+async function upload(dir="") {
+  glob(
+      `static/${dir}/**/*.{png,mp3}`,
+      async (_, files) => {
+        for (const file of files) {
+          await storage.upload(
+              file,
+              {destination: file}
+          );
+          console.log(file);
+        }
+      });
 }
