@@ -8,4 +8,5 @@ typings/
 # Node.js dependency directory
 node_modules/
 
-utils/
+src/admin/static
+src/admin/serviceAccountKey.json
