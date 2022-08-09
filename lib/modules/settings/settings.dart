@@ -36,7 +36,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           final store = context.read<Store>();
           final interface = languages.firstWhere((l) => l.isInterface);
           store.interface = interface.name;
-          store.saveLocalization(interface.localization);
+          store.saveLocalizations(interface.localizations);
           store.learning = languages.firstWhere((l) => !l.isInterface).name;
         }
       }),
@@ -120,7 +120,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       : LanguageMode.none,
                   onTap: (alt) {
                     store.interface = l.name;
-                    store.saveLocalization(l.localization);
+                    store.saveLocalizations(l.localizations);
                   },
                 ),
             ],

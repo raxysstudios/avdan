@@ -15,6 +15,7 @@ class Deck with _$Deck {
     required Pack pack,
     required Card cover,
     required List<Card> cards,
+    @Default(<String, String>{}) Map<String, String>? translations,
   }) = _Deck;
 
   Color? get color => pack.color?.withOpacity(0.25);

@@ -11,20 +11,20 @@ String? cachePath;
 class Store with ChangeNotifier {
   late SharedPreferences _prefs;
 
-  var _localization = <String, String>{};
-  void saveLocalization(Map<String, String> data) {
-    _localization = data;
-    _prefs.setString('localization', json.encode(data));
+  var _localizations = <String, String>{};
+  void saveLocalizations(Map<String, String> data) {
+    _localizations = data;
+    _prefs.setString('localizations', json.encode(data));
   }
 
-  void _loadLocalization() {
-    _localization = json.decode(
-      _prefs.getString('localization') ?? '{}',
+  void _loadLocalizations() {
+    _localizations = json.decode(
+      _prefs.getString('localizations') ?? '{}',
     ) as Map<String, String>;
   }
 
   String localize(String key, [bool capitalized = true]) {
-    var text = _localization[key] ?? '';
+    var text = _localizations[key] ?? '';
     if (capitalized) text = capitalize(text);
     return text;
   }
@@ -60,7 +60,7 @@ class Store with ChangeNotifier {
     }
     _prefs = await SharedPreferences.getInstance();
     _alt = _prefs.getBool('alt') ?? false;
-    _loadLocalization();
+    _loadLocalizations();
     notifyListeners();
   }
 }
