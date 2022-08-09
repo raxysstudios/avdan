@@ -15,9 +15,6 @@ void main() async {
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]);
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
   runApp(
     ChangeNotifierProvider(
       create: (context) => Store(),
@@ -40,6 +37,9 @@ class App extends StatelessWidget {
         future: Future.wait([
           Future<void>.delayed(const Duration(seconds: 2)),
           context.read<Store>().load(),
+          Firebase.initializeApp(
+            options: DefaultFirebaseOptions.currentPlatform,
+          ),
         ]),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
