@@ -10,7 +10,8 @@ part 'language.g.dart';
 @freezed
 class Language with _$Language {
   const factory Language({
-    required Caption name,
+    required String name,
+    required Caption caption,
     required bool learning,
     @TimestampConverter() DateTime? lastUpdated,
     @Default(<String, String>{}) required Map<String, String> localization,

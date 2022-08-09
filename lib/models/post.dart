@@ -1,6 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'converters/timestamp_converter.dart';
+
 part 'post.freezed.dart';
 part 'post.g.dart';
 
@@ -9,7 +11,7 @@ class Post with _$Post {
   const factory Post({
     required String title,
     required String body,
-    required String created,
+    @TimestampConverter() required DateTime created,
   }) = _Post;
 
   factory Post.fromJson(Map<String, Object?> json) => _$PostFromJson(json);

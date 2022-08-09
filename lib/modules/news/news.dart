@@ -9,7 +9,7 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class NewsScreen extends StatefulWidget {
-  const NewsScreen({Key? key}) : super(key: key);
+  const NewsScreen({super.key});
 
   @override
   State<NewsScreen> createState() => _NewsScreenState();
@@ -27,7 +27,7 @@ class _NewsScreenState extends State<NewsScreen> {
   @override
   void initState() {
     super.initState();
-    language = context.read<Store>().interface.id;
+    language = context.read<Store>().interface.name;
     _paging.addPageRequestListener(_fetchPage);
     SharedPreferences.getInstance().then(
       (prefs) => setState(() async {

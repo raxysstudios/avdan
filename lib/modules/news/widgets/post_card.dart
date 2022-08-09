@@ -2,13 +2,14 @@ import 'package:avdan/models/post.dart';
 import 'package:avdan/shared/widgets/column_card.dart';
 import 'package:avdan/shared/widgets/markdown_text.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class PostCard extends StatelessWidget {
   const PostCard(
     this.post, {
     this.highlight = true,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final Post post;
   final bool highlight;
@@ -42,7 +43,7 @@ class PostCard extends StatelessWidget {
           ],
         ),
         Text(
-          post.created.toIso8601String().substring(0, 10),
+          DateFormat('dd-MM-yyyy').format(post.created),
           style: theme.textTheme.caption?.copyWith(
             fontSize: 14,
           ),
