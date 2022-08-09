@@ -8,21 +8,21 @@ import 'package:provider/provider.dart';
 enum LanguageMode { none, main, alt }
 
 class LanguageTile extends StatelessWidget {
-  final Language language;
-  final LanguageMode mode;
-  final ValueSetter<LanguageMode>? onTap;
-
   const LanguageTile(
     this.language, {
     this.mode = LanguageMode.none,
     this.onTap,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
+
+  final Language language;
+  final LanguageMode mode;
+  final ValueSetter<LanguageMode>? onTap;
 
   @override
   Widget build(BuildContext context) {
-    var title = capitalize(language.name.get(language.id));
-    var subtitle = capitalize(language.name.get(language.alt));
+    var title = capitalize(language.caption.main);
+    var subtitle = capitalize(language.caption.alt);
     if (mode == LanguageMode.alt) {
       final t = title;
       title = subtitle;
@@ -39,7 +39,7 @@ class LanguageTile extends StatelessWidget {
                 fontWeight: FontWeight.w500,
               ),
             ),
-            if (language.alt != null) ...[
+            if (language.caption.alt != null) ...[
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 4),
                 child: Icon(
@@ -64,16 +64,16 @@ class LanguageTile extends StatelessWidget {
           child: AnimatedOpacity(
             opacity: selected ? 1 : .4,
             duration: const Duration(milliseconds: 200),
-            child: LanguageFlag(language.id),
+            child: LanguageFlag(language.name),
           ),
         ),
-        subtitle: language.interface
+        subtitle: language.isInterface
             ? null
             : Text(
-                language.name.text(context.watch<Store>().interface),
+                context.watch<Store>().localize(language.name),
               ),
         onTap: () => onTap?.call(
-          mode != LanguageMode.main || language.alt == null
+          mode != LanguageMode.main || language.caption.alt == null
               ? LanguageMode.main
               : LanguageMode.alt,
         ),

@@ -12,7 +12,7 @@ class Language with _$Language {
   const factory Language({
     required String name,
     required Caption caption,
-    required bool learning,
+    required bool isInterface,
     @TimestampConverter() DateTime? lastUpdated,
     @Default(<String, String>{}) required Map<String, String> localization,
   }) = _Language;

@@ -1,6 +1,6 @@
 import 'package:avdan/models/post.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 
 Future<List<Post>> fetchPosts(
   String language, {
