@@ -10,7 +10,8 @@ part 'card.g.dart';
 class Card with _$Card {
   const factory Card({
     required Caption caption,
-    String? id,
+    // ignore: invalid_annotation_target
+    @JsonKey(ignore: true) String? id,
     String? audioUrl,
     String? imageUrl,
   }) = _Card;

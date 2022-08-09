@@ -1,20 +1,18 @@
-import 'package:avdan/models/chapter.dart';
-import 'package:avdan/models/translation.dart';
+import 'package:avdan/models/deck.dart';
+import 'package:avdan/modules/home/widgets/decks_view.dart';
 import 'package:avdan/modules/news/services/updater.dart';
 import 'package:avdan/modules/settings/settings.dart';
 import 'package:avdan/shared/audio_player.dart';
-import 'package:avdan/shared/widgets/label.dart';
 import 'package:avdan/shared/widgets/language_flag.dart';
 import 'package:avdan/store.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'widgets/chapter_tab_bar.dart';
-import 'widgets/chapters_view.dart';
-import 'widgets/items_view.dart';
+import 'services/viewer.dart';
+import 'widgets/packs_tab_bar.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -22,10 +20,9 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
-  late final TabController _tabController;
-  late final List<Chapter> chapters;
-  late Chapter chapter;
-  late List<Translation> items;
+  late final TabController _tab;
+  late final List<Deck> decks;
+  late Deck deck;
 
   @override
   void initState() {
@@ -33,95 +30,31 @@ class _HomeScreenState extends State<HomeScreen>
     WidgetsBinding.instance.addPostFrameCallback(
       (_) => checkNews(context),
     );
-    final store = context.read<Store>();
-    chapters = store.chapters
-        .where((i) => i.title.text(store.learning).isNotEmpty)
-        .toList();
-    setChapter(chapters.first);
+    setDeck(decks.first);
 
-    _tabController = TabController(
-      length: chapters.length,
+    _tab = TabController(
+      length: decks.length,
       vsync: this,
     );
-    _tabController.animation?.addListener(() {
-      final index = _tabController.animation?.value.round() ?? 0;
-      final chapter = chapters[index];
-      if (this.chapter != chapter) {
-        setChapter(chapter);
+    _tab.animation?.addListener(() {
+      final i = _tab.animation?.value.round() ?? 0;
+      if (decks[i] != deck) {
+        setDeck(decks[i]);
       }
     });
   }
 
   @override
   void dispose() {
-    _tabController.dispose();
+    _tab.dispose();
     super.dispose();
   }
 
-  void setChapter(Chapter value) {
-    final store = context.read<Store>();
-    chapter = value;
-    items = chapter.items
-        .where(
-          (i) => i.text(store.learning).isNotEmpty,
-        )
-        .toList();
-    playItem(store.learning, chapter);
-    setState(() {});
-  }
-
-  void playItemContext(
-    BuildContext context,
-    Chapter chapter, [
-    Translation? item,
-  ]) =>
-      playItem(
-        context.read<Store>().learning,
-        chapter,
-        item,
-      );
-
-  void openView(BuildContext context, Chapter chapter, Translation item) {
-    final padding = EdgeInsets.only(
-      top: MediaQuery.of(context).padding.top,
-    );
-    showModalBottomSheet<void>(
-      context: context,
-      isScrollControlled: true,
-      backgroundColor: Color.alphaBlend(
-        chapter.color ?? Colors.transparent,
-        Theme.of(context).colorScheme.surface,
-      ),
-      builder: (context) {
-        return Padding(
-          padding: padding,
-          child: Stack(
-            children: [
-              ItemsView(
-                items,
-                initialItem: item,
-                isAlphabet: chapter.alphabet,
-                onChange: (i) => playItemContext(
-                  context,
-                  chapter,
-                  items[i],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8),
-                child: Align(
-                  alignment: Alignment.topLeft,
-                  child: IconButton(
-                    onPressed: () => Navigator.pop(context),
-                    icon: const Icon(Icons.close_outlined),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        );
-      },
-    );
+  void setDeck(Deck value) {
+    setState(() {
+      deck = value;
+      playCard(deck.cover);
+    });
   }
 
   @override
@@ -132,18 +65,19 @@ class _HomeScreenState extends State<HomeScreen>
           child: Opacity(
             opacity: .4,
             child: LanguageFlag(
-              context.watch<Store>().learning.id,
+              context.watch<Store>().learning,
               height: 8,
               width: 24,
               scale: 8,
             ),
           ),
         ),
-        title: Label(
-          chapter.title,
-          titleSize: 20,
-          subtitleSize: 16,
-        ),
+        // TODO translate
+        // title: Label(
+        //   deck.cover.caption.get(context.watch<Store>().alt),
+        //   titleSize: 20,
+        //   subtitleSize: 16,
+        // ),
         centerTitle: true,
         actions: [
           IconButton(
@@ -159,24 +93,20 @@ class _HomeScreenState extends State<HomeScreen>
           ),
         ],
       ),
-      body: ChaptersView(
-        controller: _tabController,
-        chapters: chapters,
-        onTap: (chapter, item) {
-          playItemContext(context, chapter, item);
-          openView(context, chapter, item);
-        },
+      body: DecksView(
+        decks,
+        controller: _tab,
+        onTap: (item) => openView(context, deck, item),
       ),
       bottomNavigationBar: BottomAppBar(
         child: SizedBox(
           height: 98,
-          child: ChapterTabBar(
-            controller: _tabController,
-            chapters: chapters,
+          child: PacksTabBar(
+            decks,
+            controller: _tab,
             onTap: (i) {
-              final chapter = chapters[i];
-              if (chapter == this.chapter) {
-                playItemContext(context, chapter);
+              if (decks[i] == deck) {
+                playCard(deck.cover);
               }
             },
           ),

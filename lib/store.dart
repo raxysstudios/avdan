@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:path_provider/path_provider.dart';
@@ -7,10 +6,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'shared/extensions.dart';
 
-typedef Dict<T> = Map<String, T>;
+String? cachePath;
 
 class Store with ChangeNotifier {
-  Directory? _cache;
   late SharedPreferences _prefs;
 
   var _localization = <String, String>{};
@@ -56,7 +54,10 @@ class Store with ChangeNotifier {
   }
 
   Future<void> load() async {
-    if (kIsWeb) _cache = await getApplicationDocumentsDirectory();
+    if (!kIsWeb) {
+      final dir = await getApplicationDocumentsDirectory();
+      cachePath = '${dir.path}/static/';
+    }
     _prefs = await SharedPreferences.getInstance();
     _alt = _prefs.getBool('alt') ?? false;
     _loadLocalization();

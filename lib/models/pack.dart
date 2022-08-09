@@ -11,9 +11,11 @@ part 'pack.g.dart';
 
 @freezed
 class Pack with _$Pack {
+  const Pack._();
   const factory Pack({
-    @ColorConverter() @Default(Color(0x00000000)) Color color,
-    @Default(DateTime.april) @TimestampConverter() DateTime lastUpdated,
+    required String coverId,
+    @ColorConverter() Color? color,
+    @TimestampConverter() required DateTime lastUpdated,
   }) = _Pack;
 
   factory Pack.fromJson(Map<String, Object?> json) => _$PackFromJson(json);
