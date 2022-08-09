@@ -12,6 +12,7 @@ part 'pack.g.dart';
 @freezed
 class Pack with _$Pack {
   const factory Pack({
+    @Default(false) bool isAlphabet,
     @ColorConverter() @Default(Color(0x00000000)) Color color,
     @Default(DateTime.april) @TimestampConverter() DateTime lastUpdated,
   }) = _Pack;

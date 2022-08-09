@@ -9,9 +9,9 @@ part 'card.g.dart';
 @freezed
 class Card with _$Card {
   const factory Card({
-    required String audioUrl,
-    required String imageUrl,
-    required Caption caption
+    String? audioUrl,
+    String? imageUrl,
+    required Caption caption,
   }) = _Card;
 
   factory Card.fromJson(Map<String, Object?> json) => _$CardFromJson(json);
