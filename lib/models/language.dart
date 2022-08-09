@@ -1,31 +1,20 @@
-import 'package:flutter/material.dart';
+import 'package:avdan/models/caption.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:flutter/foundation.dart';
 
-import 'translation.dart';
+import 'converters/timestamp_converter.dart';
 
-class Language {
-  final Translation name;
-  final String flag;
-  final bool interface;
+part 'language.freezed.dart';
+part 'language.g.dart';
 
-  String get id => name.id;
-  String? get alt {
-    final alt = '${name.id}_alt';
-    return name.get(alt) == null ? null : alt;
-  }
+@freezed
+class Language with _$Language {
+  const factory Language({
+    required Caption name,
+    required bool learning,
+    @TimestampConverter() DateTime? lastUpdated,
+  }) = _Language;
 
-  ImageProvider get flagImage => AssetImage('assets/flags/$flag.png');
-
-  const Language(
-    this.name, {
-    required this.flag,
-    this.interface = false,
-  });
-
-  factory Language.fromJson(Map<String, dynamic> json) {
-    return Language(
-      Translation.fromJson(json['name']),
-      flag: json['flag'] as String,
-      interface: (json['interface'] ?? false) as bool,
-    );
-  }
+  factory Language.fromJson(Map<String, Object?> json) =>
+      _$LanguageFromJson(json);
 }

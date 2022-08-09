@@ -16,6 +16,7 @@ analyzer:
   exclude:
     - 'lib/**/*.g.dart'
     - 'lib/**/*.gr.dart'
+    - 'lib/**/*.freezed.dart'
 
 linter:
   # The lint rules applied to this project can be customized in the

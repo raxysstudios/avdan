@@ -1,21 +1,16 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:flutter/foundation.dart';
 
-class Post {
-  final String title;
-  final String body;
-  final DateTime created;
+part 'post.freezed.dart';
+part 'post.g.dart';
 
-  const Post({
-    required this.title,
-    required this.body,
-    required this.created,
-  });
+@freezed
+class Post with _$Post {
+  const factory Post({
+    required String title,
+    required String body,
+    required String created,
+  }) = _Post;
 
-  factory Post.fromJson(Map<String, dynamic> json) {
-    return Post(
-      title: json['title'] as String,
-      body: json['body'] as String,
-      created: (json['created'] as Timestamp).toDate(),
-    );
-  }
+  factory Post.fromJson(Map<String, Object?> json) => _$PostFromJson(json);
 }

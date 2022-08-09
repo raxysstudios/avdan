@@ -54,68 +54,9 @@ class Store with ChangeNotifier {
   }
 
   Future<void> load() async {
-    _localization = await _loadLocalization('assets/localization.json');
-    _languages = await _loadLanguages('assets/languages.json');
-    _chapters = await _loadChapters('assets/chapters.json');
-
     _prefs = await SharedPreferences.getInstance();
-    _interface = _findLanguage(
-      _prefs.getString('interface'),
-      languages,
-      languages.firstWhere((l) => l.interface),
-    );
-    _learning = _findLanguage(
-      'iron',
-      //_prefs.getString('learning'),
-      languages,
-      languages.firstWhere((l) => !l.interface),
-    );
     _alt = _prefs.getBool('alt') ?? false;
 
     notifyListeners();
-  }
-
-  static Language _findLanguage(
-    String? name,
-    List<Language> languages,
-    Language orElse,
-  ) =>
-      languages.firstWhere(
-        (l) => l.name.id == name,
-        orElse: () => orElse,
-      );
-
-  static Future<Dict<Dict<String>>> _loadLocalization(String assetUrl) async {
-    final data = await rootBundle
-        .loadString(assetUrl)
-        .then((t) => json.decode(t) as Dict);
-
-    return {
-      for (final term in data.entries)
-        term.key: {
-          for (final lang in (term.value as Dict).entries)
-            lang.key: lang.value as String
-        }
-    };
-  }
-
-  static Future<List<Language>> _loadLanguages(String assetUrl) async {
-    final data = await rootBundle
-        .loadString(assetUrl)
-        .then((t) => json.decode(t) as List);
-
-    final languages = data
-        .map((dynamic j) => Language.fromJson(j as Map<String, dynamic>))
-        .toList();
-    // languages.sort((a, b) => a.name.id.compareTo(b.name.id));
-    return languages;
-  }
-
-  static Future<List<Chapter>> _loadChapters(String assetUrl) async {
-    final data = await rootBundle
-        .loadString(assetUrl)
-        .then((t) => json.decode(t) as List);
-
-    return data.map((dynamic j) => Chapter.fromJson(j)).toList();
   }
 }
