@@ -1,41 +1,36 @@
-import 'package:avdan/models/translation.dart';
-import 'package:avdan/store.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class Label extends StatelessWidget {
-  final Translation item;
+  const Label(
+    this.title,
+    this.subtitle, {
+    this.titleSize = 16,
+    this.subtitleSize = 14,
+    super.key,
+  });
+  final String title;
+  final String subtitle;
   final double? titleSize;
   final double? subtitleSize;
 
-  const Label(
-    this.item, {
-    Key? key,
-    this.titleSize = 16,
-    this.subtitleSize = 14,
-  }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
-    final store = context.watch<Store>();
-    final learning = item.text(store.learning, store.alt);
-    final interface = item.text(store.interface);
     return RichText(
       textAlign: TextAlign.center,
       text: TextSpan(
         children: [
           TextSpan(
-            text: learning,
+            text: title,
             style: TextStyle(
               color: Theme.of(context).textTheme.bodyText1?.color,
               fontSize: titleSize,
               fontWeight: FontWeight.w500,
             ),
           ),
-          if (learning.isNotEmpty && interface.isNotEmpty)
+          if (title.isNotEmpty && subtitle.isNotEmpty)
             const TextSpan(text: '\n'),
           TextSpan(
-            text: interface,
+            text: subtitle,
             style: TextStyle(
               color: Theme.of(context).hintColor,
               fontSize: subtitleSize,
