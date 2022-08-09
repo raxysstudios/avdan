@@ -6,12 +6,13 @@ import 'caption.dart';
 part 'card.freezed.dart';
 part 'card.g.dart';
 
-@freezed
+@unfreezed
 class Card with _$Card {
   const factory Card({
+    required Caption caption,
+    String? id,
     String? audioUrl,
     String? imageUrl,
-    required Caption caption,
   }) = _Card;
 
   factory Card.fromJson(Map<String, Object?> json) => _$CardFromJson(json);
