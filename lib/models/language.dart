@@ -1,6 +1,6 @@
 import 'package:avdan/models/caption.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'converters/timestamp_converter.dart';
 

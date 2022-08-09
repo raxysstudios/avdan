@@ -13,7 +13,7 @@ class Caption with _$Caption {
   }) = _Caption;
 
   String get([bool alt = false]) {
-    return alt ? this.alt ?? main : main;
+    return (alt ? this.alt : null) ?? main;
   }
 
   factory Caption.fromJson(Map<String, Object?> json) =>
