@@ -13,6 +13,7 @@ class Language with _$Language {
     required Caption name,
     required bool learning,
     @TimestampConverter() DateTime? lastUpdated,
+    @Default(<String, String>{}) required Map<String, String> localization,
   }) = _Language;
 
   factory Language.fromJson(Map<String, Object?> json) =>
