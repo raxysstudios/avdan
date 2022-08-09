@@ -3,6 +3,7 @@ import 'package:avdan/modules/home/widgets/decks_view.dart';
 import 'package:avdan/modules/news/services/updater.dart';
 import 'package:avdan/modules/settings/settings.dart';
 import 'package:avdan/shared/audio_player.dart';
+import 'package:avdan/shared/widgets/label.dart';
 import 'package:avdan/shared/widgets/language_flag.dart';
 import 'package:avdan/store.dart';
 import 'package:flutter/material.dart';
@@ -27,6 +28,7 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   void initState() {
     super.initState();
+    // TODO try with microtask
     WidgetsBinding.instance.addPostFrameCallback(
       (_) => checkNews(context),
     );
@@ -72,12 +74,12 @@ class _HomeScreenState extends State<HomeScreen>
             ),
           ),
         ),
-        // TODO translate
-        // title: Label(
-        //   deck.cover.caption.get(context.watch<Store>().alt),
-        //   titleSize: 20,
-        //   subtitleSize: 16,
-        // ),
+        title: Label(
+          deck.cover.caption.get(context.watch<Store>().alt),
+          deck.translate(deck.cover),
+          titleSize: 20,
+          subtitleSize: 16,
+        ),
         centerTitle: true,
         actions: [
           IconButton(

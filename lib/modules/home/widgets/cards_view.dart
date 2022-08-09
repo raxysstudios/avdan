@@ -1,18 +1,19 @@
-import 'package:avdan/models/card.dart' as avd;
+import 'package:avdan/models/deck.dart';
 import 'package:avdan/shared/utils.dart';
+import 'package:avdan/shared/widgets/label.dart';
 import 'package:avdan/store.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class CardsView extends StatefulWidget {
   const CardsView(
-    this.cards, {
+    this.deck, {
     this.initial = 0,
     this.onChange,
     super.key,
   });
 
-  final List<avd.Card> cards;
+  final Deck deck;
   final int initial;
   final ValueSetter<int>? onChange;
 
@@ -34,9 +35,9 @@ class _CardsViewState extends State<CardsView> {
       child: PageView.builder(
         onPageChanged: widget.onChange,
         controller: _paging,
-        itemCount: widget.cards.length,
+        itemCount: widget.deck.cards.length,
         itemBuilder: (context, i) {
-          final card = widget.cards[i];
+          final card = widget.deck.cards[i];
           final caption = card.caption.get(context.read<Store>().alt);
           return Stack(
             alignment: Alignment.center,
@@ -60,14 +61,18 @@ class _CardsViewState extends State<CardsView> {
                     image: getCardImage(card),
                   ),
                 ),
-                // TODO translate
-                // Padding(
-                //   padding: const EdgeInsets.only(bottom: 24),
-                //   child: Align(
-                //     alignment: Alignment.bottomCenter,
-                //     child: Label(item, titleSize: 36, subtitleSize: 30),
-                //   ),
-                // ),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 24),
+                  child: Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Label(
+                      caption,
+                      widget.deck.translate(card),
+                      titleSize: 36,
+                      subtitleSize: 30,
+                    ),
+                  ),
+                ),
               ],
             ],
           );

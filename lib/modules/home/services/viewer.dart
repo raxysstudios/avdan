@@ -24,7 +24,7 @@ void openView(
         child: Stack(
           children: [
             CardsView(
-              deck.cards,
+              deck,
               initial: card,
               onChange: (i) => playCard(deck.cards[i]),
             ),

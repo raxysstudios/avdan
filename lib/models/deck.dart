@@ -15,10 +15,14 @@ class Deck with _$Deck {
     required Pack pack,
     required Card cover,
     required List<Card> cards,
-    @Default(<String, String>{}) Map<String, String>? translations,
+    @Default(<String, String>{}) Map<String, String> translations,
   }) = _Deck;
 
   Color? get color => pack.color?.withOpacity(0.25);
+
+  String translate(Card card) {
+    return translations[card.id] ?? '';
+  }
 
   factory Deck.fromJson(Map<String, Object?> json) => _$DeckFromJson(json);
 }
