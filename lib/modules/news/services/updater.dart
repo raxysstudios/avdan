@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void checkNews(BuildContext context) async {
-  final current = await getNewestStamp(context.read<Store>().interface.name);
+  final current = await getNewestStamp(context.read<Store>().interface);
   final last = await SharedPreferences.getInstance().then(
     (prefs) => prefs.getInt('lastPost') ?? 0,
   );

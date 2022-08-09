@@ -13,7 +13,11 @@ import 'services/languages.dart';
 import 'widgets/language_tile.dart';
 
 class SettingsScreen extends StatefulWidget {
-  const SettingsScreen({super.key});
+  const SettingsScreen({
+    this.isInitial = false,
+    super.key,
+  });
+  final bool isInitial;
 
   @override
   State<SettingsScreen> createState() => _SettingsScreenState();
@@ -28,12 +32,27 @@ class _SettingsScreenState extends State<SettingsScreen> {
     fetchLanguages().then(
       (ls) => setState(() {
         languages = ls;
+        if (widget.isInitial) {
+          final store = context.read<Store>();
+          final interface = languages.firstWhere((l) => l.isInterface);
+          store.interface = interface.name;
+          store.saveLocalization(interface.localization);
+          store.learning = languages.firstWhere((l) => !l.isInterface).name;
+        }
       }),
     );
   }
 
   @override
   Widget build(BuildContext context) {
+    if (languages.isEmpty) {
+      return const Material(
+        child: Center(
+          child: CircularProgressIndicator(),
+        ),
+      );
+    }
+
     final textTheme = Theme.of(context).textTheme;
     final store = context.watch<Store>();
     return Scaffold(
@@ -93,17 +112,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   style: textTheme.headline6,
                 ),
               ),
-              if (languages.isEmpty)
-                const LinearProgressIndicator()
-              else
-                for (final l in languages.where((l) => l.isInterface))
-                  LanguageTile(
-                    l,
-                    mode: store.interface == l
-                        ? LanguageMode.main
-                        : LanguageMode.none,
-                    onTap: (alt) => store.interface = l,
-                  ),
+              for (final l in languages.where((l) => l.isInterface))
+                LanguageTile(
+                  l,
+                  mode: store.interface == l.name
+                      ? LanguageMode.main
+                      : LanguageMode.none,
+                  onTap: (alt) {
+                    store.interface = l.name;
+                    store.saveLocalization(l.localization);
+                  },
+                ),
             ],
           ),
           ColumnCard(
@@ -116,22 +135,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   style: textTheme.headline6,
                 ),
               ),
-              if (languages.isEmpty)
-                const LinearProgressIndicator()
-              else
-                for (final l in languages.where((l) => !l.isInterface))
-                  LanguageTile(
-                    l,
-                    mode: store.learning == l
-                        ? store.alt
-                            ? LanguageMode.alt
-                            : LanguageMode.main
-                        : LanguageMode.none,
-                    onTap: (mode) {
-                      store.learning = l;
-                      store.alt = mode == LanguageMode.alt;
-                    },
-                  ),
+              for (final l in languages.where((l) => !l.isInterface))
+                LanguageTile(
+                  l,
+                  mode: store.learning == l.name
+                      ? store.alt
+                          ? LanguageMode.alt
+                          : LanguageMode.main
+                      : LanguageMode.none,
+                  onTap: (mode) {
+                    store.learning = l.name;
+                    store.alt = mode == LanguageMode.alt;
+                  },
+                ),
             ],
           ),
           Center(

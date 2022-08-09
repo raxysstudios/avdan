@@ -26,9 +26,10 @@ void main() async {
 }
 
 class App extends StatelessWidget {
-  const App({Key? key}) : super(key: key);
+  const App({super.key});
 
   List<ThemeData> getThemes(BuildContext context) {
+    // TODO update theming
     final colorScheme = Theme.of(context).colorScheme;
     final floatingActionButtonTheme = FloatingActionButtonThemeData(
       backgroundColor: colorScheme.primary,
@@ -87,7 +88,7 @@ class App extends StatelessWidget {
                 store.interface = store.interface;
                 store.learning = store.learning;
                 store.alt = store.alt;
-                screen = const SettingsScreen();
+                screen = const SettingsScreen(isInitial: true);
               } else {
                 screen = const HomeScreen();
               }

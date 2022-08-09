@@ -27,7 +27,7 @@ class _NewsScreenState extends State<NewsScreen> {
   @override
   void initState() {
     super.initState();
-    language = context.read<Store>().interface.name;
+    language = context.read<Store>().interface;
     _paging.addPageRequestListener(_fetchPage);
     SharedPreferences.getInstance().then(
       (prefs) => setState(() async {
