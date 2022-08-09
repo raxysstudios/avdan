@@ -5,9 +5,8 @@ import 'package:url_launcher/url_launcher.dart';
 class MarkdownText extends StatelessWidget {
   const MarkdownText(
     this.text, {
-    Key? key,
-  }) : super(key: key);
-
+    super.key,
+  });
   final String text;
 
   @override

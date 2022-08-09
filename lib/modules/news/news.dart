@@ -78,7 +78,7 @@ class _NewsScreenState extends State<NewsScreen> {
           itemBuilder: (context, post, _) {
             return PostCard(
               post,
-              highlight: lastPost < post.created.millisecondsSinceEpoch,
+              isHighlighted: lastPost < post.created.millisecondsSinceEpoch,
             );
           },
         ),

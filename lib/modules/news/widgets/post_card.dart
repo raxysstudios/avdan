@@ -7,12 +7,12 @@ import 'package:intl/intl.dart';
 class PostCard extends StatelessWidget {
   const PostCard(
     this.post, {
-    this.highlight = true,
+    this.isHighlighted = true,
     super.key,
   });
 
   final Post post;
-  final bool highlight;
+  final bool isHighlighted;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class PostCard extends StatelessWidget {
                 ),
               ),
             ),
-            if (highlight)
+            if (isHighlighted)
               Padding(
                 padding: const EdgeInsets.only(left: 8),
                 child: Icon(

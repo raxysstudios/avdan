@@ -9,9 +9,8 @@ class ColumnCard extends StatelessWidget {
     this.divider = const Divider(),
     this.margin = const EdgeInsets.only(top: 12),
     this.padding = EdgeInsets.zero,
-    Key? key,
-  }) : super(key: key);
-
+    super.key,
+  });
   final EdgeInsets margin;
   final EdgeInsets padding;
   final String? title;

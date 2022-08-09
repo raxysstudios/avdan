@@ -2,13 +2,6 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 class LanguageFlag extends StatelessWidget {
-  final String? language;
-  final double? width;
-  final double? height;
-  final double rotation;
-  final Offset offset;
-  final double scale;
-
   const LanguageFlag(
     this.language, {
     this.height = 32,
@@ -16,8 +9,14 @@ class LanguageFlag extends StatelessWidget {
     this.scale = 2,
     this.rotation = -pi / 4,
     this.offset = const Offset(0, 0),
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
+  final String? language;
+  final double? width;
+  final double? height;
+  final double rotation;
+  final Offset offset;
+  final double scale;
 
   @override
   Widget build(BuildContext context) {

@@ -5,9 +5,8 @@ class Raxys extends StatelessWidget {
     this.size = 24,
     this.opacity = .1,
     this.scale = 7,
-    Key? key,
-  }) : super(key: key);
-
+    super.key,
+  });
   final double scale;
   final double size;
   final double opacity;
