@@ -8,6 +8,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'firebase_options.dart';
 import 'store.dart';
+import 'theme_set.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -28,52 +29,13 @@ void main() async {
 class App extends StatelessWidget {
   const App({super.key});
 
-  List<ThemeData> getThemes(BuildContext context) {
-    // TODO update theming
-    final colorScheme = Theme.of(context).colorScheme;
-    final floatingActionButtonTheme = FloatingActionButtonThemeData(
-      backgroundColor: colorScheme.primary,
-      foregroundColor: colorScheme.onPrimary,
-    );
-    const cardTheme = CardTheme(
-      clipBehavior: Clip.antiAlias,
-    );
-    const dividerTheme = DividerThemeData(space: 0);
-    return [
-      ThemeData().copyWith(
-        scaffoldBackgroundColor: Colors.blueGrey.shade50,
-        colorScheme: ColorScheme.fromSwatch(
-          accentColor: Colors.grey,
-        ),
-        appBarTheme: AppBarTheme(
-          backgroundColor: colorScheme.surface,
-          foregroundColor: colorScheme.onSurface,
-        ),
-        cardTheme: cardTheme,
-        toggleableActiveColor: colorScheme.primary,
-        floatingActionButtonTheme: floatingActionButtonTheme,
-        dividerTheme: dividerTheme,
-      ),
-      ThemeData.dark().copyWith(
-        colorScheme: ColorScheme.fromSwatch(
-          accentColor: Colors.grey,
-          brightness: Brightness.dark,
-        ),
-        cardTheme: cardTheme,
-        toggleableActiveColor: colorScheme.primary,
-        floatingActionButtonTheme: floatingActionButtonTheme,
-        dividerTheme: dividerTheme,
-      ),
-    ];
-  }
-
   @override
   Widget build(BuildContext context) {
-    final themes = getThemes(context);
+    final theme = ThemeSet(Theme.of(context).colorScheme);
     return MaterialApp(
       title: 'Avdan',
-      theme: themes[0],
-      darkTheme: themes[1],
+      theme: theme.light,
+      darkTheme: theme.dark,
       home: FutureBuilder(
         future: Future.wait([
           Future<void>.delayed(const Duration(seconds: 2)),
