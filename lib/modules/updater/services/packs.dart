@@ -40,9 +40,7 @@ Future<List<Pack>> fetchUpdatedPacks(BuildContext context) async {
         toFirestore: (object, _) => object.toJson(),
       )
       .get()
-      .then(
-        (r) => r.docs.map((d) => d.data()),
-      );
+      .then((s) => s.docs.map((d) => d.data()));
 
   final pending = <Pack>[];
   for (final p in packs) {

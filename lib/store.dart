@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:hive/hive.dart';
-import 'package:path_provider/path_provider.dart';
+// import 'package:path_provider/path_provider.dart';
 
 import 'shared/extensions.dart';
 
@@ -10,17 +10,10 @@ class Store with ChangeNotifier {
   late final Box<dynamic> prefs;
   late final Box<Map<String, dynamic>> decks;
 
-  var _localizations = <String, String>{};
+  late Map<String, String> _localizations;
   void saveLocalizations(Map<String, String> data) {
     _localizations = data;
     prefs.put('localizations', data);
-  }
-
-  void _loadLocalizations() {
-    _localizations = prefs.get(
-      'localizations',
-      defaultValue: <String, String>{},
-    ) as Map<String, String>;
   }
 
   String localize(String key, [bool capitalized = true]) {
@@ -29,39 +22,35 @@ class Store with ChangeNotifier {
     return text;
   }
 
-  late String _interface;
-  String get interface => _interface;
+  String get interface => prefs.get('interface', defaultValue: '') as String;
   set interface(String val) {
-    _interface = val;
     prefs.put('interface', val);
     notifyListeners();
   }
 
-  late String _learning;
-  String get learning => _learning;
+  String get learning => prefs.get('learning', defaultValue: '') as String;
   set learning(String val) {
-    _learning = val;
     prefs.put('learning', val);
     notifyListeners();
   }
 
-  late bool _alt;
-  bool get alt => _alt;
+  bool get alt => prefs.get('alt', defaultValue: false) as bool;
   set alt(bool val) {
-    _alt = val;
-    prefs.put('alt', _alt);
+    prefs.put('alt', val);
     notifyListeners();
   }
 
   Future<void> load() async {
-    if (!kIsWeb) {
-      final dir = await getApplicationDocumentsDirectory();
-      cachePath = '${dir.path}/static/';
-    }
+    // if (!kIsWeb) {
+    //   final dir = await getApplicationDocumentsDirectory();
+    //   cachePath = '${dir.path}/static/';
+    // }
     prefs = await Hive.openBox<dynamic>('prefs');
     decks = await Hive.openBox<Map<String, dynamic>>('decks');
-    _alt = prefs.get('alt', defaultValue: false) as bool;
-    _loadLocalizations();
+    _localizations = prefs.get(
+      'localizations',
+      defaultValue: <String, String>{},
+    ) as Map<String, String>;
     notifyListeners();
   }
 }

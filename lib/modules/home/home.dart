@@ -13,7 +13,11 @@ import 'services/viewer.dart';
 import 'widgets/packs_tab_bar.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  const HomeScreen(
+    this.decks, {
+    super.key,
+  });
+  final List<Deck> decks;
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -22,13 +26,12 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
   late final TabController _tab;
-  late final List<Deck> decks;
+  List<Deck> get decks => widget.decks;
   late Deck deck;
 
   @override
   void initState() {
     super.initState();
-    // TODO try with microtask
     WidgetsBinding.instance.addPostFrameCallback(
       (_) => checkNews(context),
     );

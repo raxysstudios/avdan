@@ -7,6 +7,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 
 import 'firebase_options.dart';
+import 'models/deck.dart';
 import 'store.dart';
 import 'theme_set.dart';
 
@@ -45,14 +46,13 @@ class App extends StatelessWidget {
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             late Widget screen;
-            if (context.read<Store>().prefs.containsKey('interface')) {
-              final store = context.read<Store>();
-              store.interface = store.interface;
-              store.learning = store.learning;
-              store.alt = store.alt;
+            final store = context.read<Store>();
+            if (!store.prefs.containsKey('interface') || store.decks.isEmpty) {
               screen = const SettingsScreen(isInitial: true);
             } else {
-              screen = const HomeScreen();
+              screen = HomeScreen(
+                store.decks.values.map(Deck.fromJson).toList(),
+              );
             }
             Navigator.pushReplacement(
               context,
