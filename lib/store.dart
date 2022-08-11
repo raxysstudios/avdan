@@ -7,7 +7,8 @@ import 'shared/extensions.dart';
 String? cachePath;
 
 class Store with ChangeNotifier {
-  late final Box prefs;
+  late final Box<dynamic> prefs;
+  late final Box<Map<String, dynamic>> decks;
 
   var _localizations = <String, String>{};
   void saveLocalizations(Map<String, String> data) {
@@ -58,6 +59,7 @@ class Store with ChangeNotifier {
       cachePath = '${dir.path}/static/';
     }
     prefs = await Hive.openBox<dynamic>('prefs');
+    decks = await Hive.openBox<Map<String, dynamic>>('decks');
     _alt = prefs.get('alt', defaultValue: false) as bool;
     _loadLocalizations();
     notifyListeners();

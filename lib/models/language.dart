@@ -13,7 +13,7 @@ class Language with _$Language {
     required String name,
     required Caption caption,
     required bool isInterface,
-    @TimestampConverter() DateTime? lastUpdated,
+    @TimestampConverter() required DateTime lastUpdated,
     @Default(<String, String>{}) required Map<String, String> localizations,
   }) = _Language;
 
