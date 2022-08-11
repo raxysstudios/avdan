@@ -6,7 +6,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class NewsScreen extends StatefulWidget {
   const NewsScreen({super.key});
@@ -27,17 +26,19 @@ class _NewsScreenState extends State<NewsScreen> {
   @override
   void initState() {
     super.initState();
-    language = context.read<Store>().interface;
+    final store = context.read<Store>();
+    language = store.interface;
     _paging.addPageRequestListener(_fetchPage);
-    SharedPreferences.getInstance().then(
-      (prefs) => setState(() async {
-        lastPost = prefs.getInt('lastPost') ?? 0;
-        prefs.setInt(
-          'lastPost',
-          await getNewestStamp(language),
-        );
-      }),
-    );
+    setState(() async {
+      lastPost = store.prefs.get(
+        'lastPost',
+        defaultValue: 0,
+      ) as int;
+      store.prefs.put(
+        'lastPost',
+        await getNewestStamp(language),
+      );
+    });
   }
 
   @override

@@ -1,25 +1,24 @@
-import 'dart:convert';
-
 import 'package:flutter/foundation.dart';
+import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import 'shared/extensions.dart';
 
 String? cachePath;
 
 class Store with ChangeNotifier {
-  late SharedPreferences _prefs;
+  late final Box prefs;
 
   var _localizations = <String, String>{};
   void saveLocalizations(Map<String, String> data) {
     _localizations = data;
-    _prefs.setString('localizations', json.encode(data));
+    prefs.put('localizations', data);
   }
 
   void _loadLocalizations() {
-    _localizations = json.decode(
-      _prefs.getString('localizations') ?? '{}',
+    _localizations = prefs.get(
+      'localizations',
+      defaultValue: <String, String>{},
     ) as Map<String, String>;
   }
 
@@ -33,7 +32,7 @@ class Store with ChangeNotifier {
   String get interface => _interface;
   set interface(String val) {
     _interface = val;
-    _prefs.setString('interface', val);
+    prefs.put('interface', val);
     notifyListeners();
   }
 
@@ -41,7 +40,7 @@ class Store with ChangeNotifier {
   String get learning => _learning;
   set learning(String val) {
     _learning = val;
-    _prefs.setString('learning', val);
+    prefs.put('learning', val);
     notifyListeners();
   }
 
@@ -49,7 +48,7 @@ class Store with ChangeNotifier {
   bool get alt => _alt;
   set alt(bool val) {
     _alt = val;
-    _prefs.setBool('alt', _alt);
+    prefs.put('alt', _alt);
     notifyListeners();
   }
 
@@ -58,8 +57,8 @@ class Store with ChangeNotifier {
       final dir = await getApplicationDocumentsDirectory();
       cachePath = '${dir.path}/static/';
     }
-    _prefs = await SharedPreferences.getInstance();
-    _alt = _prefs.getBool('alt') ?? false;
+    prefs = await Hive.openBox<dynamic>('prefs');
+    _alt = prefs.get('alt', defaultValue: false) as bool;
     _loadLocalizations();
     notifyListeners();
   }

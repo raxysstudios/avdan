@@ -3,8 +3,8 @@ import 'package:avdan/modules/settings/settings.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import 'firebase_options.dart';
 import 'store.dart';
@@ -15,6 +15,7 @@ void main() async {
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]);
+  await Hive.initFlutter();
   runApp(
     ChangeNotifierProvider(
       create: (context) => Store(),
@@ -43,24 +44,22 @@ class App extends StatelessWidget {
         ]),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
-            SharedPreferences.getInstance().then((prefs) async {
-              late Widget screen;
-              if (prefs.getString('interface') == null) {
-                final store = context.read<Store>();
-                store.interface = store.interface;
-                store.learning = store.learning;
-                store.alt = store.alt;
-                screen = const SettingsScreen(isInitial: true);
-              } else {
-                screen = const HomeScreen();
-              }
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute<void>(
-                  builder: (context) => screen,
-                ),
-              );
-            });
+            late Widget screen;
+            if (context.read<Store>().prefs.containsKey('interface')) {
+              final store = context.read<Store>();
+              store.interface = store.interface;
+              store.learning = store.learning;
+              store.alt = store.alt;
+              screen = const SettingsScreen(isInitial: true);
+            } else {
+              screen = const HomeScreen();
+            }
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute<void>(
+                builder: (context) => screen,
+              ),
+            );
           }
           return Material(
             child: SafeArea(

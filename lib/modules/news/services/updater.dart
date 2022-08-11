@@ -3,13 +3,11 @@ import 'package:avdan/modules/news/services/fetcher.dart';
 import 'package:avdan/store.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 void checkNews(BuildContext context) async {
-  final current = await getNewestStamp(context.read<Store>().interface);
-  final last = await SharedPreferences.getInstance().then(
-    (prefs) => prefs.getInt('lastPost') ?? 0,
-  );
+  final store = context.read<Store>();
+  final current = await getNewestStamp(store.interface);
+  final last = store.prefs.get('lastPost', defaultValue: 0) as int;
   if (last < current) await openNews(context);
 }
 
