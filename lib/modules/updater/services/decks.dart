@@ -53,3 +53,7 @@ Future<List<Deck>> updateDecks(
   }
   return decks;
 }
+
+List<Deck> restoreDecks(BuildContext context) {
+  return context.read<Store>().decks.values.map(Deck.fromJson).toList();
+}

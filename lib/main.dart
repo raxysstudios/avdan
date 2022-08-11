@@ -1,13 +1,12 @@
 import 'package:avdan/modules/home/home.dart';
 import 'package:avdan/modules/settings/settings.dart';
+import 'package:avdan/modules/updater/services/decks.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 
 import 'firebase_options.dart';
-import 'models/deck.dart';
 import 'store.dart';
 import 'theme_set.dart';
 
@@ -16,7 +15,6 @@ void main() async {
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]);
-  await Hive.initFlutter();
   runApp(
     ChangeNotifierProvider(
       create: (context) => Store(),
@@ -27,6 +25,22 @@ void main() async {
 
 class App extends StatelessWidget {
   const App({super.key});
+
+  void setup(BuildContext context) {
+    late Widget screen;
+    final store = context.read<Store>();
+    if (!store.prefs.containsKey('interface') || store.decks.isEmpty) {
+      screen = const SettingsScreen(isInitial: true);
+    } else {
+      screen = HomeScreen(restoreDecks(context));
+    }
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute<void>(
+        builder: (context) => screen,
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,20 +59,8 @@ class App extends StatelessWidget {
         ]),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
-            late Widget screen;
-            final store = context.read<Store>();
-            if (!store.prefs.containsKey('interface') || store.decks.isEmpty) {
-              screen = const SettingsScreen(isInitial: true);
-            } else {
-              screen = HomeScreen(
-                store.decks.values.map(Deck.fromJson).toList(),
-              );
-            }
-            Navigator.pushReplacement(
-              context,
-              MaterialPageRoute<void>(
-                builder: (context) => screen,
-              ),
+            WidgetsBinding.instance.addPostFrameCallback(
+              (_) => setup(context),
             );
           }
           return Material(

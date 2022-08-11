@@ -27,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
   late final TabController _tab;
   List<Deck> get decks => widget.decks;
-  late Deck deck;
+  late var deck = decks.first;
 
   @override
   void initState() {
@@ -35,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen>
     WidgetsBinding.instance.addPostFrameCallback(
       (_) => checkNews(context),
     );
-    setDeck(decks.first);
+    playCard(deck.cover);
 
     _tab = TabController(
       length: decks.length,

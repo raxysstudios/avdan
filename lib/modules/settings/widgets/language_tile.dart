@@ -21,9 +21,9 @@ class LanguageTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var title = capitalize(language.caption.main);
-    var subtitle = capitalize(language.caption.alt);
-    if (mode == LanguageMode.alt) {
+    var title = language.caption.main;
+    var subtitle = language.caption.alt;
+    if (mode == LanguageMode.alt && subtitle != null) {
       final t = title;
       title = subtitle;
       subtitle = t;
@@ -34,12 +34,12 @@ class LanguageTile extends StatelessWidget {
         title: Row(
           children: [
             Text(
-              title,
+              capitalize(title),
               style: const TextStyle(
                 fontWeight: FontWeight.w500,
               ),
             ),
-            if (language.caption.alt != null) ...[
+            if (subtitle != null) ...[
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 4),
                 child: Icon(
@@ -49,7 +49,7 @@ class LanguageTile extends StatelessWidget {
                 ),
               ),
               Text(
-                subtitle,
+                capitalize(subtitle),
                 style: TextStyle(
                   fontSize: 12,
                   fontWeight: FontWeight.w500,

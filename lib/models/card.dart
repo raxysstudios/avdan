@@ -8,7 +8,7 @@ part 'card.g.dart';
 
 @unfreezed
 class Card with _$Card {
-  const factory Card({
+  factory Card({
     required Caption caption,
     String? id,
     String? audioUrl,

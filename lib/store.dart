@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 // import 'package:path_provider/path_provider.dart';
 
 import 'shared/extensions.dart';
@@ -45,8 +45,10 @@ class Store with ChangeNotifier {
     //   final dir = await getApplicationDocumentsDirectory();
     //   cachePath = '${dir.path}/static/';
     // }
+    await Hive.initFlutter();
     prefs = await Hive.openBox<dynamic>('prefs');
     decks = await Hive.openBox<Map<String, dynamic>>('decks');
+    await prefs.delete('lastUpdated');
     _localizations = prefs.get(
       'localizations',
       defaultValue: <String, String>{},

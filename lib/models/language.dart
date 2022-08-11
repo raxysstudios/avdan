@@ -14,7 +14,7 @@ class Language with _$Language {
     required Caption caption,
     required bool isInterface,
     @TimestampConverter() required DateTime lastUpdated,
-    @Default(<String, String>{}) required Map<String, String> localizations,
+    @Default(<String, String>{}) Map<String, String> localizations,
   }) = _Language;
 
   factory Language.fromJson(Map<String, Object?> json) =>

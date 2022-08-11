@@ -11,7 +11,7 @@ part 'deck.g.dart';
 @unfreezed
 class Deck with _$Deck {
   const Deck._();
-  const factory Deck({
+  factory Deck({
     required Pack pack,
     required Card cover,
     required List<Card> cards,

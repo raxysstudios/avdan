@@ -57,7 +57,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final store = context.watch<Store>();
     return Scaffold(
       appBar: AppBar(
-        leading: const Raxys(),
+        leading: const Raxys(scale: 3),
         title: Text(store.localize('settings')),
         centerTitle: true,
         actions: [
