@@ -29,16 +29,17 @@ class _NewsScreenState extends State<NewsScreen> {
     final store = context.read<Store>();
     language = store.interface;
     _paging.addPageRequestListener(_fetchPage);
-    setState(() async {
-      lastPost = store.prefs.get(
+
+    lastPost = store.prefs.get(
+      'lastPost',
+      defaultValue: 0,
+    ) as int;
+    getNewestStamp(language).then(
+      (lp) => store.prefs.put(
         'lastPost',
-        defaultValue: 0,
-      ) as int;
-      store.prefs.put(
-        'lastPost',
-        await getNewestStamp(language),
-      );
-    });
+        lp,
+      ),
+    );
   }
 
   @override

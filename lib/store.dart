@@ -48,7 +48,6 @@ class Store with ChangeNotifier {
     await Hive.initFlutter();
     prefs = await Hive.openBox<dynamic>('prefs');
     decks = await Hive.openBox<Map<String, dynamic>>('decks');
-    await prefs.delete('lastUpdated');
     _localizations = prefs.get(
       'localizations',
       defaultValue: <String, String>{},

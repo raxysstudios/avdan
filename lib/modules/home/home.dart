@@ -32,9 +32,7 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback(
-      (_) => checkNews(context),
-    );
+    Future.microtask(() => checkNews(context));
     playCard(deck.cover);
 
     _tab = TabController(
@@ -101,7 +99,10 @@ class _HomeScreenState extends State<HomeScreen>
       body: DecksView(
         decks,
         controller: _tab,
-        onTap: (item) => openView(context, deck, item),
+        onTap: (i) {
+          playCard(deck.cards[i]);
+          openView(context, deck, i);
+        },
       ),
       bottomNavigationBar: BottomAppBar(
         child: SizedBox(

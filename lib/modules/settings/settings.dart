@@ -143,9 +143,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
                           ? LanguageMode.alt
                           : LanguageMode.main
                       : LanguageMode.none,
-                  onTap: (mode) {
+                  onTap: (mode) async {
                     store.learning = l.name;
                     store.alt = mode == LanguageMode.alt;
+                    await store.prefs.delete('lastUpdated');
+                    await store.decks.deleteAll(store.decks.keys);
                   },
                 ),
             ],

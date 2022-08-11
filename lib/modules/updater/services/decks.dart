@@ -48,12 +48,17 @@ Future<List<Deck>> updateDecks(
     );
     deck.cards.remove(deck.cover);
     decks.add(deck);
-    store.decks.put(p.id, deck.toJson());
+    await store.decks.put(p.id, deck.toJson());
     onLoaded?.call(deck);
   }
   return decks;
 }
 
 List<Deck> restoreDecks(BuildContext context) {
-  return context.read<Store>().decks.values.map(Deck.fromJson).toList();
+  return context
+      .read<Store>()
+      .decks
+      .values
+      .map((e) => Deck.fromJson(e))
+      .toList();
 }

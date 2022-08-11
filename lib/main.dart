@@ -29,7 +29,7 @@ class App extends StatelessWidget {
   void setup(BuildContext context) {
     late Widget screen;
     final store = context.read<Store>();
-    if (!store.prefs.containsKey('interface') || store.decks.isEmpty) {
+    if (store.interface.isEmpty || store.decks.isEmpty) {
       screen = const SettingsScreen(isInitial: true);
     } else {
       screen = HomeScreen(restoreDecks(context));
@@ -59,9 +59,7 @@ class App extends StatelessWidget {
         ]),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
-            WidgetsBinding.instance.addPostFrameCallback(
-              (_) => setup(context),
-            );
+            Future.microtask(() => setup(context));
           }
           return Material(
             child: SafeArea(
