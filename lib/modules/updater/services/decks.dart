@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:typed_data';
 
 import 'package:avdan/models/card.dart' as avd;
 import 'package:avdan/models/deck.dart';
