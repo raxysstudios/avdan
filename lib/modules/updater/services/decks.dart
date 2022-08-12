@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:avdan/models/card.dart' as avd;
 import 'package:avdan/models/deck.dart';
 import 'package:avdan/models/pack.dart';
@@ -48,17 +50,21 @@ Future<List<Deck>> updateDecks(
     );
     deck.cards.remove(deck.cover);
     decks.add(deck);
-    await store.decks.put(p.id, deck.toJson());
+    await store.decks.put(
+      deck.pack.id,
+      jsonEncode(deck.toJson()),
+    );
     onLoaded?.call(deck);
   }
   return decks;
 }
 
 List<Deck> restoreDecks(BuildContext context) {
-  return context
-      .read<Store>()
-      .decks
-      .values
-      .map((e) => Deck.fromJson(e))
+  final store = context.read<Store>();
+  return store.decks.values
+      .map((d) => Deck.fromJson(
+            jsonDecode(d) as Map<String, dynamic>,
+          ))
+      .whereType<Deck>()
       .toList();
 }

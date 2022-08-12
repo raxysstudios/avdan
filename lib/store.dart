@@ -1,6 +1,5 @@
 import 'package:flutter/foundation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-// import 'package:path_provider/path_provider.dart';
 
 import 'shared/extensions.dart';
 
@@ -8,9 +7,9 @@ String? cachePath;
 
 class Store with ChangeNotifier {
   late final Box<dynamic> prefs;
-  late final Box<Map<String, dynamic>> decks;
+  late final Box<String> decks;
 
-  late Map<String, String> _localizations;
+  var _localizations = <String, String>{};
   void saveLocalizations(Map<String, String> data) {
     _localizations = data;
     prefs.put('localizations', data);
@@ -41,13 +40,9 @@ class Store with ChangeNotifier {
   }
 
   Future<void> load() async {
-    // if (!kIsWeb) {
-    //   final dir = await getApplicationDocumentsDirectory();
-    //   cachePath = '${dir.path}/static/';
-    // }
     await Hive.initFlutter();
     prefs = await Hive.openBox<dynamic>('prefs');
-    decks = await Hive.openBox<Map<String, dynamic>>('decks');
+    decks = await Hive.openBox<String>('decks');
     _localizations = prefs.get(
       'localizations',
       defaultValue: <String, String>{},

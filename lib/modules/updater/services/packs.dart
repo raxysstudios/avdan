@@ -38,7 +38,7 @@ Future<List<Pack>> fetchUpdatedPacks(BuildContext context) async {
 
   final pending = <Pack>[];
   for (final p in packs) {
-    final deck = store.decks.get(p.id);
+    final deck = store.decks.get(p.id) as Map<String, dynamic>?;
     if (deck != null) {
       final pack = Pack.fromJson(deck['pack'] as Map<String, dynamic>);
       if (pack.lastUpdated.isBefore(p.lastUpdated)) continue;
