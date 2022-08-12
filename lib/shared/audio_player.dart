@@ -16,7 +16,7 @@ void playCard(BuildContext context, avd.Card card) async {
 
     final audio = context.read<Store>().media.get(card.audioPath);
     if (audio != null) {
-      await player.setAudioSource(_BytesSource(audio));
+      await player.setAudioSource(BufferAudioSource(audio));
       await player.play();
     }
   } catch (e) {
@@ -24,20 +24,27 @@ void playCard(BuildContext context, avd.Card card) async {
   }
 }
 
-class _BytesSource extends StreamAudioSource {
+class BufferAudioSource extends StreamAudioSource {
+  BufferAudioSource(this._buffer) : super(tag: 'Bla');
   final Uint8List _buffer;
 
-  _BytesSource(this._buffer) : super(tag: 'BytesSource');
-
   @override
-  Future<StreamAudioResponse> request([int? start, int? end]) async {
-    // Returning the stream audio response with the parameters
-    return StreamAudioResponse(
-      sourceLength: _buffer.length,
-      contentLength: (start ?? 0) - (end ?? _buffer.length),
-      offset: start ?? 0,
-      stream: Stream.fromIterable([_buffer.sublist(start ?? 0, end)]),
-      contentType: 'audio/mpeg',
+  Future<StreamAudioResponse> request([int? start, int? end]) {
+    start = start ?? 0;
+    end = end ?? _buffer.length;
+
+    return Future.value(
+      StreamAudioResponse(
+        sourceLength: _buffer.length,
+        contentLength: end - start,
+        offset: start,
+        contentType: 'audio/mpeg',
+        stream: Stream.value(
+          List<int>.from(
+            _buffer.skip(start).take(end - start),
+          ),
+        ),
+      ),
     );
   }
 }
