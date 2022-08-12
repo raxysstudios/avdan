@@ -14,7 +14,7 @@ void playCard(BuildContext context, avd.Card card) async {
     final player = AudioPlayer();
     _player = player;
 
-    final audio = context.read<Store>().media.get('{card.id}.mp3');
+    final audio = context.read<Store>().media.get(card.audioPath);
     if (audio != null) {
       await player.setAudioSource(_BytesSource(audio));
       await player.play();

@@ -39,7 +39,7 @@ class _CardsViewState extends State<CardsView> {
         itemBuilder: (context, i) {
           final card = widget.deck.cards[i];
           final caption = card.caption.get(context.read<Store>().alt);
-          final image = media.get('${card.id}.png');
+          final image = media.get(card.imagePath);
           return Stack(
             alignment: Alignment.center,
             children: [

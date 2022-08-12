@@ -28,7 +28,7 @@ class CardButton extends StatelessWidget {
             child: Builder(
               builder: (context) {
                 final store = context.read<Store>();
-                final image = store.media.get('${card.id}.png');
+                final image = store.media.get(card.imagePath);
                 if (image == null) {
                   return Text(
                     card.caption.get(store.alt),

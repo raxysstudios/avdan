@@ -44,13 +44,13 @@ Future<List<Deck>> updateDecks(
           .then((s) => s.docs.first.get('text') as String);
 
       final image = await FirebaseStorage.instance
-          .ref('static/images/${c.imagePath}.png')
+          .ref('static/images/${c.imagePath}')
           .getData();
-      if (image != null) await store.media.put('${c.id}.png', image);
+      if (image != null) await store.media.put(c.imagePath, image);
       final audio = await FirebaseStorage.instance
-          .ref('static/audios/${store.learning}/${c.audioPath}.mp3')
+          .ref('static/audios/${store.learning}/${c.audioPath}')
           .getData();
-      if (audio != null) await store.media.put('${c.id}.mp3', audio);
+      if (audio != null) await store.media.put(c.audioPath, audio);
     }
 
     final deck = Deck(
