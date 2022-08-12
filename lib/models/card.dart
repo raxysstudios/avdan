@@ -11,8 +11,8 @@ class Card with _$Card {
   factory Card({
     required Caption caption,
     String? id,
-    String? audioUrl,
-    String? imageUrl,
+    String? imagePath,
+    String? audioPath,
   }) = _Card;
 
   factory Card.fromJson(Map<String, Object?> json) => _$CardFromJson(json);

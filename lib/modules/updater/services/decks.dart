@@ -1,10 +1,12 @@
 import 'dart:convert';
+import 'dart:typed_data';
 
 import 'package:avdan/models/card.dart' as avd;
 import 'package:avdan/models/deck.dart';
 import 'package:avdan/models/pack.dart';
 import 'package:avdan/store.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -32,14 +34,23 @@ Future<List<Deck>> updateDecks(
         .then((s) => {for (final d in s.docs) d.id: d.data()});
 
     final translations = <String, String>{};
-    for (final id in cards.keys) {
-      translations[id] = await ref
+    for (final c in cards.values) {
+      translations[c.id!] = await ref
           .collection('translations')
-          .where('cardId', isEqualTo: id)
+          .where('cardId', isEqualTo: c.id)
           .where('language', isEqualTo: store.interface)
           .limit(1)
           .get()
           .then((s) => s.docs.first.get('text') as String);
+
+      final image = await FirebaseStorage.instance
+          .ref('static/images/${c.imagePath}.png')
+          .getData();
+      if (image != null) await store.media.put('${c.id}.png', image);
+      final audio = await FirebaseStorage.instance
+          .ref('static/audios/${store.learning}/${c.audioPath}.mp3')
+          .getData();
+      if (audio != null) await store.media.put('${c.id}.mp3', audio);
     }
 
     final deck = Deck(

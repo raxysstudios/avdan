@@ -33,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen>
   void initState() {
     super.initState();
     Future.microtask(() => checkNews(context));
-    playCard(deck.cover);
+    playCard(context, deck.cover);
 
     _tab = TabController(
       length: decks.length,
@@ -56,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen>
   void setDeck(Deck value) {
     setState(() {
       deck = value;
-      playCard(deck.cover);
+      playCard(context, deck.cover);
     });
   }
 
@@ -100,7 +100,7 @@ class _HomeScreenState extends State<HomeScreen>
         decks,
         controller: _tab,
         onTap: (i) {
-          playCard(deck.cards[i]);
+          playCard(context, deck.cards[i]);
           openView(context, deck, i);
         },
       ),
@@ -112,7 +112,7 @@ class _HomeScreenState extends State<HomeScreen>
             controller: _tab,
             onTap: (i) {
               if (decks[i] == deck) {
-                playCard(deck.cover);
+                playCard(context, deck.cover);
               }
             },
           ),

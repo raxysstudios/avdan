@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:flutter/foundation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
@@ -8,6 +10,7 @@ String? cachePath;
 class Store with ChangeNotifier {
   late final Box<dynamic> prefs;
   late final Box<String> decks;
+  late final Box<Uint8List> media;
 
   var _localizations = <String, String>{};
   void saveLocalizations(Map<String, String> data) {

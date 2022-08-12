@@ -148,6 +148,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     store.alt = mode == LanguageMode.alt;
                     await store.prefs.delete('lastUpdated');
                     await store.decks.clear();
+                    await store.media.clear();
                   },
                 ),
             ],

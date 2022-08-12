@@ -27,7 +27,7 @@ void openView(
             CardsView(
               deck,
               initial: card,
-              onChange: (i) => playCard(deck.cards[i]),
+              onChange: (i) => playCard(context, deck.cards[i]),
             ),
             Padding(
               padding: const EdgeInsets.all(8),
