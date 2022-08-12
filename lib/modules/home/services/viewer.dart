@@ -9,6 +9,9 @@ void openView(
   Deck deck,
   int card,
 ) {
+  final padding = EdgeInsets.only(
+    top: MediaQuery.of(context).padding.top,
+  );
   showModalBottomSheet<void>(
     context: context,
     isScrollControlled: true,
@@ -18,9 +21,7 @@ void openView(
     ),
     builder: (context) {
       return Padding(
-        padding: EdgeInsets.only(
-          top: MediaQuery.of(context).padding.top,
-        ),
+        padding: padding,
         child: Stack(
           children: [
             CardsView(
