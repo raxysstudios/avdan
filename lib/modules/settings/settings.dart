@@ -153,11 +153,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ],
           ),
           Center(
-            child: Card(
-              color: Colors.transparent,
-              elevation: 0,
-              margin: const EdgeInsets.all(8),
+            child: Padding(
+              padding: const EdgeInsets.all(12),
               child: InkWell(
+                borderRadius: BorderRadius.circular(4),
                 onTap: () => openLink('https://github.com/raxysstudios/avdan'),
                 child: Padding(
                   padding: const EdgeInsets.all(8),
