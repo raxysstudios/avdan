@@ -32,8 +32,10 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   void initState() {
     super.initState();
-    Future.microtask(() => checkNews(context));
-    playCard(context, deck.cover);
+    Future.microtask(() async {
+      await checkNews(context);
+      playCard(context, deck.cover);
+    });
 
     _tab = TabController(
       length: decks.length,

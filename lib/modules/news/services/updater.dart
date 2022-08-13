@@ -4,7 +4,7 @@ import 'package:avdan/store.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-void checkNews(BuildContext context) async {
+Future<void> checkNews(BuildContext context) async {
   final store = context.read<Store>();
   final current = await getNewestStamp(store.interface);
   final last = store.prefs.get('lastPost', defaultValue: 0) as int;
