@@ -8,4 +8,5 @@ admin.initializeApp({
 
 export default admin;
 export const storage = admin.storage();
+export const firestore = admin.firestore();
 export const bucket = storage.bucket();
