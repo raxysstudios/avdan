@@ -19,8 +19,8 @@ Future<void> clearContents() async {
   await _medias.clear();
 }
 
-Future<void> putAsset(String? key, Uint8List? data) async {
-  if (key != null && data != null) await _medias.put(key, data);
+Future<void> putAsset(String key, Uint8List? data) async {
+  if (data != null) await _medias.put(key, data);
 }
 
 Uint8List? getAsset(String? key) {

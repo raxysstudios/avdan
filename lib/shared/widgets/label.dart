@@ -1,3 +1,4 @@
+import 'package:avdan/shared/utils.dart';
 import 'package:flutter/material.dart';
 
 class Label extends StatelessWidget {
@@ -20,7 +21,7 @@ class Label extends StatelessWidget {
       text: TextSpan(
         children: [
           TextSpan(
-            text: title,
+            text: capitalize(title),
             style: TextStyle(
               color: Theme.of(context).textTheme.bodyText1?.color,
               fontSize: titleSize,
@@ -30,7 +31,7 @@ class Label extends StatelessWidget {
           if (title.isNotEmpty && subtitle.isNotEmpty)
             const TextSpan(text: '\n'),
           TextSpan(
-            text: subtitle,
+            text: capitalize(subtitle),
             style: TextStyle(
               color: Theme.of(context).hintColor,
               fontSize: subtitleSize,

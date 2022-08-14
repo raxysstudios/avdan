@@ -3,6 +3,7 @@ import 'package:avdan/modules/updates/models/deck_preview.dart';
 import 'package:avdan/modules/updates/widgets/loading_chip.dart';
 import 'package:avdan/shared/contents.dart';
 import 'package:avdan/shared/localizations.dart';
+import 'package:avdan/shared/utils.dart';
 import 'package:avdan/store.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -61,12 +62,11 @@ class _UpdatesScreenState extends State<UpdatesScreen> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: Text(localize('updates')),
-        actions: [
-          LoadingChip(
-            loading.where((d) => (d.loaded ?? 0) >= d.length).length,
-            loading.length,
-          ),
-        ],
+        centerTitle: true,
+        bottom: const PreferredSize(
+          preferredSize: Size.fromHeight(6),
+          child: LinearProgressIndicator(),
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -79,8 +79,10 @@ class _UpdatesScreenState extends State<UpdatesScreen> {
         children: [
           for (final d in loading)
             ListTile(
-              title: Text(d.cover.caption.get(alt)),
-              subtitle: d.translation == null ? null : Text(d.translation!),
+              title: Text(capitalize(d.cover.caption.get(alt))),
+              subtitle: d.translation == null
+                  ? null
+                  : Text(capitalize(d.translation!)),
               trailing: LoadingChip(d.loaded, d.length),
             ),
         ],

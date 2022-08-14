@@ -15,7 +15,10 @@ class LoadingChip extends StatelessWidget {
       avatar: loaded == null
           ? null
           : loaded! < total || total == 0
-              ? const CircularProgressIndicator()
+              ? const SizedBox.square(
+                  dimension: 16,
+                  child: CircularProgressIndicator(),
+                )
               : const Icon(Icons.check_outlined),
       label: Text(
         loaded == 0
