@@ -12,8 +12,8 @@ class Caption with _$Caption {
     String? alt,
   }) = _Caption;
 
-  String get([bool alt = false]) {
-    return (alt ? this.alt : null) ?? main;
+  String get([bool isAlt = false]) {
+    return (isAlt ? alt : null) ?? main;
   }
 
   factory Caption.fromJson(Map<String, Object?> json) =>

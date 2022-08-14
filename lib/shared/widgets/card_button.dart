@@ -32,7 +32,7 @@ class CardButton extends StatelessWidget {
                 final image = getAsset(card.imagePath);
                 if (image == null) {
                   return Text(
-                    card.caption.get(store.alt),
+                    (card.preview ?? card.caption).get(store.alt),
                     style: const TextStyle(
                       fontSize: 42,
                       fontWeight: FontWeight.w500,

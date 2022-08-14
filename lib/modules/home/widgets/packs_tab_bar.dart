@@ -1,6 +1,6 @@
 import 'package:avdan/models/deck.dart';
 import 'package:flutter/material.dart';
-import 'card_button.dart';
+import '../../../shared/widgets/card_button.dart';
 
 class PacksTabBar extends AnimatedWidget {
   final List<Deck> decks;

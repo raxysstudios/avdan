@@ -21,12 +21,10 @@ class LoadingChip extends StatelessWidget {
                 )
               : const Icon(Icons.check_outlined),
       label: Text(
-        loaded == 0
-            ? '...'
-            : [
-                loaded,
-                if ((loaded ?? 0) < total) total,
-              ].join(' / '),
+        [
+          loaded ?? 0,
+          if ((loaded ?? 0) < total) total,
+        ].join(' / '),
         style: const TextStyle(
           fontWeight: FontWeight.w500,
         ),

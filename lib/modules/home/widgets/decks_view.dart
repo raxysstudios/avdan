@@ -1,7 +1,7 @@
 import 'package:avdan/models/deck.dart';
 import 'package:flutter/material.dart';
 
-import 'card_button.dart';
+import '../../../shared/widgets/card_button.dart';
 
 class DecksView extends StatelessWidget {
   const DecksView(
