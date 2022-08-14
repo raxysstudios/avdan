@@ -1,22 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
-import 'shared/extensions.dart';
-
 class Store with ChangeNotifier {
   late final Box<dynamic> prefs;
-
-  var _localizations = <String, String>{};
-  void saveLocalizations(Map<String, String> data) {
-    _localizations = data;
-    prefs.put('localizations', data);
-  }
-
-  String localize(String key, [bool capitalized = true]) {
-    var text = _localizations[key] ?? '';
-    if (capitalized) text = capitalize(text);
-    return text;
-  }
 
   String get interface => prefs.get('interface', defaultValue: '') as String;
   set interface(String val) {
@@ -39,10 +25,7 @@ class Store with ChangeNotifier {
   Future<void> load() async {
     await Hive.initFlutter();
     prefs = await Hive.openBox<dynamic>('prefs');
-    _localizations = prefs.get(
-      'localizations',
-      defaultValue: <String, String>{},
-    ) as Map<String, String>;
+
     notifyListeners();
   }
 }

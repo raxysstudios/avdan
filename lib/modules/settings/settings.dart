@@ -2,6 +2,7 @@ import 'package:avdan/models/language.dart';
 import 'package:avdan/modules/news/services/updater.dart';
 import 'package:avdan/modules/updater/updater.dart';
 import 'package:avdan/shared/contents.dart';
+import 'package:avdan/shared/localizations.dart';
 import 'package:avdan/shared/utils.dart';
 import 'package:avdan/shared/widgets/column_card.dart';
 import 'package:avdan/shared/widgets/raxys.dart';
@@ -37,7 +38,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           final store = context.read<Store>();
           final interface = languages.firstWhere((l) => l.isInterface);
           store.interface = interface.name;
-          store.saveLocalizations(interface.localizations);
+          putLocalizations(interface.localizations);
           store.learning = languages.firstWhere((l) => !l.isInterface).name;
         }
       }),
@@ -59,7 +60,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     return Scaffold(
       appBar: AppBar(
         leading: const Raxys(scale: 3),
-        title: Text(store.localize('settings')),
+        title: Text(localize('settings')),
         centerTitle: true,
         actions: [
           IconButton(
@@ -77,7 +78,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           ),
         ),
         icon: const Icon(Icons.home_outlined),
-        label: Text(store.localize('home')),
+        label: Text(localize('home')),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       body: ListView(
@@ -90,7 +91,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               children: [
                 const SizedBox(height: 8),
                 Text(
-                  store.localize('honor', false),
+                  localize('honor', false),
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.bodyText1,
                 ),
@@ -98,7 +99,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ElevatedButton.icon(
                   onPressed: () => openLink('https://t.me/raxysstudios'),
                   icon: const Icon(Icons.send_outlined),
-                  label: Text(store.localize('contact')),
+                  label: Text(localize('contact')),
                 ),
               ],
             ),
@@ -108,7 +109,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 16),
                 child: Text(
-                  store.localize('interface'),
+                  localize('interface'),
                   textAlign: TextAlign.center,
                   style: textTheme.headline6,
                 ),
@@ -121,7 +122,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       : LanguageMode.none,
                   onTap: (alt) {
                     store.interface = l.name;
-                    store.saveLocalizations(l.localizations);
+                    putLocalizations(l.localizations);
                   },
                 ),
             ],
@@ -131,7 +132,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 16),
                 child: Text(
-                  store.localize('learning'),
+                  localize('learning'),
                   textAlign: TextAlign.center,
                   style: textTheme.headline6,
                 ),

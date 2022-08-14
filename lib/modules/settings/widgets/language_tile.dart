@@ -1,9 +1,8 @@
 import 'package:avdan/models/language.dart';
 import 'package:avdan/shared/extensions.dart';
+import 'package:avdan/shared/localizations.dart';
 import 'package:avdan/shared/widgets/language_flag.dart';
-import 'package:avdan/store.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 enum LanguageMode { none, main, alt }
 
@@ -67,11 +66,7 @@ class LanguageTile extends StatelessWidget {
             child: LanguageFlag(language.name),
           ),
         ),
-        subtitle: language.isInterface
-            ? null
-            : Text(
-                context.watch<Store>().localize(language.name),
-              ),
+        subtitle: language.isInterface ? null : Text(localize(language.name)),
         onTap: () => onTap?.call(
           mode != LanguageMode.main || language.caption.alt == null
               ? LanguageMode.main

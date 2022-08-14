@@ -1,6 +1,7 @@
 import 'package:avdan/models/post.dart';
 import 'package:avdan/modules/news/services/fetcher.dart';
 import 'package:avdan/modules/news/widgets/post_card.dart';
+import 'package:avdan/shared/localizations.dart';
 import 'package:avdan/store.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -68,10 +69,9 @@ class _NewsScreenState extends State<NewsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final store = context.read<Store>();
     return Scaffold(
       appBar: AppBar(
-        title: Text(store.localize('news')),
+        title: Text(localize('news')),
       ),
       body: PagedListView(
         pagingController: _paging,
