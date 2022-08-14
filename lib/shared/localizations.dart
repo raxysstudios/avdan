@@ -1,5 +1,6 @@
-import 'package:avdan/shared/extensions.dart';
 import 'package:hive/hive.dart';
+
+import 'utils.dart';
 
 late final Box<String> _strings;
 

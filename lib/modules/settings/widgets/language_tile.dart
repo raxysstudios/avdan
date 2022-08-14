@@ -1,6 +1,6 @@
 import 'package:avdan/models/language.dart';
-import 'package:avdan/shared/extensions.dart';
 import 'package:avdan/shared/localizations.dart';
+import 'package:avdan/shared/utils.dart';
 import 'package:avdan/shared/widgets/language_flag.dart';
 import 'package:flutter/material.dart';
 
