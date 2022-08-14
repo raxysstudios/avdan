@@ -20,6 +20,10 @@ class Deck with _$Deck {
 
   Color? get color => pack.color?.withOpacity(0.25);
 
+  bool isOutdated(DateTime check) {
+    return pack.lastUpdated.isBefore(check);
+  }
+
   String translate(Card card) {
     return translations[card.id] ?? '';
   }

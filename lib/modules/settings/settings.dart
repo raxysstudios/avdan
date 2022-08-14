@@ -1,6 +1,7 @@
 import 'package:avdan/models/language.dart';
 import 'package:avdan/modules/news/services/updater.dart';
 import 'package:avdan/modules/updater/updater.dart';
+import 'package:avdan/shared/contents_store.dart';
 import 'package:avdan/shared/utils.dart';
 import 'package:avdan/shared/widgets/column_card.dart';
 import 'package:avdan/shared/widgets/raxys.dart';
@@ -147,8 +148,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     store.learning = l.name;
                     store.alt = mode == LanguageMode.alt;
                     await store.prefs.delete('lastUpdated');
-                    await store.decks.clear();
-                    await store.media.clear();
+                    await clearContents();
                   },
                 ),
             ],

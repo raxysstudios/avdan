@@ -1,4 +1,5 @@
 import 'package:avdan/models/converters/timestamp_converter.dart';
+import 'package:avdan/models/deck.dart';
 import 'package:avdan/models/pack.dart';
 import 'package:avdan/store.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -22,10 +23,12 @@ Future<DateTime?> checkLanguageUpdate(BuildContext context) async {
   return null;
 }
 
-Future<List<Pack>> fetchUpdatedPacks(BuildContext context) async {
-  final store = context.read<Store>();
+Future<List<Pack>> fetchUpdatedPacks(
+  BuildContext context,
+  Map<String, Deck> decks,
+) async {
   final packs = await FirebaseFirestore.instance
-      .collection('languages/${store.learning}/packs')
+      .collection('languages/${context.read<Store>().learning}/packs')
       .withConverter<Pack>(
         fromFirestore: (snapshot, _) => Pack.fromJson({
           'id': snapshot.id,
@@ -36,14 +39,8 @@ Future<List<Pack>> fetchUpdatedPacks(BuildContext context) async {
       .get()
       .then((s) => s.docs.map((d) => d.data()));
 
-  final pending = <Pack>[];
-  for (final p in packs) {
-    final deck = store.decks.get(p.id) as Map<String, dynamic>?;
-    if (deck != null) {
-      final pack = Pack.fromJson(deck['pack'] as Map<String, dynamic>);
-      if (pack.lastUpdated.isBefore(p.lastUpdated)) continue;
-    }
-    pending.add(p);
-  }
-  return pending;
+  return [
+    for (final p in packs)
+      if (decks[p.id]?.isOutdated(p.lastUpdated) ?? true) p
+  ];
 }

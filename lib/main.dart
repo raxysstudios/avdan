@@ -1,6 +1,6 @@
 import 'package:avdan/modules/home/home.dart';
 import 'package:avdan/modules/settings/settings.dart';
-import 'package:avdan/modules/updater/services/decks.dart';
+import 'package:avdan/shared/contents_store.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -29,10 +29,10 @@ class App extends StatelessWidget {
   void setup(BuildContext context) {
     late Widget screen;
     final store = context.read<Store>();
-    if (store.interface.isEmpty || store.decks.isEmpty) {
+    if (store.interface.isEmpty || hasDecks) {
       screen = const SettingsScreen(isInitial: true);
     } else {
-      screen = HomeScreen(restoreDecks(context));
+      screen = HomeScreen(getAllDecks().values.toList());
     }
     Navigator.pushReplacement(
       context,

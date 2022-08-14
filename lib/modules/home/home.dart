@@ -2,7 +2,7 @@ import 'package:avdan/models/deck.dart';
 import 'package:avdan/modules/home/widgets/decks_view.dart';
 import 'package:avdan/modules/news/services/updater.dart';
 import 'package:avdan/modules/settings/settings.dart';
-import 'package:avdan/shared/audio_player.dart';
+import 'package:avdan/shared/contents_store.dart';
 import 'package:avdan/shared/widgets/label.dart';
 import 'package:avdan/shared/widgets/language_flag.dart';
 import 'package:avdan/store.dart';
@@ -34,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen>
     super.initState();
     Future.microtask(() async {
       await checkNews(context);
-      playCard(context, deck.cover);
+      playAsset(deck.cover.audioPath);
     });
 
     _tab = TabController(
@@ -58,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen>
   void setDeck(Deck value) {
     setState(() {
       deck = value;
-      playCard(context, deck.cover);
+      playAsset(deck.cover.audioPath);
     });
   }
 
@@ -101,10 +101,7 @@ class _HomeScreenState extends State<HomeScreen>
       body: DecksView(
         decks,
         controller: _tab,
-        onTap: (i) {
-          playCard(context, deck.cards[i]);
-          openView(context, deck, i);
-        },
+        onTap: (i) => openView(context, deck, i),
       ),
       bottomNavigationBar: BottomAppBar(
         child: SizedBox(
@@ -114,7 +111,7 @@ class _HomeScreenState extends State<HomeScreen>
             controller: _tab,
             onTap: (i) {
               if (decks[i] == deck) {
-                playCard(context, deck.cover);
+                playAsset(deck.cover.audioPath);
               }
             },
           ),

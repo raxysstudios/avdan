@@ -1,8 +1,7 @@
-import 'dart:convert';
-
 import 'package:avdan/models/card.dart' as avd;
 import 'package:avdan/models/deck.dart';
 import 'package:avdan/models/pack.dart';
+import 'package:avdan/shared/contents_store.dart';
 import 'package:avdan/store.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -42,14 +41,18 @@ Future<List<Deck>> updateDecks(
           .get()
           .then((s) => s.docs.first.get('text') as String);
 
-      final image = await FirebaseStorage.instance
-          .ref('static/images/${c.imagePath}')
-          .getData();
-      if (image != null) await store.media.put(c.imagePath, image);
-      final audio = await FirebaseStorage.instance
-          .ref('static/audios/${store.learning}/${c.audioPath}')
-          .getData();
-      if (audio != null) await store.media.put(c.audioPath, audio);
+      await putAsset(
+        c.imagePath,
+        await FirebaseStorage.instance
+            .ref('static/images/${c.imagePath}')
+            .getData(),
+      );
+      await putAsset(
+        c.audioPath,
+        await FirebaseStorage.instance
+            .ref('static/audios/${store.learning}/${c.audioPath}')
+            .getData(),
+      );
     }
 
     final deck = Deck(
@@ -60,21 +63,8 @@ Future<List<Deck>> updateDecks(
     );
     deck.cards.remove(deck.cover);
     decks.add(deck);
-    await store.decks.put(
-      deck.pack.id,
-      jsonEncode(deck.toJson()),
-    );
+    await putDeck(deck);
     onLoaded?.call(deck);
   }
   return decks;
-}
-
-List<Deck> restoreDecks(BuildContext context) {
-  final store = context.read<Store>();
-  return store.decks.values
-      .map((d) => Deck.fromJson(
-            jsonDecode(d) as Map<String, dynamic>,
-          ))
-      .whereType<Deck>()
-      .toList();
 }

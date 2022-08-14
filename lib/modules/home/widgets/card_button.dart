@@ -1,4 +1,5 @@
 import 'package:avdan/models/card.dart' as avd;
+import 'package:avdan/shared/contents_store.dart';
 import 'package:avdan/store.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -28,7 +29,7 @@ class CardButton extends StatelessWidget {
             child: Builder(
               builder: (context) {
                 final store = context.read<Store>();
-                final image = store.media.get(card.imagePath);
+                final image = getAsset(card.imagePath);
                 if (image == null) {
                   return Text(
                     card.caption.get(store.alt),

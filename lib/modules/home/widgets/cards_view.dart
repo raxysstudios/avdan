@@ -1,4 +1,5 @@
 import 'package:avdan/models/deck.dart';
+import 'package:avdan/shared/contents_store.dart';
 import 'package:avdan/shared/widgets/label.dart';
 import 'package:avdan/store.dart';
 import 'package:flutter/material.dart';
@@ -26,8 +27,13 @@ class _CardsViewState extends State<CardsView> {
   );
 
   @override
+  void initState() {
+    super.initState();
+    widget.onChange?.call(widget.initial);
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final media = context.read<Store>().media;
     return InkWell(
       onTap: () => widget.onChange?.call(
         _paging.page?.round() ?? 0,
@@ -39,7 +45,7 @@ class _CardsViewState extends State<CardsView> {
         itemBuilder: (context, i) {
           final card = widget.deck.cards[i];
           final caption = card.caption.get(context.read<Store>().alt);
-          final image = media.get(card.imagePath);
+          final image = getAsset(card.imagePath);
           return Stack(
             alignment: Alignment.center,
             children: [

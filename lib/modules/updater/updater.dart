@@ -3,6 +3,7 @@ import 'package:avdan/models/pack.dart';
 import 'package:avdan/modules/home/home.dart';
 import 'package:avdan/modules/updater/services/decks.dart';
 import 'package:avdan/modules/updater/services/packs.dart';
+import 'package:avdan/shared/contents_store.dart' as contents;
 import 'package:avdan/store.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -27,9 +28,12 @@ class _UpdaterScreenState extends State<UpdaterScreen> {
   void update() async {
     final languageUpdate = await checkLanguageUpdate(context);
     if (languageUpdate == null) {
-      decks = restoreDecks(context);
+      decks = contents.getAllDecks().values.toList();
     } else {
-      packs = await fetchUpdatedPacks(context);
+      packs = await fetchUpdatedPacks(
+        context,
+        contents.getAllDecks(),
+      );
       setState(() {});
       await updateDecks(
         context,

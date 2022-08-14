@@ -1,16 +1,10 @@
-import 'dart:typed_data';
-
 import 'package:flutter/foundation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import 'shared/extensions.dart';
 
-String? cachePath;
-
 class Store with ChangeNotifier {
   late final Box<dynamic> prefs;
-  late final Box<String> decks;
-  late final Box<Uint8List> media;
 
   var _localizations = <String, String>{};
   void saveLocalizations(Map<String, String> data) {
@@ -45,8 +39,6 @@ class Store with ChangeNotifier {
   Future<void> load() async {
     await Hive.initFlutter();
     prefs = await Hive.openBox<dynamic>('prefs');
-    decks = await Hive.openBox<String>('decks');
-    media = await Hive.openBox<Uint8List>('media');
     _localizations = prefs.get(
       'localizations',
       defaultValue: <String, String>{},
