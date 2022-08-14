@@ -13,8 +13,8 @@ part 'pack.g.dart';
 class Pack with _$Pack {
   const Pack._();
   const factory Pack({
+    required String id,
     required String coverId,
-    String? id,
     @ColorConverter() Color? color,
     @TimestampConverter() required DateTime lastUpdated,
   }) = _Pack;

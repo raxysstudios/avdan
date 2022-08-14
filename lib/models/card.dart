@@ -9,8 +9,8 @@ part 'card.g.dart';
 @unfreezed
 class Card with _$Card {
   factory Card({
+    required String id,
     required Caption caption,
-    String? id,
     String? imagePath,
     String? audioPath,
   }) = _Card;

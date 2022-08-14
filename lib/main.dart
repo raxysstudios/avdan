@@ -1,5 +1,5 @@
-import 'package:avdan/modules/home/home.dart';
 import 'package:avdan/modules/settings/settings.dart';
+import 'package:avdan/modules/updates/services/loader.dart';
 import 'package:avdan/shared/contents.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -27,19 +27,18 @@ class App extends StatelessWidget {
   const App({super.key});
 
   void setup(BuildContext context) {
-    late Widget screen;
-    final store = context.read<Store>();
-    if (store.interface.isEmpty || hasDecks) {
-      screen = const SettingsScreen(isInitial: true);
+    if (context.read<Store>().interface.isEmpty || !hasDecks) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute<void>(
+          builder: (context) => const SettingsScreen(
+            isInitial: true,
+          ),
+        ),
+      );
     } else {
-      screen = HomeScreen(getAllDecks().values.toList());
+      launch(context);
     }
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute<void>(
-        builder: (context) => screen,
-      ),
-    );
   }
 
   @override

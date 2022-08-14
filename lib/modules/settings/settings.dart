@@ -1,6 +1,6 @@
 import 'package:avdan/models/language.dart';
 import 'package:avdan/modules/news/services/updater.dart';
-import 'package:avdan/modules/updater/updater.dart';
+import 'package:avdan/modules/updates/updates.dart';
 import 'package:avdan/shared/contents.dart';
 import 'package:avdan/shared/localizations.dart';
 import 'package:avdan/shared/utils.dart';
@@ -74,7 +74,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         onPressed: () => Navigator.pushReplacement(
           context,
           MaterialPageRoute<void>(
-            builder: (context) => const UpdaterScreen(),
+            builder: (context) => const UpdatesScreen(),
           ),
         ),
         icon: const Icon(Icons.home_outlined),
