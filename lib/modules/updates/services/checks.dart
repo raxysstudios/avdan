@@ -32,10 +32,12 @@ Future<void> checkPacksUpdate(
         }),
         toFirestore: (object, _) => object.toJson(),
       )
-      .where('statuc', isEqualTo: 'public')
+      .where('status', isEqualTo: 'public')
       .get()
       .then((s) => s.docs.map((d) => d.data()));
 
+  print('LANG $language');
+  print('PACKS $packs');
   for (final p in packs) {
     if (decks[p.id]?.isOutdated(p.lastUpdated) ?? true) {
       onPackFound(

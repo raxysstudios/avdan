@@ -26,10 +26,9 @@ void update(
       getAllDecks(),
       onPackFound,
     );
-    await load();
     store.prefs.put('lastUpdated', lastUpdated);
   }
-  launch(context);
+  await load();
 }
 
 void launch(BuildContext context) {

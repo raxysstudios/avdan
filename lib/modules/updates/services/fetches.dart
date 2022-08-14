@@ -28,18 +28,22 @@ Future<void> saveAssets(
   Card card, [
   bool audio = true,
 ]) async {
-  await putAsset(
-    card.imagePath,
-    await FirebaseStorage.instance
-        .ref('static/images/${card.imagePath}')
-        .getData(),
-  );
-  if (audio) {
+  if (card.imagePath != null) {
     await putAsset(
-      card.audioPath,
+      card.imagePath!,
+      await FirebaseStorage.instance
+          .ref('static/images/${card.imagePath}')
+          .getData()
+          .onError((error, stackTrace) => null),
+    );
+  }
+  if (audio && card.audioPath != null) {
+    await putAsset(
+      card.audioPath!,
       await FirebaseStorage.instance
           .ref('static/audios/$language/${card.audioPath}')
-          .getData(),
+          .getData()
+          .onError((error, stackTrace) => null),
     );
   }
 }
