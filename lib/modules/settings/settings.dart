@@ -1,7 +1,7 @@
 import 'package:avdan/models/language.dart';
 import 'package:avdan/modules/news/services/updater.dart';
 import 'package:avdan/modules/updater/updater.dart';
-import 'package:avdan/shared/contents_store.dart';
+import 'package:avdan/shared/contents.dart';
 import 'package:avdan/shared/utils.dart';
 import 'package:avdan/shared/widgets/column_card.dart';
 import 'package:avdan/shared/widgets/raxys.dart';

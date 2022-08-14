@@ -3,7 +3,7 @@ import 'package:avdan/models/pack.dart';
 import 'package:avdan/modules/home/home.dart';
 import 'package:avdan/modules/updater/services/decks.dart';
 import 'package:avdan/modules/updater/services/packs.dart';
-import 'package:avdan/shared/contents_store.dart' as contents;
+import 'package:avdan/shared/contents.dart' as contents;
 import 'package:avdan/store.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

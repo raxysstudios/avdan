@@ -2,7 +2,7 @@ import 'package:avdan/models/deck.dart';
 import 'package:avdan/modules/home/widgets/decks_view.dart';
 import 'package:avdan/modules/news/services/updater.dart';
 import 'package:avdan/modules/settings/settings.dart';
-import 'package:avdan/shared/contents_store.dart';
+import 'package:avdan/shared/player.dart';
 import 'package:avdan/shared/widgets/label.dart';
 import 'package:avdan/shared/widgets/language_flag.dart';
 import 'package:avdan/store.dart';
@@ -34,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen>
     super.initState();
     Future.microtask(() async {
       await checkNews(context);
-      playAsset(deck.cover.audioPath);
+      playCard(deck.cover);
     });
 
     _tab = TabController(
@@ -58,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen>
   void setDeck(Deck value) {
     setState(() {
       deck = value;
-      playAsset(deck.cover.audioPath);
+      playCard(deck.cover);
     });
   }
 
@@ -111,7 +111,7 @@ class _HomeScreenState extends State<HomeScreen>
             controller: _tab,
             onTap: (i) {
               if (decks[i] == deck) {
-                playAsset(deck.cover.audioPath);
+                playCard(deck.cover);
               }
             },
           ),

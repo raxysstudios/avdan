@@ -1,5 +1,5 @@
 import 'package:avdan/models/deck.dart';
-import 'package:avdan/shared/contents_store.dart';
+import 'package:avdan/shared/contents.dart';
 import 'package:avdan/shared/widgets/label.dart';
 import 'package:avdan/store.dart';
 import 'package:flutter/material.dart';

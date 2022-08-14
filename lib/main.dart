@@ -1,6 +1,6 @@
 import 'package:avdan/modules/home/home.dart';
 import 'package:avdan/modules/settings/settings.dart';
-import 'package:avdan/shared/contents_store.dart';
+import 'package:avdan/shared/contents.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

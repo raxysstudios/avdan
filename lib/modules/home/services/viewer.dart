@@ -1,5 +1,5 @@
 import 'package:avdan/models/deck.dart';
-import 'package:avdan/shared/contents_store.dart';
+import 'package:avdan/shared/player.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/cards_view.dart';
@@ -27,7 +27,7 @@ void openView(
             CardsView(
               deck,
               initial: card,
-              onChange: (i) => playAsset(deck.cards[i].audioPath),
+              onChange: (i) => playCard(deck.cards[i]),
             ),
             Padding(
               padding: const EdgeInsets.all(8),

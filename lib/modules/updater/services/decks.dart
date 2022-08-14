@@ -1,7 +1,7 @@
 import 'package:avdan/models/card.dart' as avd;
 import 'package:avdan/models/deck.dart';
 import 'package:avdan/models/pack.dart';
-import 'package:avdan/shared/contents_store.dart';
+import 'package:avdan/shared/contents.dart';
 import 'package:avdan/store.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';

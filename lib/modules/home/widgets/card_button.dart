@@ -1,5 +1,5 @@
 import 'package:avdan/models/card.dart' as avd;
-import 'package:avdan/shared/contents_store.dart';
+import 'package:avdan/shared/contents.dart';
 import 'package:avdan/store.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
