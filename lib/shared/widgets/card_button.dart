@@ -25,26 +25,29 @@ class CardButton extends StatelessWidget {
       highlightColor: color,
       child: Padding(
         padding: const EdgeInsets.all(8),
-        child: FittedBox(
-          fit: BoxFit.scaleDown,
-          child: Builder(
-            builder: (context) {
-              final image = getAsset(card.imagePath);
-              if (image == null) {
-                final text = (card.preview ?? card.caption)
-                    .get(context.read<Store>().alt);
-                return Text(
+        child: Builder(
+          builder: (context) {
+            final image = getAsset(card.imagePath);
+            if (image == null) {
+              final text =
+                  (card.preview ?? card.caption).get(context.read<Store>().alt);
+              return FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Text(
                   capitalize(text),
                   style: TextStyle(
                     color: Theme.of(context).textTheme.bodyText1?.color,
                     fontSize: 48,
                     fontWeight: FontWeight.w500,
                   ),
-                );
-              }
-              return Image.memory(image);
-            },
-          ),
+                ),
+              );
+            }
+            return Image.memory(
+              image,
+              fit: BoxFit.cover,
+            );
+          },
         ),
       ),
     );
