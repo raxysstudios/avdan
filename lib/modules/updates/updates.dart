@@ -26,42 +26,10 @@ class _UpdatesScreenState extends State<UpdatesScreen> {
     super.initState();
     update(
       context,
-      (p) => setState(() => loading.add(p)),
-    ).then((_) async {
-      await load();
-      launch(context);
-    });
-  }
-
-  Future<void> load() async {
-    final language = context.read<Store>().learning;
-    final translationLanguage = context.read<Store>().interface;
-    for (final d in loading) {
-      setState(() {
-        d.loaded = 0;
-      });
-      final translations = <String, String?>{};
-      final cards = await fetchCards(language, d.pack.id);
-      for (final c in cards) {
-        translations[c.id] = await fetchTranslation(
-          language,
-          translationLanguage,
-          d.pack.id,
-          c.id,
-        );
-        await saveAssets(language, c);
-        setState(() {
-          d.loaded = d.loaded! + 1;
-        });
-      }
-      await putDeck(Deck(
-        pack: d.pack,
-        cover: cards.firstWhere((c) => c.id == d.cover.id),
-        cards: cards.where((c) => c.id != d.cover.id).toList(),
-        translations: translations,
-      ));
-    }
-    launch(context);
+      (d) => setState(() => loading.add(d)),
+      (d) => setState(() {}),
+      (d) => setState(() {}),
+    ).then((_) => launch(context));
   }
 
   @override
