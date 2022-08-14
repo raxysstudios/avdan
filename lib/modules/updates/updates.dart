@@ -35,6 +35,7 @@ class _UpdatesScreenState extends State<UpdatesScreen> {
 
   Future<void> load() async {
     final language = context.read<Store>().learning;
+    final translationLanguage = context.read<Store>().interface;
     for (final d in loading) {
       setState(() {
         d.loaded = 0;
@@ -42,7 +43,12 @@ class _UpdatesScreenState extends State<UpdatesScreen> {
       final translations = <String, String?>{};
       final cards = await fetchCards(language, d.pack.id);
       for (final c in cards) {
-        translations[c.id] = await fetchTranslation(language, d.pack.id, c.id);
+        translations[c.id] = await fetchTranslation(
+          language,
+          translationLanguage,
+          d.pack.id,
+          c.id,
+        );
         await saveAssets(language, c);
         setState(() {
           d.loaded = d.loaded! + 1;

@@ -50,13 +50,14 @@ Future<void> saveAssets(
 
 Future<String?> fetchTranslation(
   String language,
+  String translationLanguage,
   String packId,
   String cardId,
 ) {
   return FirebaseFirestore.instance
       .collection('languages/$language/packs/$packId/translations')
       .where('cardId', isEqualTo: cardId)
-      .where('language', isEqualTo: language)
+      .where('language', isEqualTo: translationLanguage)
       .limit(1)
       .get()
       .then((s) => s.size == 0 ? null : s.docs.first.get('text') as String);
@@ -84,6 +85,7 @@ Future<DeckPreview> fetchDeckPreview(
     cover: cover,
     length: pack.length,
     translation: await fetchTranslation(
+      language,
       translationLanguage,
       pack.id,
       cover.id,
