@@ -15,6 +15,7 @@ class Pack with _$Pack {
   const factory Pack({
     required String id,
     required String coverId,
+    required int length,
     @ColorConverter() Color? color,
     @TimestampConverter() required DateTime lastUpdated,
   }) = _Pack;

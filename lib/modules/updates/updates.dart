@@ -1,9 +1,11 @@
 import 'package:avdan/models/deck.dart';
-import 'package:avdan/models/pack.dart';
-import 'package:avdan/modules/updates/widgets/loader_chip.dart';
+import 'package:avdan/modules/updates/models/deck_preview.dart';
+import 'package:avdan/modules/updates/widgets/loading_chip.dart';
 import 'package:avdan/shared/contents.dart';
 import 'package:avdan/shared/localizations.dart';
+import 'package:avdan/store.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'services/fetches.dart';
 import 'services/loader.dart';
@@ -16,48 +18,64 @@ class UpdatesScreen extends StatefulWidget {
 }
 
 class _UpdatesScreenState extends State<UpdatesScreen> {
-  var packs = <Pack>[];
-  var decks = <Deck>[];
+  final loading = <DeckPreview>[];
 
   @override
   void initState() {
     super.initState();
-    update(context, load);
+    update(
+      context,
+      (p) => setState(() => loading.add(p)),
+      load,
+    );
   }
 
-  Future<void> load(String language, List<Pack> packs) async {
-    setState(() {});
-    for (final p in packs) {
-      final cards = await fetchCards(language, p);
-      saveAssets(language, cards);
-      final deck = Deck(
-        pack: p,
-        cover: cards.firstWhere((c) => c.id == p.coverId),
-        cards: cards.where((c) => c.id != p.coverId).toList(),
-        translations: await fetchTranslations(language, p, cards),
-      );
-      await putDeck(deck);
+  Future<void> load() async {
+    final language = context.read<Store>().learning;
+    for (final d in loading) {
+      setState(() {
+        d.loaded = 0;
+      });
+      final translations = <String, String?>{};
+      final cards = await fetchCards(language, d.pack.id);
+      for (final c in cards) {
+        translations[c.id] = await fetchTranslation(language, d.pack.id, c.id);
+        await saveAssets(language, c);
+        setState(() {
+          d.loaded = d.loaded! + 1;
+        });
+      }
+      await putDeck(Deck(
+        pack: d.pack,
+        cover: cards.firstWhere((c) => c.id == d.cover.id),
+        cards: cards.where((c) => c.id != d.cover.id).toList(),
+        translations: translations,
+      ));
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    final alt = context.watch<Store>().alt;
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: Text(localize('updates')),
         actions: [
-          LoaderChip(decks.length, packs.length),
+          LoadingChip(
+            loading.where((d) => (d.loaded ?? 0) >= d.length).length,
+            loading.length,
+          ),
         ],
       ),
       body: ListView(
         children: [
-          const CircularProgressIndicator(),
-          const SizedBox(height: 16),
-          if (packs.isEmpty)
-            const Text('Checking')
-          else
-            Text('Downloading ${decks.length} / ${packs.length}'),
+          for (final d in loading)
+            ListTile(
+              title: Text(d.cover.caption.get(alt)),
+              subtitle: d.translation == null ? null : Text(d.translation!),
+              trailing: LoadingChip(d.loaded, d.length),
+            ),
         ],
       ),
     );

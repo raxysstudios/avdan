@@ -8,14 +8,14 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'deck.freezed.dart';
 part 'deck.g.dart';
 
-@unfreezed
+@freezed
 class Deck with _$Deck {
   const Deck._();
   factory Deck({
     required Pack pack,
     required Card cover,
     required List<Card> cards,
-    @Default(<String, String>{}) Map<String, String> translations,
+    @Default(<String, String>{}) Map<String, String?> translations,
   }) = _Deck;
 
   Color? get color => pack.color?.withOpacity(0.25);

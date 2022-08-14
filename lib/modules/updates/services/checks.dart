@@ -1,7 +1,11 @@
 import 'package:avdan/models/converters/timestamp_converter.dart';
 import 'package:avdan/models/deck.dart';
 import 'package:avdan/models/pack.dart';
+import 'package:avdan/modules/updates/services/fetches.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
+
+import '../models/deck_preview.dart';
 
 Future<DateTime?> checkLanguageUpdate(
   String language,
@@ -14,9 +18,10 @@ Future<DateTime?> checkLanguageUpdate(
   return globalUpdated.isAfter(lastUpdated) ? globalUpdated : null;
 }
 
-Future<List<Pack>> checkPacksUpdate(
+Future<void> checkPacksUpdate(
   String language,
   Map<String, Deck> decks,
+  ValueSetter<DeckPreview> onPackFound,
 ) async {
   final packs = await FirebaseFirestore.instance
       .collection('languages/$language/packs')
@@ -30,8 +35,11 @@ Future<List<Pack>> checkPacksUpdate(
       .get()
       .then((s) => s.docs.map((d) => d.data()));
 
-  return [
-    for (final p in packs)
-      if (decks[p.id]?.isOutdated(p.lastUpdated) ?? true) p
-  ];
+  for (final p in packs) {
+    if (decks[p.id]?.isOutdated(p.lastUpdated) ?? true) {
+      onPackFound(
+        await fetchDeckPreview(language, p),
+      );
+    }
+  }
 }

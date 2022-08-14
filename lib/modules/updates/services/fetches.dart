@@ -4,12 +4,14 @@ import 'package:avdan/shared/contents.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
+import '../models/deck_preview.dart';
+
 Future<List<Card>> fetchCards(
   String language,
-  Pack pack,
+  String packId,
 ) async {
   return FirebaseFirestore.instance
-      .collection('languages/$language/packs/${pack.id}/cards')
+      .collection('languages/$language/packs/$packId/cards')
       .withConverter<Card>(
         fromFirestore: (snapshot, _) => Card.fromJson({
           'id': snapshot.id,
@@ -23,39 +25,63 @@ Future<List<Card>> fetchCards(
 
 Future<void> saveAssets(
   String language,
-  List<Card> cards,
-) async {
-  for (final c in cards) {
+  Card card, [
+  bool audio = true,
+]) async {
+  await putAsset(
+    card.imagePath,
+    await FirebaseStorage.instance
+        .ref('static/images/${card.imagePath}')
+        .getData(),
+  );
+  if (audio) {
     await putAsset(
-      c.imagePath,
+      card.audioPath,
       await FirebaseStorage.instance
-          .ref('static/images/${c.imagePath}')
-          .getData(),
-    );
-    await putAsset(
-      c.audioPath,
-      await FirebaseStorage.instance
-          .ref('static/audios/$language/${c.audioPath}')
+          .ref('static/audios/$language/${card.audioPath}')
           .getData(),
     );
   }
 }
 
-Future<Map<String, String>> fetchTranslations(
+Future<String?> fetchTranslation(
+  String language,
+  String packId,
+  String cardId,
+) {
+  return FirebaseFirestore.instance
+      .collection('languages/$language/packs/$packId/translations')
+      .where('cardId', isEqualTo: cardId)
+      .where('language', isEqualTo: language)
+      .limit(1)
+      .get()
+      .then((s) => s.size == 0 ? null : s.docs.first.get('text') as String);
+}
+
+Future<DeckPreview> fetchDeckPreview(
   String language,
   Pack pack,
-  List<Card> cards,
 ) async {
-  final collection = FirebaseFirestore.instance.collection(
-    'languages/$language/packs/${pack.id}/translations',
+  final cover = await FirebaseFirestore.instance
+      .doc('languages/$language/packs/${pack.id}/cards/${pack.coverId}')
+      .withConverter<Card>(
+        fromFirestore: (snapshot, _) => Card.fromJson({
+          'id': snapshot.id,
+          ...snapshot.data()!,
+        }),
+        toFirestore: (object, _) => object.toJson(),
+      )
+      .get()
+      .then((d) => d.data()!);
+  await saveAssets(language, cover, false);
+  return DeckPreview(
+    pack: pack,
+    cover: cover,
+    length: pack.length,
+    translation: await fetchTranslation(
+      language,
+      pack.id,
+      cover.id,
+    ),
   );
-  return {
-    for (final c in cards)
-      c.id: await collection
-          .where('cardId', isEqualTo: c.id)
-          .where('language', isEqualTo: language)
-          .limit(1)
-          .get()
-          .then((s) => s.docs.first.get('text') as String)
-  };
 }

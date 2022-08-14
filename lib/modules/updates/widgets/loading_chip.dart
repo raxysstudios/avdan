@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class LoaderChip extends StatelessWidget {
-  const LoaderChip(
+class LoadingChip extends StatelessWidget {
+  const LoadingChip(
     this.loaded,
     this.total, {
     super.key,

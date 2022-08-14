@@ -6,11 +6,12 @@ import 'caption.dart';
 part 'card.freezed.dart';
 part 'card.g.dart';
 
-@unfreezed
+@freezed
 class Card with _$Card {
   factory Card({
     required String id,
     required Caption caption,
+    Caption? preview,
     String? imagePath,
     String? audioPath,
   }) = _Card;
