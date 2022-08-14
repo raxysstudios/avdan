@@ -14,14 +14,19 @@ class LoadingChip extends StatelessWidget {
     return Chip(
       avatar: loaded == null
           ? null
-          : loaded! >= total
-              ? const Icon(Icons.done_outline)
-              : const CircularProgressIndicator(),
+          : loaded! < total || total == 0
+              ? const CircularProgressIndicator()
+              : const Icon(Icons.check_outlined),
       label: Text(
-        [
-          loaded,
-          if ((loaded ?? 0) < total) total,
-        ].join(' / '),
+        loaded == 0
+            ? '...'
+            : [
+                loaded,
+                if ((loaded ?? 0) < total) total,
+              ].join(' / '),
+        style: const TextStyle(
+          fontWeight: FontWeight.w500,
+        ),
       ),
     );
   }

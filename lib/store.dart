@@ -23,9 +23,7 @@ class Store with ChangeNotifier {
   }
 
   Future<void> load() async {
-    await Hive.initFlutter();
     prefs = await Hive.openBox<dynamic>('prefs');
-
     notifyListeners();
   }
 }

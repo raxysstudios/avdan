@@ -1,9 +1,12 @@
 import 'package:avdan/modules/settings/settings.dart';
 import 'package:avdan/modules/updates/services/loader.dart';
 import 'package:avdan/shared/contents.dart';
+import 'package:avdan/shared/localizations.dart';
+import 'package:avdan/shared/player.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 
 import 'firebase_options.dart';
@@ -51,9 +54,16 @@ class App extends StatelessWidget {
       home: FutureBuilder(
         future: Future.wait([
           Future<void>.delayed(const Duration(seconds: 2)),
-          context.read<Store>().load(),
           Firebase.initializeApp(
             options: DefaultFirebaseOptions.currentPlatform,
+          ),
+          Hive.initFlutter().then(
+            (_) async {
+              await context.read<Store>().load();
+              await initContents();
+              await initLocalizations();
+              await initPlayer();
+            },
           ),
         ]),
         builder: (context, snapshot) {
