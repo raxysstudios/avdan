@@ -45,13 +45,6 @@ class _UpdatesScreenState extends State<UpdatesScreen> {
           child: LinearProgressIndicator(),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          if (loading.every((d) => (d.loaded ?? 0) >= d.length)) {
-            launch(context);
-          }
-        },
-      ),
       body: ListView(
         children: [
           for (final d in loading)
