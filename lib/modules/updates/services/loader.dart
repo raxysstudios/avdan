@@ -7,10 +7,9 @@ import 'package:provider/provider.dart';
 import '../models/deck_preview.dart';
 import 'checks.dart';
 
-void update(
+Future<void> update(
   BuildContext context,
   ValueSetter<DeckPreview> onPackFound,
-  Future<void> Function() load,
 ) async {
   final store = context.read<Store>();
   final lastUpdated = await checkLanguageUpdate(
@@ -23,12 +22,12 @@ void update(
   if (lastUpdated != null) {
     await checkPacksUpdate(
       store.learning,
+      store.interface,
       getAllDecks(),
       onPackFound,
     );
     store.prefs.put('lastUpdated', lastUpdated);
   }
-  await load();
 }
 
 void launch(BuildContext context) {

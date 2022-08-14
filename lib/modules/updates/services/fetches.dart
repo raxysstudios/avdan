@@ -64,6 +64,7 @@ Future<String?> fetchTranslation(
 
 Future<DeckPreview> fetchDeckPreview(
   String language,
+  String translationLanguage,
   Pack pack,
 ) async {
   final cover = await FirebaseFirestore.instance
@@ -83,7 +84,7 @@ Future<DeckPreview> fetchDeckPreview(
     cover: cover,
     length: pack.length,
     translation: await fetchTranslation(
-      language,
+      translationLanguage,
       pack.id,
       cover.id,
     ),

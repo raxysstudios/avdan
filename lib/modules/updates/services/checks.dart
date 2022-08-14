@@ -20,6 +20,7 @@ Future<DateTime?> checkLanguageUpdate(
 
 Future<void> checkPacksUpdate(
   String language,
+  String translationLanguage,
   Map<String, Deck> decks,
   ValueSetter<DeckPreview> onPackFound,
 ) async {
@@ -36,12 +37,14 @@ Future<void> checkPacksUpdate(
       .get()
       .then((s) => s.docs.map((d) => d.data()));
 
-  print('LANG $language');
-  print('PACKS $packs');
   for (final p in packs) {
     if (decks[p.id]?.isOutdated(p.lastUpdated) ?? true) {
       onPackFound(
-        await fetchDeckPreview(language, p),
+        await fetchDeckPreview(
+          language,
+          translationLanguage,
+          p,
+        ),
       );
     }
   }

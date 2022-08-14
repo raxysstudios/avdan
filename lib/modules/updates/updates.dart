@@ -27,8 +27,10 @@ class _UpdatesScreenState extends State<UpdatesScreen> {
     update(
       context,
       (p) => setState(() => loading.add(p)),
-      load,
-    );
+    ).then((_) async {
+      await load();
+      launch(context);
+    });
   }
 
   Future<void> load() async {
@@ -53,6 +55,7 @@ class _UpdatesScreenState extends State<UpdatesScreen> {
         translations: translations,
       ));
     }
+    launch(context);
   }
 
   @override
