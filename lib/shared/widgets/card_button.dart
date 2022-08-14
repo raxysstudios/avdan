@@ -4,6 +4,8 @@ import 'package:avdan/store.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../utils.dart';
+
 class CardButton extends StatelessWidget {
   const CardButton(
     this.card, {
@@ -23,25 +25,25 @@ class CardButton extends StatelessWidget {
       highlightColor: color,
       child: Padding(
         padding: const EdgeInsets.all(8),
-        child: Center(
-          child: FittedBox(
-            fit: BoxFit.fitWidth,
-            child: Builder(
-              builder: (context) {
-                final store = context.read<Store>();
-                final image = getAsset(card.imagePath);
-                if (image == null) {
-                  return Text(
-                    (card.preview ?? card.caption).get(store.alt),
-                    style: const TextStyle(
-                      fontSize: 42,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  );
-                }
-                return Image.memory(image);
-              },
-            ),
+        child: FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Builder(
+            builder: (context) {
+              final image = getAsset(card.imagePath);
+              if (image == null) {
+                final text = (card.preview ?? card.caption)
+                    .get(context.read<Store>().alt);
+                return Text(
+                  capitalize(text),
+                  style: TextStyle(
+                    color: Theme.of(context).textTheme.bodyText1?.color,
+                    fontSize: 48,
+                    fontWeight: FontWeight.w500,
+                  ),
+                );
+              }
+              return Image.memory(image);
+            },
           ),
         ),
       ),
