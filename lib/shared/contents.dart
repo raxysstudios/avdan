@@ -24,7 +24,7 @@ Future<void> putAsset(String key, Uint8List? data) async {
 }
 
 Uint8List? getAsset(String? key) {
-  return _medias.get(key);
+  return key == null ? null : _medias.get(key);
 }
 
 Future<void> putDeck(Deck deck) {
