@@ -24,6 +24,7 @@ async function upload() {
     const pack = {
       "color": d.color,
       "length": d.length,
+      "status": "updating",
     };
     if (pack.color == "#") delete pack.color;
     const pRef = await firestore
