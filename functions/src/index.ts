@@ -1,3 +1,4 @@
+import {firestore} from "firebase-admin";
 import * as functions from "firebase-functions";
 import "./init";
 import {createDeckPackage, deleteDeckPackage} from "./utils/package-deck";
@@ -14,6 +15,10 @@ export const packageDecks = functions
       if (change.after.exists) {
         if (isUpdated(change.after.data(), change.before.data())) {
           await createDeckPackage(lang, pID);
+          await firestore().doc(`languages/${lang}`)
+              .update({
+                "lastUpdated": firestore.FieldValue.serverTimestamp(),
+              });
         }
       }
     });
