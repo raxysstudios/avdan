@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable require-jsdoc */
-import {default as admin, firestore} from "./init";
+import {default as admin, firestore} from "../init";
 
 const lang = "east circassian";
 clean();
@@ -18,7 +18,6 @@ upload();
 async function upload() {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   const data = require(`./assets/packs/${lang}.json`);
-  let i = 0;
   for (const d of data) {
     const pack = {
       "color": d.color,
@@ -38,7 +37,6 @@ async function upload() {
       "lastUpdated": admin.firestore.FieldValue.serverTimestamp(),
       "status": "public",
     });
-    if (++i > 2) break;
   }
   await firestore
       .doc(`languages/${lang}`)
