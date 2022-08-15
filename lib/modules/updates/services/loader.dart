@@ -35,39 +35,35 @@ Future<void> update(
     onProgress(() {
       d.status = DeckStatus.downloading;
     });
-    try {
-      final archive = ZipDecoder().decodeBytes(
-        await FirebaseStorage.instance
-            .ref('decks/${d.pack.id}/${d.pack.id}.zip')
-            .getData()
-            .then((d) => d!),
-      );
-      final dynamic translations = await FirebaseStorage.instance
-          .ref('decks/${d.pack.id}/$intLng.json')
+    final archive = ZipDecoder().decodeBytes(
+      await FirebaseStorage.instance
+          .ref('decks/${d.pack.id}/${d.pack.id}.zip')
           .getData()
-          .then<dynamic>((d) => json.decode(utf8.decode(d!)));
-      onProgress(() {
-        d.status = DeckStatus.unpacking;
-      });
-      final deck = Deck.fromJson({
-        ...json.decode(
-          utf8.decode(
-            archive.findFile('deck.json')?.content as List<int>,
-          ),
+          .then((d) => d!),
+    );
+    final dynamic translations = await FirebaseStorage.instance
+        .ref('decks/${d.pack.id}/$intLng.json')
+        .getData()
+        .then<dynamic>((d) => json.decode(utf8.decode(d!)));
+    onProgress(() {
+      d.status = DeckStatus.unpacking;
+    });
+    final deck = Deck.fromJson({
+      ...json.decode(
+        utf8.decode(
+          archive.findFile('deck.json')?.content as List<int>,
         ),
-        'translations': translations,
-      });
-      await putDeck(deck);
-      for (final f in archive.files) {
-        if (f.isFile && !f.name.endsWith('.json')) {
-          await putAsset(
-            f.name,
-            Uint8List.fromList(f.content as List<int>),
-          );
-        }
+      ),
+      'translations': translations,
+    });
+    await putDeck(deck);
+    for (final f in archive.files) {
+      if (f.isFile && !f.name.endsWith('.json')) {
+        await putAsset(
+          f.name,
+          Uint8List.fromList(f.content as List<int>),
+        );
       }
-    } catch (e) {
-      print('missing');
     }
     onProgress(() {
       d.status = DeckStatus.ready;
