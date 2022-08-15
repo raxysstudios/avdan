@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable require-jsdoc */
-// import * as firebase from "firebase";
 import {default as admin, firestore} from "./init";
 
 const lang = "east circassian";
@@ -18,7 +17,7 @@ async function clean() {
 upload();
 async function upload() {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const data = require(`./texts/${lang}.json`);
+  const data = require(`./assets/packs/${lang}.json`);
   let i = 0;
   for (const d of data) {
     const pack = {

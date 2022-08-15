@@ -9,5 +9,4 @@ typings/
 node_modules/
 
 src/admin/serviceAccountKey.json
-src/admin/static
-src/admin/texts
+src/admin/assets

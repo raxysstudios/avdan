@@ -14,7 +14,7 @@ async function clean(dir="") {
 upload();
 async function upload(dir="") {
   glob(
-      `static/${dir}/**/*.{png,mp3}`,
+      `assets/static/${dir}/**/*.{png,mp3}`,
       async (_, files) => {
         for (const file of files) {
           await bucket.upload(
