@@ -16,6 +16,7 @@ class Pack with _$Pack {
     required String id,
     required String coverId,
     required int length,
+    @Default(0) int index,
     @ColorConverter() Color? color,
     @TimestampConverter() required DateTime lastUpdated,
   }) = _Pack;

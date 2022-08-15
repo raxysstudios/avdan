@@ -35,10 +35,13 @@ Future<void> putDeck(Deck deck) {
 }
 
 Map<String, Deck> getAllDecks() {
+  final decks = _decks.values
+      .map((j) => Deck.fromJson(
+            jsonDecode(j) as Map<String, dynamic>,
+          ))
+      .toList();
+  decks.sort((a, b) => a.pack.index - b.pack.index);
   return {
-    for (final k in _decks.keys)
-      k as String: Deck.fromJson(
-        jsonDecode(_decks.get(k)!) as Map<String, dynamic>,
-      )
+    for (final d in decks) d.pack.id: d,
   };
 }

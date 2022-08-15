@@ -36,6 +36,7 @@ Future<void> checkPendingPacks(
         toFirestore: (object, _) => object.toJson(),
       )
       .where('status', isEqualTo: 'public')
+      .orderBy('index')
       .get()
       .then((s) => s.docs.map((d) => d.data()));
 
