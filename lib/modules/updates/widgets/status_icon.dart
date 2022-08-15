@@ -10,13 +10,15 @@ class StatusIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Stack(
+      alignment: Alignment.center,
       children: [
-        if (status == DeckStatus.downloading || status == DeckStatus.unpacking)
-          const Padding(
-            padding: EdgeInsets.only(right: 16),
-            child: CircularProgressIndicator(),
-          ),
+        CircularProgressIndicator(
+          value:
+              status == DeckStatus.downloading || status == DeckStatus.unpacking
+                  ? null
+                  : 0,
+        ),
         Icon(
           status == DeckStatus.pending
               ? Icons.update_outlined

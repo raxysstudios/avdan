@@ -24,7 +24,7 @@ class _UpdatesScreenState extends State<UpdatesScreen> {
       context,
       (d) => setState(() => loading.add(d)),
       setState,
-    ) /*.then((_) => launch(context))*/;
+    ).then((_) => launch(context));
   }
 
   @override

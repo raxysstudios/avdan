@@ -13,11 +13,11 @@ Future<DateTime?> checkLanguageUpdate(
   String language,
   DateTime lastUpdated,
 ) async {
-  final globalUpdated = await FirebaseFirestore.instance
+  final serverUpdated = await FirebaseFirestore.instance
       .doc('languages/$language')
       .get()
       .then((r) => const TimestampConverter().fromJson(r.get('lastUpdated')));
-  return globalUpdated.isAfter(lastUpdated) ? globalUpdated : null;
+  return serverUpdated.isAfter(lastUpdated) ? serverUpdated : null;
 }
 
 Future<void> checkPendingPacks(
@@ -39,7 +39,6 @@ Future<void> checkPendingPacks(
       .get()
       .then((s) => s.docs.map((d) => d.data()));
 
-  print('PACK ${packs.length}');
   for (final p in packs) {
     if (decks[p.id]?.isOutdated(p.lastUpdated) ?? true) {
       onPackFound(

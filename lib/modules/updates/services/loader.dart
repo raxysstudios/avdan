@@ -18,7 +18,7 @@ Future<void> update(
   ValueSetter<VoidCallback> onProgress,
 ) async {
   final lastUpdated = await checkLanguageUpdate(lrnLng, lrnUpd);
-  if (lastUpdated != null) return;
+  if (lastUpdated == null) return;
 
   final pending = <DeckPreview>[];
   await checkPendingPacks(
@@ -42,25 +42,21 @@ Future<void> update(
             .getData()
             .then((d) => d!),
       );
-      final translations = await FirebaseStorage.instance
+      final dynamic translations = await FirebaseStorage.instance
           .ref('decks/${d.pack.id}/$intLng.json')
           .getData()
-          .then(
-            (d) => json.decode(
-              utf8.decode(d!),
-            ) as Map<String, String>,
-          );
+          .then<dynamic>((d) => json.decode(utf8.decode(d!)));
       onProgress(() {
         d.status = DeckStatus.unpacking;
       });
-      final deck = Deck.fromJson(
-        {
-          ...json.decode(
-            archive.findFile('deck.json')?.content as String,
-          ) as Map<String, dynamic>,
-          'translations': translations,
-        },
-      );
+      final deck = Deck.fromJson({
+        ...json.decode(
+          utf8.decode(
+            archive.findFile('deck.json')?.content as List<int>,
+          ),
+        ),
+        'translations': translations,
+      });
       await putDeck(deck);
       for (final f in archive.files) {
         if (f.isFile && !f.name.endsWith('.json')) {
@@ -70,14 +66,13 @@ Future<void> update(
           );
         }
       }
-      onProgress(() {
-        d.status = DeckStatus.ready;
-      });
     } catch (e) {
       print('missing');
     }
+    onProgress(() {
+      d.status = DeckStatus.ready;
+    });
   }
-  print('DECK ${getAllDecks().values.first}');
   lrnUpd = lastUpdated;
 }
 
