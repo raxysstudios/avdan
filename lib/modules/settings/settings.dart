@@ -26,6 +26,7 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
+  Map<String, String>? lclz;
   var languages = <Language>[];
 
   @override
@@ -37,8 +38,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
         if (widget.isInitial) {
           final interface = languages.firstWhere((l) => l.isInterface);
           intLng = interface.name;
-          putLocalizations(interface.localizations);
           lrnLng = languages.firstWhere((l) => !l.isInterface).name;
+          setState(() {
+            lclz = interface.localizations;
+          });
         }
       }),
     );
@@ -50,7 +53,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     return Scaffold(
       appBar: AppBar(
         leading: const Raxys(scale: 3),
-        title: Text(localize('settings')),
+        title: Text(localize('settings', map: lclz)),
         centerTitle: true,
         actions: [
           IconButton(
@@ -64,6 +67,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         onPressed: () async {
           lrnUpd = null;
           await clearContents();
+          if (lclz != null) putLocalizations(lclz!);
           Navigator.pushReplacement(
             context,
             MaterialPageRoute<void>(
@@ -72,7 +76,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           );
         },
         icon: const Icon(Icons.home_outlined),
-        label: Text(localize('home')),
+        label: Text(localize('home', map: lclz)),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       body: ListView(
@@ -85,7 +89,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               children: [
                 const SizedBox(height: 8),
                 Text(
-                  localize('honor', false),
+                  localize('honor', map: lclz, isTitled: false),
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.bodyText1,
                 ),
@@ -93,7 +97,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ElevatedButton.icon(
                   onPressed: () => openLink('https://t.me/raxysstudios'),
                   icon: const Icon(Icons.send_outlined),
-                  label: Text(localize('contact')),
+                  label: Text(localize('contact', map: lclz)),
                 ),
               ],
             ),
@@ -103,7 +107,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 16),
                 child: Text(
-                  localize('interface'),
+                  localize('interface', map: lclz),
                   textAlign: TextAlign.center,
                   style: textTheme.headline6,
                 ),
@@ -119,7 +123,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         : LanguageMode.none,
                     onTap: (alt) {
                       intLng = l.name;
-                      putLocalizations(l.localizations);
+                      setState(() {
+                        lclz = l.localizations;
+                      });
                     },
                   ),
             ],
@@ -129,7 +135,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 16),
                 child: Text(
-                  localize('learning'),
+                  localize('learning', map: lclz),
                   textAlign: TextAlign.center,
                   style: textTheme.headline6,
                 ),
