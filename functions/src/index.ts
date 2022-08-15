@@ -7,7 +7,7 @@ export const packageDecks = functions
     .region("europe-central2")
     .firestore.document("languages/{lang}/packs/{pID}")
     .onWrite(async (change, context) => {
-      const {lang, pID} = context.params.lang;
+      const {lang, pID} = context.params;
       if (change.before.exists) {
         await deleteDeckPackage(pID);
       }
