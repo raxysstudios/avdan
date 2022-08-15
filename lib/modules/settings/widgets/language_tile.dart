@@ -1,33 +1,40 @@
 import 'package:avdan/models/language.dart';
+import 'package:avdan/modules/settings/settings.dart';
 import 'package:avdan/shared/extensions.dart';
 import 'package:avdan/shared/localizations.dart';
 import 'package:avdan/shared/widgets/language_flag.dart';
 import 'package:flutter/material.dart';
-
-enum LanguageMode { none, main, alt }
+import 'package:provider/provider.dart';
 
 class LanguageTile extends StatelessWidget {
   const LanguageTile(
     this.language, {
-    this.mode = LanguageMode.none,
+    this.isAlt = false,
+    this.isSelected = false,
     this.onTap,
     super.key,
   });
 
   final Language language;
-  final LanguageMode mode;
-  final ValueSetter<LanguageMode>? onTap;
+  final bool isAlt;
+  final bool isSelected;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
     var title = language.caption.main;
-    var subtitle = language.caption.alt;
-    if (mode == LanguageMode.alt && subtitle != null) {
+    var alt = language.caption.alt;
+    if (isAlt && alt != null) {
       final t = title;
-      title = subtitle;
-      subtitle = t;
+      title = alt;
+      alt = t;
     }
-    final selected = mode != LanguageMode.none;
+    final subtitle = language.isInterface
+        ? ''
+        : localize(
+            language.name,
+            map: context.watch<SettingsScreenState>().lclz,
+          );
     return ClipRect(
       child: ListTile(
         title: Row(
@@ -38,7 +45,7 @@ class LanguageTile extends StatelessWidget {
                 fontWeight: FontWeight.w500,
               ),
             ),
-            if (subtitle != null) ...[
+            if (alt != null) ...[
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 4),
                 child: Icon(
@@ -48,7 +55,7 @@ class LanguageTile extends StatelessWidget {
                 ),
               ),
               Text(
-                subtitle.titled,
+                alt.titled,
                 style: TextStyle(
                   fontSize: 12,
                   fontWeight: FontWeight.w500,
@@ -61,18 +68,14 @@ class LanguageTile extends StatelessWidget {
         trailing: Center(
           widthFactor: .4,
           child: AnimatedOpacity(
-            opacity: selected ? 1 : .4,
+            opacity: isSelected ? 1 : .4,
             duration: const Duration(milliseconds: 200),
             child: LanguageFlag(language.name),
           ),
         ),
-        subtitle: language.isInterface ? null : Text(localize(language.name)),
-        onTap: () => onTap?.call(
-          mode != LanguageMode.main || language.caption.alt == null
-              ? LanguageMode.main
-              : LanguageMode.alt,
-        ),
-        selected: selected,
+        subtitle: subtitle.isEmpty ? null : Text(subtitle),
+        onTap: onTap,
+        selected: isSelected,
       ),
     );
   }
