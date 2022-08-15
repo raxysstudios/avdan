@@ -18,8 +18,10 @@ upload();
 async function upload() {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   const data = require(`./assets/packs/${lang}.json`);
+  let i = 0;
   for (const d of data) {
     const pack = {
+      "index": i++,
       "color": d.color,
       "length": d.length,
       "status": "updating",
