@@ -39,12 +39,8 @@ class SettingsScreenState extends State<SettingsScreen> {
       (ls) => setState(() {
         languages = ls;
         if (widget.isInitial) {
-          final interface = languages.firstWhere((l) => l.isInterface);
-          intLng = interface.name;
+          intLng = languages.firstWhere((l) => l.isInterface).name;
           lrnLng = languages.firstWhere((l) => !l.isInterface).name;
-          setState(() {
-            lclz = interface.localizations;
-          });
         }
       }),
     );

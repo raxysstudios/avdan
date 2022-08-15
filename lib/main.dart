@@ -4,6 +4,7 @@ import 'package:avdan/shared/contents.dart';
 import 'package:avdan/shared/localizations.dart';
 import 'package:avdan/shared/player.dart';
 import 'package:avdan/shared/prefs.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -23,8 +24,14 @@ void main() async {
 class App extends StatelessWidget {
   const App({super.key});
 
-  void setup(BuildContext context) {
+  void setup(BuildContext context) async {
     if (intLng.isEmpty || !hasDecks) {
+      await FirebaseFirestore.instance.doc('languages/english').get().then(
+            (s) => putLocalizations(
+              (s.data()!['localizations'] as Map<String, dynamic>)
+                  .cast<String, String>(),
+            ),
+          );
       Navigator.pushReplacement(
         context,
         MaterialPageRoute<void>(
