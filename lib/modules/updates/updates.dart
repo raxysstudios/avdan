@@ -16,15 +16,23 @@ class UpdatesScreen extends StatefulWidget {
 
 class _UpdatesScreenState extends State<UpdatesScreen> {
   final loading = <DeckPreview>[];
+  int? total;
+  int get loaded => loading.where((d) => d.status == DeckStatus.ready).length;
 
   @override
   void initState() {
     super.initState();
     update(
       context,
+      (i) => setState(() {
+        total = i;
+      }),
       (d) => setState(() => loading.add(d)),
-      setState,
-    ).then((_) => launch(context));
+      (fn) {
+        setState(fn);
+        // if (loaded == total) launch(context);
+      },
+    );
   }
 
   @override
@@ -33,7 +41,21 @@ class _UpdatesScreenState extends State<UpdatesScreen> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: Text(localize('updates')),
-        centerTitle: true,
+        actions: [
+          if (total != null)
+            Padding(
+              padding: const EdgeInsets.only(right: 16),
+              child: Center(
+                child: Text(
+                  '$loaded / $total',
+                  style: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+            ),
+        ],
         bottom: const PreferredSize(
           preferredSize: Size.fromHeight(6),
           child: LinearProgressIndicator(),
@@ -52,8 +74,12 @@ class _UpdatesScreenState extends State<UpdatesScreen> {
                 ),
               ),
               title: Text(d.cover.caption.get.titled),
-              subtitle:
-                  d.translation == null ? null : Text(d.translation.titled),
+              subtitle: Text(
+                [
+                  d.pack.length,
+                  if (d.translation != null) d.translation.titled,
+                ].join(' • '),
+              ),
               trailing: StatusIcon(d.status),
             ),
         ],
