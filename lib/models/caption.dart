@@ -6,15 +6,10 @@ part 'caption.g.dart';
 
 @freezed
 class Caption with _$Caption {
-  const Caption._();
   const factory Caption({
     required String main,
     String? alt,
   }) = _Caption;
-
-  String get([bool isAlt = false]) {
-    return (isAlt ? alt : null) ?? main;
-  }
 
   factory Caption.fromJson(Map<String, Object?> json) =>
       _$CaptionFromJson(json);

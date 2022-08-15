@@ -1,17 +1,17 @@
 import 'package:avdan/models/language.dart';
 import 'package:avdan/modules/news/services/updater.dart';
+import 'package:avdan/modules/settings/widgets/version_button.dart';
 import 'package:avdan/modules/updates/updates.dart';
 import 'package:avdan/shared/contents.dart';
 import 'package:avdan/shared/localizations.dart';
+import 'package:avdan/shared/prefs.dart';
 import 'package:avdan/shared/utils.dart';
 import 'package:avdan/shared/widgets/column_card.dart';
 import 'package:avdan/shared/widgets/raxys.dart';
-import 'package:avdan/store.dart';
 import 'package:flutter/material.dart';
-import 'package:package_info_plus/package_info_plus.dart';
-import 'package:provider/provider.dart';
 
 import 'services/languages.dart';
+import 'widgets/language_loading_tile.dart';
 import 'widgets/language_tile.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -35,11 +35,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
       (ls) => setState(() {
         languages = ls;
         if (widget.isInitial) {
-          final store = context.read<Store>();
           final interface = languages.firstWhere((l) => l.isInterface);
-          store.interface = interface.name;
+          intLng = interface.name;
           putLocalizations(interface.localizations);
-          store.learning = languages.firstWhere((l) => !l.isInterface).name;
+          lrnLng = languages.firstWhere((l) => !l.isInterface).name;
         }
       }),
     );
@@ -47,16 +46,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    if (languages.isEmpty) {
-      return const Material(
-        child: Center(
-          child: CircularProgressIndicator(),
-        ),
-      );
-    }
-
     final textTheme = Theme.of(context).textTheme;
-    final store = context.watch<Store>();
     return Scaffold(
       appBar: AppBar(
         leading: const Raxys(scale: 3),
@@ -71,12 +61,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
         ],
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () => Navigator.pushReplacement(
-          context,
-          MaterialPageRoute<void>(
-            builder: (context) => const UpdatesScreen(),
-          ),
-        ),
+        onPressed: () async {
+          lrnUpd = null;
+          await clearContents();
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute<void>(
+              builder: (context) => const UpdatesScreen(),
+            ),
+          );
+        },
         icon: const Icon(Icons.home_outlined),
         label: Text(localize('home')),
       ),
@@ -114,17 +108,20 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   style: textTheme.headline6,
                 ),
               ),
-              for (final l in languages.where((l) => l.isInterface))
-                LanguageTile(
-                  l,
-                  mode: store.interface == l.name
-                      ? LanguageMode.main
-                      : LanguageMode.none,
-                  onTap: (alt) {
-                    store.interface = l.name;
-                    putLocalizations(l.localizations);
-                  },
-                ),
+              if (languages.isEmpty)
+                LanguageLoadingTile(intLng)
+              else
+                for (final l in languages.where((l) => l.isInterface))
+                  LanguageTile(
+                    l,
+                    mode: intLng == l.name
+                        ? LanguageMode.main
+                        : LanguageMode.none,
+                    onTap: (alt) {
+                      intLng = l.name;
+                      putLocalizations(l.localizations);
+                    },
+                  ),
             ],
           ),
           ColumnCard(
@@ -137,52 +134,25 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   style: textTheme.headline6,
                 ),
               ),
-              for (final l in languages.where((l) => !l.isInterface))
-                LanguageTile(
-                  l,
-                  mode: store.learning == l.name
-                      ? store.alt
-                          ? LanguageMode.alt
-                          : LanguageMode.main
-                      : LanguageMode.none,
-                  onTap: (mode) async {
-                    store.learning = l.name;
-                    store.alt = mode == LanguageMode.alt;
-                    await store.prefs.delete('lastUpdated');
-                    await clearContents();
-                  },
-                ),
-            ],
-          ),
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.all(12),
-              child: InkWell(
-                borderRadius: BorderRadius.circular(4),
-                onTap: () => openLink('https://github.com/raxysstudios/avdan'),
-                child: Padding(
-                  padding: const EdgeInsets.all(8),
-                  child: FutureBuilder<PackageInfo>(
-                    future: PackageInfo.fromPlatform(),
-                    builder: (context, snapshot) {
-                      var info = 'Loading...';
-                      final package = snapshot.data;
-                      if (package != null) {
-                        info = [
-                          'v${package.version}',
-                          'b${package.buildNumber}'
-                        ].join(' • ');
-                      }
-                      return Text(
-                        info,
-                        style: Theme.of(context).textTheme.caption,
-                      );
+              if (languages.isEmpty)
+                LanguageLoadingTile(lrnLng)
+              else
+                for (final l in languages.where((l) => !l.isInterface))
+                  LanguageTile(
+                    l,
+                    mode: lrnLng == l.name
+                        ? isAlt
+                            ? LanguageMode.alt
+                            : LanguageMode.main
+                        : LanguageMode.none,
+                    onTap: (mode) async {
+                      lrnLng = l.name;
+                      isAlt = mode == LanguageMode.alt;
                     },
                   ),
-                ),
-              ),
-            ),
+            ],
           ),
+          const Center(child: VersionButton()),
         ],
       ),
     );

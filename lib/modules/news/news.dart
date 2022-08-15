@@ -2,11 +2,10 @@ import 'package:avdan/models/post.dart';
 import 'package:avdan/modules/news/services/fetcher.dart';
 import 'package:avdan/modules/news/widgets/post_card.dart';
 import 'package:avdan/shared/localizations.dart';
-import 'package:avdan/store.dart';
+import 'package:avdan/shared/prefs.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
-import 'package:provider/provider.dart';
 
 class NewsScreen extends StatefulWidget {
   const NewsScreen({super.key});
@@ -21,26 +20,18 @@ class _NewsScreenState extends State<NewsScreen> {
     firstPageKey: null,
   );
 
-  var lastPost = 0;
+  late final DateTime lastPost;
   late final String language;
 
   @override
   void initState() {
     super.initState();
-    final store = context.read<Store>();
-    language = store.interface;
     _paging.addPageRequestListener(_fetchPage);
 
-    lastPost = store.prefs.get(
-      'lastPost',
-      defaultValue: 0,
-    ) as int;
-    getNewestStamp(language).then(
-      (lp) => store.prefs.put(
-        'lastPost',
-        lp,
-      ),
-    );
+    lastPost = pstUpd;
+    getNewestUpdate(language).then((lp) {
+      pstUpd = lp;
+    });
   }
 
   @override
@@ -80,7 +71,7 @@ class _NewsScreenState extends State<NewsScreen> {
           itemBuilder: (context, post, _) {
             return PostCard(
               post,
-              isHighlighted: lastPost < post.created.millisecondsSinceEpoch,
+              isHighlighted: post.created.isAfter(lastPost),
             );
           },
         ),

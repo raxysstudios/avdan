@@ -1,11 +1,9 @@
 import 'package:avdan/modules/updates/models/deck_preview.dart';
 import 'package:avdan/modules/updates/widgets/loading_chip.dart';
+import 'package:avdan/shared/extensions.dart';
 import 'package:avdan/shared/localizations.dart';
-import 'package:avdan/shared/utils.dart';
 import 'package:avdan/shared/widgets/card_button.dart';
-import 'package:avdan/store.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 import 'services/loader.dart';
 
@@ -32,7 +30,6 @@ class _UpdatesScreenState extends State<UpdatesScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final alt = context.watch<Store>().alt;
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -55,10 +52,9 @@ class _UpdatesScreenState extends State<UpdatesScreen> {
                   child: CardButton(d.cover),
                 ),
               ),
-              title: Text(capitalize(d.cover.caption.get(alt))),
-              subtitle: d.translation == null
-                  ? null
-                  : Text(capitalize(d.translation!)),
+              title: Text(d.cover.caption.get.titled),
+              subtitle:
+                  d.translation == null ? null : Text(d.translation.titled),
               trailing: LoadingChip(d.loaded, d.length),
             ),
         ],

@@ -1,9 +1,8 @@
 import 'package:avdan/models/deck.dart';
 import 'package:avdan/shared/contents.dart';
+import 'package:avdan/shared/extensions.dart';
 import 'package:avdan/shared/widgets/label.dart';
-import 'package:avdan/store.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class CardsView extends StatefulWidget {
   const CardsView(
@@ -46,7 +45,7 @@ class _CardsViewState extends State<CardsView> {
           itemCount: widget.deck.cards.length,
           itemBuilder: (context, i) {
             final card = widget.deck.cards[i];
-            final caption = card.caption.get(context.read<Store>().alt);
+            final caption = card.caption.get;
             final image = getAsset(card.imagePath);
             return Stack(
               alignment: Alignment.center,
@@ -55,7 +54,10 @@ class _CardsViewState extends State<CardsView> {
                   FittedBox(
                     fit: BoxFit.scaleDown,
                     child: Text(
-                      [caption.toUpperCase(), caption.toLowerCase()].join('\n'),
+                      [
+                        caption.toUpperCase(),
+                        caption.toLowerCase(),
+                      ].join('\n'),
                       textAlign: TextAlign.center,
                       style: const TextStyle(
                         fontSize: 96,

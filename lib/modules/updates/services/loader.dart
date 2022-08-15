@@ -1,9 +1,8 @@
 import 'package:avdan/models/deck.dart';
 import 'package:avdan/modules/home/home.dart';
 import 'package:avdan/shared/contents.dart';
-import 'package:avdan/store.dart';
+import 'package:avdan/shared/prefs.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 import '../models/deck_preview.dart';
 import 'checks.dart';
@@ -15,20 +14,13 @@ Future<void> update(
   ValueSetter<DeckPreview> onPack,
   ValueSetter<DeckPreview> onCard,
 ) async {
-  final store = context.read<Store>();
-  final lastUpdated = await checkLanguageUpdate(
-    store.learning,
-    store.prefs.get(
-      'lastUpdated',
-      defaultValue: DateTime(0),
-    ) as DateTime,
-  );
+  final lastUpdated = await checkLanguageUpdate(lrnLng, lrnUpd);
   if (lastUpdated == null) return;
 
   final previews = <DeckPreview>[];
   await checkPacksUpdate(
-    store.learning,
-    store.interface,
+    lrnLng,
+    intLng,
     getAllDecks(),
     (d) {
       previews.add(d);
@@ -41,15 +33,15 @@ Future<void> update(
     onPack(d);
 
     final translations = <String, String?>{};
-    final cards = await fetchCards(store.learning, d.pack.id);
+    final cards = await fetchCards(lrnLng, d.pack.id);
     for (final c in cards) {
       translations[c.id] = await fetchTranslation(
-        store.learning,
-        store.interface,
+        lrnLng,
+        intLng,
         d.pack.id,
         c.id,
       );
-      await saveAssets(store.learning, c);
+      await saveAssets(lrnLng, c);
       d.loaded = d.loaded! + 1;
       onCard(d);
     }
@@ -61,8 +53,7 @@ Future<void> update(
       translations: translations,
     ));
   }
-
-  store.prefs.put('lastUpdated', lastUpdated);
+  lrnUpd = lastUpdated;
 }
 
 void launch(BuildContext context) {

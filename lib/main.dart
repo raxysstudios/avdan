@@ -3,14 +3,13 @@ import 'package:avdan/modules/updates/services/loader.dart';
 import 'package:avdan/shared/contents.dart';
 import 'package:avdan/shared/localizations.dart';
 import 'package:avdan/shared/player.dart';
+import 'package:avdan/shared/prefs.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:provider/provider.dart';
 
 import 'firebase_options.dart';
-import 'store.dart';
 import 'theme_set.dart';
 
 void main() async {
@@ -18,19 +17,14 @@ void main() async {
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]);
-  runApp(
-    ChangeNotifierProvider(
-      create: (context) => Store(),
-      child: const App(),
-    ),
-  );
+  runApp(const App());
 }
 
 class App extends StatelessWidget {
   const App({super.key});
 
   void setup(BuildContext context) {
-    if (context.read<Store>().interface.isEmpty || !hasDecks) {
+    if (intLng.isEmpty || !hasDecks) {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute<void>(
@@ -59,7 +53,7 @@ class App extends StatelessWidget {
           ),
           Hive.initFlutter().then(
             (_) async {
-              await context.read<Store>().load();
+              await initPrefs();
               await initContents();
               await initLocalizations();
               await initPlayer();

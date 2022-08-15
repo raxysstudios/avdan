@@ -1,6 +1,6 @@
 import 'package:avdan/models/language.dart';
+import 'package:avdan/shared/extensions.dart';
 import 'package:avdan/shared/localizations.dart';
-import 'package:avdan/shared/utils.dart';
 import 'package:avdan/shared/widgets/language_flag.dart';
 import 'package:flutter/material.dart';
 
@@ -33,7 +33,7 @@ class LanguageTile extends StatelessWidget {
         title: Row(
           children: [
             Text(
-              capitalize(title),
+              title.titled,
               style: const TextStyle(
                 fontWeight: FontWeight.w500,
               ),
@@ -48,7 +48,7 @@ class LanguageTile extends StatelessWidget {
                 ),
               ),
               Text(
-                capitalize(subtitle),
+                subtitle.titled,
                 style: TextStyle(
                   fontSize: 12,
                   fontWeight: FontWeight.w500,

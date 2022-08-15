@@ -1,6 +1,5 @@
+import 'package:avdan/shared/extensions.dart';
 import 'package:hive/hive.dart';
-
-import 'utils.dart';
 
 late final Box<String> _strings;
 
@@ -8,9 +7,9 @@ Future<void> initLocalizations() async {
   _strings = await Hive.openBox<String>('localizations');
 }
 
-String localize(String key, [bool capitalized = true]) {
+String localize(String key, [bool isTitle = true]) {
   var text = _strings.get(key) ?? '';
-  if (capitalized) text = capitalize(text);
+  if (isTitle) text = text.titled;
   return text;
 }
 

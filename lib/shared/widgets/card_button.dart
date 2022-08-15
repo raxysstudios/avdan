@@ -1,10 +1,8 @@
 import 'package:avdan/models/card.dart' as avd;
 import 'package:avdan/shared/contents.dart';
-import 'package:avdan/store.dart';
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:avdan/shared/extensions.dart';
 
-import '../utils.dart';
+import 'package:flutter/material.dart';
 
 class CardButton extends StatelessWidget {
   const CardButton(
@@ -28,25 +26,22 @@ class CardButton extends StatelessWidget {
         child: Builder(
           builder: (context) {
             final image = getAsset(card.imagePath);
-            if (image == null) {
-              final text =
-                  (card.preview ?? card.caption).get(context.read<Store>().alt);
-              return FittedBox(
-                fit: BoxFit.scaleDown,
-                child: Text(
-                  capitalize(text),
-                  style: TextStyle(
-                    color: Theme.of(context).textTheme.bodyText1?.color,
-                    fontSize: 48,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              );
-            }
-            return Image.memory(
-              image,
-              fit: BoxFit.cover,
-            );
+            return image == null
+                ? FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: Text(
+                      (card.preview ?? card.caption).get.titled,
+                      style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyText1?.color,
+                        fontSize: 48,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  )
+                : Image.memory(
+                    image,
+                    fit: BoxFit.cover,
+                  );
           },
         ),
       ),

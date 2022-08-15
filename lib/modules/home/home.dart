@@ -2,12 +2,12 @@ import 'package:avdan/models/deck.dart';
 import 'package:avdan/modules/home/widgets/decks_view.dart';
 import 'package:avdan/modules/news/services/updater.dart';
 import 'package:avdan/modules/settings/settings.dart';
+import 'package:avdan/shared/extensions.dart';
 import 'package:avdan/shared/player.dart';
+import 'package:avdan/shared/prefs.dart';
 import 'package:avdan/shared/widgets/label.dart';
 import 'package:avdan/shared/widgets/language_flag.dart';
-import 'package:avdan/store.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 import 'services/viewer.dart';
 import 'widgets/packs_tab_bar.dart';
@@ -70,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen>
           child: Opacity(
             opacity: .4,
             child: LanguageFlag(
-              context.watch<Store>().learning,
+              lrnLng,
               height: 8,
               width: 24,
               scale: 8,
@@ -78,7 +78,7 @@ class _HomeScreenState extends State<HomeScreen>
           ),
         ),
         title: Label(
-          deck.cover.caption.get(context.watch<Store>().alt),
+          deck.cover.caption.get,
           deck.translate(deck.cover),
           titleSize: 20,
           subtitleSize: 16,

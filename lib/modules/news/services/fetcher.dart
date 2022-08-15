@@ -25,8 +25,8 @@ Future<List<Post>> fetchPosts(
   return snap.docs.map((d) => d.data()).toList();
 }
 
-Future<int> getNewestStamp(String language) {
+Future<DateTime> getNewestUpdate(String language) {
   return fetchPosts(language).then(
-    (ps) => ps.isEmpty ? 0 : ps.first.created.millisecondsSinceEpoch,
+    (ps) => ps.isEmpty ? DateTime(0) : ps.first.created,
   );
 }
