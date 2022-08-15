@@ -124,7 +124,7 @@ class SettingsScreenState extends State<SettingsScreen> {
               title: localize('learning', map: lclz),
               selected: ll,
               onTap: (l) => setState(() {
-                al = ll == l.name ? false : !al;
+                al = ll == l.name ? !al : false;
                 ll = l.name;
               }),
             ),
