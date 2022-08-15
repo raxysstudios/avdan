@@ -3,9 +3,15 @@
 /* eslint-disable require-jsdoc */
 import {default as admin, firestore} from "../init";
 
-const lang = "east circassian";
-clean();
-async function clean() {
+
+run();
+async function run() {
+  const lang = "east circassian";
+  await clean(lang);
+  await upload(lang);
+}
+
+async function clean(lang: string) {
   const packs = await firestore
       .collection(`languages/${lang}/packs`)
       .listDocuments();
@@ -14,8 +20,7 @@ async function clean() {
   }
 }
 
-upload();
-async function upload() {
+async function upload(lang: string) {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   const data = require(`./assets/packs/${lang}.json`);
   let i = 0;
