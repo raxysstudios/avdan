@@ -30,7 +30,7 @@ class _UpdatesScreenState extends State<UpdatesScreen> {
       (d) => setState(() => loading.add(d)),
       (fn) {
         setState(fn);
-        // if (loaded == total) launch(context);
+        if (loaded == total) launch(context);
       },
     );
   }
