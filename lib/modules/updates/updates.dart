@@ -1,5 +1,5 @@
 import 'package:avdan/modules/updates/models/deck_preview.dart';
-import 'package:avdan/modules/updates/widgets/loading_chip.dart';
+import 'package:avdan/modules/updates/widgets/status_icon.dart';
 import 'package:avdan/shared/extensions.dart';
 import 'package:avdan/shared/localizations.dart';
 import 'package:avdan/shared/widgets/card_button.dart';
@@ -23,9 +23,8 @@ class _UpdatesScreenState extends State<UpdatesScreen> {
     update(
       context,
       (d) => setState(() => loading.add(d)),
-      (d) => setState(() {}),
-      (d) => setState(() {}),
-    ).then((_) => launch(context));
+      setState,
+    ) /*.then((_) => launch(context))*/;
   }
 
   @override
@@ -55,7 +54,7 @@ class _UpdatesScreenState extends State<UpdatesScreen> {
               title: Text(d.cover.caption.get.titled),
               subtitle:
                   d.translation == null ? null : Text(d.translation.titled),
-              trailing: LoadingChip(d.loaded, d.length),
+              trailing: StatusIcon(d.status),
             ),
         ],
       ),

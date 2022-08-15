@@ -8,7 +8,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'deck.freezed.dart';
 part 'deck.g.dart';
 
-@freezed
+@unfreezed
 class Deck with _$Deck {
   const Deck._();
   factory Deck({

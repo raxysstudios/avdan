@@ -1,7 +1,6 @@
 import 'package:avdan/models/language.dart';
 import 'package:avdan/modules/settings/settings.dart';
 import 'package:avdan/shared/extensions.dart';
-import 'package:avdan/shared/localizations.dart';
 import 'package:avdan/shared/widgets/column_card.dart';
 import 'package:avdan/shared/widgets/language_flag.dart';
 import 'package:flutter/material.dart';

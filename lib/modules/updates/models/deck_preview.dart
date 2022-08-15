@@ -5,13 +5,15 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'deck_preview.freezed.dart';
 
+enum DeckStatus { pending, downloading, unpacking, ready }
+
 @unfreezed
 class DeckPreview with _$DeckPreview {
   factory DeckPreview({
     required Pack pack,
     required Card cover,
     required int length,
-    int? loaded,
+    @Default(DeckStatus.pending) DeckStatus status,
     String? translation,
   }) = _DeckPreview;
 }
