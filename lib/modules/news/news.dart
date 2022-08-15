@@ -21,7 +21,6 @@ class _NewsScreenState extends State<NewsScreen> {
   );
 
   late final DateTime lastPost;
-  late final String language;
 
   @override
   void initState() {
@@ -29,7 +28,7 @@ class _NewsScreenState extends State<NewsScreen> {
     _paging.addPageRequestListener(_fetchPage);
 
     lastPost = pstUpd;
-    getNewestUpdate(language).then((lp) {
+    getNewestUpdate(intLng).then((lp) {
       pstUpd = lp;
     });
   }
@@ -43,7 +42,7 @@ class _NewsScreenState extends State<NewsScreen> {
   Future<void> _fetchPage(DocumentSnapshot? start) async {
     late final DocumentSnapshot last;
     final posts = await fetchPosts(
-      language,
+      intLng,
       startAfter: start,
       limit: _pageSize,
       lastDoc: (d) {

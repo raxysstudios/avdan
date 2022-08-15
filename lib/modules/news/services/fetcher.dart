@@ -21,7 +21,7 @@ Future<List<Post>> fetchPosts(
     query = query.startAfterDocument(startAfter);
   }
   final snap = await query.get();
-  lastDoc?.call(snap.docs.last);
+  if (snap.size > 0) lastDoc?.call(snap.docs.last);
   return snap.docs.map((d) => d.data()).toList();
 }
 
