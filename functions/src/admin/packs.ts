@@ -27,11 +27,10 @@ async function upload(lang: string) {
   for (const d of data) {
     const pack = {
       "index": i++,
-      "color": d.color,
       "length": d.length,
       "status": "updating",
-    };
-    if (pack.color == "#") delete pack.color;
+    } as any;
+    if (d.color) pack.color = d.color;
     const pRef = await firestore
         .collection(`languages/${lang}/packs`)
         .add(pack);
