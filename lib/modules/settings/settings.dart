@@ -40,7 +40,9 @@ class SettingsScreenState extends State<SettingsScreen> {
         languages = ls;
         if (widget.isInitial) {
           intLng = languages.firstWhere((l) => l.isInterface).name;
+          il = intLng;
           lrnLng = languages.firstWhere((l) => !l.isInterface).name;
+          ll = lrnLng;
         }
       }),
     );
