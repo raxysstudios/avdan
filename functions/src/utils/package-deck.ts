@@ -3,6 +3,7 @@
 /* eslint-disable require-jsdoc */
 import JSZip from "jszip";
 import {bucket, firestore} from "../init";
+import {withId} from "./with-id";
 
 export async function deleteDeckPackage(pId: string) {
   try {
@@ -20,17 +21,15 @@ export async function createDeckPackage(lang: string, pId: string) {
       .doc(`languages/${lang}/packs/${pId}`)
       .get()
       .then((d) => {
-        deck.pack = d.data();
+        deck.pack = withId(d);
         return d.ref;
       });
 
   const cards = await pRef.collection("cards").get().then((s) => s.docs);
-  deck.cover = cards
-      .find((d) => d.id == deck.pack.coverId)
-      ?.data();
+  deck.cover = withId(cards.find((d) => d.id == deck.pack.coverId)!);
   deck.cards = cards
       .filter((d) => d.id != deck.pack.coverId)
-      .map((d) => d.data()!);
+      .map((d) => withId(d));
 
   const translations = { } as any;
   for (const t of await pRef
