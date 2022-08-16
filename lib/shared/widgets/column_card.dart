@@ -9,6 +9,7 @@ class ColumnCard extends StatelessWidget {
     this.divider = const Divider(),
     this.margin = const EdgeInsets.only(top: 12),
     this.padding = EdgeInsets.zero,
+    this.shape = const RoundedRectangleBorder(),
     super.key,
   });
   final EdgeInsets margin;
@@ -16,6 +17,7 @@ class ColumnCard extends StatelessWidget {
   final String? title;
   final String? subtitle;
   final Widget? divider;
+  final ShapeBorder? shape;
   final List<Widget> children;
 
   @override
@@ -23,7 +25,7 @@ class ColumnCard extends StatelessWidget {
     final theme = Theme.of(context).textTheme;
     return Card(
       margin: margin,
-      shape: const RoundedRectangleBorder(),
+      shape: shape,
       child: Padding(
         padding: padding,
         child: Column(
