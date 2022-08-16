@@ -4,8 +4,8 @@ import 'package:avdan/shared/extensions.dart';
 
 import 'package:flutter/material.dart';
 
-class CardButton extends StatelessWidget {
-  const CardButton(
+class CardPreview extends StatelessWidget {
+  const CardPreview(
     this.card, {
     this.onTap,
     this.color,
