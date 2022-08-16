@@ -1,7 +1,8 @@
 import 'package:avdan/models/deck.dart';
+import 'package:avdan/shared/extensions.dart';
+import 'package:avdan/shared/widgets/card_button.dart';
+import 'package:avdan/shared/widgets/label.dart';
 import 'package:flutter/material.dart';
-
-import '../../../shared/widgets/card_button.dart';
 
 class DecksView extends StatelessWidget {
   const DecksView(
@@ -16,37 +17,50 @@ class DecksView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedBuilder(
-      animation: controller.animation!,
-      child: TabBarView(
-        controller: controller,
-        children: [
-          for (final deck in decks)
-            GridView.builder(
-              gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                maxCrossAxisExtent: 128,
+    return TabBarView(
+      controller: controller,
+      children: [
+        for (final deck in decks)
+          CustomScrollView(
+            slivers: [
+              SliverAppBar(
+                elevation: 0,
+                backgroundColor: Colors.transparent,
+                expandedHeight: 3 * kToolbarHeight,
+                primary: false,
+                leadingWidth: 0,
+                flexibleSpace: FlexibleSpaceBar(
+                  expandedTitleScale: 2,
+                  titlePadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+                  title: FittedBox(
+                    fit: BoxFit.fitWidth,
+                    child: Label(
+                      deck.cover.caption.get,
+                      deck.translate(deck.cover),
+                      titleSize: 20,
+                      subtitleSize: 16,
+                      textAlign: TextAlign.left,
+                    ),
+                  ),
+                ),
               ),
-              itemCount: deck.cards.length,
-              itemBuilder: (context, i) {
-                return CardButton(
-                  deck.cards[i],
-                  onTap: () => onTap?.call(i),
-                );
-              },
-            )
-        ],
-      ),
-      builder: (context, child) {
-        final index = controller.animation?.value ?? 0;
-        return Material(
-          color: Color.lerp(
-            decks[index.floor()].color,
-            decks[index.ceil()].color,
-            index.remainder(1),
+              SliverGrid(
+                gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                  maxCrossAxisExtent: 128,
+                ),
+                delegate: SliverChildBuilderDelegate(
+                  (context, int i) {
+                    return CardButton(
+                      deck.cards[i],
+                      onTap: () => onTap?.call(i),
+                    );
+                  },
+                  childCount: deck.cards.length,
+                ),
+              ),
+            ],
           ),
-          child: child,
-        );
-      },
+      ],
     );
   }
 }

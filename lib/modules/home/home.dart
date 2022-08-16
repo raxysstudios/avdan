@@ -2,10 +2,8 @@ import 'package:avdan/models/deck.dart';
 import 'package:avdan/modules/home/widgets/decks_view.dart';
 import 'package:avdan/modules/news/services/updater.dart';
 import 'package:avdan/modules/settings/settings.dart';
-import 'package:avdan/shared/extensions.dart';
 import 'package:avdan/shared/player.dart';
 import 'package:avdan/shared/prefs.dart';
-import 'package:avdan/shared/widgets/label.dart';
 import 'package:avdan/shared/widgets/language_flag.dart';
 import 'package:flutter/material.dart';
 
@@ -66,46 +64,73 @@ class _HomeScreenState extends State<HomeScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: UnconstrainedBox(
-          child: Opacity(
-            opacity: .4,
-            child: LanguageFlag(
-              lrnLng,
-              height: 8,
-              width: 24,
-              scale: 8,
-            ),
-          ),
-        ),
-        title: Label(
-          deck.cover.caption.get,
-          deck.translate(deck.cover),
-          titleSize: 20,
-          subtitleSize: 16,
-        ),
-        centerTitle: true,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.settings_outlined),
-            color: Theme.of(context).colorScheme.onSurface,
-            onPressed: () => Navigator.pushReplacement(
-              context,
-              MaterialPageRoute<void>(
-                builder: (context) => const SettingsScreen(),
-              ),
-            ),
-            visualDensity: const VisualDensity(horizontal: 2),
-          ),
-        ],
+        toolbarHeight: 0,
+        elevation: 0,
+        backgroundColor: Colors.transparent,
       ),
-      body: DecksView(
-        decks,
-        controller: _tab,
-        onTap: (i) => openView(context, deck, i),
+      extendBodyBehindAppBar: true,
+      body: AnimatedBuilder(
+        animation: _tab.animation!,
+        child: SafeArea(
+          child: Stack(
+            children: [
+              DecksView(
+                decks,
+                controller: _tab,
+                onTap: (i) => openView(context, deck, i),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Card(
+                    child: IconButton(
+                      onPressed: () {},
+                      padding: const EdgeInsets.all(4),
+                      icon: Container(
+                        clipBehavior: Clip.antiAlias,
+                        decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(4),
+                          ),
+                        ),
+                        child: LanguageFlag(
+                          lrnLng,
+                          rotation: 0,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Card(
+                    child: IconButton(
+                      onPressed: () => Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute<void>(
+                          builder: (context) => const SettingsScreen(),
+                        ),
+                      ),
+                      icon: const Icon(Icons.settings_outlined),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+        builder: (context, child) {
+          final index = _tab.animation?.value ?? 0;
+          return Material(
+            color: Color.lerp(
+              decks[index.floor()].color,
+              decks[index.ceil()].color,
+              index.remainder(1),
+            ),
+            child: child,
+          );
+        },
       ),
       bottomNavigationBar: BottomAppBar(
         child: SizedBox(
-          height: 98,
+          height: 72,
           child: PacksTabBar(
             decks,
             controller: _tab,
