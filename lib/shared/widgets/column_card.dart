@@ -12,7 +12,7 @@ class ColumnCard extends StatelessWidget {
     this.shape = const RoundedRectangleBorder(),
     super.key,
   });
-  final EdgeInsets margin;
+  final EdgeInsets? margin;
   final EdgeInsets padding;
   final String? title;
   final String? subtitle;
