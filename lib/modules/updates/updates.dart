@@ -32,7 +32,7 @@ class _UpdatesScreenState extends State<UpdatesScreen> {
 
   void init() async {
     if (widget.resets) await clearContents();
-    await update(
+    await updateContents(
       context,
       (i) => setState(() {
         total = i;
@@ -40,7 +40,7 @@ class _UpdatesScreenState extends State<UpdatesScreen> {
       (d) => setState(() => loading.add(d)),
       setState,
     );
-    if (loaded == total) launch(context);
+    if (loaded == total) launchHome(context);
   }
 
   @override

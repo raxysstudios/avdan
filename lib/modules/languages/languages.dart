@@ -1,5 +1,5 @@
 import 'package:avdan/models/language.dart';
-import 'package:avdan/modules/updates/updates.dart';
+import 'package:avdan/modules/updates/services/loader.dart';
 import 'package:avdan/shared/localizations.dart';
 import 'package:avdan/shared/prefs.dart';
 import 'package:flutter/material.dart';
@@ -43,17 +43,6 @@ class LanguagesScreenState extends State<LanguagesScreen> {
     );
   }
 
-  void start(bool resets) {
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute<void>(
-        builder: (context) => UpdatesScreen(
-          resets: resets,
-        ),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Provider.value(
@@ -64,7 +53,7 @@ class LanguagesScreenState extends State<LanguagesScreen> {
           title: const Text('Languages'),
           actions: [
             IconButton(
-              onPressed: () => start(true),
+              onPressed: () => resetContents(context),
               icon: const Icon(Icons.cloud_sync_outlined),
             ),
             const SizedBox(width: 4),
@@ -78,13 +67,16 @@ class LanguagesScreenState extends State<LanguagesScreen> {
         ),
         floatingActionButton: FloatingActionButton.extended(
           onPressed: () async {
-            lrnUpd = null;
             intLng = il;
             final resets = lrnLng != ll;
             lrnLng = ll;
             isAlt = al;
             await putLocalizations(lclz);
-            start(resets);
+            if (resets) {
+              resetContents(context);
+            } else {
+              launchHome(context);
+            }
           },
           icon: const Icon(Icons.home_outlined),
           label: Text(localize('home', map: lclz)),

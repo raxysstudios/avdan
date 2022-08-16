@@ -5,16 +5,17 @@ import 'package:avdan/shared/prefs.dart';
 import 'package:flutter/material.dart';
 
 import '../models/deck_preview.dart';
+import '../updates.dart';
 import 'checks.dart';
 
-Future<void> update(
+Future<void> updateContents(
   BuildContext context,
   ValueSetter<int> onFound,
   ValueSetter<DeckPreview> onTargeted,
   ValueSetter<VoidCallback> onProgress,
 ) async {
   final lastUpdated = await checkLanguageUpdate(lrnLng, lrnUpd);
-  if (lastUpdated == null) return;
+  if (lastUpdated == null) return onFound(0);
 
   final pending = await checkPendingPacks(
     lrnLng,
@@ -44,7 +45,19 @@ Future<void> update(
   lrnUpd = lastUpdated;
 }
 
-void launch(BuildContext context) {
+void resetContents(BuildContext context) {
+  lrnUpd = null;
+  Navigator.pushReplacement(
+    context,
+    MaterialPageRoute<void>(
+      builder: (context) => const UpdatesScreen(
+        resets: true,
+      ),
+    ),
+  );
+}
+
+void launchHome(BuildContext context) {
   Navigator.pushReplacement(
     context,
     MaterialPageRoute<void>(

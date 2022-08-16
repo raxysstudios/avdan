@@ -41,7 +41,7 @@ class App extends StatelessWidget {
         ),
       );
     } else {
-      launch(context);
+      launchHome(context);
     }
   }
 
