@@ -2,7 +2,7 @@ name: Build & Deploy
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:
@@ -10,12 +10,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2 # Only works with v2
-      - run: |
-          mkdir -p build/web
-          echo "avdan.raxys.app" > build/web/CNAME
       - uses: subosito/flutter-action@v1
       - run: |
+          echo "avdan.raxys.app" > build/web/CNAME
           flutter pub get
           flutter pub run build_runner build
       - uses: erickzanardo/flutter-gh-pages@v6
-      - run: echo "avdan.raxys.app" > build/web/CNAME.txt
