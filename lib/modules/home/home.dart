@@ -8,7 +8,7 @@ import 'package:avdan/shared/widgets/language_flag.dart';
 import 'package:flutter/material.dart';
 
 import 'services/viewer.dart';
-import 'widgets/packs_tab_bar.dart';
+import 'widgets/decks_tab_bar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen(
@@ -83,20 +83,24 @@ class _HomeScreenState extends State<HomeScreen>
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Card(
-                    child: IconButton(
-                      onPressed: () {},
-                      padding: const EdgeInsets.all(4),
-                      icon: Container(
-                        clipBehavior: Clip.antiAlias,
-                        decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(4),
+                    child: InkWell(
+                      onTap: () {},
+                      child: Row(
+                        children: [
+                          const Padding(
+                            padding: EdgeInsets.all(8),
+                            child: Icon(Icons.language_outlined),
                           ),
-                        ),
-                        child: LanguageFlag(
-                          lrnLng,
-                          rotation: 0,
-                        ),
+                          Opacity(
+                            opacity: .4,
+                            child: LanguageFlag(
+                              lrnLng,
+                              height: 16,
+                              width: 48,
+                              offset: const Offset(4, 0),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -131,7 +135,7 @@ class _HomeScreenState extends State<HomeScreen>
       bottomNavigationBar: BottomAppBar(
         child: SizedBox(
           height: 72,
-          child: PacksTabBar(
+          child: DecksTabBar(
             decks,
             controller: _tab,
             onTap: (i) {
