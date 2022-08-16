@@ -64,34 +64,33 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(localize('settings')),
+        actions: const [
+          Padding(
+            padding: EdgeInsets.all(8),
+            child: Raxys(
+              size: 48,
+              scale: 3.5,
+            ),
+          )
+        ],
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () => openLink('https://t.me/raxysstudios'),
+        icon: const Icon(Icons.send_outlined),
+        label: Text(localize('contact')),
+      ),
       body: CustomScrollView(
         slivers: [
-          SliverAppBar(
-            pinned: true,
-            forceElevated: true,
-            title: Text(localize('settings')),
-            actions: [
-              Padding(
-                padding: const EdgeInsets.all(8),
-                child: Tooltip(
-                  message: localize('honor', isTitled: false),
-                  waitDuration: Duration.zero,
-                  child: const Raxys(
-                    size: 48,
-                    scale: 3.5,
-                  ),
-                ),
-              )
-            ],
-          ),
           SliverList(
             delegate: SliverChildListDelegate(
               [
                 ListTile(
-                  onTap: () => openLink('https://t.me/raxysstudios'),
-                  leading: const Icon(Icons.send_outlined),
+                  onTap: () => openLink('https://raxys.app'),
+                  leading: const Icon(Icons.landscape_outlined),
                   title: const Text('Raxys Studios'),
-                  subtitle: Text(localize('contact')),
+                  subtitle: Text(localize('honor', isTitled: false)),
                 ),
                 const VersionTile(),
                 Padding(
@@ -108,6 +107,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
           ),
           const NewsSliver(),
+          const SliverPadding(
+            padding: EdgeInsets.only(bottom: 76),
+          )
         ],
       ),
     );
