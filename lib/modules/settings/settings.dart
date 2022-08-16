@@ -97,7 +97,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 Padding(
                   padding: const EdgeInsets.only(top: 16),
                   child: ListTile(
-                    leading: const Icon(Icons.feed_outlined),
+                    leading: const Icon(Icons.notifications_outlined),
                     title: Text(
                       localize('news'),
                       style: Theme.of(context).textTheme.headline6,

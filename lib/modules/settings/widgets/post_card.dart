@@ -21,7 +21,7 @@ class PostCard extends StatelessWidget {
       divider: const SizedBox(height: 8),
       padding: const EdgeInsets.all(16),
       shape: null,
-      margin: const EdgeInsets.fromLTRB(2, 10, 2, 2),
+      margin: null,
       children: [
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
