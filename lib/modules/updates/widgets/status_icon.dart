@@ -19,15 +19,17 @@ class StatusIcon extends StatelessWidget {
                   ? null
                   : 0,
         ),
-        Icon(
-          status == DeckStatus.pending
-              ? Icons.update_outlined
-              : status == DeckStatus.downloading
-                  ? Icons.file_download_outlined
-                  : status == DeckStatus.unpacking
-                      ? Icons.unarchive_outlined
-                      : Icons.done_outlined,
-        ),
+        if (status == DeckStatus.ready)
+          const Icon(Icons.done_outlined)
+        else
+          Icon(
+            status == DeckStatus.pending
+                ? Icons.update_outlined
+                : status == DeckStatus.downloading
+                    ? Icons.file_download_outlined
+                    : Icons.unarchive_outlined,
+            size: 20,
+          ),
       ],
     );
   }
