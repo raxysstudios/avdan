@@ -1,6 +1,6 @@
 import 'package:avdan/models/deck.dart';
 import 'package:avdan/modules/home/widgets/button_card.dart';
-import 'package:avdan/modules/home/widgets/decks_view.dart';
+import 'package:avdan/modules/home/widgets/deck_grids.dart';
 import 'package:avdan/modules/languages/languages.dart';
 import 'package:avdan/modules/settings/services/updater.dart';
 import 'package:avdan/shared/player.dart';
@@ -75,7 +75,7 @@ class _HomeScreenState extends State<HomeScreen>
         child: SafeArea(
           child: Stack(
             children: [
-              DecksView(
+              DecksGrids(
                 decks,
                 controller: _tab,
                 onTap: (i) => openView(context, deck, i),
