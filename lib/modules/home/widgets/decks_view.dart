@@ -1,6 +1,6 @@
 import 'package:avdan/models/deck.dart';
 import 'package:avdan/shared/extensions.dart';
-import 'package:avdan/shared/widgets/card_button.dart';
+import 'package:avdan/shared/widgets/card_preview.dart';
 import 'package:avdan/shared/widgets/label.dart';
 import 'package:flutter/material.dart';
 
@@ -26,19 +26,18 @@ class DecksView extends StatelessWidget {
               SliverAppBar(
                 elevation: 0,
                 backgroundColor: Colors.transparent,
-                expandedHeight: 3 * kToolbarHeight,
+                toolbarHeight: 3 * kToolbarHeight,
                 primary: false,
-                leadingWidth: 0,
                 flexibleSpace: FlexibleSpaceBar(
-                  expandedTitleScale: 2,
+                  expandedTitleScale: 1,
                   titlePadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
                   title: FittedBox(
                     fit: BoxFit.fitWidth,
                     child: Label(
                       deck.cover.caption.get,
                       deck.translate(deck.cover),
-                      titleSize: 20,
-                      subtitleSize: 16,
+                      titleSize: 40,
+                      subtitleSize: 32,
                       textAlign: TextAlign.left,
                     ),
                   ),
@@ -50,7 +49,7 @@ class DecksView extends StatelessWidget {
                 ),
                 delegate: SliverChildBuilderDelegate(
                   (context, int i) {
-                    return CardButton(
+                    return CardPreview(
                       deck.cards[i],
                       onTap: () => onTap?.call(i),
                     );
