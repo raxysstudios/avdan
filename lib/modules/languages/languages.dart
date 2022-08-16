@@ -69,6 +69,12 @@ class LanguagesScreenState extends State<LanguagesScreen> {
             ),
             const SizedBox(width: 4),
           ],
+          bottom: languages.isEmpty
+              ? const PreferredSize(
+                  preferredSize: Size.fromHeight(6),
+                  child: LinearProgressIndicator(),
+                )
+              : null,
         ),
         floatingActionButton: FloatingActionButton.extended(
           onPressed: () async {

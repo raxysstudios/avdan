@@ -32,9 +32,8 @@ class LanguagesColumn extends StatelessWidget {
           ),
         ),
         if (languages.isEmpty && selected != null)
-          ClipRect(
+          Card(
             child: ListTile(
-              leading: const CircularProgressIndicator(),
               title: Text(selected.titled),
               trailing: Center(
                 widthFactor: .4,
