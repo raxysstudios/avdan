@@ -4,8 +4,8 @@ import 'package:avdan/shared/widgets/card_preview.dart';
 import 'package:avdan/shared/widgets/label.dart';
 import 'package:flutter/material.dart';
 
-class DecksView extends StatelessWidget {
-  const DecksView(
+class DecksGrids extends StatelessWidget {
+  const DecksGrids(
     this.decks, {
     required this.controller,
     this.onTap,

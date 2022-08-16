@@ -2,7 +2,7 @@ import 'package:avdan/models/deck.dart';
 import 'package:avdan/shared/player.dart';
 import 'package:flutter/material.dart';
 
-import '../widgets/cards_view.dart';
+import '../widgets/card_pages.dart';
 
 void openView(
   BuildContext context,
