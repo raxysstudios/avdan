@@ -1,18 +1,19 @@
-import 'package:avdan/modules/news/news.dart';
-import 'package:avdan/modules/news/services/fetcher.dart';
 import 'package:avdan/shared/prefs.dart';
 import 'package:flutter/material.dart';
 
+import '../settings.dart';
+import 'fetcher.dart';
+
 Future<void> checkNews(BuildContext context) async {
   final current = await getNewestUpdate(lrnLng);
-  if (current.isAfter(pstUpd)) await openNews(context);
+  if (current.isAfter(pstUpd)) await openSettings(context);
 }
 
-Future<void> openNews(BuildContext context) {
+Future<void> openSettings(BuildContext context) {
   return Navigator.push(
     context,
     MaterialPageRoute<void>(
-      builder: (context) => const NewsScreen(),
+      builder: (context) => const SettingsScreen(),
     ),
   );
 }

@@ -1,11 +1,10 @@
 import 'package:avdan/models/language.dart';
-import 'package:avdan/modules/settings/settings.dart';
 import 'package:avdan/shared/extensions.dart';
-import 'package:avdan/shared/widgets/column_card.dart';
 import 'package:avdan/shared/widgets/language_flag.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../languages.dart';
 import 'language_tile.dart';
 
 class LanguagesColumn extends StatelessWidget {
@@ -23,14 +22,12 @@ class LanguagesColumn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final settings = context.watch<SettingsScreenState>();
-    return ColumnCard(
+    final settings = context.watch<LanguagesScreenState>();
+    return Column(
       children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 16),
-          child: Text(
+        ListTile(
+          title: Text(
             title,
-            textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.headline6,
           ),
         ),

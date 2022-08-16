@@ -1,10 +1,11 @@
 import 'package:avdan/models/language.dart';
-import 'package:avdan/modules/settings/settings.dart';
 import 'package:avdan/shared/extensions.dart';
 import 'package:avdan/shared/localizations.dart';
 import 'package:avdan/shared/widgets/language_flag.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '../languages.dart';
 
 class LanguageTile extends StatelessWidget {
   const LanguageTile(
@@ -33,9 +34,9 @@ class LanguageTile extends StatelessWidget {
         ? ''
         : localize(
             language.name,
-            map: context.watch<SettingsScreenState>().lclz,
+            map: context.watch<LanguagesScreenState>().lclz,
           );
-    return ClipRect(
+    return Card(
       child: ListTile(
         title: Row(
           children: [

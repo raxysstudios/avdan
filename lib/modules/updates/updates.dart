@@ -1,5 +1,6 @@
 import 'package:avdan/modules/updates/models/deck_preview.dart';
 import 'package:avdan/modules/updates/widgets/status_icon.dart';
+import 'package:avdan/shared/contents.dart';
 import 'package:avdan/shared/extensions.dart';
 import 'package:avdan/shared/localizations.dart';
 import 'package:avdan/shared/widgets/card_preview.dart';
@@ -8,7 +9,11 @@ import 'package:flutter/material.dart';
 import 'services/loader.dart';
 
 class UpdatesScreen extends StatefulWidget {
-  const UpdatesScreen({super.key});
+  const UpdatesScreen({
+    this.resets = false,
+    super.key,
+  });
+  final bool resets;
 
   @override
   State<UpdatesScreen> createState() => _UpdatesScreenState();
@@ -22,16 +27,20 @@ class _UpdatesScreenState extends State<UpdatesScreen> {
   @override
   void initState() {
     super.initState();
-    update(
+    init();
+  }
+
+  void init() async {
+    if (widget.resets) await clearContents();
+    await update(
       context,
       (i) => setState(() {
         total = i;
       }),
       (d) => setState(() => loading.add(d)),
       setState,
-    ).then((_) {
-      if (loaded == total) launch(context);
-    });
+    );
+    if (loaded == total) launch(context);
   }
 
   @override

@@ -20,6 +20,8 @@ class PostCard extends StatelessWidget {
     return ColumnCard(
       divider: const SizedBox(height: 8),
       padding: const EdgeInsets.all(16),
+      shape: null,
+      margin: const EdgeInsets.fromLTRB(2, 10, 2, 2),
       children: [
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -27,7 +29,8 @@ class PostCard extends StatelessWidget {
             Expanded(
               child: Text(
                 post.title,
-                style: theme.textTheme.headline5?.copyWith(
+                style: const TextStyle(
+                  fontSize: 18,
                   fontWeight: FontWeight.w500,
                 ),
               ),

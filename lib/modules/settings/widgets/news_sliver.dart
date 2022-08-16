@@ -1,20 +1,20 @@
 import 'package:avdan/models/post.dart';
-import 'package:avdan/modules/news/services/fetcher.dart';
-import 'package:avdan/modules/news/widgets/post_card.dart';
-import 'package:avdan/shared/localizations.dart';
 import 'package:avdan/shared/prefs.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
-class NewsScreen extends StatefulWidget {
-  const NewsScreen({super.key});
+import '../services/fetcher.dart';
+import 'post_card.dart';
+
+class NewsSliver extends StatefulWidget {
+  const NewsSliver({super.key});
 
   @override
-  State<NewsScreen> createState() => _NewsScreenState();
+  State<NewsSliver> createState() => _NewsSliverState();
 }
 
-class _NewsScreenState extends State<NewsScreen> {
+class _NewsSliverState extends State<NewsSliver> {
   static const _pageSize = 25;
   final _paging = PagingController<DocumentSnapshot?, Post>(
     firstPageKey: null,
@@ -31,12 +31,6 @@ class _NewsScreenState extends State<NewsScreen> {
     getNewestUpdate(intLng).then((lp) {
       pstUpd = lp;
     });
-  }
-
-  @override
-  void dispose() {
-    _paging.dispose();
-    super.dispose();
   }
 
   Future<void> _fetchPage(DocumentSnapshot? start) async {
@@ -58,22 +52,22 @@ class _NewsScreenState extends State<NewsScreen> {
   }
 
   @override
+  void dispose() {
+    _paging.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(localize('news')),
-      ),
-      body: PagedListView(
-        pagingController: _paging,
-        padding: const EdgeInsets.only(bottom: 76),
-        builderDelegate: PagedChildBuilderDelegate<Post>(
-          itemBuilder: (context, post, _) {
-            return PostCard(
-              post,
-              isHighlighted: post.created.isAfter(lastPost),
-            );
-          },
-        ),
+    return PagedSliverList(
+      pagingController: _paging,
+      builderDelegate: PagedChildBuilderDelegate<Post>(
+        itemBuilder: (context, post, _) {
+          return PostCard(
+            post,
+            isHighlighted: post.created.isAfter(lastPost),
+          );
+        },
       ),
     );
   }

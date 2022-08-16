@@ -1,7 +1,7 @@
 import 'package:avdan/models/deck.dart';
 import 'package:avdan/modules/home/widgets/decks_view.dart';
-import 'package:avdan/modules/news/services/updater.dart';
-import 'package:avdan/modules/settings/settings.dart';
+import 'package:avdan/modules/languages/languages.dart';
+import 'package:avdan/modules/settings/services/updater.dart';
 import 'package:avdan/shared/player.dart';
 import 'package:avdan/shared/prefs.dart';
 import 'package:avdan/shared/widgets/language_flag.dart';
@@ -83,8 +83,14 @@ class _HomeScreenState extends State<HomeScreen>
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Card(
+                    elevation: 4,
                     child: InkWell(
-                      onTap: () {},
+                      onTap: () => Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute<void>(
+                          builder: (context) => const LanguagesScreen(),
+                        ),
+                      ),
                       child: Row(
                         children: [
                           const Padding(
@@ -105,13 +111,9 @@ class _HomeScreenState extends State<HomeScreen>
                     ),
                   ),
                   Card(
+                    elevation: 4,
                     child: IconButton(
-                      onPressed: () => Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute<void>(
-                          builder: (context) => const SettingsScreen(),
-                        ),
-                      ),
+                      onPressed: () => openSettings(context),
                       icon: const Icon(Icons.settings_outlined),
                     ),
                   ),

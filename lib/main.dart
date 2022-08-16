@@ -1,4 +1,4 @@
-import 'package:avdan/modules/settings/settings.dart';
+import 'package:avdan/modules/languages/languages.dart';
 import 'package:avdan/modules/updates/services/loader.dart';
 import 'package:avdan/shared/contents.dart';
 import 'package:avdan/shared/localizations.dart';
@@ -35,7 +35,7 @@ class App extends StatelessWidget {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute<void>(
-          builder: (context) => const SettingsScreen(
+          builder: (context) => const LanguagesScreen(
             isInitial: true,
           ),
         ),
