@@ -18,7 +18,7 @@ class CardPreview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      borderRadius: BorderRadius.circular(4),
+      customBorder: const StadiumBorder(),
       onTap: onTap,
       highlightColor: color,
       child: Padding(

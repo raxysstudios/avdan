@@ -27,15 +27,14 @@ class DecksTabBar extends AnimatedWidget {
         vertical: 6,
       ),
       indicator: ShapeDecoration(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(4),
-        ),
+        shape: const StadiumBorder(),
         color: Color.lerp(
           decks[index.floor()].color ?? highlight,
           decks[index.ceil()].color ?? highlight,
           index.remainder(1),
         ),
       ),
+      overlayColor: MaterialStateProperty.all(Colors.transparent),
       tabs: [
         for (var i = 0; i < decks.length; i++)
           AspectRatio(
