@@ -1,4 +1,5 @@
 import 'package:avdan/models/deck.dart';
+import 'package:avdan/modules/home/widgets/button_card.dart';
 import 'package:avdan/modules/home/widgets/decks_view.dart';
 import 'package:avdan/modules/languages/languages.dart';
 import 'package:avdan/modules/settings/services/updater.dart';
@@ -82,40 +83,32 @@ class _HomeScreenState extends State<HomeScreen>
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Card(
-                    elevation: 4,
-                    child: InkWell(
-                      onTap: () => Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute<void>(
-                          builder: (context) => const LanguagesScreen(),
+                  ButtonCard(
+                    onTap: () => Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute<void>(
+                        builder: (context) => const LanguagesScreen(),
+                      ),
+                    ),
+                    child: Row(
+                      children: [
+                        const Icon(Icons.language_outlined),
+                        Opacity(
+                          opacity: .4,
+                          child: LanguageFlag(
+                            lrnLng,
+                            height: 16,
+                            width: 48,
+                            scale: 2.5,
+                            offset: const Offset(24, 0),
+                          ),
                         ),
-                      ),
-                      child: Row(
-                        children: [
-                          const Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Icon(Icons.language_outlined),
-                          ),
-                          Opacity(
-                            opacity: .4,
-                            child: LanguageFlag(
-                              lrnLng,
-                              height: 16,
-                              width: 48,
-                              offset: const Offset(4, 0),
-                            ),
-                          ),
-                        ],
-                      ),
+                      ],
                     ),
                   ),
-                  Card(
-                    elevation: 4,
-                    child: IconButton(
-                      onPressed: () => openSettings(context),
-                      icon: const Icon(Icons.settings_outlined),
-                    ),
+                  ButtonCard(
+                    onTap: () => openSettings(context),
+                    child: const Icon(Icons.settings_outlined),
                   ),
                 ],
               ),
