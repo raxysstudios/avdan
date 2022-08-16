@@ -7,17 +7,19 @@ class Label extends StatelessWidget {
     this.subtitle, {
     this.titleSize = 16,
     this.subtitleSize = 14,
+    this.textAlign = TextAlign.center,
     super.key,
   });
   final String title;
   final String subtitle;
   final double? titleSize;
   final double? subtitleSize;
+  final TextAlign textAlign;
 
   @override
   Widget build(BuildContext context) {
     return RichText(
-      textAlign: TextAlign.center,
+      textAlign: textAlign,
       text: TextSpan(
         children: [
           TextSpan(
