@@ -2,7 +2,7 @@ import 'package:avdan/modules/updates/models/deck_preview.dart';
 import 'package:avdan/modules/updates/widgets/status_icon.dart';
 import 'package:avdan/shared/extensions.dart';
 import 'package:avdan/shared/localizations.dart';
-import 'package:avdan/shared/widgets/card_button.dart';
+import 'package:avdan/shared/widgets/card_preview.dart';
 import 'package:flutter/material.dart';
 
 import 'services/loader.dart';
@@ -70,7 +70,7 @@ class _UpdatesScreenState extends State<UpdatesScreen> {
                 child: Card(
                   color: d.pack.color?.withOpacity(.2),
                   margin: EdgeInsets.zero,
-                  child: CardButton(d.cover),
+                  child: CardPreview(d.cover),
                 ),
               ),
               title: Text(d.cover.caption.get.titled),
