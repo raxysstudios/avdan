@@ -8,19 +8,16 @@ class CardPreview extends StatelessWidget {
   const CardPreview(
     this.card, {
     this.onTap,
-    this.color,
     super.key,
   });
   final avd.Card card;
   final Function()? onTap;
-  final Color? color;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       borderRadius: BorderRadius.circular(4),
       onTap: onTap,
-      highlightColor: color,
       child: Padding(
         padding: const EdgeInsets.all(8),
         child: Builder(

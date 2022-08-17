@@ -54,9 +54,12 @@ class DecksGrids extends StatelessWidget {
                 ),
                 delegate: SliverChildBuilderDelegate(
                   (context, int i) {
-                    return CardPreview(
-                      deck.cards[i],
-                      onTap: () => onTap?.call(i),
+                    return Padding(
+                      padding: const EdgeInsets.all(4),
+                      child: CardPreview(
+                        deck.cards[i],
+                        onTap: () => onTap?.call(i),
+                      ),
                     );
                   },
                   childCount: deck.cards.length,
