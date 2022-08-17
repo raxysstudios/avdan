@@ -6,11 +6,16 @@ import strings from "./assets/localizations.json";
 
 upload();
 async function upload() {
+  const lclz = {} as any;
   for (const [k, m] of Object.entries(strings)) {
     for (const [l, t] of Object.entries(m)) {
-      await firestore
-          .doc(`languages/${l}`)
-          .update({[`localizations.${k}`]: t});
+      if (!lclz[l]) lclz[l] = {};
+      lclz[l][k] = t;
     }
+  }
+  for (const [l, localizations] of Object.entries(lclz)) {
+    await firestore
+        .doc(`languages/${l}`)
+        .update({localizations});
   }
 }
