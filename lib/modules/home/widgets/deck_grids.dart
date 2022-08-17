@@ -53,7 +53,7 @@ class DecksGrids extends StatelessWidget {
                   maxCrossAxisExtent: 128,
                 ),
                 delegate: SliverChildBuilderDelegate(
-                  (context, int i) {
+                  (context, i) {
                     return Padding(
                       padding: const EdgeInsets.all(4),
                       child: CardPreview(
