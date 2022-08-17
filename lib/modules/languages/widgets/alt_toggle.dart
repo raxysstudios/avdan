@@ -16,17 +16,44 @@ class AltToggle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () => onToggled(!value),
-      child: Row(
-        children: [
-          Text(off.titled),
-          Switch(
-            value: value,
-            onChanged: onToggled,
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 4,
+      ),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(4),
+        onTap: () => onToggled(!value),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 16,
           ),
-          Text(on.titled),
-        ],
+          child: Row(
+            children: [
+              Expanded(
+                child: Text(
+                  off.titled,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontStyle: FontStyle.italic,
+                  ),
+                ),
+              ),
+              Switch(
+                value: value,
+                onChanged: onToggled,
+              ),
+              Expanded(
+                child: Text(
+                  on.titled,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontStyle: FontStyle.italic,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
