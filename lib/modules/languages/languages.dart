@@ -116,7 +116,7 @@ class LanguagesScreenState extends State<LanguagesScreen> {
               for (final l in languages.where((l) => !l.isInterface))
                 LanguageTile(
                   l,
-                  isSelected: il == l.name,
+                  isSelected: ll == l.name,
                   onTap: () => setState(() {
                     al = ll == l.name ? !al : false;
                     ll = l.name;
