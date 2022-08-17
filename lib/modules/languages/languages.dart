@@ -35,10 +35,8 @@ class LanguagesScreenState extends State<LanguagesScreen> {
       (ls) => setState(() {
         languages = ls;
         if (widget.isInitial) {
-          intLng = languages.firstWhere((l) => l.isInterface).name;
-          il = intLng;
-          lrnLng = languages.firstWhere((l) => !l.isInterface).name;
-          ll = lrnLng;
+          il = languages.firstWhere((l) => l.isInterface).name;
+          ll = languages.firstWhere((l) => !l.isInterface).name;
         }
       }),
     );
@@ -76,7 +74,7 @@ class LanguagesScreenState extends State<LanguagesScreen> {
             if (resets) {
               resetContents(context);
             } else {
-              launchHome(context);
+              Navigator.pop(context);
             }
           },
           icon: const Icon(Icons.home_outlined),
