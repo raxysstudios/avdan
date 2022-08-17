@@ -23,48 +23,22 @@ class LanguageTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var title = language.caption.main;
-    var alt = language.caption.alt;
-    if (isAlt && alt != null) {
-      final t = title;
-      title = alt;
-      alt = t;
-    }
+    final settings = context.watch<LanguagesScreenState>();
+    final title =
+        (settings.al ? language.caption.alt : null) ?? language.caption.main;
     final subtitle = language.isInterface
         ? ''
         : localize(
             language.name,
-            map: context.watch<LanguagesScreenState>().lclz,
+            map: settings.lclz,
           );
     return Card(
       child: ListTile(
-        title: Row(
-          children: [
-            Text(
-              title.titled,
-              style: const TextStyle(
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-            if (alt != null) ...[
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 4),
-                child: Icon(
-                  Icons.swap_horiz_outlined,
-                  size: 16,
-                  color: Theme.of(context).hintColor,
-                ),
-              ),
-              Text(
-                alt.titled,
-                style: TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w500,
-                  color: Theme.of(context).hintColor,
-                ),
-              ),
-            ],
-          ],
+        title: Text(
+          title.titled,
+          style: const TextStyle(
+            fontWeight: FontWeight.w500,
+          ),
         ),
         trailing: Center(
           widthFactor: .4,

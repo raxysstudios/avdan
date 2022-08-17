@@ -1,4 +1,5 @@
 import 'package:avdan/models/language.dart';
+import 'package:avdan/modules/languages/widgets/alt_toggle.dart';
 import 'package:avdan/modules/languages/widgets/language_simple_tile.dart';
 import 'package:avdan/modules/updates/services/loader.dart';
 import 'package:avdan/shared/localizations.dart';
@@ -113,15 +114,25 @@ class LanguagesScreenState extends State<LanguagesScreen> {
             if (languages.isEmpty)
               LanguageSimpleTile(ll)
             else
-              for (final l in languages.where((l) => !l.isInterface))
+              for (final l in languages.where((l) => !l.isInterface)) ...[
                 LanguageTile(
                   l,
                   isSelected: ll == l.name,
                   onTap: () => setState(() {
-                    al = ll == l.name ? !al : false;
+                    if (ll != l.name) al = false;
                     ll = l.name;
                   }),
                 ),
+                if (ll == l.name && l.caption.alt != null)
+                  AltToggle(
+                    al,
+                    off: l.caption.main,
+                    on: l.caption.alt!,
+                    onToggled: (v) => setState(() {
+                      al = v;
+                    }),
+                  ),
+              ]
           ],
         ),
       ),
