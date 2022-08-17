@@ -1,4 +1,5 @@
 import 'package:avdan/models/language.dart';
+import 'package:avdan/modules/languages/widgets/language_simple_tile.dart';
 import 'package:avdan/modules/updates/services/loader.dart';
 import 'package:avdan/shared/localizations.dart';
 import 'package:avdan/shared/prefs.dart';
@@ -6,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'services/languages.dart';
-import 'widgets/languages_column.dart';
+import 'widgets/language_tile.dart';
 
 class LanguagesScreen extends StatefulWidget {
   const LanguagesScreen({
@@ -85,24 +86,44 @@ class LanguagesScreenState extends State<LanguagesScreen> {
         body: ListView(
           padding: const EdgeInsets.only(bottom: 76),
           children: [
-            LanguagesColumn(
-              languages.where((l) => l.isInterface).toList(),
-              title: localize('interface', map: lclz),
-              selected: il,
-              onTap: (l) => setState(() {
-                il = l.name;
-                lclz = l.localizations;
-              }),
+            ListTile(
+              leading: const Icon(Icons.subtitles_outlined),
+              title: Text(
+                localize('interface', map: lclz),
+                style: Theme.of(context).textTheme.headline6,
+              ),
             ),
-            LanguagesColumn(
-              languages.where((l) => !l.isInterface).toList(),
-              title: localize('learning', map: lclz),
-              selected: ll,
-              onTap: (l) => setState(() {
-                al = ll == l.name ? !al : false;
-                ll = l.name;
-              }),
+            if (languages.isEmpty)
+              LanguageSimpleTile(il)
+            else
+              for (final l in languages.where((l) => l.isInterface))
+                LanguageTile(
+                  l,
+                  isSelected: il == l.name,
+                  onTap: () => setState(() {
+                    il = l.name;
+                    lclz = l.localizations;
+                  }),
+                ),
+            ListTile(
+              leading: const Icon(Icons.school_outlined),
+              title: Text(
+                localize('learning', map: lclz),
+                style: Theme.of(context).textTheme.headline6,
+              ),
             ),
+            if (languages.isEmpty)
+              LanguageSimpleTile(ll)
+            else
+              for (final l in languages.where((l) => !l.isInterface))
+                LanguageTile(
+                  l,
+                  isSelected: il == l.name,
+                  onTap: () => setState(() {
+                    al = ll == l.name ? !al : false;
+                    ll = l.name;
+                  }),
+                ),
           ],
         ),
       ),
