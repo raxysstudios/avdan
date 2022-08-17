@@ -27,7 +27,9 @@ class DecksTabBar extends AnimatedWidget {
         vertical: 6,
       ),
       indicator: ShapeDecoration(
-        shape: const StadiumBorder(),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(4),
+        ),
         color: Color.lerp(
           decks[index.floor()].color ?? highlight,
           decks[index.ceil()].color ?? highlight,
