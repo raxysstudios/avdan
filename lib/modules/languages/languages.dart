@@ -49,8 +49,7 @@ class LanguagesScreenState extends State<LanguagesScreen> {
       value: this,
       child: Scaffold(
         appBar: AppBar(
-          // title: Text(localize('settings', map: lclz)),
-          title: const Text('Languages'),
+          title: Text(localize('languages', map: lclz)),
           actions: [
             IconButton(
               onPressed: () => resetContents(context),
