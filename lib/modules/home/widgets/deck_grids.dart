@@ -1,5 +1,6 @@
 import 'package:avdan/models/deck.dart';
 import 'package:avdan/shared/extensions.dart';
+import 'package:avdan/shared/player.dart';
 import 'package:avdan/shared/widgets/card_preview.dart';
 import 'package:avdan/shared/widgets/label.dart';
 import 'package:flutter/material.dart';
@@ -23,22 +24,26 @@ class DecksGrids extends StatelessWidget {
         for (final deck in decks)
           CustomScrollView(
             slivers: [
-              SliverAppBar(
-                elevation: 0,
-                backgroundColor: Colors.transparent,
-                toolbarHeight: 3 * kToolbarHeight,
-                primary: false,
-                flexibleSpace: FlexibleSpaceBar(
-                  expandedTitleScale: 1,
-                  titlePadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
-                  title: FittedBox(
-                    fit: BoxFit.fitWidth,
-                    child: Label(
-                      deck.cover.caption.get,
-                      deck.translate(deck.cover),
-                      titleSize: 40,
-                      subtitleSize: 32,
-                      textAlign: TextAlign.left,
+              SliverToBoxAdapter(
+                child: SizedBox(
+                  height: 3 * kToolbarHeight,
+                  child: InkWell(
+                    onTap: () => playCard(deck.cover),
+                    child: Padding(
+                      padding: const EdgeInsets.all(16),
+                      child: Align(
+                        alignment: Alignment.bottomLeft,
+                        child: FittedBox(
+                          fit: BoxFit.fitWidth,
+                          child: Label(
+                            deck.cover.caption.get,
+                            deck.translate(deck.cover),
+                            titleSize: 40,
+                            subtitleSize: 32,
+                            textAlign: TextAlign.left,
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                 ),
