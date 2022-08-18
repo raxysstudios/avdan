@@ -51,10 +51,11 @@ class LanguagesScreenState extends State<LanguagesScreen> {
         appBar: AppBar(
           title: Text(localize('languages', map: lclz)),
           actions: [
-            IconButton(
-              onPressed: () => resetContents(context),
-              icon: const Icon(Icons.cloud_sync_outlined),
-            ),
+            if (languages.isNotEmpty)
+              IconButton(
+                onPressed: () => resetContents(context),
+                icon: const Icon(Icons.cloud_sync_outlined),
+              ),
             const SizedBox(width: 4),
           ],
           bottom: languages.isEmpty
