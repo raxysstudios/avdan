@@ -1,19 +1,19 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable require-jsdoc */
-import {default as admin, firestore} from "../init";
+import {default as admin, firestore} from "./init";
 
 
 run();
 async function run() {
   const langs = [
-    "abkhaz",
-    "aghul",
-    "dargwa",
-    "digor",
-    "iron",
-    "east circassian",
-    "kaitag",
+    // "abkhaz",
+    // "aghul",
+    // "dargwa",
+    // "digor",
+    // "iron",
+    // "east circassian",
+    // "kaitag",
     "kubachi",
   ];
   for (const l of langs) {

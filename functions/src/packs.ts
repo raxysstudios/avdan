@@ -1,23 +1,46 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable require-jsdoc */
+
 import JSZip from "jszip";
-import {bucket, firestore} from "../init";
-import {withId} from "./with-id";
+import * as functions from "firebase-functions";
+import {firestore, storage} from "firebase-admin";
+import {isUpdated} from "./utils/update-check";
+import {withId} from "./utils/with-id";
 
-export async function deleteDeckPackage(pId: string) {
-  try {
-    await bucket.deleteFiles({
-      prefix: `decks/${pId}`,
+
+const bucket = storage().bucket();
+const db = firestore();
+
+export const packageDecks = functions
+    .region("europe-central2")
+    .firestore.document("languages/{lang}/packs/{pID}")
+    .onWrite(async (change, context) => {
+      const {lang, pID} = context.params;
+      if (change.before.exists) {
+        try {
+          await bucket.deleteFiles({
+            prefix: `decks/${pID}`,
+          });
+        } catch {
+          console.log("no files");
+        }
+      }
+      if (change.after.exists) {
+        if (isUpdated(change.after.data(), change.before.data())) {
+          await createDeckPackage(lang, pID);
+          await db.doc(`languages/${lang}`)
+              .update({
+                "lastUpdated": firestore.FieldValue.serverTimestamp(),
+              });
+        }
+      }
     });
-  } catch {
-    console.log("no files");
-  }
-}
 
-export async function createDeckPackage(lang: string, pId: string) {
+
+async function createDeckPackage(lang: string, pId: string) {
   const deck = {} as any;
-  const pRef = await firestore
+  const pRef = await db
       .doc(`languages/${lang}/packs/${pId}`)
       .get()
       .then((d) => {

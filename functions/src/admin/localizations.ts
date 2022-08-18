@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable require-jsdoc */
-import {firestore} from "../init";
+import {firestore} from "./init";
 import strings from "./assets/localizations.json";
+
 
 upload();
 async function upload() {
