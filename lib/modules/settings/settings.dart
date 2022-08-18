@@ -68,12 +68,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
         title: Text(localize('settings')),
         actions: const [
           Padding(
-            padding: EdgeInsets.all(8),
-            child: Raxys(
-              size: 48,
-              scale: 3.5,
-            ),
-          )
+            padding: EdgeInsets.all(12),
+            child: Raxys(),
+          ),
+          SizedBox(width: 4),
         ],
       ),
       floatingActionButton: FloatingActionButton.extended(
