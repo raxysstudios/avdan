@@ -25,6 +25,7 @@ dependencies:
   hive_flutter: ^1.1.0
   flutter_sound: ^9.2.13
   archive: ^3.3.1
+  soundpool: ^2.3.0
 
 dev_dependencies:
   flutter_test:

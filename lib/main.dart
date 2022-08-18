@@ -63,7 +63,6 @@ class App extends StatelessWidget {
               await initPrefs();
               await initContents();
               await initLocalizations();
-              await initPlayer();
             },
           ),
         ]),

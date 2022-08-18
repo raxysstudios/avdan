@@ -1,6 +1,7 @@
 import 'package:avdan/modules/home/home.dart';
 import 'package:avdan/modules/updates/services/fetches.dart';
 import 'package:avdan/shared/contents.dart';
+import 'package:avdan/shared/player.dart';
 import 'package:avdan/shared/prefs.dart';
 import 'package:flutter/material.dart';
 
@@ -57,7 +58,8 @@ void resetContents(BuildContext context) {
   );
 }
 
-void launchHome(BuildContext context) {
+void launchHome(BuildContext context) async {
+  await resetPlayer();
   Navigator.pushReplacement(
     context,
     MaterialPageRoute<void>(
