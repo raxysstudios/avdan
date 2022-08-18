@@ -8,7 +8,7 @@ Future<List<Language>> fetchLanguages() {
         fromFirestore: (s, _) => Language.fromJson(s.data()!),
         toFirestore: (_, __) => {},
       )
-      .orderBy('name')
+      .orderBy('order')
       .get()
       .then((s) => s.docs.map((d) => d.data()).toList());
 }
