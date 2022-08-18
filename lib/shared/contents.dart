@@ -40,7 +40,7 @@ Map<String, Deck> getAllDecks() {
             jsonDecode(j) as Map<String, dynamic>,
           ))
       .toList();
-  decks.sort((a, b) => a.pack.index - b.pack.index);
+  decks.sort((a, b) => a.pack.order - b.pack.order);
   return {
     for (final d in decks) d.pack.id: d,
   };
