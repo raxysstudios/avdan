@@ -26,7 +26,7 @@ async function upload(lang: string) {
   let i = 0;
   for (const d of data) {
     const pack = {
-      "index": i++,
+      "order": i++,
       "length": d.length,
       "status": "updating",
     } as any;
@@ -35,8 +35,17 @@ async function upload(lang: string) {
         .collection(`languages/${lang}/packs`)
         .add(pack);
 
-    const coverId = await uploadCard(pRef, d.cards[0]);
-    for (const c of d.cards.slice(1)) await uploadCard(pRef, c);
+    let coverId = "";
+    for (let i = 0; i < d.cards.length; i++) {
+      await uploadCard(pRef, {
+        order: i,
+        ...d.cards[i],
+      }).then((id) => {
+        if (!i) {
+          coverId = id;
+        }
+      });
+    }
 
     pRef.update({
       coverId,

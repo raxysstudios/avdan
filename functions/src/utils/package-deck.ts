@@ -25,7 +25,10 @@ export async function createDeckPackage(lang: string, pId: string) {
         return d.ref;
       });
 
-  const cards = await pRef.collection("cards").get().then((s) => s.docs);
+  const cards = await pRef.collection("cards")
+      .orderBy("order")
+      .get()
+      .then((s) => s.docs);
   deck.cover = withId(cards.find((d) => d.id == deck.pack.coverId)!);
   deck.cards = cards
       .filter((d) => d.id != deck.pack.coverId)
