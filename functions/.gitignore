@@ -8,4 +8,4 @@ typings/
 node_modules/
 
 src/admin/serviceAccountKey.json
-src/admin/assets
+src/admin/assets/
