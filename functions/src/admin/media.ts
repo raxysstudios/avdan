@@ -4,14 +4,19 @@
 import {bucket} from "../init";
 import glob from "glob";
 
-clean();
+run();
+async function run() {
+  const lang = "";
+  await clean(lang);
+  await upload(lang);
+}
+
 async function clean(dir="") {
   await bucket.deleteFiles({
     prefix: `static/${dir}`,
   });
 }
 
-upload();
 async function upload(dir="") {
   glob(
       `assets/static/${dir}/**/*.{png,mp3}`,

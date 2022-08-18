@@ -6,9 +6,20 @@ import {default as admin, firestore} from "../init";
 
 run();
 async function run() {
-  const lang = "east circassian";
-  await clean(lang);
-  await upload(lang);
+  const langs = [
+    "abkhaz",
+    "aghul",
+    "dargwa",
+    "digor",
+    "iron",
+    "east circassian",
+    "kaitag",
+    "kubachi",
+  ];
+  for (const l of langs) {
+    await clean(l);
+    await upload(l);
+  }
 }
 
 async function clean(lang: string) {
