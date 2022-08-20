@@ -24,8 +24,10 @@ class LanguageTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final settings = context.watch<LanguagesScreenState>();
-    final title =
-        (settings.al ? language.caption.alt : null) ?? language.caption.main;
+    final title = (settings.ll == language.name && settings.al
+            ? language.caption.alt
+            : null) ??
+        language.caption.main;
     final subtitle = language.isInterface
         ? ''
         : localize(

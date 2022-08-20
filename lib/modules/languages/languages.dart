@@ -4,6 +4,7 @@ import 'package:avdan/modules/languages/widgets/language_simple_tile.dart';
 import 'package:avdan/modules/updates/services/loader.dart';
 import 'package:avdan/shared/localizations.dart';
 import 'package:avdan/shared/prefs.dart';
+import 'package:avdan/shared/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -123,16 +124,26 @@ class LanguagesScreenState extends State<LanguagesScreen> {
                     ll = l.name;
                   }),
                 ),
-                if (ll == l.name && l.caption.alt != null)
-                  AltToggle(
-                    al,
-                    off: l.caption.main,
-                    on: l.caption.alt!,
-                    onToggled: (v) => setState(() {
-                      al = v;
-                    }),
-                  ),
-              ]
+                if (ll == l.name) ...[
+                  if (l.contact != null)
+                    ListTile(
+                      leading: const Icon(Icons.send_outlined),
+                      title: Text(
+                        localize('contact', map: lclz),
+                      ),
+                      onTap: () => openLink(l.contact!),
+                    ),
+                  if (l.caption.alt != null)
+                    AltToggle(
+                      al,
+                      off: l.caption.main,
+                      on: l.caption.alt!,
+                      onToggled: (v) => setState(() {
+                        al = v;
+                      }),
+                    ),
+                ],
+              ],
           ],
         ),
       ),
