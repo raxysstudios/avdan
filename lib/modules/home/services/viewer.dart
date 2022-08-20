@@ -22,24 +22,14 @@ void openView(
     builder: (context) {
       return Padding(
         padding: padding,
-        child: Stack(
-          children: [
-            CardsView(
-              deck,
-              initial: card,
-              onChange: (i) => playCard(deck.cards[i]),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8),
-              child: Align(
-                alignment: Alignment.topLeft,
-                child: IconButton(
-                  onPressed: () => Navigator.pop(context),
-                  icon: const Icon(Icons.close_outlined),
-                ),
-              ),
-            ),
-          ],
+        child: CardsView(
+          deck,
+          initial: card,
+          onChange: (i) => playCard(deck.cards[i]),
+          leading: IconButton(
+            onPressed: () => Navigator.pop(context),
+            icon: const Icon(Icons.close_outlined),
+          ),
         ),
       );
     },
