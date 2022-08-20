@@ -16,7 +16,7 @@ void playAsset(String key) async {
     if (_curr != null) await _player.stop(_curr!);
     if (_keys.containsKey(key)) {
       _curr = _keys[key]!;
-      _player.play(_curr!);
+      await _player.play(_curr!);
     } else {
       final file = getAsset(key);
       if (file != null) {
