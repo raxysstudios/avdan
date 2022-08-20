@@ -2,7 +2,6 @@ import 'package:avdan/modules/languages/languages.dart';
 import 'package:avdan/modules/updates/services/loader.dart';
 import 'package:avdan/shared/contents.dart';
 import 'package:avdan/shared/localizations.dart';
-import 'package:avdan/shared/player.dart';
 import 'package:avdan/shared/prefs.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';

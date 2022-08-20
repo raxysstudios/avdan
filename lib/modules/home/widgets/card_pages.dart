@@ -2,7 +2,6 @@ import 'package:avdan/models/deck.dart';
 import 'package:avdan/shared/contents.dart';
 import 'package:avdan/shared/extensions.dart';
 import 'package:avdan/shared/widgets/label.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class CardsView extends StatefulWidget {
