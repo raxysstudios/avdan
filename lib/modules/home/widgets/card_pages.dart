@@ -37,17 +37,17 @@ class _CardsViewState extends State<CardsView> {
       onTap: () => widget.onChange?.call(
         _paging.page?.round() ?? 0,
       ),
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: PageView.builder(
-          onPageChanged: widget.onChange,
-          controller: _paging,
-          itemCount: widget.deck.cards.length,
-          itemBuilder: (context, i) {
-            final card = widget.deck.cards[i];
-            final caption = card.caption.get;
-            final image = getAsset(card.imagePath);
-            return Stack(
+      child: PageView.builder(
+        onPageChanged: widget.onChange,
+        controller: _paging,
+        itemCount: widget.deck.cards.length,
+        itemBuilder: (context, i) {
+          final card = widget.deck.cards[i];
+          final caption = card.caption.get;
+          final image = getAsset(card.imagePath);
+          return Padding(
+            padding: const EdgeInsets.all(16),
+            child: Stack(
               alignment: Alignment.center,
               children: [
                 if (image == null)
@@ -84,9 +84,9 @@ class _CardsViewState extends State<CardsView> {
                   ),
                 ],
               ],
-            );
-          },
-        ),
+            ),
+          );
+        },
       ),
     );
   }
