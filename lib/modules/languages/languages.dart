@@ -68,8 +68,8 @@ class LanguagesScreenState extends State<LanguagesScreen> {
         ),
         floatingActionButton: FloatingActionButton.extended(
           onPressed: () async {
+            final resets = intLng != il || lrnLng != ll;
             intLng = il;
-            final resets = lrnLng != ll;
             lrnLng = ll;
             isAlt = al;
             await putLocalizations(lclz);

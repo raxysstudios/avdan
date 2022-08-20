@@ -22,6 +22,7 @@ String localize(
   return isTitled ? t.titled : t;
 }
 
-Future<void> putLocalizations(Map<String, String> data) {
-  return _strings.putAll(data);
+Future<void> putLocalizations(Map<String, String> data) async {
+  await _strings.clear();
+  await _strings.putAll(data);
 }
