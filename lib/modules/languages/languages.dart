@@ -44,6 +44,13 @@ class LanguagesScreenState extends State<LanguagesScreen> {
     );
   }
 
+  Future<void> save() async {
+    intLng = il;
+    lrnLng = ll;
+    isAlt = al;
+    await putLocalizations(lclz);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Provider.value(
@@ -54,7 +61,10 @@ class LanguagesScreenState extends State<LanguagesScreen> {
           actions: [
             if (languages.isNotEmpty)
               IconButton(
-                onPressed: () => resetContents(context),
+                onPressed: () async {
+                  await save();
+                  resetContents(context);
+                },
                 icon: const Icon(Icons.cloud_sync_outlined),
               ),
             const SizedBox(width: 4),
@@ -69,10 +79,7 @@ class LanguagesScreenState extends State<LanguagesScreen> {
         floatingActionButton: FloatingActionButton.extended(
           onPressed: () async {
             final resets = intLng != il || lrnLng != ll;
-            intLng = il;
-            lrnLng = ll;
-            isAlt = al;
-            await putLocalizations(lclz);
+            await save();
             if (resets) {
               resetContents(context);
             } else {
