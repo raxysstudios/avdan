@@ -53,6 +53,7 @@ class DefaultFirebaseOptions {
     projectId: 'avdan-918fc',
     authDomain: 'avdan-918fc.firebaseapp.com',
     storageBucket: 'avdan-918fc.appspot.com',
+    measurementId: 'G-S56TGQ2EE6',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
@@ -69,8 +70,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '1014376255744',
     projectId: 'avdan-918fc',
     storageBucket: 'avdan-918fc.appspot.com',
-    iosClientId:
-        '1014376255744-dqabhvk12iv9vsf1k1e6f1pr0svjecdq.apps.googleusercontent.com',
+    iosClientId: '1014376255744-dqabhvk12iv9vsf1k1e6f1pr0svjecdq.apps.googleusercontent.com',
     iosBundleId: 'com.alkaitagi.avdanapp',
   );
 }
