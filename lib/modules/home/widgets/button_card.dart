@@ -20,7 +20,7 @@ class _ButtonCardState extends State<ButtonCard> {
   Widget build(BuildContext context) {
     return Card(
       shape: const StadiumBorder(),
-      elevation: 2 * (isHover ? 3 : 1),
+      elevation: isHover ? 12 : 6,
       margin: const EdgeInsets.all(8),
       child: InkWell(
         onTap: widget.onTap,
