@@ -34,15 +34,6 @@ class _UpdatesScreenState extends State<UpdatesScreen> {
 
   void init() async {
     if (widget.resets) await clearContents();
-    print('ANLT+++');
-    await FirebaseAnalytics.instance.logSelectContent(
-      contentType: 'language',
-      itemId: intLng,
-    );
-    await FirebaseAnalytics.instance.logSelectContent(
-      contentType: 'language',
-      itemId: lrnLng,
-    );
     await FirebaseAnalytics.instance.setUserProperty(
       name: 'intLng',
       value: intLng,
@@ -51,7 +42,6 @@ class _UpdatesScreenState extends State<UpdatesScreen> {
       name: 'lrnLng',
       value: lrnLng,
     );
-    print('ANLT---');
     await updateContents(
       context,
       (i) => setState(() {
