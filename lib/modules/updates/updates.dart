@@ -3,7 +3,9 @@ import 'package:avdan/modules/updates/widgets/status_icon.dart';
 import 'package:avdan/shared/contents.dart';
 import 'package:avdan/shared/extensions.dart';
 import 'package:avdan/shared/localizations.dart';
+import 'package:avdan/shared/prefs.dart';
 import 'package:avdan/shared/widgets/card_preview.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 
 import 'services/loader.dart';
@@ -32,6 +34,14 @@ class _UpdatesScreenState extends State<UpdatesScreen> {
 
   void init() async {
     if (widget.resets) await clearContents();
+    FirebaseAnalytics.instance.setUserProperty(
+      name: 'intLng',
+      value: intLng,
+    );
+    FirebaseAnalytics.instance.setUserProperty(
+      name: 'lrnLng',
+      value: lrnLng,
+    );
     await updateContents(
       context,
       (i) => setState(() {
