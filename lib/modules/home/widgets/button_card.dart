@@ -24,11 +24,8 @@ class _ButtonCardState extends State<ButtonCard> {
       margin: const EdgeInsets.all(8),
       child: InkWell(
         onTap: widget.onTap,
-        onTapDown: (_) => setState(() {
-          isHover = true;
-        }),
-        onTapCancel: () => setState(() {
-          isHover = false;
+        onHighlightChanged: (v) => setState(() {
+          isHover = v;
         }),
         child: Padding(
           padding: const EdgeInsets.symmetric(
