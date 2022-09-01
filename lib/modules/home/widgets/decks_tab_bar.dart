@@ -23,8 +23,8 @@ class DecksTabBar extends AnimatedWidget {
       isScrollable: true,
       labelPadding: EdgeInsets.zero,
       indicatorPadding: const EdgeInsets.symmetric(
-        horizontal: 4,
-        vertical: 6,
+        horizontal: 2,
+        vertical: 4,
       ),
       indicator: ShapeDecoration(
         shape: RoundedRectangleBorder(
@@ -42,7 +42,7 @@ class DecksTabBar extends AnimatedWidget {
           AspectRatio(
             aspectRatio: 1,
             child: Padding(
-              padding: const EdgeInsets.only(top: 2),
+              padding: const EdgeInsets.fromLTRB(2, 4, 2, 2),
               child: CardPreview(
                 decks[i].cover,
                 onTap: () {
