@@ -98,9 +98,9 @@ class _HomeScreenState extends State<HomeScreen>
                           child: LanguageFlag(
                             lrnLng,
                             height: 16,
-                            width: 48,
+                            width: 44,
                             scale: 2.5,
-                            offset: const Offset(24, 0),
+                            offset: const Offset(20, 0),
                           ),
                         ),
                       ],
