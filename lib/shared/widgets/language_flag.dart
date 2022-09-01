@@ -32,6 +32,7 @@ class LanguageFlag extends StatelessWidget {
             fit: BoxFit.contain,
             width: width,
             height: height,
+            errorBuilder: (_, __, ___) => const Icon(Icons.flag_outlined),
           ),
         ),
       ),
