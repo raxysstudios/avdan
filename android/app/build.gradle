@@ -60,9 +60,9 @@ android {
         release {
             signingConfig signingConfigs.release
         }
-        // debug {
-        //     applicationIdSuffix ".debug"
-        // }
+        debug {
+            applicationIdSuffix ".debug"
+        }
     }
 }
 
