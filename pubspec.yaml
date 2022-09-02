@@ -8,9 +8,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  firebase_core: ^1.19.2
-  cloud_firestore: ^3.3.0
-  firebase_storage: ^10.3.2
+  firebase_core: ^1.21.1
+  cloud_firestore: ^3.4.6
+  firebase_storage: ^10.3.7
   url_launcher: ^6.1.4
   provider: ^6.0.3
   google_fonts: ^3.0.1
@@ -26,12 +26,12 @@ dependencies:
   flutter_sound: ^9.2.13
   archive: ^3.3.1
   soundpool: ^2.3.0
-  firebase_analytics: ^9.3.2
+  firebase_analytics: ^9.3.3
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_launcher_icons: ^0.9.3
+  flutter_launcher_icons: ^0.10.0
   flutter_lints: ^2.0.1
   build_runner: ^2.2.0
   freezed: ^2.1.0+1
