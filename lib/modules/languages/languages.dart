@@ -60,7 +60,7 @@ class LanguagesScreenState extends State<LanguagesScreen> {
               IconButton(
                 onPressed: () async {
                   await save();
-                  resetContents(context);
+                  launchUpdates(context, true);
                 },
                 icon: const Icon(Icons.cloud_sync_outlined),
               ),
@@ -78,7 +78,7 @@ class LanguagesScreenState extends State<LanguagesScreen> {
             final resets = intLng != il || lrnLng != ll;
             await save();
             if (resets) {
-              resetContents(context);
+              launchUpdates(context, true);
             } else {
               Navigator.pop(context);
             }
