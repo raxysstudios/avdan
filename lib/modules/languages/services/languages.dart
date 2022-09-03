@@ -12,3 +12,14 @@ Future<List<Language>> fetchLanguages() {
       .get()
       .then((s) => s.docs.map((d) => d.data()).toList());
 }
+
+Future<Language?> fetchLanguage(String name) {
+  return FirebaseFirestore.instance
+      .doc('languages/$name')
+      .withConverter(
+        fromFirestore: (s, _) => Language.fromJson(s.data()!),
+        toFirestore: (_, __) => {},
+      )
+      .get()
+      .then((s) => s.data());
+}
