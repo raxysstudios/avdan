@@ -42,7 +42,7 @@ class _UpdatesScreenState extends State<UpdatesScreen> {
       name: 'lrnLng',
       value: lrnLng,
     );
-    await updateLocalizations(intLng);
+    await updateLocalizations();
     await updateContents(
       context,
       (i) => setState(() {
