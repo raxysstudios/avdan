@@ -34,14 +34,15 @@ class _UpdatesScreenState extends State<UpdatesScreen> {
 
   void init() async {
     if (widget.resets) await clearContents();
-    await FirebaseAnalytics.instance.setUserProperty(
+    FirebaseAnalytics.instance.setUserProperty(
       name: 'intLng',
       value: intLng,
     );
-    await FirebaseAnalytics.instance.setUserProperty(
+    FirebaseAnalytics.instance.setUserProperty(
       name: 'lrnLng',
       value: lrnLng,
     );
+    await updateLocalizations(intLng);
     await updateContents(
       context,
       (i) => setState(() {

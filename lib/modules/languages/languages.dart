@@ -46,7 +46,6 @@ class LanguagesScreenState extends State<LanguagesScreen> {
     intLng = il;
     lrnLng = ll;
     isAlt = al;
-    await putLocalizations(lclz);
   }
 
   @override
