@@ -43,7 +43,10 @@ class _HomeScreenState extends State<HomeScreen>
     _tab.animation?.addListener(() {
       final i = _tab.animation?.value.round() ?? 0;
       if (decks[i] != deck) {
-        setDeck(decks[i]);
+        setState(() {
+          deck = decks[i];
+          playCard(deck.cover);
+        });
       }
     });
   }
@@ -52,13 +55,6 @@ class _HomeScreenState extends State<HomeScreen>
   void dispose() {
     _tab.dispose();
     super.dispose();
-  }
-
-  void setDeck(Deck value) {
-    setState(() {
-      deck = value;
-      playCard(deck.cover);
-    });
   }
 
   @override
