@@ -3,11 +3,13 @@ import 'package:avdan/modules/home/widgets/button_card.dart';
 import 'package:avdan/modules/home/widgets/deck_grids.dart';
 import 'package:avdan/modules/languages/languages.dart';
 import 'package:avdan/modules/settings/services/updater.dart';
+import 'package:avdan/modules/updates/services/loader.dart';
 import 'package:avdan/shared/player.dart';
 import 'package:avdan/shared/prefs.dart';
 import 'package:avdan/shared/widgets/language_flag.dart';
 import 'package:flutter/material.dart';
 
+import '../updates/services/checks.dart';
 import 'services/viewer.dart';
 import 'widgets/decks_tab_bar.dart';
 
@@ -27,6 +29,7 @@ class _HomeScreenState extends State<HomeScreen>
   late final TabController _tab;
   List<Deck> get decks => widget.decks;
   late var deck = decks.first;
+  var hasUpdates = false;
 
   @override
   void initState() {
@@ -35,6 +38,14 @@ class _HomeScreenState extends State<HomeScreen>
       await checkNews(context);
       playCard(deck.cover);
     });
+    Future.wait([
+      checkLanguageUpdate(intLng, intUpd),
+      checkLanguageUpdate(lrnLng, lrnUpd),
+    ]).then(
+      (ts) => setState(() {
+        hasUpdates = ts.any((t) => t != null);
+      }),
+    );
 
     _tab = TabController(
       length: decks.length,
@@ -77,7 +88,6 @@ class _HomeScreenState extends State<HomeScreen>
                 onTap: (i) => openView(context, deck, i),
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   ButtonCard(
                     onTap: () => Navigator.push(
@@ -102,6 +112,15 @@ class _HomeScreenState extends State<HomeScreen>
                       ],
                     ),
                   ),
+                  if (hasUpdates)
+                    ButtonCard(
+                      onTap: () => launchUpdates(context),
+                      child: Icon(
+                        Icons.update_outlined,
+                        color: Theme.of(context).primaryColor,
+                      ),
+                    ),
+                  const Spacer(),
                   ButtonCard(
                     onTap: () => openSettings(context),
                     child: const Icon(Icons.settings_outlined),
