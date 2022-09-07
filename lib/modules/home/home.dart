@@ -113,12 +113,18 @@ class _HomeScreenState extends State<HomeScreen>
                     ),
                   ),
                   if (hasUpdates)
-                    ButtonCard(
-                      onTap: () => launchUpdates(context),
-                      child: Icon(
-                        Icons.update_outlined,
-                        color: Theme.of(context).primaryColor,
-                      ),
+                    Builder(
+                      builder: (context) {
+                        final scheme = Theme.of(context).colorScheme;
+                        return ButtonCard(
+                          onTap: () => launchUpdates(context),
+                          color: scheme.primary,
+                          child: Icon(
+                            Icons.update_outlined,
+                            color: scheme.onPrimary,
+                          ),
+                        );
+                      },
                     ),
                   const Spacer(),
                   ButtonCard(
