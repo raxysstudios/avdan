@@ -34,7 +34,7 @@ Future<List<Pack>> checkPendingPacks(
       .then((s) => {for (final d in s.docs) d.id: d.data()});
 
   for (final d in decks.values) {
-    if (!packs.containsKey(d.pack.id)) clearDeck(d);
+    if (!packs.containsKey(d.pack.id)) await clearDeck(d);
   }
   return [
     for (final p in packs.values)
