@@ -19,6 +19,14 @@ Future<void> clearContents() async {
   await _medias.clear();
 }
 
+Future<void> clearDeck(Deck deck) async {
+  await _decks.delete(deck.pack.id);
+  for (final c in deck.cards) {
+    await _medias.delete(c.audioPath);
+    await _medias.delete(c.imagePath);
+  }
+}
+
 Future<void> putAsset(String key, Uint8List? data) async {
   if (data != null) await _medias.put(key, data);
 }

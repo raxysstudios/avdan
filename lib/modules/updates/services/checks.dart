@@ -1,6 +1,7 @@
 import 'package:avdan/models/converters/timestamp_converter.dart';
 import 'package:avdan/models/deck.dart';
 import 'package:avdan/models/pack.dart';
+import 'package:avdan/shared/contents.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 Future<DateTime?> checkLanguageUpdate(
@@ -30,9 +31,13 @@ Future<List<Pack>> checkPendingPacks(
       )
       .where('status', isEqualTo: 'public')
       .get()
-      .then((s) => s.docs.map((d) => d.data()));
+      .then((s) => {for (final d in s.docs) d.id: d.data()});
+
+  for (final d in decks.values) {
+    if (!packs.containsKey(d.pack.id)) clearDeck(d);
+  }
   return [
-    for (final p in packs)
+    for (final p in packs.values)
       if (decks[p.id]?.isOutdated(p.lastUpdated) ?? true) p
   ];
 }
