@@ -5,7 +5,7 @@ import '../settings.dart';
 import 'fetcher.dart';
 
 Future<void> checkNews(BuildContext context) async {
-  final current = await getNewestUpdate(lrnLng);
+  final current = await getNewestUpdate(intLng);
   if (current.isAfter(pstUpd)) await openSettings(context);
 }
 
