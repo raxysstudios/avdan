@@ -26,7 +26,10 @@ Future<List<Post>> fetchPosts(
 }
 
 Future<DateTime> getNewestUpdate(String language) {
-  return fetchPosts(language).then(
+  return fetchPosts(
+    language,
+    limit: 1,
+  ).then(
     (ps) => ps.isEmpty ? DateTime(0) : ps.first.created,
   );
 }
