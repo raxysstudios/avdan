@@ -7,9 +7,8 @@ import glob from "glob";
 
 run();
 async function run() {
-  const lang = "";
-  await clean("ornament");
-  await upload(lang);
+  await clean();
+  await upload();
 }
 
 async function clean(dir="") {
