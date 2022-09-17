@@ -4,30 +4,25 @@
 import {bucket} from "./init";
 import glob from "glob";
 
-
 run();
 async function run() {
-  await clean();
-  await upload();
+  const dir = "audios/aghul/food";
+  await clean(dir);
+  await upload(dir);
 }
 
-async function clean(dir="") {
+async function clean(dir = "") {
   await bucket.deleteFiles({
     prefix: `static/${dir}`,
   });
 }
 
-async function upload(dir="") {
-  glob(
-      `assets/static/${dir}/**/*.{png,mp3}`,
-      async (_, files) => {
-        for (const file of files) {
-          const destination = file.substring(7);
-          await bucket.upload(
-              file,
-              {destination}
-          );
-          console.log(destination);
-        }
-      });
+async function upload(dir = "") {
+  glob(`assets/static/${dir}/**/*.{png,mp3}`, async (_, files) => {
+    for (const file of files) {
+      const destination = file.substring(7);
+      await bucket.upload(file, {destination});
+      console.log(destination);
+    }
+  });
 }

@@ -8,13 +8,14 @@ run();
 async function run() {
   const langs = [
     // "abkhaz",
-    // "aghul",
+    "aghul",
     // "dargwa",
     // "digor",
     // "iron",
     // "east circassian",
     // "kaitag",
-    "kubachi",
+    // "kubachi",
+    // "kumyk",
   ];
   for (const l of langs) {
     await clean(l);
