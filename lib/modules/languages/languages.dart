@@ -80,7 +80,7 @@ class LanguagesScreenState extends State<LanguagesScreen> {
             if (resets) {
               launchUpdates(context, true);
             } else {
-              Navigator.pop(context);
+              launchHome(context);
             }
           },
           icon: const Icon(Icons.home_outlined),
