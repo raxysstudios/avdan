@@ -52,6 +52,7 @@ class _HomeScreenState extends State<HomeScreen>
       vsync: this,
     );
     _tab.animation?.addListener(() {
+      if (_tab.indexIsChanging) return;
       final i = _tab.animation?.value.round() ?? 0;
       if (decks[i] != deck) {
         setState(() {
@@ -154,11 +155,7 @@ class _HomeScreenState extends State<HomeScreen>
           child: DecksTabBar(
             decks,
             controller: _tab,
-            onTap: (i) {
-              if (decks[i] == deck) {
-                playCard(deck.cover);
-              }
-            },
+            onTap: (i) => playCard(decks[i].cover),
           ),
         ),
       ),
