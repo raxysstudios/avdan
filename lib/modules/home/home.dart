@@ -52,13 +52,12 @@ class _HomeScreenState extends State<HomeScreen>
       vsync: this,
     );
     _tab.animation?.addListener(() {
-      if (_tab.indexIsChanging) return;
       final i = _tab.animation?.value.round() ?? 0;
       if (decks[i] != deck) {
         setState(() {
           deck = decks[i];
-          playCard(deck.cover);
         });
+        if (!_tab.indexIsChanging) playCard(deck.cover);
       }
     });
   }
