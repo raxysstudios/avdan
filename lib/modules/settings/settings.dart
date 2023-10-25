@@ -45,7 +45,7 @@ class SettingsScreen extends StatelessWidget {
                     leading: const Icon(Icons.notifications_outlined),
                     title: Text(
                       localize('news'),
-                      style: Theme.of(context).textTheme.headline6,
+                      style: Theme.of(context).textTheme.titleLarge,
                     ),
                   ),
                 ),

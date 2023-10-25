@@ -29,7 +29,7 @@ class CardPreview extends StatelessWidget {
                     child: Text(
                       (card.preview ?? card.caption).get.titled,
                       style: TextStyle(
-                        color: Theme.of(context).textTheme.bodyText1?.color,
+                        color: Theme.of(context).textTheme.bodyLarge?.color,
                         fontSize: 48,
                         fontWeight: FontWeight.w500,
                       ),

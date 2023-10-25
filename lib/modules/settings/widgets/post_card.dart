@@ -49,7 +49,7 @@ class PostCard extends StatelessWidget {
         Text(
           DateFormat('dd.MM.yyyy').format(post.created),
           textAlign: TextAlign.end,
-          style: theme.textTheme.caption?.copyWith(
+          style: theme.textTheme.bodySmall?.copyWith(
             fontSize: 14,
             fontStyle: FontStyle.italic,
           ),

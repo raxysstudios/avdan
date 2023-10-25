@@ -94,7 +94,7 @@ class LanguagesScreenState extends State<LanguagesScreen> {
               leading: const Icon(Icons.subtitles_outlined),
               title: Text(
                 localize('interface', map: lclz),
-                style: Theme.of(context).textTheme.headline6,
+                style: Theme.of(context).textTheme.titleLarge,
               ),
             ),
             if (languages.isEmpty)
@@ -113,7 +113,7 @@ class LanguagesScreenState extends State<LanguagesScreen> {
               leading: const Icon(Icons.school_outlined),
               title: Text(
                 localize('learning', map: lclz),
-                style: Theme.of(context).textTheme.headline6,
+                style: Theme.of(context).textTheme.titleLarge,
               ),
             ),
             if (languages.isEmpty)

@@ -17,7 +17,7 @@ class VersionTile extends StatelessWidget {
           final p = snapshot.data;
           return Text(
             p == null ? '...' : 'v${p.version} (${p.buildNumber})',
-            style: Theme.of(context).textTheme.caption,
+            style: Theme.of(context).textTheme.bodySmall,
           );
         },
       ),

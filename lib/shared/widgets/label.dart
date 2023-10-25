@@ -25,7 +25,7 @@ class Label extends StatelessWidget {
           TextSpan(
             text: title.titled,
             style: TextStyle(
-              color: Theme.of(context).textTheme.bodyText1?.color,
+              color: Theme.of(context).textTheme.bodyLarge?.color,
               fontSize: titleSize,
               fontWeight: FontWeight.w500,
             ),
