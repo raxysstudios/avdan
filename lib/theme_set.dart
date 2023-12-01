@@ -9,27 +9,22 @@ class ThemeSet {
         dark = _getDarkTheme(scheme);
 
   static ThemeData _getDarkTheme(ColorScheme colorScheme) =>
-      ThemeData.dark().copyWith(
+      ThemeData.dark(useMaterial3: false).copyWith(
         colorScheme: ColorScheme.fromSwatch(
-          accentColor: Colors.grey,
+          accentColor: Colors.blue,
           brightness: Brightness.dark,
         ),
         cardTheme: const CardTheme(
           clipBehavior: Clip.antiAlias,
         ),
-        toggleableActiveColor: colorScheme.primary,
-        floatingActionButtonTheme: FloatingActionButtonThemeData(
-          backgroundColor: colorScheme.primary,
-          foregroundColor: colorScheme.onPrimary,
-        ),
         dividerTheme: const DividerThemeData(space: 0),
       );
 
   static ThemeData _getLightTheme(ColorScheme colorScheme) =>
-      ThemeData().copyWith(
+      ThemeData(useMaterial3: false).copyWith(
         scaffoldBackgroundColor: Colors.blueGrey.shade50,
         colorScheme: ColorScheme.fromSwatch(
-          accentColor: Colors.grey,
+          accentColor: Colors.blue,
         ),
         appBarTheme: AppBarTheme(
           backgroundColor: colorScheme.surface,
@@ -37,11 +32,6 @@ class ThemeSet {
         ),
         cardTheme: const CardTheme(
           clipBehavior: Clip.antiAlias,
-        ),
-        toggleableActiveColor: colorScheme.primary,
-        floatingActionButtonTheme: FloatingActionButtonThemeData(
-          backgroundColor: colorScheme.primary,
-          foregroundColor: colorScheme.onPrimary,
         ),
         dividerTheme: const DividerThemeData(space: 0),
       );
