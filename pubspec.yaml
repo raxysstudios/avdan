@@ -1,6 +1,6 @@
 name: avdan
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
-version: 1.1.7+64
+version: 1.1.8+66
 
 environment:
   sdk: ">=3.0.0"
