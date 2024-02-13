@@ -7,13 +7,21 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v2 # Only works with v2
-      - uses: subosito/flutter-action@v1
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+
+      - name: Install and Build 🔧
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
       - run: |
-          mkdir -p build/web
-          echo "avdan.raxys.app" > build/web/CNAME
           flutter pub get
           flutter pub run build_runner build
-      - uses: erickzanardo/flutter-gh-pages@v6
+          flutter build web
+          echo "avdan.raxys.app" > build/web/CNAME
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: build/web
