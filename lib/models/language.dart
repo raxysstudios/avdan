@@ -4,8 +4,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'converters/timestamp_converter.dart';
 
-part '../../lib/models/language.freezed.dart';
-part '../../lib/models/language.g.dart';
+part 'language.freezed.dart';
+part 'language.g.dart';
 
 @freezed
 class Language with _$Language {

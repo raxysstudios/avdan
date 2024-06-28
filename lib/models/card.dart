@@ -3,8 +3,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'caption.dart';
 
-part '../../lib/models/card.freezed.dart';
-part '../../lib/models/card.g.dart';
+part 'card.freezed.dart';
+part 'card.g.dart';
 
 @freezed
 class Card with _$Card {

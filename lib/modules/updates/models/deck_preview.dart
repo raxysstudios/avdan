@@ -3,7 +3,7 @@ import 'package:avdan/models/pack.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part '../../../../lib/modules/updates/models/deck_preview.freezed.dart';
+part 'deck_preview.freezed.dart';
 
 enum DeckStatus { pending, downloading, unpacking, ready }
 

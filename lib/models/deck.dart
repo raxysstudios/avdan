@@ -5,8 +5,8 @@ import 'package:avdan/models/pack.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part '../../lib/models/deck.freezed.dart';
-part '../../lib/models/deck.g.dart';
+part 'deck.freezed.dart';
+part 'deck.g.dart';
 
 @unfreezed
 class Deck with _$Deck {

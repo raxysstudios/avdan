@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part '../../lib/models/caption.freezed.dart';
-part '../../lib/models/caption.g.dart';
+part 'caption.freezed.dart';
+part 'caption.g.dart';
 
 @freezed
 class Caption with _$Caption {

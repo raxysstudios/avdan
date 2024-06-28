@@ -3,8 +3,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'converters/timestamp_converter.dart';
 
-part '../../lib/models/post.freezed.dart';
-part '../../lib/models/post.g.dart';
+part 'post.freezed.dart';
+part 'post.g.dart';
 
 @freezed
 class Post with _$Post {

@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part '../../lib/models/translation.freezed.dart';
-part '../../lib/models/translation.g.dart';
+part 'translation.freezed.dart';
+part 'translation.g.dart';
 
 @freezed
 class Translation with _$Translation {

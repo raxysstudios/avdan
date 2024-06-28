@@ -6,8 +6,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'converters/color_converter.dart';
 import 'converters/timestamp_converter.dart';
 
-part '../../lib/models/pack.freezed.dart';
-part '../../lib/models/pack.g.dart';
+part 'pack.freezed.dart';
+part 'pack.g.dart';
 
 @freezed
 class Pack with _$Pack {
