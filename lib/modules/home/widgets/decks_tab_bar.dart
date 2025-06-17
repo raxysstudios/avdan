@@ -36,7 +36,7 @@ class DecksTabBar extends AnimatedWidget {
           index.remainder(1),
         ),
       ),
-      overlayColor: MaterialStateProperty.all(Colors.transparent),
+      overlayColor: WidgetStateProperty.all(Colors.transparent),
       tabs: [
         for (var i = 0; i < decks.length; i++)
           AspectRatio(

@@ -18,7 +18,7 @@ class Deck with _$Deck {
     @Default(<String, String>{}) Map<String, String?> translations,
   }) = _Deck;
 
-  Color? get color => pack.color?.withOpacity(.2);
+  Color? get color => pack.color?.withValues(alpha: 0.2);
 
   bool isOutdated(DateTime check) {
     return pack.lastUpdated.isBefore(check);

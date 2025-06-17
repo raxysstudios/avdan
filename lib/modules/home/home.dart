@@ -2,7 +2,7 @@ import 'package:avdan/models/deck.dart';
 import 'package:avdan/modules/home/widgets/button_card.dart';
 import 'package:avdan/modules/home/widgets/deck_grids.dart';
 import 'package:avdan/modules/languages/languages.dart';
-import 'package:avdan/modules/settings/services/updater.dart';
+import 'package:avdan/modules/news/services/updater.dart';
 import 'package:avdan/modules/updates/services/loader.dart';
 import 'package:avdan/shared/player.dart';
 import 'package:avdan/shared/prefs.dart';

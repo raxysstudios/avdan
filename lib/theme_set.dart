@@ -14,7 +14,7 @@ class ThemeSet {
           accentColor: Colors.blue,
           brightness: Brightness.dark,
         ),
-        cardTheme: const CardTheme(
+        cardTheme: const CardThemeData(
           clipBehavior: Clip.antiAlias,
         ),
         dividerTheme: const DividerThemeData(space: 0),
@@ -30,7 +30,7 @@ class ThemeSet {
           backgroundColor: colorScheme.surface,
           foregroundColor: colorScheme.onSurface,
         ),
-        cardTheme: const CardTheme(
+        cardTheme: const CardThemeData(
           clipBehavior: Clip.antiAlias,
         ),
         dividerTheme: const DividerThemeData(space: 0),
