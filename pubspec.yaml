@@ -16,7 +16,6 @@ dependencies:
   provider: ^6.1.2
   google_fonts: ^6.2.1
   package_info_plus: ^8.0.0
-  infinite_scroll_pagination: ^5.0.0
   intersperse: ^2.0.0
   flutter_markdown: ^0.7.3
   freezed_annotation: ^3.0.0
@@ -27,6 +26,7 @@ dependencies:
   archive: ^4.0.7
   soundpool: ^2.4.1
   firebase_analytics: ^11.1.0
+  firebase_ui_firestore: ^1.7.2
 
 dev_dependencies:
   flutter_test:

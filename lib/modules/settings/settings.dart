@@ -1,10 +1,9 @@
+import 'package:avdan/modules/news/news_screen.dart';
 import 'package:avdan/modules/settings/widgets/version_tile.dart';
 import 'package:avdan/shared/localizations.dart';
 import 'package:avdan/shared/utils.dart';
 import 'package:avdan/shared/widgets/raxys.dart';
 import 'package:flutter/material.dart';
-
-import 'widgets/news_sliver.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -27,35 +26,32 @@ class SettingsScreen extends StatelessWidget {
         icon: const Icon(Icons.send_outlined),
         label: Text(localize('contact')),
       ),
-      body: CustomScrollView(
-        slivers: [
-          SliverList(
-            delegate: SliverChildListDelegate(
-              [
-                ListTile(
-                  onTap: () => openLink('https://raxys.app'),
-                  leading: const Icon(Icons.landscape_outlined),
-                  title: const Text('Raxys Studios'),
-                  subtitle: Text(localize('honor', isTitled: false)),
+      body: ListView(
+        padding: const EdgeInsets.only(bottom: 76),
+        children: [
+          ListTile(
+            onTap: () => openLink('https://raxys.app'),
+            leading: const Icon(Icons.landscape_outlined),
+            title: const Text('Raxys Studios'),
+            subtitle: Text(localize('honor', isTitled: false)),
+          ),
+          const VersionTile(),
+          Padding(
+            padding: const EdgeInsets.only(top: 16),
+            child: ListTile(
+              leading: const Icon(Icons.notifications_outlined),
+              title: Text(
+                localize('news'),
+                style: Theme.of(context).textTheme.titleLarge,
+              ),
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const NewsScreen(),
                 ),
-                const VersionTile(),
-                Padding(
-                  padding: const EdgeInsets.only(top: 16),
-                  child: ListTile(
-                    leading: const Icon(Icons.notifications_outlined),
-                    title: Text(
-                      localize('news'),
-                      style: Theme.of(context).textTheme.titleLarge,
-                    ),
-                  ),
-                ),
-              ],
+              ),
             ),
           ),
-          const NewsSliver(),
-          const SliverPadding(
-            padding: EdgeInsets.only(bottom: 76),
-          )
         ],
       ),
     );

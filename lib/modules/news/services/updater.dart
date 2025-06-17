@@ -1,7 +1,7 @@
+import 'package:avdan/modules/settings/settings.dart';
 import 'package:avdan/shared/prefs.dart';
 import 'package:flutter/material.dart';
 
-import '../settings.dart';
 import 'fetcher.dart';
 
 Future<void> checkNews(BuildContext context) async {
