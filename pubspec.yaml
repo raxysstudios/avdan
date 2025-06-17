@@ -24,7 +24,7 @@ dependencies:
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   archive: ^4.0.7
-  soundpool: ^2.4.1
+  audioplayers: ^6.5.0
   firebase_analytics: ^11.1.0
   firebase_ui_firestore: ^1.7.2
 

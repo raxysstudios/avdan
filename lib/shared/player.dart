@@ -1,35 +1,31 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:avdan/models/card.dart';
 import 'package:avdan/shared/contents.dart';
-import 'package:soundpool/soundpool.dart';
+import 'package:flutter/foundation.dart';
 
-final _player = Soundpool.fromOptions();
-final _keys = <String, int>{};
-int? _curr;
+final _player = AudioPlayer();
 
-Future<void> resetPlayer() {
-  _keys.clear();
-  return _player.release();
+Future<void> stopPlayer() async {
+  await _player.stop();
 }
 
-void playAsset(String key) async {
+Future<void> playAsset(String key) async {
   try {
-    if (_curr != null) await _player.stop(_curr!);
-    if (_keys.containsKey(key)) {
-      _curr = _keys[key]!;
-      await _player.play(_curr!);
-    } else {
-      final file = getAsset(key);
-      if (file != null) {
-        _curr = await _player.loadAndPlayUint8List(file);
-        _keys[key] = _curr!;
-      }
+    await stopPlayer();
+    final assetBytes = getAsset(key);
+    if (assetBytes != null) {
+      await _player.play(BytesSource(assetBytes));
     }
   } catch (e) {
-    rethrow;
+    if (kDebugMode) {
+      print(e);
+    }
   }
 }
 
 void playCard(Card card) {
   final key = card.audioPath;
-  if (key != null) playAsset(key);
+  if (key != null) {
+    playAsset(key);
+  }
 }

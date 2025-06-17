@@ -72,7 +72,7 @@ Future<void> launchUpdates(BuildContext context, [bool resets = false]) {
 }
 
 void launchHome(BuildContext context) async {
-  await resetPlayer();
+  await stopPlayer();
   Navigator.pushReplacement(
     context,
     MaterialPageRoute<void>(
