@@ -17,19 +17,13 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for ios - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return ios;
       case TargetPlatform.macOS:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for macos - '
@@ -59,4 +53,24 @@ class DefaultFirebaseOptions {
     projectId: 'avdan-918fc',
     storageBucket: 'avdan-918fc.appspot.com',
   );
+
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyBNZKMVhPc5LreUhisyWQBWJURIeDS_h5c',
+    appId: '1:1014376255744:web:1e88fba3cc9a661875e3e5',
+    messagingSenderId: '1014376255744',
+    projectId: 'avdan-918fc',
+    authDomain: 'avdan-918fc.firebaseapp.com',
+    storageBucket: 'avdan-918fc.appspot.com',
+    measurementId: 'G-S56TGQ2EE6',
+  );
+
+  static const FirebaseOptions ios = FirebaseOptions(
+    apiKey: 'AIzaSyC2QhGDsTF5htM4NZrzFO79hu4A2DXxUrE',
+    appId: '1:1014376255744:ios:a8d2e683a4b5fce675e3e5',
+    messagingSenderId: '1014376255744',
+    projectId: 'avdan-918fc',
+    storageBucket: 'avdan-918fc.appspot.com',
+    iosBundleId: 'com.alkaitagi.avdan',
+  );
+
 }
