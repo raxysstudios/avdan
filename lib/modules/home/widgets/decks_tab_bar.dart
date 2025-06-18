@@ -22,10 +22,12 @@ class DecksTabBar extends AnimatedWidget {
       controller: controller,
       isScrollable: true,
       labelPadding: EdgeInsets.zero,
+      padding: const EdgeInsets.symmetric(horizontal: 2),
       indicatorPadding: const EdgeInsets.symmetric(
         horizontal: 2,
         vertical: 4,
       ),
+      dividerHeight: 0,
       indicator: ShapeDecoration(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(4),
@@ -36,6 +38,7 @@ class DecksTabBar extends AnimatedWidget {
           index.remainder(1),
         ),
       ),
+      tabAlignment: TabAlignment.start,
       overlayColor: WidgetStateProperty.all(Colors.transparent),
       tabs: [
         for (var i = 0; i < decks.length; i++)

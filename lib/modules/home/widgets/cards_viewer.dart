@@ -1,36 +1,37 @@
 import 'package:avdan/models/deck.dart';
 import 'package:avdan/shared/contents.dart';
 import 'package:avdan/shared/extensions.dart';
+import 'package:avdan/shared/player.dart';
 import 'package:avdan/shared/widgets/label.dart';
 import 'package:flutter/material.dart';
 
-class CardsView extends StatefulWidget {
-  const CardsView(
+class CardsViewer extends StatefulWidget {
+  const CardsViewer(
     this.deck, {
     this.initial = 0,
-    this.onChange,
-    this.leading,
     super.key,
   });
 
   final Deck deck;
   final int initial;
-  final ValueSetter<int>? onChange;
-  final Widget? leading;
 
   @override
-  State<CardsView> createState() => _CardsViewState();
+  State<CardsViewer> createState() => _CardsViewerState();
 }
 
-class _CardsViewState extends State<CardsView> {
-  late final _paging = PageController(
+class _CardsViewerState extends State<CardsViewer> {
+  late final pages = PageController(
     initialPage: widget.initial,
   );
 
   @override
   void initState() {
     super.initState();
-    widget.onChange?.call(widget.initial);
+    play(widget.initial);
+  }
+
+  void play(int i) {
+    playCard(widget.deck.cards[i]);
   }
 
   @override
@@ -39,12 +40,12 @@ class _CardsViewState extends State<CardsView> {
       alignment: Alignment.topCenter,
       children: [
         InkWell(
-          onTap: () => widget.onChange?.call(
-            _paging.page?.round() ?? 0,
+          onTap: () => play(
+            pages.page?.round() ?? 0,
           ),
           child: PageView.builder(
-            onPageChanged: widget.onChange,
-            controller: _paging,
+            onPageChanged: play,
+            controller: pages,
             itemCount: widget.deck.cards.length,
             itemBuilder: (context, i) {
               final card = widget.deck.cards[i];
@@ -97,23 +98,26 @@ class _CardsViewState extends State<CardsView> {
         Padding(
           padding: const EdgeInsets.all(8),
           child: Row(
+            spacing: 8,
             children: [
-              if (widget.leading != null) widget.leading!,
+              IconButton(
+                onPressed: () => Navigator.pop(context),
+                icon: const Icon(Icons.close_rounded),
+              ),
               const Spacer(),
               IconButton(
-                onPressed: () => _paging.previousPage(
+                onPressed: () => pages.previousPage(
                   duration: const Duration(milliseconds: 200),
                   curve: Curves.easeInOutCubic,
                 ),
-                icon: const Icon(Icons.arrow_back_outlined),
+                icon: const Icon(Icons.arrow_back_rounded),
               ),
-              const SizedBox(width: 8),
               IconButton(
-                onPressed: () => _paging.nextPage(
+                onPressed: () => pages.nextPage(
                   duration: const Duration(milliseconds: 200),
                   curve: Curves.easeInOutCubic,
                 ),
-                icon: const Icon(Icons.arrow_forward_outlined),
+                icon: const Icon(Icons.arrow_forward_rounded),
               ),
             ],
           ),

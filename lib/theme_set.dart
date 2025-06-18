@@ -9,11 +9,11 @@ class ThemeSet {
         dark = _getDarkTheme(scheme);
 
   static ThemeData _getDarkTheme(ColorScheme colorScheme) =>
-      ThemeData.dark(useMaterial3: false).copyWith(
-        colorScheme: ColorScheme.fromSwatch(
-          accentColor: Colors.blue,
-          brightness: Brightness.dark,
-        ),
+      ThemeData.dark().copyWith(
+        // colorScheme: ColorScheme.fromSwatch(
+        //   accentColor: Colors.blue,
+        //   brightness: Brightness.dark,
+        // ),
         cardTheme: const CardThemeData(
           clipBehavior: Clip.antiAlias,
         ),
@@ -21,15 +21,15 @@ class ThemeSet {
       );
 
   static ThemeData _getLightTheme(ColorScheme colorScheme) =>
-      ThemeData(useMaterial3: false).copyWith(
-        scaffoldBackgroundColor: Colors.blueGrey.shade50,
-        colorScheme: ColorScheme.fromSwatch(
-          accentColor: Colors.blue,
-        ),
-        appBarTheme: AppBarTheme(
-          backgroundColor: colorScheme.surface,
-          foregroundColor: colorScheme.onSurface,
-        ),
+      ThemeData().copyWith(
+        // scaffoldBackgroundColor: Colors.blueGrey.shade50,
+        // colorScheme: ColorScheme.fromSwatch(
+        //   accentColor: Colors.blue,
+        // ),
+        // appBarTheme: AppBarTheme(
+        //   backgroundColor: colorScheme.surface,
+        //   foregroundColor: colorScheme.onSurface,
+        // ),
         cardTheme: const CardThemeData(
           clipBehavior: Clip.antiAlias,
         ),

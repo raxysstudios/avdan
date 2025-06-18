@@ -1,16 +1,12 @@
 import 'package:avdan/models/deck.dart';
-import 'package:avdan/modules/home/widgets/button_card.dart';
-import 'package:avdan/modules/home/widgets/deck_grids.dart';
-import 'package:avdan/modules/languages/languages.dart';
-import 'package:avdan/modules/news/services/updater.dart';
-import 'package:avdan/modules/updates/services/loader.dart';
+import 'package:avdan/modules/home/widgets/deck_view.dart';
+import 'package:avdan/modules/home/widgets/home_actions.dart';
+import 'package:avdan/modules/news/services/fetcher.dart';
 import 'package:avdan/shared/player.dart';
 import 'package:avdan/shared/prefs.dart';
-import 'package:avdan/shared/widgets/language_flag.dart';
 import 'package:flutter/material.dart';
 
 import '../updates/services/checks.dart';
-import 'services/viewer.dart';
 import 'widgets/decks_tab_bar.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -26,18 +22,23 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
-  late final TabController _tab;
+  late final TabController tabs;
   List<Deck> get decks => widget.decks;
   late var deck = decks.first;
   var hasUpdates = false;
+  var hasNews = false;
 
   @override
   void initState() {
     super.initState();
     Future.microtask(() async {
-      await checkNews(context);
       playCard(deck.cover);
     });
+    checkNews(intLng).then(
+      (hasNews) => setState(() {
+        this.hasNews = hasNews;
+      }),
+    );
     Future.wait([
       checkLanguageUpdate(intLng, intUpd),
       checkLanguageUpdate(lrnLng, lrnUpd),
@@ -47,24 +48,24 @@ class _HomeScreenState extends State<HomeScreen>
       }),
     );
 
-    _tab = TabController(
+    tabs = TabController(
       length: decks.length,
       vsync: this,
     );
-    _tab.animation?.addListener(() {
-      final i = _tab.animation?.value.round() ?? 0;
+    tabs.animation?.addListener(() {
+      final i = tabs.animation?.value.round() ?? 0;
       if (decks[i] != deck) {
         setState(() {
           deck = decks[i];
         });
-        if (!_tab.indexIsChanging) playCard(deck.cover);
+        if (!tabs.indexIsChanging) playCard(deck.cover);
       }
     });
   }
 
   @override
   void dispose() {
-    _tab.dispose();
+    tabs.dispose();
     super.dispose();
   }
 
@@ -78,66 +79,25 @@ class _HomeScreenState extends State<HomeScreen>
       ),
       extendBodyBehindAppBar: true,
       body: AnimatedBuilder(
-        animation: _tab.animation!,
+        animation: tabs.animation!,
         child: SafeArea(
           child: Stack(
             children: [
-              DecksGrids(
-                decks,
-                controller: _tab,
-                onTap: (i) => openView(context, deck, i),
-              ),
-              Row(
+              TabBarView(
+                controller: tabs,
                 children: [
-                  ButtonCard(
-                    onTap: () => Navigator.push(
-                      context,
-                      MaterialPageRoute<void>(
-                        builder: (context) => const LanguagesScreen(),
-                      ),
-                    ),
-                    child: Row(
-                      children: [
-                        const Icon(Icons.language_outlined),
-                        Opacity(
-                          opacity: .4,
-                          child: LanguageFlag(
-                            lrnLng,
-                            height: 16,
-                            width: 44,
-                            scale: 2.5,
-                            offset: const Offset(20, 0),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  if (hasUpdates)
-                    Builder(
-                      builder: (context) {
-                        final scheme = Theme.of(context).colorScheme;
-                        return ButtonCard(
-                          onTap: () => launchUpdates(context),
-                          color: scheme.primary,
-                          child: Icon(
-                            Icons.update_outlined,
-                            color: scheme.onPrimary,
-                          ),
-                        );
-                      },
-                    ),
-                  const Spacer(),
-                  ButtonCard(
-                    onTap: () => openSettings(context),
-                    child: const Icon(Icons.settings_outlined),
-                  ),
+                  for (final deck in decks) DeckView(deck),
                 ],
+              ),
+              HomeActions(
+                hasUpdates: hasUpdates,
+                hasNews: hasNews,
               ),
             ],
           ),
         ),
         builder: (context, child) {
-          final index = _tab.animation?.value ?? 0;
+          final index = tabs.animation?.value ?? 0;
           return Material(
             color: Color.lerp(
               decks[index.floor()].color,
@@ -149,13 +109,12 @@ class _HomeScreenState extends State<HomeScreen>
         },
       ),
       bottomNavigationBar: BottomAppBar(
-        child: SizedBox(
-          height: 72,
-          child: DecksTabBar(
-            decks,
-            controller: _tab,
-            onTap: (i) => playCard(decks[i].cover),
-          ),
+        padding: EdgeInsets.zero,
+        height: 84,
+        child: DecksTabBar(
+          decks,
+          controller: tabs,
+          onTap: (i) => playCard(decks[i].cover),
         ),
       ),
     );

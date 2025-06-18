@@ -2,7 +2,6 @@ import 'package:avdan/modules/updates/models/deck_preview.dart';
 import 'package:avdan/modules/updates/widgets/status_icon.dart';
 import 'package:avdan/shared/contents.dart';
 import 'package:avdan/shared/extensions.dart';
-import 'package:avdan/shared/localizations.dart';
 import 'package:avdan/shared/prefs.dart';
 import 'package:avdan/shared/widgets/card_preview.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
@@ -59,7 +58,7 @@ class _UpdatesScreenState extends State<UpdatesScreen> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text(localize('updates')),
+        title: Text('Обновления'),
         actions: [
           if (total != null)
             Padding(

@@ -1,6 +1,5 @@
 import 'package:avdan/models/post.dart';
 import 'package:avdan/modules/news/services/fetcher.dart';
-import 'package:avdan/shared/localizations.dart';
 import 'package:avdan/shared/prefs.dart';
 import 'package:firebase_ui_firestore/firebase_ui_firestore.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +13,7 @@ class NewsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text(localize('news')),
+        title: Text('Новости'),
       ),
       body: FirestoreListView<Post>(
         query: getPostsQuery(intLng),

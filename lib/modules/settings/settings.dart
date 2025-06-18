@@ -39,10 +39,7 @@ class SettingsScreen extends StatelessWidget {
           ),
           const Divider(),
           Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 16,
-              vertical: 8,
-            ),
+            padding: const EdgeInsets.fromLTRB(16, 20, 16, 8),
             child: Text(
               'Обратная связь',
               style: Theme.of(context).textTheme.labelLarge,
