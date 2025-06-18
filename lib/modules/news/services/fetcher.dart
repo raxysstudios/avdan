@@ -1,4 +1,5 @@
 import 'package:avdan/models/post.dart';
+import 'package:avdan/shared/prefs.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 Query<Post> getPostsQuery(String language) {
@@ -6,14 +7,19 @@ Query<Post> getPostsQuery(String language) {
       .collection('posts')
       .withConverter(
         fromFirestore: (s, _) => Post.fromJson(s.data()!),
-        toFirestore: (_, __) => {},
+        toFirestore: (o, __) => o.toJson(),
       )
       .where('language', isEqualTo: language)
       .orderBy('created', descending: true);
 }
 
-Future<DateTime> getNewestUpdate(String language) async {
+Future<bool> checkNews(String language) async {
+  var newest = DateTime(0);
+
   final snapshot = await getPostsQuery(language).limit(1).get();
-  if (snapshot.size == 0) return DateTime(0);
-  return snapshot.docs.first.data().created;
+  if (snapshot.size > 0) {
+    newest = snapshot.docs.first.data().created;
+  }
+
+  return newest.isAfter(pstUpd);
 }
