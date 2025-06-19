@@ -20,13 +20,16 @@ dependencies:
   flutter_markdown: ^0.7.3
   freezed_annotation: ^3.0.0
   json_annotation: ^4.9.0
-  intl: ^0.20.2
+  intl: any
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   archive: ^4.0.7
   audioplayers: ^6.5.0
   firebase_analytics: ^11.1.0
   firebase_ui_firestore: ^1.7.2
+  flutter_localizations:
+    sdk: flutter
+  flutter_bloc: ^9.1.1
 
 dev_dependencies:
   flutter_test:
@@ -39,6 +42,7 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  generate: true
   assets:
     - assets/
 

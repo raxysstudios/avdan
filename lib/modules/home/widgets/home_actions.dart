@@ -1,8 +1,11 @@
+import 'package:avdan/l10n/app_localizations.dart';
+import 'package:avdan/l10n/locale_cubit.dart';
 import 'package:avdan/modules/languages/languages.dart';
 import 'package:avdan/modules/news/news_screen.dart';
 import 'package:avdan/modules/settings/settings.dart';
 import 'package:avdan/modules/updates/services/loader.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeActions extends StatelessWidget {
   const HomeActions({
@@ -21,6 +24,13 @@ class HomeActions extends StatelessWidget {
       child: Row(
         spacing: 8,
         children: [
+          ElevatedButton.icon(
+            onPressed: () {
+              context.read<LocaleCubit>().toggleLocale();
+            },
+            icon: Icon(Icons.language_rounded),
+            label: Text(AppLocalizations.of(context)!.helloWorld),
+          ),
           ElevatedButton.icon(
             onPressed: () => Navigator.push(
               context,

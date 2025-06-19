@@ -1,5 +1,4 @@
 import 'package:avdan/modules/languages/languages.dart';
-import 'package:avdan/modules/languages/services/languages.dart';
 import 'package:avdan/modules/updates/services/loader.dart';
 import 'package:avdan/shared/contents.dart';
 import 'package:avdan/shared/localizations.dart';
@@ -7,9 +6,12 @@ import 'package:avdan/shared/prefs.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import 'firebase_options.dart';
+import 'l10n/app_localizations.dart';
+import 'l10n/locale_cubit.dart';
 import 'theme_set.dart';
 
 void main() async {
@@ -28,17 +30,6 @@ class App extends StatelessWidget {
 
   void setup(BuildContext context) async {
     if (intLng.isEmpty || !hasDecks) {
-      final locale = Localizations.localeOf(context);
-      final language = await fetchLanguage(
-        switch (locale.languageCode) {
-          'ru' => 'russian',
-          'tr' => 'turkish',
-          _ => 'english',
-        },
-      );
-      if (language != null) {
-        await selectUILanguage(language);
-      }
       Navigator.pushReplacement(
         context,
         MaterialPageRoute<void>(
@@ -55,35 +46,45 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = ThemeSet(Theme.of(context).colorScheme);
-    return MaterialApp(
-      title: 'Avdan',
-      theme: theme.light,
-      darkTheme: theme.dark,
-      home: FutureBuilder(
-        future: Future.wait([
-          Future<void>.delayed(const Duration(seconds: 2)),
-          Hive.initFlutter().then(
-            (_) async {
-              await initPrefs();
-              await initContents();
-              await initLocalizations();
-            },
-          ),
-        ]),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.done) {
-            Future.microtask(() => setup(context));
-          }
-          return Material(
-            child: SafeArea(
-              child: Center(
-                child: SizedBox(
-                  height: 500,
-                  child: Theme.of(context).brightness == Brightness.dark
-                      ? Image.asset('assets/splash_dark.png')
-                      : Image.asset('assets/splash_light.png'),
+    return BlocProvider(
+      create: (_) => LocaleCubit(AppLocalizations.supportedLocales.first),
+      child: BlocBuilder<LocaleCubit, Locale>(
+        builder: (context, locale) {
+          return MaterialApp(
+            title: 'Avdan',
+            theme: theme.light,
+            darkTheme: theme.dark,
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
+            supportedLocales: AppLocalizations.supportedLocales,
+            locale: locale,
+            home: FutureBuilder(
+              future: Future.wait([
+                Future<void>.delayed(const Duration(seconds: 2)),
+                Hive.initFlutter().then(
+                  (_) async {
+                    await initPrefs();
+                    await initContents();
+                    await initLocalizations();
+                  },
                 ),
-              ),
+              ]),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.done) {
+                  Future.microtask(() => setup(context));
+                }
+                return Material(
+                  child: SafeArea(
+                    child: Center(
+                      child: SizedBox(
+                        height: 500,
+                        child: Theme.of(context).brightness == Brightness.dark
+                            ? Image.asset('assets/splash_dark.png')
+                            : Image.asset('assets/splash_light.png'),
+                      ),
+                    ),
+                  ),
+                );
+              },
             ),
           );
         },
