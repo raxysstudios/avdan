@@ -1,6 +1,5 @@
 import 'package:avdan/models/language.dart';
 import 'package:avdan/shared/extensions.dart';
-import 'package:avdan/shared/localizations.dart';
 import 'package:avdan/shared/widgets/language_flag.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -26,21 +25,14 @@ class LanguageTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final settings = context.watch<LanguagesScreenState>();
-    final title = (isSelected && settings.al ? language.caption.alt : null) ??
-        language.caption.main;
-    final subtitle = language.isInterface
-        ? ''
-        : localize(
-            language.name,
-            map: settings.lclz,
-          );
+
     return Card(
       child: Column(
         children: [
           ClipRect(
             child: ListTile(
               title: Text(
-                title.titled,
+                language.caption.main.titled,
                 style: const TextStyle(
                   fontWeight: FontWeight.w500,
                 ),
@@ -53,7 +45,7 @@ class LanguageTile extends StatelessWidget {
                   child: LanguageFlag(language.name),
                 ),
               ),
-              subtitle: subtitle.isEmpty ? null : Text(subtitle),
+              subtitle: Text('Subtitle'),
               onTap: onTap,
               selected: isSelected,
             ),

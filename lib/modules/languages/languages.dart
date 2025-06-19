@@ -1,7 +1,6 @@
 import 'package:avdan/models/language.dart';
 import 'package:avdan/modules/languages/widgets/language_simple_tile.dart';
 import 'package:avdan/modules/updates/services/loader.dart';
-import 'package:avdan/shared/localizations.dart';
 import 'package:avdan/shared/prefs.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -21,7 +20,6 @@ class LanguagesScreen extends StatefulWidget {
 }
 
 class LanguagesScreenState extends State<LanguagesScreen> {
-  var lclz = getLocalizations();
   var il = intLng;
   var ll = lrnLng;
   var al = isAlt;
@@ -54,7 +52,7 @@ class LanguagesScreenState extends State<LanguagesScreen> {
       value: this,
       child: Scaffold(
         appBar: AppBar(
-          title: Text(localize('languages', map: lclz)),
+          title: Text('Languages'),
           actions: [
             if (languages.isNotEmpty)
               IconButton(
@@ -84,7 +82,7 @@ class LanguagesScreenState extends State<LanguagesScreen> {
             }
           },
           icon: const Icon(Icons.home_outlined),
-          label: Text(localize('home', map: lclz)),
+          label: Text('Continue'),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         body: ListView(
@@ -93,7 +91,7 @@ class LanguagesScreenState extends State<LanguagesScreen> {
             ListTile(
               leading: const Icon(Icons.subtitles_outlined),
               title: Text(
-                localize('interface', map: lclz),
+                'Interface',
                 style: Theme.of(context).textTheme.titleLarge,
               ),
             ),
@@ -106,13 +104,12 @@ class LanguagesScreenState extends State<LanguagesScreen> {
                   isSelected: il == l.name,
                   onTap: () => setState(() {
                     il = l.name;
-                    lclz = l.localizations;
                   }),
                 ),
             ListTile(
               leading: const Icon(Icons.school_outlined),
               title: Text(
-                localize('learning', map: lclz),
+                'Learning',
                 style: Theme.of(context).textTheme.titleLarge,
               ),
             ),

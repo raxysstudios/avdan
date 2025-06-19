@@ -1,7 +1,6 @@
 import 'package:avdan/modules/languages/interface_languages.dart';
 import 'package:avdan/modules/news/news_screen.dart';
-import 'package:avdan/shared/localizations.dart';
-import 'package:avdan/shared/prefs.dart';
+// import 'package:avdan/shared/localizations.dart';
 import 'package:avdan/shared/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -21,8 +20,8 @@ class SettingsScreen extends StatelessWidget {
         children: [
           ListTile(
             leading: const Icon(Icons.translate_rounded),
-            title: Text(localize('interface')),
-            subtitle: Text(localize(intLng)),
+            title: Text('Интерфейс'),
+            subtitle: Text('Русский'),
             onTap: () => Navigator.push(
               context,
               MaterialPageRoute(

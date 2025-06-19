@@ -2,7 +2,6 @@ import 'package:avdan/modules/home/home.dart';
 import 'package:avdan/modules/languages/services/languages.dart';
 import 'package:avdan/modules/updates/services/fetches.dart';
 import 'package:avdan/shared/contents.dart';
-import 'package:avdan/shared/localizations.dart';
 import 'package:avdan/shared/player.dart';
 import 'package:avdan/shared/prefs.dart';
 import 'package:flutter/material.dart';
@@ -55,7 +54,7 @@ Future<void> updateLocalizations() async {
   final l = await fetchLanguage(intLng);
   if (l == null) return;
 
-  await putLocalizations(l.localizations);
+  // await putLocalizations(l.localizations);
   intUpd = lastUpdated;
 }
 

@@ -1,7 +1,6 @@
 import 'package:avdan/modules/languages/languages.dart';
 import 'package:avdan/modules/updates/services/loader.dart';
 import 'package:avdan/shared/contents.dart';
-import 'package:avdan/shared/localizations.dart';
 import 'package:avdan/shared/prefs.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -64,7 +63,6 @@ class App extends StatelessWidget {
                   (_) async {
                     await initPrefs();
                     await initContents();
-                    await initLocalizations();
                   },
                 ),
               ]),
