@@ -1,9 +1,9 @@
 import 'package:avdan/modules/languages/languages.dart';
+import 'package:avdan/modules/languages/services/languages.dart';
 import 'package:avdan/modules/updates/services/loader.dart';
 import 'package:avdan/shared/contents.dart';
 import 'package:avdan/shared/localizations.dart';
 import 'package:avdan/shared/prefs.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -28,12 +28,17 @@ class App extends StatelessWidget {
 
   void setup(BuildContext context) async {
     if (intLng.isEmpty || !hasDecks) {
-      await FirebaseFirestore.instance.doc('languages/english').get().then(
-            (s) => putLocalizations(
-              (s.data()!['localizations'] as Map<String, dynamic>)
-                  .cast<String, String>(),
-            ),
-          );
+      final locale = Localizations.localeOf(context);
+      final language = await fetchLanguage(
+        switch (locale.languageCode) {
+          'ru' => 'russian',
+          'tr' => 'turkish',
+          _ => 'english',
+        },
+      );
+      if (language != null) {
+        await selectUILanguage(language);
+      }
       Navigator.pushReplacement(
         context,
         MaterialPageRoute<void>(

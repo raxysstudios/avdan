@@ -1,12 +1,22 @@
 import 'package:avdan/models/language.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+Query<Language> getLanguagesQuery() {
+  return FirebaseFirestore.instance
+      .collection('languages')
+      .withConverter(
+        fromFirestore: (s, _) => Language.fromJson(s.data()!),
+        toFirestore: (o, __) => o.toJson(),
+      )
+      .orderBy('order');
+}
+
 Future<List<Language>> fetchLanguages() {
   return FirebaseFirestore.instance
       .collection('languages')
       .withConverter(
         fromFirestore: (s, _) => Language.fromJson(s.data()!),
-        toFirestore: (_, __) => {},
+        toFirestore: (o, __) => o.toJson(),
       )
       .orderBy('order')
       .get()
@@ -18,7 +28,7 @@ Future<Language?> fetchLanguage(String name) {
       .doc('languages/$name')
       .withConverter(
         fromFirestore: (s, _) => Language.fromJson(s.data()!),
-        toFirestore: (_, __) => {},
+        toFirestore: (o, __) => o.toJson(),
       )
       .get()
       .then((s) => s.data());

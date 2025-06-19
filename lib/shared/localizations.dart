@@ -1,4 +1,6 @@
+import 'package:avdan/models/language.dart';
 import 'package:avdan/shared/extensions.dart';
+import 'package:avdan/shared/prefs.dart';
 import 'package:hive/hive.dart';
 
 late final Box<String> _strings;
@@ -25,4 +27,12 @@ String localize(
 Future<void> putLocalizations(Map<String, String> data) async {
   await _strings.clear();
   await _strings.putAll(data);
+}
+
+Future<void> selectUILanguage(Language language) async {
+  intUpd = language.lastUpdated;
+  intLng = language.name;
+
+  await _strings.clear();
+  await _strings.putAll(language.localizations);
 }

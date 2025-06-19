@@ -1,4 +1,7 @@
+import 'package:avdan/modules/languages/interface_languages.dart';
 import 'package:avdan/modules/news/news_screen.dart';
+import 'package:avdan/shared/localizations.dart';
+import 'package:avdan/shared/prefs.dart';
 import 'package:avdan/shared/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -16,16 +19,16 @@ class SettingsScreen extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.only(bottom: 76),
         children: [
-          FutureBuilder<PackageInfo>(
-            future: PackageInfo.fromPlatform(),
-            builder: (context, snapshot) {
-              final p = snapshot.data;
-              return ListTile(
-                  onTap: () => openLink('https://raxys.app'),
-                  leading: const Icon(Icons.landscape_rounded),
-                  title: Text('Avdan ${p?.version}'),
-                  subtitle: Text('Сделано на Северном Кавказе'));
-            },
+          ListTile(
+            leading: const Icon(Icons.translate_rounded),
+            title: Text(localize('interface')),
+            subtitle: Text(localize(intLng)),
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const InterfaceLanguages(),
+              ),
+            ),
           ),
           ListTile(
             leading: const Icon(Icons.notifications_rounded),
@@ -56,6 +59,19 @@ class SettingsScreen extends StatelessWidget {
             title: Text('Сообщить об ошибке в материале'),
             subtitle: Text('Неверный перевод, опечатка в тексте, и т.п.'),
             onTap: () => openLink('https://forms.gle/P7YvwLxxnzfU2beG8'),
+          ),
+          const Divider(),
+          FutureBuilder<PackageInfo>(
+            future: PackageInfo.fromPlatform(),
+            builder: (context, snapshot) {
+              final p = snapshot.data;
+              return ListTile(
+                onTap: () => openLink('https://raxys.app'),
+                leading: const Icon(Icons.landscape_rounded),
+                title: Text('Avdan ${p?.version}'),
+                subtitle: Text('Сделано на Северном Кавказе'),
+              );
+            },
           ),
         ],
       ),
