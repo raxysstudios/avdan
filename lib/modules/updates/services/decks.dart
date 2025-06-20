@@ -54,7 +54,7 @@ Future<DeckPreview> fetchDeckPreview(
   );
 }
 
-Future<void> fetchDeck(String pId, VoidCallback onUnpacking) async {
+Future<void> fetchDeck(String pId) async {
   final archive = ZipDecoder().decodeBytes(
     await FirebaseStorage.instance
         .ref('decks/$pId/$pId.zip')
@@ -62,10 +62,10 @@ Future<void> fetchDeck(String pId, VoidCallback onUnpacking) async {
         .then((d) => d!),
   );
   final dynamic translations = await FirebaseStorage.instance
-      .ref('decks/$pId/$intLng.json')
+      .ref('decks/$pId/${Prefs.interfaceLanguage}.json')
       .getData()
       .then<dynamic>((d) => json.decode(utf8.decode(d!)));
-  onUnpacking();
+
   final deck = Deck.fromJson({
     ...json.decode(
       utf8.decode(

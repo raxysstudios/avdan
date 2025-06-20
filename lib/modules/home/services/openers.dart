@@ -1,9 +1,20 @@
 import 'package:avdan/models/deck.dart';
+import 'package:avdan/shared/extensions.dart';
 import 'package:flutter/material.dart';
 
+import '../home.dart';
 import '../widgets/cards_viewer.dart';
 
-void openView(
+void openHome(BuildContext context) async {
+  Navigator.pushReplacement(
+    context,
+    MaterialPageRoute<void>(
+      builder: (context) => HomeScreen(),
+    ),
+  );
+}
+
+void openCardsView(
   BuildContext context,
   Deck deck,
   int card,
@@ -12,7 +23,7 @@ void openView(
     context: context,
     isScrollControlled: true,
     backgroundColor: Color.alphaBlend(
-      deck.color ?? Colors.transparent,
+      deck.pack.color?.bg ?? Colors.transparent,
       Theme.of(context).colorScheme.surface,
     ),
     clipBehavior: Clip.antiAlias,
