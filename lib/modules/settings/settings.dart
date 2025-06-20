@@ -1,5 +1,6 @@
 import 'package:avdan/modules/languages/interface_languages.dart';
-import 'package:avdan/modules/news/news_screen.dart';
+import 'package:avdan/modules/news/services/openers.dart';
+import 'package:avdan/modules/settings/widgets/section_label.dart';
 // import 'package:avdan/shared/localizations.dart';
 import 'package:avdan/shared/utils.dart';
 import 'package:flutter/material.dart';
@@ -29,24 +30,8 @@ class SettingsScreen extends StatelessWidget {
               ),
             ),
           ),
-          ListTile(
-            leading: const Icon(Icons.notifications_rounded),
-            title: Text('Новости проекта'),
-            onTap: () => Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const NewsScreen(),
-              ),
-            ),
-          ),
           const Divider(),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(16, 20, 16, 8),
-            child: Text(
-              'Обратная связь',
-              style: Theme.of(context).textTheme.labelLarge,
-            ),
-          ),
+          SectionLabel('Обратная связь'),
           ListTile(
             leading: const Icon(Icons.mail_rounded),
             title: Text('Написать разработчику'),
@@ -60,6 +45,12 @@ class SettingsScreen extends StatelessWidget {
             onTap: () => openLink('https://forms.gle/P7YvwLxxnzfU2beG8'),
           ),
           const Divider(),
+          SectionLabel('О приложении'),
+          ListTile(
+            leading: const Icon(Icons.notifications_rounded),
+            title: Text('Новости проекта'),
+            onTap: () => openNews(context),
+          ),
           FutureBuilder<PackageInfo>(
             future: PackageInfo.fromPlatform(),
             builder: (context, snapshot) {
