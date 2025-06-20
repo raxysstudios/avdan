@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:avdan/models/card.dart';
 import 'package:avdan/models/pack.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -25,8 +23,6 @@ class Deck with _$Deck {
   final List<Card> cards;
   @override
   final Map<String, String?> translations;
-
-  Color? get color => pack.color?.withValues(alpha: 0.2);
 
   bool isOutdated(DateTime check) {
     return pack.lastUpdated.isBefore(check);

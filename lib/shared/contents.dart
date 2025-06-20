@@ -12,8 +12,6 @@ Future<void> initContents() async {
   _medias = await Hive.openBox<Uint8List>('media');
 }
 
-bool get hasDecks => _decks.isNotEmpty;
-
 Future<void> clearContents() async {
   await _decks.clear();
   await _medias.clear();
@@ -40,6 +38,10 @@ Future<void> putDeck(Deck deck) {
     deck.pack.id,
     jsonEncode(deck.toJson()),
   );
+}
+
+bool hasDeck(String id) {
+  return _decks.containsKey(id);
 }
 
 Map<String, Deck> getAllDecks() {

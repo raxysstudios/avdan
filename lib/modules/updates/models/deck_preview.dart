@@ -4,15 +4,13 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'deck_preview.freezed.dart';
 
-enum DeckStatus { pending, downloading, unpacking, ready }
-
 @unfreezed
 class DeckPreview with _$DeckPreview {
   DeckPreview({
     required this.pack,
     required this.cover,
     required this.length,
-    this.status = DeckStatus.pending,
+    this.isReady = false,
     this.translation,
   });
 
@@ -23,7 +21,7 @@ class DeckPreview with _$DeckPreview {
   @override
   final int length;
   @override
-  DeckStatus status;
+  bool isReady;
   @override
   final String? translation;
 }
