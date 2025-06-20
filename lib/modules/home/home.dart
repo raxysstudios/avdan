@@ -1,20 +1,18 @@
-import 'package:avdan/models/deck.dart';
 import 'package:avdan/modules/home/widgets/deck_view.dart';
 import 'package:avdan/modules/home/widgets/home_actions.dart';
-import 'package:avdan/modules/news/services/fetcher.dart';
+import 'package:avdan/modules/news/services/checks.dart';
+import 'package:avdan/modules/updates/services/checks.dart';
+import 'package:avdan/shared/contents.dart';
+import 'package:avdan/shared/extensions.dart';
 import 'package:avdan/shared/player.dart';
-import 'package:avdan/shared/prefs.dart';
 import 'package:flutter/material.dart';
 
-import '../updates/services/checks.dart';
 import 'widgets/decks_tab_bar.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen(
-    this.decks, {
+  const HomeScreen({
     super.key,
   });
-  final List<Deck> decks;
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -23,30 +21,23 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
   late final TabController tabs;
-  List<Deck> get decks => widget.decks;
-  late var deck = decks.first;
+
+  final decks = getAllDecks().values.toList();
+  late var selectedDeck = decks.first;
+
   var hasUpdates = false;
   var hasNews = false;
 
   @override
   void initState() {
     super.initState();
-    Future.microtask(() async {
-      playCard(deck.cover);
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      playCard(selectedDeck.cover);
+
+      hasUpdates = await checkUpdates();
+      hasNews = await checkNews();
+      setState(() {});
     });
-    checkNews(intLng).then(
-      (hasNews) => setState(() {
-        this.hasNews = hasNews;
-      }),
-    );
-    Future.wait([
-      checkLanguageUpdate(intLng, intUpd),
-      checkLanguageUpdate(lrnLng, lrnUpd),
-    ]).then(
-      (ts) => setState(() {
-        hasUpdates = ts.any((t) => t != null);
-      }),
-    );
 
     tabs = TabController(
       length: decks.length,
@@ -54,11 +45,11 @@ class _HomeScreenState extends State<HomeScreen>
     );
     tabs.animation?.addListener(() {
       final i = tabs.animation?.value.round() ?? 0;
-      if (decks[i] != deck) {
+      if (decks[i] != selectedDeck) {
         setState(() {
-          deck = decks[i];
+          selectedDeck = decks[i];
         });
-        if (!tabs.indexIsChanging) playCard(deck.cover);
+        if (!tabs.indexIsChanging) playCard(selectedDeck.cover);
       }
     });
   }
@@ -100,8 +91,8 @@ class _HomeScreenState extends State<HomeScreen>
           final index = tabs.animation?.value ?? 0;
           return Material(
             color: Color.lerp(
-              decks[index.floor()].color,
-              decks[index.ceil()].color,
+              decks[index.floor()].pack.color?.bg,
+              decks[index.ceil()].pack.color?.bg,
               index.remainder(1),
             ),
             child: child,

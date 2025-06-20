@@ -5,7 +5,7 @@ import 'package:avdan/shared/widgets/card_preview.dart';
 import 'package:avdan/shared/widgets/label.dart';
 import 'package:flutter/material.dart';
 
-import '../services/viewer.dart';
+import '../services/openers.dart';
 
 class DeckView extends StatelessWidget {
   const DeckView(
@@ -52,7 +52,7 @@ class DeckView extends StatelessWidget {
                 padding: const EdgeInsets.all(4),
                 child: CardPreview(
                   deck.cards[i],
-                  onTap: () => openView(context, deck, i),
+                  onTap: () => openCardsView(context, deck, i),
                 ),
               );
             },

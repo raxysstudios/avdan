@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:avdan/models/caption.dart';
 import 'package:avdan/shared/prefs.dart';
 
@@ -19,6 +21,10 @@ extension TitleCase on String? {
 
 extension GetText on Caption {
   String get get {
-    return (isAlt ? alt : null) ?? main;
+    return (Prefs.altScript ? alt : null) ?? main;
   }
+}
+
+extension BgColor on Color {
+  Color get bg => withValues(alpha: 0.2);
 }

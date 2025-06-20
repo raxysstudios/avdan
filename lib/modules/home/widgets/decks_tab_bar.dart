@@ -1,4 +1,5 @@
 import 'package:avdan/models/deck.dart';
+import 'package:avdan/shared/extensions.dart';
 import 'package:flutter/material.dart';
 import '../../../shared/widgets/card_preview.dart';
 
@@ -33,8 +34,8 @@ class DecksTabBar extends AnimatedWidget {
           borderRadius: BorderRadius.circular(4),
         ),
         color: Color.lerp(
-          decks[index.floor()].color ?? highlight,
-          decks[index.ceil()].color ?? highlight,
+          decks[index.floor()].pack.color?.bg ?? highlight,
+          decks[index.ceil()].pack.color?.bg ?? highlight,
           index.remainder(1),
         ),
       ),
