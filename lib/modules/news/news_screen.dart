@@ -1,12 +1,23 @@
 import 'package:avdan/models/post.dart';
-import 'package:avdan/modules/news/services/fetcher.dart';
+import 'package:avdan/modules/news/services/queries.dart';
 import 'package:avdan/shared/prefs.dart';
 import 'package:firebase_ui_firestore/firebase_ui_firestore.dart';
 import 'package:flutter/material.dart';
 import 'widgets/news_card.dart';
 
-class NewsScreen extends StatelessWidget {
+class NewsScreen extends StatefulWidget {
   const NewsScreen({super.key});
+
+  @override
+  State<NewsScreen> createState() => _NewsScreenState();
+}
+
+class _NewsScreenState extends State<NewsScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Prefs.lastReadNews = DateTime.now();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +27,7 @@ class NewsScreen extends StatelessWidget {
         title: Text('Новости'),
       ),
       body: FirestoreListView<Post>(
-        query: getPostsQuery(intLng),
+        query: getPostsQuery(Prefs.interfaceLanguage),
         padding: const EdgeInsets.only(top: 16, bottom: 32),
         itemBuilder: (context, snapshot) {
           final post = snapshot.data();
