@@ -13,6 +13,10 @@ Future<bool?> selectAltScript(
         clipBehavior: Clip.antiAlias,
         children: <Widget>[
           SimpleDialogOption(
+            padding: EdgeInsets.symmetric(
+              horizontal: 24,
+              vertical: 12,
+            ),
             onPressed: () => Navigator.pop(context, false),
             child: Text(
               '1. ${language.caption.main}',
@@ -20,6 +24,10 @@ Future<bool?> selectAltScript(
             ),
           ),
           SimpleDialogOption(
+            padding: EdgeInsets.symmetric(
+              horizontal: 24,
+              vertical: 12,
+            ),
             onPressed: () => Navigator.pop(context, true),
             child: Text(
               '2. ${language.caption.alt!}',

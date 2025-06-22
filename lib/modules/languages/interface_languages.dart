@@ -8,8 +8,8 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class InterfaceLanguages extends StatelessWidget {
-  const InterfaceLanguages({super.key});
+class InterfaceLanguagesScreen extends StatelessWidget {
+  const InterfaceLanguagesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,18 +24,26 @@ class InterfaceLanguages extends StatelessWidget {
             FutureBuilder(
               future: AppLocalizations.delegate.load(locale),
               builder: (context, snapshot) {
-                if (!snapshot.hasData) {
+                final l10n_ = snapshot.data;
+                if (l10n_ == null) {
                   return const SizedBox();
                 }
-                final l10n_ = snapshot.data!;
                 final code = locale.languageCode;
+                final name = codeToName(code);
 
                 return ListTile(
-                  leading: LanguageAvatar(codeToName(code)),
+                  leading: LanguageAvatar(name),
                   title: Text(translateCode(code, l10n_)),
                   subtitle: Text(translateCode(code, l10n)),
                   onTap: () async {
-                    context.read<LocaleCubit>().update(code);
+                    final localeCubit = context.read<LocaleCubit>();
+                    if (code == localeCubit.code) {
+                      Navigator.pop(context);
+                      return;
+                    }
+
+                    localeCubit.update(code);
+                    Prefs.interfaceLanguage = name;
                     FirebaseAnalytics.instance.setUserProperty(
                       name: 'interface_language',
                       value: Prefs.interfaceLanguage,
