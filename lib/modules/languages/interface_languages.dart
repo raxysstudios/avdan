@@ -1,5 +1,7 @@
 // import 'package:avdan/modules/languages/services/languages.dart';
 // import 'package:firebase_ui_firestore/firebase_ui_firestore.dart';
+// import 'package:avdan/shared/prefs.dart';
+// import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 
 class InterfaceLanguages extends StatelessWidget {
@@ -23,6 +25,10 @@ class InterfaceLanguages extends StatelessWidget {
       //       subtitle: Text(localize(language.name)),
       //       onTap: () async {
       //         await selectUILanguage(language);
+    //       FirebaseAnalytics.instance.setUserProperty(
+    //   name: 'interface_language',
+    //   value: Prefs.interfaceLanguage,
+    // );
       //         Navigator.pop(context);
       //       },
       //     );
