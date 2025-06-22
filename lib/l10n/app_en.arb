@@ -1,3 +1,6 @@
 {
-    "helloWorld": "Hello World!"
+    "en": "English",
+    "ru": "Russian",
+    "tr": "Turkish",
+    "interface": "Choose app language"
 }

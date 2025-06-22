@@ -9,5 +9,14 @@ class AppLocalizationsRu extends AppLocalizations {
   AppLocalizationsRu([String locale = 'ru']) : super(locale);
 
   @override
-  String get helloWorld => 'Привет мир!';
+  String get en => 'английский';
+
+  @override
+  String get ru => 'русский';
+
+  @override
+  String get tr => 'турецкий';
+
+  @override
+  String get interface => 'Выберите язык приложения';
 }
