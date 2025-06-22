@@ -13,10 +13,8 @@ import 'services/queries.dart';
 
 class LanguagesScreen extends StatelessWidget {
   const LanguagesScreen({
-    this.isInitial = false,
     super.key,
   });
-  final bool isInitial;
 
   @override
   Widget build(BuildContext context) {
@@ -50,6 +48,7 @@ class LanguagesScreen extends StatelessWidget {
                     if (isAlt == null) return;
                     Prefs.altScript = isAlt;
                   }
+
                   Prefs.learningLanguage = language;
                   FirebaseAnalytics.instance.setUserProperty(
                     name: 'learning_language',

@@ -26,7 +26,7 @@ class SettingsScreen extends StatelessWidget {
             onTap: () => Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const InterfaceLanguages(),
+                builder: (context) => const InterfaceLanguagesScreen(),
               ),
             ),
           ),

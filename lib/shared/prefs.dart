@@ -13,15 +13,18 @@ class Prefs {
   }
 
   static String get interfaceLanguage => _prefs.get(
-        'locale',
+        'interfaceLanguage',
         defaultValue: '',
       );
-  static set interfaceLanguage(String v) => _prefs.put('locale', v);
+  static set interfaceLanguage(String v) => _prefs.put(
+        'interfaceLanguage',
+        v,
+      );
 
   static Language? _learningLanguage;
   static Language? get learningLanguage {
     if (_learningLanguage == null) {
-      final json = _prefs.get('language');
+      final json = _prefs.get('learningLanguage');
       if (json == null) return null;
       _learningLanguage = Language.fromJson(jsonDecode(json));
     }
@@ -31,8 +34,8 @@ class Prefs {
   static set learningLanguage(Language? v) {
     _learningLanguage = v;
     _prefs.put(
+      'learningLanguage',
       v == null ? null : jsonEncode(v.toJson()),
-      v,
     );
   }
 
@@ -40,11 +43,17 @@ class Prefs {
         'altScript',
         defaultValue: false,
       );
-  static set altScript(bool v) => _prefs.put('altScript', v);
+  static set altScript(bool v) => _prefs.put(
+        'altScript',
+        v,
+      );
 
   static DateTime get lastReadNews => _prefs.get(
         'lastReadNews',
         defaultValue: DateTime(0),
       );
-  static set lastReadNews(DateTime v) => _prefs.put('lastReadNews', v);
+  static set lastReadNews(DateTime v) => _prefs.put(
+        'lastReadNews',
+        v,
+      );
 }
