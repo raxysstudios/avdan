@@ -8,6 +8,7 @@ ThemeData buildTheme([Brightness brightness = Brightness.light]) {
   final colorScheme = ColorScheme.fromSeed(
     seedColor: Color.fromARGB(255, 223, 125, 0),
     brightness: brightness,
+    dynamicSchemeVariant: DynamicSchemeVariant.rainbow,
   );
 
   return base.copyWith(

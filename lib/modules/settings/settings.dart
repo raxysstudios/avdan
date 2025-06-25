@@ -26,7 +26,7 @@ class SettingsScreen extends StatelessWidget {
         children: [
           ListTile(
             leading: const Icon(Icons.translate_rounded),
-            title: Text('Интерфейс'),
+            title: Text('Язык приложения'),
             subtitle: Text(
               translateCode(
                 context.watch<LocaleCubit>().code,
