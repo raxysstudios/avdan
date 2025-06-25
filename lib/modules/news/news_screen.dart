@@ -23,7 +23,6 @@ class _NewsScreenState extends State<NewsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
         title: Text('Новости'),
       ),
       body: FirestoreListView<Post>(

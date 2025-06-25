@@ -1,9 +1,13 @@
+import 'package:avdan/l10n/app_localizations.dart';
+import 'package:avdan/l10n/locale_cubit.dart';
+import 'package:avdan/l10n/utils.dart';
 import 'package:avdan/modules/languages/interface_languages.dart';
 import 'package:avdan/modules/news/services/openers.dart';
 import 'package:avdan/modules/settings/widgets/section_label.dart';
 // import 'package:avdan/shared/localizations.dart';
 import 'package:avdan/shared/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -13,7 +17,6 @@ class SettingsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
         title: Text('Настройки'),
       ),
       body: ListView(
@@ -22,7 +25,12 @@ class SettingsScreen extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.translate_rounded),
             title: Text('Интерфейс'),
-            subtitle: Text('Русский'),
+            subtitle: Text(
+              translateCode(
+                context.watch<LocaleCubit>().code,
+                AppLocalizations.of(context)!,
+              ),
+            ),
             onTap: () => Navigator.push(
               context,
               MaterialPageRoute(
