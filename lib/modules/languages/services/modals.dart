@@ -12,33 +12,26 @@ Future<bool?> selectAltScript(
   return await showDialog<bool>(
     context: context,
     builder: (context) {
-      return SimpleDialog(
-        title: const Text('Выберите письменность'),
-        clipBehavior: Clip.antiAlias,
-        children: [
-          SimpleDialogOption(
-            padding: EdgeInsets.symmetric(
-              horizontal: 24,
-              vertical: 12,
+      return ListTileTheme(
+        data: const ListTileThemeData(
+          contentPadding: EdgeInsets.symmetric(horizontal: 24),
+        ),
+        child: SimpleDialog(
+          title: const Text('Выберите письменность'),
+          clipBehavior: Clip.antiAlias,
+          children: [
+            ListTile(
+              leading: Icon(Icons.looks_one_rounded),
+              title: Text(language.caption.main),
+              onTap: () => Navigator.pop(context, false),
             ),
-            onPressed: () => Navigator.pop(context, false),
-            child: Text(
-              '1. ${language.caption.main}',
-              style: Theme.of(context).textTheme.bodyLarge,
+            ListTile(
+              leading: Icon(Icons.looks_two_rounded),
+              title: Text(language.caption.alt!),
+              onTap: () => Navigator.pop(context, true),
             ),
-          ),
-          SimpleDialogOption(
-            padding: EdgeInsets.symmetric(
-              horizontal: 24,
-              vertical: 12,
-            ),
-            onPressed: () => Navigator.pop(context, true),
-            child: Text(
-              '2. ${language.caption.alt!}',
-              style: Theme.of(context).textTheme.bodyLarge,
-            ),
-          ),
-        ],
+          ],
+        ),
       );
     },
   );
@@ -57,28 +50,28 @@ Future<Locale?> selectAppLanguage(BuildContext context) {
             child: Builder(
               builder: (context) {
                 final l10n = AppLocalizations.of(context)!;
-                return AlertDialog(
-                  scrollable: true,
-                  title: Text(l10n.appLangTitle),
-                  clipBehavior: Clip.antiAlias,
-                  actions: [
-                    TextButton(
-                      child: Text(l10n.save),
-                      onPressed: () => Navigator.of(context).pop(locale),
+                return ListTileTheme(
+                  data: const ListTileThemeData(
+                    contentPadding: EdgeInsets.symmetric(
+                      horizontal: 24,
                     ),
-                    TextButton(
-                      child: Text(l10n.cancel),
-                      onPressed: () => Navigator.of(context).pop(),
-                    ),
-                  ],
-                  contentPadding: EdgeInsets.symmetric(vertical: 10),
-                  content: ListTileTheme(
-                    data: const ListTileThemeData(
-                      contentPadding: EdgeInsets.symmetric(
-                        horizontal: 24,
+                  ),
+                  child: AlertDialog(
+                    scrollable: true,
+                    title: Text(l10n.appLangTitle),
+                    clipBehavior: Clip.antiAlias,
+                    actions: [
+                      TextButton(
+                        child: Text(l10n.save),
+                        onPressed: () => Navigator.of(context).pop(locale),
                       ),
-                    ),
-                    child: Column(
+                      TextButton(
+                        child: Text(l10n.cancel),
+                        onPressed: () => Navigator.of(context).pop(),
+                      ),
+                    ],
+                    contentPadding: EdgeInsets.symmetric(vertical: 10),
+                    content: Column(
                       children: [
                         for (final l in AppLocalizations.supportedLocales)
                           LocaleTile(
