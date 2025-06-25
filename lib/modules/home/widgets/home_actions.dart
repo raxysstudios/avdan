@@ -26,20 +26,21 @@ class HomeActions extends StatelessWidget {
       child: Row(
         spacing: 8,
         children: [
-          ElevatedButton.icon(
-            onPressed: () => Navigator.push(
-              context,
-              MaterialPageRoute<void>(
-                builder: (context) => const LanguagesScreen(),
-              ),
-            ),
-            icon: Icon(Icons.language_rounded),
-            label: Text(Prefs.learningLanguage?.caption.get ?? '?'),
-          ),
           if (hasUpdates)
             ElevatedButton(
               onPressed: () => launchUpdates(context),
               child: Icon(Icons.update_outlined),
+            )
+          else
+            ElevatedButton.icon(
+              onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute<void>(
+                  builder: (context) => const LanguagesScreen(),
+                ),
+              ),
+              icon: Icon(Icons.language_rounded),
+              label: Text(Prefs.learningLanguage?.caption.get.titled ?? '?'),
             ),
           const Spacer(),
           if (hasNews)
