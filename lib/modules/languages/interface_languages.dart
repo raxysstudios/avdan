@@ -43,12 +43,13 @@ class InterfaceLanguagesScreen extends StatelessWidget {
                     }
 
                     localeCubit.update(code);
+                    final reset = Prefs.interfaceLanguage != name;
                     Prefs.interfaceLanguage = name;
                     FirebaseAnalytics.instance.setUserProperty(
                       name: 'interface_language',
                       value: Prefs.interfaceLanguage,
                     );
-                    launchUpdates(context);
+                    launchUpdates(context, reset: reset);
                   },
                 );
               },

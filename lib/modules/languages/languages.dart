@@ -48,13 +48,14 @@ class LanguagesScreen extends StatelessWidget {
                     if (isAlt == null) return;
                     Prefs.altScript = isAlt;
                   }
-
+                  final reset = Prefs.learningLanguage != language;
                   Prefs.learningLanguage = language;
+
                   FirebaseAnalytics.instance.setUserProperty(
                     name: 'learning_language',
                     value: Prefs.learningLanguage?.name,
                   );
-                  launchUpdates(context);
+                  launchUpdates(context, reset: reset);
                 },
               );
             },
