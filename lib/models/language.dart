@@ -15,7 +15,7 @@ class Language with _$Language {
     this.isInterface = false,
     this.contact,
     required this.lastUpdated,
-    this.localizations = const {},
+    this.translations = const {},
   });
 
   @override
@@ -27,11 +27,12 @@ class Language with _$Language {
   @override
   final String? contact;
   @override
+  final Map<String, String> translations;
+  @override
   @TimestampConverter()
   @override
   final DateTime lastUpdated;
   @override
-  final Map<String, String> localizations;
 
   factory Language.fromJson(Map<String, Object?> json) =>
       _$LanguageFromJson(json);
