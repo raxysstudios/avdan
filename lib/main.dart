@@ -1,5 +1,4 @@
-import 'package:avdan/modules/languages/languages.dart';
-import 'package:avdan/modules/updates/services/loader.dart';
+import 'package:avdan/l10n/utils.dart';
 import 'package:avdan/shared/contents.dart';
 import 'package:avdan/shared/prefs.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -11,6 +10,8 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'firebase_options.dart';
 import 'l10n/app_localizations.dart';
 import 'l10n/locale_cubit.dart';
+import 'modules/home/services/openers.dart';
+import 'modules/languages/languages.dart';
 import 'theme_set.dart';
 
 void main() async {
@@ -18,27 +19,31 @@ void main() async {
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]);
+
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+  await Hive.initFlutter();
+  await Prefs.init();
+  await initContents();
+
   runApp(const App());
 }
 
 class App extends StatelessWidget {
   const App({super.key});
 
-  void setup(BuildContext context) async {
-    if (intLng.isEmpty || !hasDecks) {
+  void start(BuildContext context) async {
+    if (Prefs.interfaceLanguage.isEmpty) {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute<void>(
-          builder: (context) => const LanguagesScreen(
-            isInitial: true,
-          ),
+          builder: (context) => const LanguagesScreen(),
         ),
       );
     } else {
-      launchHome(context);
+      openHome(context);
     }
   }
 
@@ -53,22 +58,23 @@ class App extends StatelessWidget {
             title: 'Avdan',
             theme: theme.light,
             darkTheme: theme.dark,
+            localeResolutionCallback: (locale, supportedLocales) {
+              if (!supportedLocales.contains(locale)) {
+                locale = supportedLocales.first;
+              }
+              Prefs.interfaceLanguage = codeToName(locale!.languageCode);
+              return locale;
+            },
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
             locale: locale,
             home: FutureBuilder(
-              future: Future.wait([
-                Future<void>.delayed(const Duration(seconds: 2)),
-                Hive.initFlutter().then(
-                  (_) async {
-                    await initPrefs();
-                    await initContents();
-                  },
-                ),
-              ]),
+              future: Future<void>.delayed(
+                const Duration(seconds: 2),
+              ),
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.done) {
-                  Future.microtask(() => setup(context));
+                  Future.microtask(() => start(context));
                 }
                 return Material(
                   child: SafeArea(
