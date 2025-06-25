@@ -10,7 +10,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/foundation.dart';
 
-import '../models/deck_preview.dart';
+import '../providers/deck_preview.dart';
 
 Future<DeckPreview> fetchDeckPreview(
   String language,

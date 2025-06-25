@@ -4,7 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'deck_preview.freezed.dart';
 
-@unfreezed
+@freezed
 class DeckPreview with _$DeckPreview {
   DeckPreview({
     required this.pack,

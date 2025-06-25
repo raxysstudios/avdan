@@ -24,7 +24,9 @@ Future<List<Pack>> refreshPacksList() async {
 
   final decks = getAllDecks();
   for (final d in decks.values) {
-    if (!packs.containsKey(d.pack.id)) await clearDeck(d);
+    if (!packs.containsKey(d.pack.id)) {
+      await clearDeck(d);
+    }
   }
   return [
     for (final p in packs.values)

@@ -1,10 +1,13 @@
 import 'package:avdan/models/pack.dart';
 import 'package:avdan/modules/home/services/openers.dart';
-import 'package:avdan/modules/updates/models/deck_preview.dart';
+import 'package:avdan/modules/updates/providers/deck_preview.dart';
+import 'package:avdan/modules/updates/providers/updater_qubit.dart';
+import 'package:avdan/shared/contents.dart';
 import 'package:avdan/shared/extensions.dart';
 import 'package:avdan/shared/prefs.dart';
 import 'package:avdan/shared/widgets/card_preview.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'services/decks.dart';
 import 'services/packs.dart';
@@ -12,14 +15,29 @@ import 'services/packs.dart';
 class UpdatesScreen extends StatefulWidget {
   const UpdatesScreen({
     super.key,
+    this.reset = false,
   });
+
+  final bool reset;
 
   @override
   State<UpdatesScreen> createState() => _UpdatesScreenState();
 }
 
 class _UpdatesScreenState extends State<UpdatesScreen> {
-  var decks = <DeckPreview>[];
+  final updater = UpdaterCubit();
+
+  @override
+  void initState() {
+    super.initState();
+    init();
+  }
+
+  @override
+  void dispose() {
+    updater.close();
+    super.dispose();
+  }
 
   void init() async {
     Future<void> downloadDeck(Pack p) async {
@@ -28,18 +46,17 @@ class _UpdatesScreenState extends State<UpdatesScreen> {
         Prefs.interfaceLanguage,
         p,
       );
-      setState(() {
-        decks.add(deck);
-      });
-
+      updater.addDeck(deck);
       await fetchDeck(p.id);
-      setState(() {
-        deck.isReady = true;
-      });
+      updater.markDeckReady(deck);
     }
 
     final language = Prefs.learningLanguage;
     if (language == null) return;
+
+    if (widget.reset) {
+      await clearContents();
+    }
 
     final pending = await refreshPacksList();
     await Future.wait(
@@ -50,45 +67,51 @@ class _UpdatesScreenState extends State<UpdatesScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: Text('Загрузка обновлений'),
-        actions: [
-          Builder(
-            builder: (context) {
-              final ready = decks.where((d) => d.isReady).length;
-              final total = decks.length;
-              return Text('$ready / $total');
+    return BlocProvider.value(
+      value: updater,
+      child: PopScope(
+        canPop: false,
+        child: Scaffold(
+          appBar: AppBar(
+            automaticallyImplyLeading: false,
+            title: BlocBuilder<UpdaterCubit, List<DeckPreview>>(
+              builder: (context, decks) {
+                final ready = decks.where((d) => d.isReady).length;
+                final total = decks.length;
+                return Text('Загрузка обновлений: $ready/$total');
+              },
+            ),
+          ),
+          body: BlocBuilder<UpdaterCubit, List<DeckPreview>>(
+            builder: (context, decks) {
+              return ListView(
+                children: [
+                  for (final d in decks)
+                    ListTile(
+                      leading: AspectRatio(
+                        aspectRatio: 1,
+                        child: Card(
+                          elevation: 0,
+                          color: d.pack.color?.bg,
+                          margin: EdgeInsets.zero,
+                          child: CardPreview(d.cover),
+                        ),
+                      ),
+                      title: Text(d.cover.caption.get.titled),
+                      subtitle: Text(d.translation.titled),
+                      trailing: d.isReady
+                          ? Icon(Icons.check_rounded)
+                          : CircularProgressIndicator(
+                              constraints: BoxConstraints.tight(
+                                Size.square(24),
+                              ),
+                            ),
+                    ),
+                ],
+              );
             },
           ),
-        ],
-      ),
-      body: ListView(
-        children: [
-          for (final d in decks)
-            ListTile(
-              leading: AspectRatio(
-                aspectRatio: 1,
-                child: Card(
-                  elevation: 0,
-                  color: d.pack.color?.bg,
-                  margin: EdgeInsets.zero,
-                  child: CardPreview(d.cover),
-                ),
-              ),
-              title: Text(d.cover.caption.get.titled),
-              subtitle: Text(
-                [
-                  if (d.translation != null) d.translation.titled,
-                  d.pack.length,
-                ].join(' • '),
-              ),
-              trailing: d.isReady
-                  ? Icon(Icons.check_rounded)
-                  : CircularProgressIndicator(),
-            ),
-        ],
+        ),
       ),
     );
   }
