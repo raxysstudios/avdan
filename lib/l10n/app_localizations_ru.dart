@@ -28,5 +28,5 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get appLangWarning =>
-      'Смена языка потребует повторного скачивания материалов';
+      'Смена языка потребует повторного скачивания материалов.';
 }
