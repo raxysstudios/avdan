@@ -4,7 +4,10 @@ import 'package:avdan/l10n/utils.dart';
 import 'package:avdan/modules/languages/services/modals.dart';
 import 'package:avdan/modules/news/services/openers.dart';
 import 'package:avdan/modules/settings/widgets/section_label.dart';
+import 'package:avdan/modules/updates/services/loader.dart';
+import 'package:avdan/shared/prefs.dart';
 import 'package:avdan/shared/utils.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -31,21 +34,24 @@ class SettingsScreen extends StatelessWidget {
               ),
             ),
             onTap: () async {
-              final locale = selectAppLanguage(context);
-              // final localeCubit = context.read<LocaleCubit>();
-              // if (code == localeCubit.code) {
-              //   Navigator.pop(context);
-              //   return;
-              // }
+              final locale = await selectAppLanguage(context);
+              if (locale == null) return;
 
-              // localeCubit.update(code);
-              // final reset = Prefs.interfaceLanguage != name;
-              // Prefs.interfaceLanguage = name;
-              // FirebaseAnalytics.instance.setUserProperty(
-              //   name: 'interface_language',
-              //   value: Prefs.interfaceLanguage,
-              // );
-              // launchUpdates(context, reset: reset);
+              final code = locale.languageCode;
+              final name = codeToName(code);
+              final localeCubit = context.read<LocaleCubit>();
+              if (code == localeCubit.code) {
+                return Navigator.pop(context);
+              }
+
+              localeCubit.update(code);
+              final reset = Prefs.interfaceLanguage != name;
+              Prefs.interfaceLanguage = name;
+              FirebaseAnalytics.instance.setUserProperty(
+                name: 'interface_language',
+                value: Prefs.interfaceLanguage,
+              );
+              launchUpdates(context, reset: reset);
             },
           ),
           const Divider(),
