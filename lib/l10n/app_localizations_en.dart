@@ -18,5 +18,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get tr => 'Turkish';
 
   @override
-  String get interface => 'Choose app language';
+  String get save => 'Save';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get appLangTitle => 'App language';
+
+  @override
+  String get appLangWarning =>
+      'Changing the language will require re-downloading the materials.';
 }

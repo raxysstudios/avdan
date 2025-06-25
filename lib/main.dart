@@ -77,14 +77,12 @@ class App extends StatelessWidget {
                   Future.microtask(() => start(context));
                 }
                 return Material(
-                  child: SafeArea(
-                    child: Center(
-                      child: SizedBox(
-                        height: 500,
-                        child: Theme.of(context).brightness == Brightness.dark
-                            ? Image.asset('assets/splash_dark.png')
-                            : Image.asset('assets/splash_light.png'),
-                      ),
+                  child: Center(
+                    child: SizedBox(
+                      height: 500,
+                      child: Theme.of(context).brightness == Brightness.dark
+                          ? Image.asset('assets/splash_dark.png')
+                          : Image.asset('assets/splash_light.png'),
                     ),
                   ),
                 );

@@ -18,5 +18,15 @@ class AppLocalizationsTr extends AppLocalizations {
   String get tr => 'Türkçe';
 
   @override
-  String get interface => 'Uygulama dilini seçin';
+  String get save => 'Kaydet';
+
+  @override
+  String get cancel => 'İptal';
+
+  @override
+  String get appLangTitle => 'Uygulama dili';
+
+  @override
+  String get appLangWarning =>
+      'Dilin değiştirilmesi materyallerin yeniden indirilmesini gerektirecektir.';
 }

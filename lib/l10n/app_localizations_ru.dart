@@ -18,5 +18,15 @@ class AppLocalizationsRu extends AppLocalizations {
   String get tr => 'турецкий';
 
   @override
-  String get interface => 'Выберите язык приложения';
+  String get save => 'Сохранить';
+
+  @override
+  String get cancel => 'Отмена';
+
+  @override
+  String get appLangTitle => 'Язык приложения';
+
+  @override
+  String get appLangWarning =>
+      'Смена языка потребует повторного скачивания материалов';
 }

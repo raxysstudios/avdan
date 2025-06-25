@@ -118,11 +118,29 @@ abstract class AppLocalizations {
   /// **'Turkish'**
   String get tr;
 
-  /// No description provided for @interface.
+  /// No description provided for @save.
   ///
   /// In en, this message translates to:
-  /// **'Choose app language'**
-  String get interface;
+  /// **'Save'**
+  String get save;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// No description provided for @appLangTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'App language'**
+  String get appLangTitle;
+
+  /// No description provided for @appLangWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'Changing the language will require re-downloading the materials.'**
+  String get appLangWarning;
 }
 
 class _AppLocalizationsDelegate

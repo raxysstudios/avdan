@@ -2,5 +2,8 @@
     "en": "İngilizce",
     "ru": "Rusça",
     "tr": "Türkçe",
-    "interface": "Uygulama dilini seçin"
+    "save": "Kaydet",
+    "cancel": "İptal",
+    "appLangTitle": "Uygulama dili",
+    "appLangWarning": "Dilin değiştirilmesi materyallerin yeniden indirilmesini gerektirecektir."
 }

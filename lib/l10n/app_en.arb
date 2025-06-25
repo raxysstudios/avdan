@@ -2,5 +2,8 @@
     "en": "English",
     "ru": "Russian",
     "tr": "Turkish",
-    "interface": "Choose app language"
+    "save": "Save",
+    "cancel": "Cancel",
+    "appLangTitle": "App language",
+    "appLangWarning": "Changing the language will require re-downloading the materials."
 }
