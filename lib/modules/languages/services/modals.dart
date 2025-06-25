@@ -18,7 +18,6 @@ Future<bool?> selectAltScript(
         ),
         child: SimpleDialog(
           title: const Text('Выберите письменность'),
-          clipBehavior: Clip.antiAlias,
           children: [
             ListTile(
               leading: Icon(Icons.looks_one_rounded),
@@ -59,7 +58,6 @@ Future<Locale?> selectAppLanguage(BuildContext context) {
                   child: AlertDialog(
                     scrollable: true,
                     title: Text(l10n.appLangTitle),
-                    clipBehavior: Clip.antiAlias,
                     actions: [
                       TextButton(
                         child: Text(l10n.save),

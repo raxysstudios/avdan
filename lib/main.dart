@@ -12,7 +12,7 @@ import 'l10n/app_localizations.dart';
 import 'l10n/locale_cubit.dart';
 import 'modules/home/services/openers.dart';
 import 'modules/languages/languages.dart';
-import 'theme_set.dart';
+import 'shared/theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -49,15 +49,14 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = ThemeSet(Theme.of(context).colorScheme);
     return BlocProvider(
       create: (_) => LocaleCubit(AppLocalizations.supportedLocales.first),
       child: BlocBuilder<LocaleCubit, Locale>(
         builder: (context, locale) {
           return MaterialApp(
             title: 'Avdan',
-            theme: theme.light,
-            darkTheme: theme.dark,
+            theme: buildTheme(),
+            darkTheme: buildTheme(Brightness.dark),
             localeResolutionCallback: (locale, supportedLocales) {
               if (!supportedLocales.contains(locale)) {
                 locale = supportedLocales.first;
