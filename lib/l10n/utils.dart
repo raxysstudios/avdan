@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:avdan/l10n/app_localizations.dart';
 
 String translateCode(String code, AppLocalizations l10n) {
@@ -15,4 +17,16 @@ String codeToName(String code) {
     'tr' => 'turkish',
     _ => 'english',
   };
+}
+
+Locale resolveLocale(List<Locale> locales) {
+  final supportedLocales = AppLocalizations.supportedLocales;
+  var locale = supportedLocales.first;
+  for (final l in locales) {
+    if (supportedLocales.contains(l)) {
+      locale = l;
+      break;
+    }
+  }
+  return locale;
 }

@@ -28,14 +28,21 @@ void main() async {
   await Prefs.init();
   await initContents();
 
+  if (Prefs.interfaceLanguage.isEmpty) {
+    final locale = resolveLocale(
+      WidgetsBinding.instance.platformDispatcher.locales,
+    );
+    Prefs.interfaceLanguage = codeToName(locale.languageCode);
+  }
+
   runApp(const App());
 }
 
 class App extends StatelessWidget {
   const App({super.key});
 
-  void start(BuildContext context) async {
-    if (Prefs.interfaceLanguage.isEmpty) {
+  void start(BuildContext context) {
+    if (Prefs.learningLanguage == null) {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute<void>(
@@ -57,11 +64,12 @@ class App extends StatelessWidget {
             title: 'Avdan',
             theme: buildTheme(),
             darkTheme: buildTheme(Brightness.dark),
-            localeResolutionCallback: (locale, supportedLocales) {
-              if (!supportedLocales.contains(locale)) {
-                locale = supportedLocales.first;
+            localeListResolutionCallback: (locales, supportedLocales) {
+              if (locales == null) {
+                return null;
               }
-              Prefs.interfaceLanguage = codeToName(locale!.languageCode);
+              final locale = resolveLocale(locales);
+              Prefs.interfaceLanguage = codeToName(locale.languageCode);
               return locale;
             },
             localizationsDelegates: AppLocalizations.localizationsDelegates,
@@ -75,8 +83,8 @@ class App extends StatelessWidget {
                 if (snapshot.connectionState == ConnectionState.done) {
                   Future.microtask(() => start(context));
                 }
-                return Material(
-                  child: Center(
+                return Scaffold(
+                  body: Center(
                     child: SizedBox(
                       height: 500,
                       child: Theme.of(context).brightness == Brightness.dark
