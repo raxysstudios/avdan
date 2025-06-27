@@ -79,7 +79,7 @@ class _UpdatesScreenState extends State<UpdatesScreen> {
               builder: (context, decks) {
                 final ready = decks.where((d) => d.isReady).length;
                 final total = decks.length;
-                return Text('${context.t.updates} $ready/$total');
+                return Text('${context.t.updates} $ready / $total');
               },
             ),
           ),
