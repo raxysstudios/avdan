@@ -1,4 +1,3 @@
-import 'package:avdan/l10n/app_localizations.dart';
 import 'package:avdan/l10n/locale_cubit.dart';
 import 'package:avdan/l10n/utils.dart';
 import 'package:avdan/modules/languages/services/modals.dart';
@@ -30,7 +29,7 @@ class SettingsScreen extends StatelessWidget {
             subtitle: Text(
               translateCode(
                 context.watch<LocaleCubit>().code,
-                AppLocalizations.of(context)!,
+                context.t,
               ),
             ),
             onTap: () async {

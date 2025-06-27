@@ -1,5 +1,6 @@
 import 'package:avdan/l10n/app_localizations.dart';
 import 'package:avdan/l10n/locale_cubit.dart';
+import 'package:avdan/l10n/utils.dart';
 import 'package:avdan/models/language.dart';
 import 'package:avdan/modules/languages/widgets/locale_tile.dart';
 import 'package:flutter/material.dart';
@@ -48,7 +49,6 @@ Future<Locale?> selectAppLanguage(BuildContext context) {
             locale: locale,
             child: Builder(
               builder: (context) {
-                final l10n = AppLocalizations.of(context)!;
                 return ListTileTheme(
                   data: const ListTileThemeData(
                     contentPadding: EdgeInsets.symmetric(
@@ -57,14 +57,14 @@ Future<Locale?> selectAppLanguage(BuildContext context) {
                   ),
                   child: AlertDialog(
                     scrollable: true,
-                    title: Text(l10n.appLangTitle),
+                    title: Text(context.t.appLangTitle),
                     actions: [
                       TextButton(
-                        child: Text(l10n.save),
+                        child: Text(context.t.save),
                         onPressed: () => Navigator.of(context).pop(locale),
                       ),
                       TextButton(
-                        child: Text(l10n.cancel),
+                        child: Text(context.t.cancel),
                         onPressed: () => Navigator.of(context).pop(),
                       ),
                     ],
@@ -80,7 +80,7 @@ Future<Locale?> selectAppLanguage(BuildContext context) {
                           ),
                         const Divider(),
                         ListTile(
-                          subtitle: Text(l10n.appLangWarning),
+                          subtitle: Text(context.t.appLangWarning),
                         ),
                       ],
                     ),

@@ -22,10 +22,9 @@ class LocaleTile extends StatelessWidget {
           return const SizedBox();
         }
         final code = locale.languageCode;
-        final l10n = AppLocalizations.of(context)!;
 
         return ListTile(
-          selected: l10n.localeName == locale.languageCode,
+          selected: context.t.localeName == locale.languageCode,
           leading: LanguageAvatar(
             codeToName(code),
           ),
@@ -33,7 +32,7 @@ class LocaleTile extends StatelessWidget {
             translateCode(code, snapshot.data!),
           ),
           subtitle: Text(
-            translateCode(code, l10n),
+            translateCode(code, context.t),
           ),
           onTap: onTap,
         );

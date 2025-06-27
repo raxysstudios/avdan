@@ -1,6 +1,5 @@
-import 'dart:ui';
-
 import 'package:avdan/l10n/app_localizations.dart';
+import 'package:flutter/material.dart';
 
 String translateCode(String code, AppLocalizations l10n) {
   return switch (code) {
@@ -29,4 +28,8 @@ Locale resolveLocale(List<Locale> locales) {
     }
   }
   return locale;
+}
+
+extension Translate on BuildContext {
+  AppLocalizations get t => AppLocalizations.of(this)!;
 }
