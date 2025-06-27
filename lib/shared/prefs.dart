@@ -50,7 +50,7 @@ class Prefs {
 
   static DateTime get lastReadNews => _prefs.get(
         'lastReadNews',
-        defaultValue: DateTime(0),
+        defaultValue: DateTime.fromMillisecondsSinceEpoch(0),
       );
   static set lastReadNews(DateTime v) => _prefs.put(
         'lastReadNews',
