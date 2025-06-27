@@ -1,3 +1,5 @@
+import 'package:avdan/l10n/locale_cubit.dart';
+import 'package:avdan/modules/home/widgets/attention_badge.dart';
 import 'package:avdan/modules/languages/languages.dart';
 import 'package:avdan/modules/news/services/openers.dart';
 import 'package:avdan/modules/settings/settings.dart';
@@ -5,6 +7,7 @@ import 'package:avdan/modules/updates/services/loader.dart';
 import 'package:avdan/shared/extensions.dart';
 import 'package:avdan/shared/prefs.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeActions extends StatelessWidget {
   const HomeActions({
@@ -26,37 +29,51 @@ class HomeActions extends StatelessWidget {
       child: Row(
         spacing: 8,
         children: [
-          if (hasUpdates)
-            ElevatedButton(
-              onPressed: () => launchUpdates(context),
-              child: Icon(Icons.update_outlined),
+          BlocBuilder<LocaleCubit, Locale>(
+            builder: (context, state) {
+              final translations = Prefs.learningLanguage?.translations;
+              final language = translations?[state.languageCode].titled ?? '?';
+
+              if (hasUpdates) {
+                return AttentionBadge(
+                  show: hasUpdates,
+                  child: ElevatedButton.icon(
+                    onPressed: () => launchUpdates(context),
+                    label: Text(language),
+                    icon: Icon(Icons.sync_rounded),
+                  ),
+                );
+              }
+              return ElevatedButton.icon(
+                onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute<void>(
+                    builder: (context) => const LanguagesScreen(),
+                  ),
+                ),
+                label: Text(language),
+                icon: Icon(Icons.language_rounded),
+              );
+            },
+          ),
+          const Spacer(),
+          if (hasNews)
+            AttentionBadge(
+              child: ElevatedButton(
+                onPressed: () => openNews(context),
+                child: Icon(Icons.notifications_active_rounded),
+              ),
             )
           else
-            ElevatedButton.icon(
+            ElevatedButton(
               onPressed: () => Navigator.push(
                 context,
                 MaterialPageRoute<void>(
-                  builder: (context) => const LanguagesScreen(),
+                  builder: (context) => const SettingsScreen(),
                 ),
               ),
-              icon: Icon(Icons.language_rounded),
-              label: Text(Prefs.learningLanguage?.caption.get.titled ?? '?'),
+              child: Icon(Icons.settings_rounded),
             ),
-          const Spacer(),
-          if (hasNews)
-            ElevatedButton(
-              onPressed: () => openNews(context),
-              child: Icon(Icons.notifications_active_rounded),
-            ),
-          ElevatedButton(
-            onPressed: () => Navigator.push(
-              context,
-              MaterialPageRoute<void>(
-                builder: (context) => const SettingsScreen(),
-              ),
-            ),
-            child: Icon(Icons.settings_rounded),
-          ),
         ],
       ),
     );
