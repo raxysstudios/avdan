@@ -1,3 +1,4 @@
+import 'package:avdan/l10n/utils.dart';
 import 'package:avdan/models/post.dart';
 import 'package:avdan/modules/news/services/queries.dart';
 import 'package:avdan/shared/prefs.dart';
@@ -23,7 +24,7 @@ class _NewsScreenState extends State<NewsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Новости'),
+        title: Text(context.t.newsTitle),
       ),
       body: FirestoreListView<Post>(
         query: getPostsQuery(Prefs.interfaceLanguage),

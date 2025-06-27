@@ -1,4 +1,5 @@
 import 'package:avdan/l10n/locale_cubit.dart';
+import 'package:avdan/l10n/utils.dart';
 import 'package:avdan/modules/languages/services/modals.dart';
 import 'package:avdan/modules/updates/services/loader.dart';
 import 'package:avdan/shared/extensions.dart';
@@ -22,7 +23,7 @@ class LanguagesScreen extends StatelessWidget {
       builder: (context, locale) {
         return Scaffold(
           appBar: AppBar(
-            title: Text('Выберите ваш язык'),
+            title: Text(context.t.langTitle),
           ),
           body: FirestoreListView(
             query: getLanguagesQuery().where('order', isGreaterThan: 0),
@@ -30,14 +31,7 @@ class LanguagesScreen extends StatelessWidget {
               final language = doc.data();
               final subtitle = language.translations[locale.languageCode];
               return ListTile(
-                leading: Container(
-                  clipBehavior: Clip.antiAlias,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                  ),
-                  margin: EdgeInsets.zero,
-                  child: LanguageAvatar(language.name),
-                ),
+                leading: LanguageAvatar(language.name),
                 title: Text(language.caption.main.titled),
                 subtitle: subtitle == null ? null : Text(subtitle),
                 onTap: () async {

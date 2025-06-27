@@ -1,3 +1,4 @@
+import 'package:avdan/l10n/utils.dart';
 import 'package:avdan/models/pack.dart';
 import 'package:avdan/modules/home/services/openers.dart';
 import 'package:avdan/modules/updates/providers/deck_preview.dart';
@@ -78,7 +79,7 @@ class _UpdatesScreenState extends State<UpdatesScreen> {
               builder: (context, decks) {
                 final ready = decks.where((d) => d.isReady).length;
                 final total = decks.length;
-                return Text('Загрузка обновлений: $ready/$total');
+                return Text('${context.t.updates} $ready/$total');
               },
             ),
           ),

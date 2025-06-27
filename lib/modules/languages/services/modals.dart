@@ -18,7 +18,7 @@ Future<bool?> selectAltScript(
           contentPadding: EdgeInsets.symmetric(horizontal: 24),
         ),
         child: SimpleDialog(
-          title: const Text('Выберите письменность'),
+          title: Text(context.t.langScript),
           children: [
             ListTile(
               leading: Icon(Icons.looks_one_rounded),

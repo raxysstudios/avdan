@@ -18,14 +18,14 @@ class SettingsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Настройки'),
+        title: Text(context.t.settingsTitle),
       ),
       body: ListView(
         padding: const EdgeInsets.only(bottom: 76),
         children: [
           ListTile(
             leading: const Icon(Icons.translate_rounded),
-            title: Text('Язык приложения'),
+            title: Text(context.t.settingsLang),
             subtitle: Text(
               translateCode(
                 context.watch<LocaleCubit>().code,
@@ -54,24 +54,24 @@ class SettingsScreen extends StatelessWidget {
             },
           ),
           const Divider(),
-          SectionLabel('Обратная связь'),
+          SectionLabel(context.t.settingsFeedback),
           ListTile(
             leading: const Icon(Icons.mail_rounded),
-            title: Text('Написать разработчику'),
-            subtitle: Text('Предложения, пожелания, технические проблемы'),
+            title: Text(context.t.settingsContact),
+            subtitle: Text(context.t.settingsContactSub),
             onTap: () => openLink('https://t.me/alixandzinadAX'),
           ),
           ListTile(
             leading: const Icon(Icons.report_rounded),
-            title: Text('Сообщить об ошибке в материале'),
-            subtitle: Text('Неверный перевод, опечатка в тексте, и т.п.'),
+            title: Text(context.t.settingsReport),
+            subtitle: Text(context.t.settingsReportSub),
             onTap: () => openLink('https://forms.gle/P7YvwLxxnzfU2beG8'),
           ),
           const Divider(),
-          SectionLabel('О приложении'),
+          SectionLabel(context.t.settingsAbout),
           ListTile(
             leading: const Icon(Icons.notifications_rounded),
-            title: Text('Новости проекта'),
+            title: Text(context.t.settingsNews),
             onTap: () => openNews(context),
           ),
           FutureBuilder<PackageInfo>(
@@ -82,7 +82,7 @@ class SettingsScreen extends StatelessWidget {
                 onTap: () => openLink('https://raxys.app'),
                 leading: const Icon(Icons.landscape_rounded),
                 title: Text('Avdan ${p?.version}'),
-                subtitle: Text('Сделано на Северном Кавказе'),
+                subtitle: Text(context.t.settingsRaxys),
               );
             },
           ),
