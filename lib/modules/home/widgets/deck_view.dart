@@ -20,7 +20,7 @@ class DeckView extends StatelessWidget {
       slivers: [
         SliverToBoxAdapter(
           child: SizedBox(
-            height: 3 * kToolbarHeight,
+            height: 3 * kToolbarHeight + MediaQuery.paddingOf(context).top,
             child: InkWell(
               onTap: () => playCard(deck.cover),
               child: Padding(

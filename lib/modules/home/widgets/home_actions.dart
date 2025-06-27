@@ -20,8 +20,8 @@ class HomeActions extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(
-        horizontal: 8,
-        vertical: 6,
+        horizontal: 14,
+        vertical: 12,
       ),
       child: Row(
         spacing: 8,

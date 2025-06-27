@@ -71,21 +71,21 @@ class _HomeScreenState extends State<HomeScreen>
       extendBodyBehindAppBar: true,
       body: AnimatedBuilder(
         animation: tabs.animation!,
-        child: SafeArea(
-          child: Stack(
-            children: [
-              TabBarView(
-                controller: tabs,
-                children: [
-                  for (final deck in decks) DeckView(deck),
-                ],
-              ),
-              HomeActions(
+        child: Stack(
+          children: [
+            TabBarView(
+              controller: tabs,
+              children: [
+                for (final deck in decks) DeckView(deck),
+              ],
+            ),
+            SafeArea(
+              child: HomeActions(
                 hasUpdates: hasUpdates,
                 hasNews: hasNews,
               ),
-            ],
-          ),
+            )
+          ],
         ),
         builder: (context, child) {
           final index = tabs.animation?.value ?? 0;
