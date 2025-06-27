@@ -28,7 +28,7 @@ class SettingsScreen extends StatelessWidget {
             title: Text(context.t.settingsLang),
             subtitle: Text(
               translateCode(
-                context.watch<LocaleCubit>().code,
+                context.watch<LocaleCubit>().state.languageCode,
                 context.t,
               ),
             ),
@@ -39,7 +39,7 @@ class SettingsScreen extends StatelessWidget {
               final code = locale.languageCode;
               final name = codeToName(code);
               final localeCubit = context.read<LocaleCubit>();
-              if (code == localeCubit.code) {
+              if (code == localeCubit.state.languageCode) {
                 return Navigator.pop(context);
               }
 

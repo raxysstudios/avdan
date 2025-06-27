@@ -57,7 +57,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => LocaleCubit(AppLocalizations.supportedLocales.first),
+      create: (_) => LocaleCubit.fromName(Prefs.interfaceLanguage),
       child: BlocBuilder<LocaleCubit, Locale>(
         builder: (context, locale) {
           return MaterialApp(
