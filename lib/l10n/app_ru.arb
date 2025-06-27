@@ -4,6 +4,20 @@
     "tr": "турецкий",
     "save": "Сохранить",
     "cancel": "Отмена",
-    "appLangTitle": "Язык приложения",
-    "appLangWarning": "Смена языка потребует повторного скачивания материалов."
+    "appLangTitle": "Язык",
+    "appLangWarning": "Смена языка потребует повторного скачивания материалов.",
+    "settingsTitle": "Настройки",
+    "settingsLang": "Язык приложения",
+    "settingsFeedback": "Обратная связь",
+    "settingsContact": "Написать разработчику",
+    "settingsContactSub": "Предложения, технические проблемы",
+    "settingsReport": "Сообщить об ошибке",
+    "settingsReportSub": "Неверный перевод, опечатка, и т.п.",
+    "settingsAbout": "О приложении",
+    "settingsNews": "Новости проекта",
+    "settingsRaxys": "Сделано на Северном Кавказе",
+    "newsTitle": "Новости",
+    "langTitle": "Выберите ваш язык",
+    "langScript": "Выберите письменность",
+    "updates": "Загрузка"
 }

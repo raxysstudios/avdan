@@ -4,6 +4,20 @@
     "tr": "Türkçe",
     "save": "Kaydet",
     "cancel": "İptal",
-    "appLangTitle": "Uygulama dili",
-    "appLangWarning": "Dilin değiştirilmesi materyallerin yeniden indirilmesini gerektirecektir."
+    "appLangTitle": "Dil",
+    "appLangWarning": "Dilin değiştirilmesi içeriklerin yeniden indirilmesini gerektirir.",
+    "settingsTitle": "Ayarlar",
+    "settingsLang": "Uygulama dili",
+    "settingsFeedback": "Geri bildirim",
+    "settingsContact": "Geliştiriciyle iletişim",
+    "settingsContactSub": "Öneriler, teknik sorunlar",
+    "settingsReport": "Sorun bildir",
+    "settingsReportSub": "Yanlış çeviri, yazım hatası vb.",
+    "settingsAbout": "Uygulama hakkında",
+    "settingsNews": "Proje haberleri",
+    "settingsRaxys": "Kuzey Kafkasya’da yapılmıştır",
+    "newsTitle": "Haberler",
+    "langTitle": "Dil seçin",
+    "langScript": "Yazı sistemini seçin",
+    "updates": "İndiriliyor"
 }

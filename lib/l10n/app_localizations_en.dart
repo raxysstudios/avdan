@@ -24,9 +24,51 @@ class AppLocalizationsEn extends AppLocalizations {
   String get cancel => 'Cancel';
 
   @override
-  String get appLangTitle => 'App language';
+  String get appLangTitle => 'Language';
 
   @override
   String get appLangWarning =>
-      'Changing the language will require re-downloading the materials.';
+      'Changing the language will require redownloading the contents.';
+
+  @override
+  String get settingsTitle => 'Settings';
+
+  @override
+  String get settingsLang => 'App language';
+
+  @override
+  String get settingsFeedback => 'Feedback';
+
+  @override
+  String get settingsContact => 'Contact developer';
+
+  @override
+  String get settingsContactSub => 'Suggestions, technical issues';
+
+  @override
+  String get settingsReport => 'Report a problem';
+
+  @override
+  String get settingsReportSub => 'Incorrect translation, typo, etc.';
+
+  @override
+  String get settingsAbout => 'About the app';
+
+  @override
+  String get settingsNews => 'Project News';
+
+  @override
+  String get settingsRaxys => 'Made in the North Caucasus';
+
+  @override
+  String get newsTitle => 'News';
+
+  @override
+  String get langTitle => 'Choose your language';
+
+  @override
+  String get langScript => 'Choose script';
+
+  @override
+  String get updates => 'Downloading';
 }

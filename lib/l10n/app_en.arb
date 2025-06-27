@@ -4,6 +4,20 @@
     "tr": "Turkish",
     "save": "Save",
     "cancel": "Cancel",
-    "appLangTitle": "App language",
-    "appLangWarning": "Changing the language will require re-downloading the materials."
+    "appLangTitle": "Language",
+    "appLangWarning": "Changing the language will require redownloading the contents.",
+    "settingsTitle": "Settings",
+    "settingsLang": "App language",
+    "settingsFeedback": "Feedback",
+    "settingsContact": "Contact developer",
+    "settingsContactSub": "Suggestions, technical issues",
+    "settingsReport": "Report a problem",
+    "settingsReportSub": "Incorrect translation, typo, etc.",
+    "settingsAbout": "About the app",
+    "settingsNews": "Project News",
+    "settingsRaxys": "Made in the North Caucasus",
+    "newsTitle": "News",
+    "langTitle": "Choose your language",
+    "langScript": "Choose script",
+    "updates": "Downloading"
 }

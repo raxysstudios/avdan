@@ -133,14 +133,98 @@ abstract class AppLocalizations {
   /// No description provided for @appLangTitle.
   ///
   /// In en, this message translates to:
-  /// **'App language'**
+  /// **'Language'**
   String get appLangTitle;
 
   /// No description provided for @appLangWarning.
   ///
   /// In en, this message translates to:
-  /// **'Changing the language will require re-downloading the materials.'**
+  /// **'Changing the language will require redownloading the contents.'**
   String get appLangWarning;
+
+  /// No description provided for @settingsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get settingsTitle;
+
+  /// No description provided for @settingsLang.
+  ///
+  /// In en, this message translates to:
+  /// **'App language'**
+  String get settingsLang;
+
+  /// No description provided for @settingsFeedback.
+  ///
+  /// In en, this message translates to:
+  /// **'Feedback'**
+  String get settingsFeedback;
+
+  /// No description provided for @settingsContact.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact developer'**
+  String get settingsContact;
+
+  /// No description provided for @settingsContactSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Suggestions, technical issues'**
+  String get settingsContactSub;
+
+  /// No description provided for @settingsReport.
+  ///
+  /// In en, this message translates to:
+  /// **'Report a problem'**
+  String get settingsReport;
+
+  /// No description provided for @settingsReportSub.
+  ///
+  /// In en, this message translates to:
+  /// **'Incorrect translation, typo, etc.'**
+  String get settingsReportSub;
+
+  /// No description provided for @settingsAbout.
+  ///
+  /// In en, this message translates to:
+  /// **'About the app'**
+  String get settingsAbout;
+
+  /// No description provided for @settingsNews.
+  ///
+  /// In en, this message translates to:
+  /// **'Project News'**
+  String get settingsNews;
+
+  /// No description provided for @settingsRaxys.
+  ///
+  /// In en, this message translates to:
+  /// **'Made in the North Caucasus'**
+  String get settingsRaxys;
+
+  /// No description provided for @newsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'News'**
+  String get newsTitle;
+
+  /// No description provided for @langTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose your language'**
+  String get langTitle;
+
+  /// No description provided for @langScript.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose script'**
+  String get langScript;
+
+  /// No description provided for @updates.
+  ///
+  /// In en, this message translates to:
+  /// **'Downloading'**
+  String get updates;
 }
 
 class _AppLocalizationsDelegate
