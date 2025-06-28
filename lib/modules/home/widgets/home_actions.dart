@@ -10,22 +10,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeActions extends StatelessWidget {
-  const HomeActions({
+  HomeActions({
     this.hasUpdates = false,
     this.hasNews = false,
+    required this.onNewsOpen,
+    required this.onUpdateOpen,
     super.key,
   });
 
   final bool hasUpdates;
   final bool hasNews;
 
+  VoidCallback onNewsOpen;
+  VoidCallback onUpdateOpen;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 14,
-        vertical: 12,
-      ),
+      padding: const EdgeInsets.fromLTRB(14, 14, 14, 0),
       child: Row(
         spacing: 8,
         children: [
@@ -45,12 +47,15 @@ class HomeActions extends StatelessWidget {
                 );
               }
               return ElevatedButton.icon(
-                onPressed: () => Navigator.push(
-                  context,
-                  MaterialPageRoute<void>(
-                    builder: (context) => const LanguagesScreen(),
-                  ),
-                ),
+                onPressed: () async {
+                  await Navigator.push(
+                    context,
+                    MaterialPageRoute<void>(
+                      builder: (context) => const LanguagesScreen(),
+                    ),
+                  );
+                  onUpdateOpen();
+                },
                 label: Text(language),
                 icon: Icon(Icons.language_rounded),
               );
@@ -60,7 +65,10 @@ class HomeActions extends StatelessWidget {
           if (hasNews)
             AttentionBadge(
               child: ElevatedButton(
-                onPressed: () => openNews(context),
+                onPressed: () async {
+                  await openNews(context);
+                  onNewsOpen();
+                },
                 child: Icon(Icons.notifications_active_rounded),
               ),
             )

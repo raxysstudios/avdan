@@ -83,6 +83,12 @@ class _HomeScreenState extends State<HomeScreen>
               child: HomeActions(
                 hasUpdates: hasUpdates,
                 hasNews: hasNews,
+                onNewsOpen: () => setState(() {
+                  hasNews = false;
+                }),
+                onUpdateOpen: () => setState(() {
+                  hasUpdates = false;
+                }),
               ),
             )
           ],
