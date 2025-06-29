@@ -5,6 +5,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import 'firebase_options.dart';
@@ -15,7 +16,9 @@ import 'modules/languages/languages.dart';
 import 'shared/theme.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  final widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]);
@@ -76,23 +79,15 @@ class App extends StatelessWidget {
             supportedLocales: AppLocalizations.supportedLocales,
             locale: locale,
             home: FutureBuilder(
-              future: Future<void>.delayed(
-                const Duration(seconds: 2),
-              ),
+              future: Future.value(),
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.done) {
-                  Future.microtask(() => start(context));
+                  WidgetsBinding.instance.addPostFrameCallback((_) {
+                    FlutterNativeSplash.remove();
+                    start(context);
+                  });
                 }
-                return Scaffold(
-                  body: Center(
-                    child: SizedBox(
-                      height: 500,
-                      child: Theme.of(context).brightness == Brightness.dark
-                          ? Image.asset('assets/splash_dark.png')
-                          : Image.asset('assets/splash_light.png'),
-                    ),
-                  ),
-                );
+                return Scaffold();
               },
             ),
           );

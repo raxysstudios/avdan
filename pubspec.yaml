@@ -29,6 +29,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   flutter_bloc: ^9.1.1
+  flutter_native_splash: ^2.4.6
 
 dev_dependencies:
   flutter_test:
@@ -46,6 +47,25 @@ flutter:
     - assets/
 
 flutter_launcher_icons:
-  image_path: "assets/icon.png"
+  image_path: "assets/icon_bg.png"
   android: true
+  adaptive_icon_background: "#000000"
+  adaptive_icon_foreground: "assets/icon.png"
+  adaptive_icon_foreground_inset: 20
   ios: true
+  remove_alpha_ios: true
+  background_color_ios: "#000000"
+  web:
+    generate: true
+    image_path: "assets/icon_bg.png"
+    background_color: "#000000"
+    theme_color: "#FB923C"
+
+flutter_native_splash:
+  color: "#000000"
+  image: "assets/icon.png"
+  branding: "assets/credit.png"
+
+  android_12:
+    color: "#000000"
+    branding: "assets/credit.png"
