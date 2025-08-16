@@ -21,8 +21,8 @@ class HomeActions extends StatelessWidget {
   final bool hasUpdates;
   final bool hasNews;
 
-  VoidCallback onNewsOpen;
-  VoidCallback onUpdateOpen;
+  final VoidCallback onNewsOpen;
+  final VoidCallback onUpdateOpen;
 
   @override
   Widget build(BuildContext context) {
