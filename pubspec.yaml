@@ -1,7 +1,7 @@
 name: avdan
 description: "Language cards"
 publish_to: 'none'
-version: 1.2.0+67
+version: 1.2.1+68
 
 environment:
   sdk: '>=3.4.1 <4.0.0'
