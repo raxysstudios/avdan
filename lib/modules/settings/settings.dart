@@ -93,6 +93,7 @@ class SettingsScreen extends StatelessWidget {
             ListTile(
               leading: const Icon(Icons.android),
               title: Text('Android'),
+              subtitle: Text('GooglePlay'),
               onTap: () => openLink(
                 'https://play.google.com/store/apps/details?id=com.alkaitagi.avdan',
               ),
@@ -100,6 +101,7 @@ class SettingsScreen extends StatelessWidget {
             ListTile(
               leading: const Icon(Icons.apple),
               title: Text('iOS'),
+              subtitle: Text('AppStore'),
               onTap: () => openLink(
                 'https://apps.apple.com/app/avdan-native-language-cards/id1604826853',
               ),
