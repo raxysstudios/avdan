@@ -199,7 +199,7 @@ abstract class AppLocalizations {
   /// No description provided for @settingsRaxys.
   ///
   /// In en, this message translates to:
-  /// **'Made in the North Caucasus'**
+  /// **'Made in Caucasus'**
   String get settingsRaxys;
 
   /// No description provided for @newsTitle.

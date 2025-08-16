@@ -58,7 +58,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get settingsNews => 'Новости проекта';
 
   @override
-  String get settingsRaxys => 'Сделано на Северном Кавказе';
+  String get settingsRaxys => 'Сделано на Кавказе';
 
   @override
   String get newsTitle => 'Новости';
