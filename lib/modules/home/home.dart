@@ -86,9 +86,6 @@ class _HomeScreenState extends State<HomeScreen>
                 onNewsOpen: () => setState(() {
                   hasNews = false;
                 }),
-                onUpdateOpen: () => setState(() {
-                  hasUpdates = false;
-                }),
               ),
             )
           ],

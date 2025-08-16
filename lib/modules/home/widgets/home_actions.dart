@@ -14,7 +14,6 @@ class HomeActions extends StatelessWidget {
     this.hasUpdates = false,
     this.hasNews = false,
     required this.onNewsOpen,
-    required this.onUpdateOpen,
     super.key,
   });
 
@@ -22,7 +21,6 @@ class HomeActions extends StatelessWidget {
   final bool hasNews;
 
   final VoidCallback onNewsOpen;
-  final VoidCallback onUpdateOpen;
 
   @override
   Widget build(BuildContext context) {
@@ -47,15 +45,12 @@ class HomeActions extends StatelessWidget {
                 );
               }
               return ElevatedButton.icon(
-                onPressed: () async {
-                  await Navigator.push(
-                    context,
-                    MaterialPageRoute<void>(
-                      builder: (context) => const LanguagesScreen(),
-                    ),
-                  );
-                  onUpdateOpen();
-                },
+                onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute<void>(
+                    builder: (context) => const LanguagesScreen(),
+                  ),
+                ),
                 label: Text(language),
                 icon: Icon(Icons.language_rounded),
               );

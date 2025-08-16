@@ -1,6 +1,7 @@
 import 'package:avdan/l10n/utils.dart';
 import 'package:avdan/models/pack.dart';
 import 'package:avdan/modules/home/services/openers.dart';
+import 'package:avdan/modules/languages/services/fetches.dart';
 import 'package:avdan/modules/updates/providers/deck_preview.dart';
 import 'package:avdan/modules/updates/providers/updater_qubit.dart';
 import 'package:avdan/shared/contents.dart';
@@ -63,6 +64,8 @@ class _UpdatesScreenState extends State<UpdatesScreen> {
     await Future.wait(
       [for (final p in pending) downloadDeck(p)],
     );
+
+    Prefs.learningLanguage = await fetchLanguage(language.name);
     openHome(context);
   }
 
