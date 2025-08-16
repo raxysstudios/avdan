@@ -202,6 +202,12 @@ abstract class AppLocalizations {
   /// **'Made in Caucasus'**
   String get settingsRaxys;
 
+  /// No description provided for @settingsMobile.
+  ///
+  /// In en, this message translates to:
+  /// **'Mobile Apps'**
+  String get settingsMobile;
+
   /// No description provided for @newsTitle.
   ///
   /// In en, this message translates to:

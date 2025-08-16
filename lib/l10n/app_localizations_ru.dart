@@ -61,6 +61,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get settingsRaxys => 'Сделано на Кавказе';
 
   @override
+  String get settingsMobile => 'Мобильные приложения';
+
+  @override
   String get newsTitle => 'Новости';
 
   @override

@@ -7,6 +7,7 @@ import 'package:avdan/modules/updates/services/loader.dart';
 import 'package:avdan/shared/prefs.dart';
 import 'package:avdan/shared/utils.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:package_info_plus/package_info_plus.dart';
@@ -86,6 +87,24 @@ class SettingsScreen extends StatelessWidget {
               );
             },
           ),
+          if (kIsWeb) ...[
+            const Divider(),
+            SectionLabel(context.t.settingsMobile),
+            ListTile(
+              leading: const Icon(Icons.android),
+              title: Text('Android'),
+              onTap: () => openLink(
+                'https://play.google.com/store/apps/details?id=com.alkaitagi.avdan',
+              ),
+            ),
+            ListTile(
+              leading: const Icon(Icons.apple),
+              title: Text('iOS'),
+              onTap: () => openLink(
+                'https://apps.apple.com/app/avdan-native-language-cards/id1604826853',
+              ),
+            ),
+          ]
         ],
       ),
     );

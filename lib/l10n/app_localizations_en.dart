@@ -61,6 +61,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get settingsRaxys => 'Made in Caucasus';
 
   @override
+  String get settingsMobile => 'Mobile Apps';
+
+  @override
   String get newsTitle => 'News';
 
   @override
