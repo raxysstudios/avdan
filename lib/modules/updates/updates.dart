@@ -95,7 +95,6 @@ class _UpdatesScreenState extends State<UpdatesScreen> {
                       leading: AspectRatio(
                         aspectRatio: 1,
                         child: Card(
-                          elevation: 0,
                           color: d.pack.color?.bg,
                           margin: EdgeInsets.zero,
                           child: CardPreview(d.cover),

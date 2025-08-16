@@ -16,7 +16,6 @@ class LanguageAvatar extends StatelessWidget {
     return SizedBox.square(
       dimension: 40,
       child: Card(
-        elevation: 0,
         margin: EdgeInsets.zero,
         child: Image(
           fit: BoxFit.cover,
