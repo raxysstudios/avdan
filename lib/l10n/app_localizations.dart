@@ -205,7 +205,7 @@ abstract class AppLocalizations {
   /// No description provided for @settingsMobile.
   ///
   /// In en, this message translates to:
-  /// **'Mobile Apps'**
+  /// **'Mobile apps'**
   String get settingsMobile;
 
   /// No description provided for @newsTitle.
