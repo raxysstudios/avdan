@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeActions extends StatelessWidget {
-  HomeActions({
+  const HomeActions({
     this.hasUpdates = false,
     this.hasNews = false,
     required this.onNewsOpen,
