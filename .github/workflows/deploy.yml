@@ -17,22 +17,28 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
       
     steps:
-      - name: Build
-      - uses: actions/checkout@v4
-      - uses: subosito/flutter-action@v2
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
-      - run: |
+          
+      - name: Build Flutter Web
+        run: |
           flutter pub get
           flutter pub run build_runner build
           flutter build web
       
-      - name: Configure
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+        
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./build/web
 
-      - name: Deploy
+      - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
