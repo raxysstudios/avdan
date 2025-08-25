@@ -13,9 +13,16 @@ class LanguageAvatar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CircleAvatar(
-      foregroundImage: CachedNetworkImageProvider(
-        '$baseUrl$language.png?alt=media',
+    return SizedBox.square(
+      dimension: 40,
+      child: Card(
+        margin: EdgeInsets.zero,
+        child: Image(
+          fit: BoxFit.cover,
+          image: CachedNetworkImageProvider(
+            '$baseUrl$language.png?alt=media',
+          ),
+        ),
       ),
     );
   }

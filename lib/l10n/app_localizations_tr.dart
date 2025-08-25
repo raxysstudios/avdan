@@ -61,7 +61,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get settingsRaxys => 'Kafkasya’da yapılmıştır';
 
   @override
-  String get settingsMobile => 'Mobil Uygulamalar';
+  String get settingsMobile => 'Mobil uygulamalar';
 
   @override
   String get newsTitle => 'Haberler';
